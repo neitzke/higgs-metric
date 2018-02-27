@@ -473,10 +473,10 @@ $\dim_\C \cM = 6$.
 \subsection{The \hk metric}
 
 A key fact about $\cM$ is that it carries a canonically
-defined \hk metric. However, this metric is not easily
+defined \hk metric $g$. However, $g$ is not easily
 written in closed form.
 
-To construct it, one needs to consider \ti{Hitchin's equation}:
+To construct $g$, one needs to consider \ti{Hitchin's equation}:
 given a Higgs bundle $(E,\varphi)$ this is a PDE
 for a Hermitian metric $h$ in $E$, written
 \begin{equation} \label{eq:hitchin-equation}
@@ -501,14 +501,27 @@ $h(s,s) \sim \abs{z}^{2 \lambda^\R}$.
 block structure of $\varphi$}
 
 A basic fact is: \fixme{refs: Simpson}
-\begin{prop}[Existence of solutions to Hitchin equation]
-The equation \eqref{eq:hitchin-equation} has a unique
+\begin{thm}[Existence of solutions to Hitchin equation] \label{thm:hitchin-existence}
+The equation \eqref{eq:hitchin-equation} has a unique \fixme{fix scalar multiple?}
 adapted solution $h$ for each $(E,\varphi)$.
-\end{prop}
+\end{thm}
+We call the solution the \ti{harmonic metric}.
 
-Given the solutions of \eqref{eq:hitchin-equation}
+Using \autoref{thm:hitchin-existence}
 one can define the \hk metric, as follows.
-\fixme{...}
+Given a tangent vector to $\cM$ whose norm we wish to calculate,
+we represent it by a family of Higgs bundles
+$(E_t,\varphi_t)$, with harmonic metrics $h_t$.
+Identifying the underlying Hermitian bundles with a single $(E,h)$
+we have an arc of unitary connections $D_t$ and Higgs fields
+$\varphi_t$ on $(E,h)$, determined up to automorphisms of $(E,h)$.
+In particular, differentiating at $t = 0$ gives a pair
+\begin{equation}
+(\dot D, \dot \varphi) \in \Omega^1(\fu(E)) \oplus \Omega^{1,0}(gl(E))
+\end{equation}
+defined up to gauge transformations.
+
+Now we take the $L^2$ metric \fixme{...}
 
 
 \subsection{The Hitchin base}
@@ -679,8 +692,8 @@ Next we define a 2-form on $\cB$ by
 \end{equation}
 
 \begin{prop}[Positivity of $\omega$] $\omega$ is a
-positive $(1,1)$-form on $\cB$ (and thus it defines
-a \kahler metric).
+positive $(1,1)$-form on $\cB_\reg$ (and thus it defines
+a \kahler metric on $\cB_\reg$).
 \end{prop}
 
 From the existence of $Z$ obeying \eqref{eq:lagrangian-property}
@@ -689,8 +702,9 @@ of special \kahler manifold on $\cB_\reg$. In particular,
 for any choice of local vectors $\gamma_1, \dots, \gamma_r$
 spanning a maximal isotropic sublattice of $\Gamma$, the functions
 $Z_{\gamma_1}, \dots, Z_{\gamma_r}$ give a local coordinate
-system. These coordinate systems have transition maps
-valued in $\Sp(2r,\Z) \ltimes \C^r$.
+system.
+%  The transition maps between these local coordinate
+% systems are valued in $\Sp(2r,\Z) \ltimes \C^r$.
 
 
 \subsection{The Hitchin map}
