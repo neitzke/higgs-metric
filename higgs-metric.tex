@@ -359,10 +359,12 @@ In addition, if
 $G = \U(K)$ we require $\sum_{p \in P} \Tr m_p^\C = 0$, $\sum_{p \in P} \Tr m_p = 0$.
 \insfig{higgs-metric-1}{0.8}
 Sometimes we will make an additional requirement:
-\begin{defn}[Tame or generic data]
+\begin{defn}[Tame and generic puncture data]
 We say $(G,C,\vec{m})$ is \ti{tame} if there exists at least one $p \in P$
 for which $m^\C_p$ is a regular element (ie all eigenvalues distinct). We say it is \ti{generic} if \ti{all} $m^\C_p$
-and $m^\R_p$ are regular elements.
+and $m^\R_p$ are regular elements. The generic case is the simplest
+case, and for the main purposes of these lectures,
+it is fine to restrict to the generic case throughout.
 \end{defn}
 
 \begin{example}[The case of $G = \SU(2)$]
@@ -383,23 +385,40 @@ and $m^\R_p \neq 0$.
 When $G = \U(K)$,
 a degree zero $(G, C, \vec m)$-\ti{Higgs bundle} is a pair $(E, \varphi)$, where:
 \begin{itemize}
-  \item $E$ is a holomorphic vector bundle of rank $K$ over $C$, with parabolic structure at each point $p \in P$ (reduction
-  to the parabolic subgroup with Levi the normalizer of $m_p^\R$),
-  parabolic weights given by $m_p^\R$ and total parabolic degree zero,
+  \item $E$ is a holomorphic vector bundle of rank $K$ over $C$, with parabolic structure at each point $p \in P$,
+  % (reduction
+  % to the parabolic subgroup whose Levi subgroup is the 
+  % normalizer of $m_p^\R$),
+  % parabolic weights given by $m_p^\R$ and total parabolic degree zero,
   \item $\varphi$ is a holomorphic section of $\End E \otimes K_C(P)$,
-  compatible with the parabolic structure, 
-  with residue $m_p^\C$.
+  % compatible with the parabolic structure at each $p \in P$, 
+  % with generalized eigenvalues of the residue given by $m_p^\C$.
 \end{itemize}
+with additional ``parabolic structure'' at the points $p \in P$
+as follows: the fiber $E_p$ is decomposed as
+\begin{equation}
+  E_p = \bigoplus_{\vec{\lambda}} E_{p,\vec{\lambda}}
+\end{equation}
+where $\dim E_{p,\vec\lambda}$ is the joint multiplicity
+of $\vec\lambda$ in $\vec{m}_p$,
+and $\Res_p \varphi$ acts on each $E_{p,\vec\lambda}$
+as a unipotent endomorphism, with $\Res_p \varphi - \lambda^\C$
+nilpotent.
 \end{defn}
 
-\begin{example}[Higgs bundles with generic data]
-If both $m_p^\R$ and $m_p^\C$ are regular elements, 
-$E_p$ is decomposed into the
-$1$-dimensional eigenspaces of $\Res \varphi$, giving a
-reduction to $\U(1)^K$. The eigenvalues
-of $m_p^\R$ determine an ordering of the eigenspaces
-and thus determine an upper-triangular subgroup.
-\end{example}
+In general this is a complicated structure, with Jordan
+blocks to worry about, but the generic case is simpler:
+then all $E_{p,\vec\lambda}$ are $1$-dimensional,
+and $\Res_p \varphi$ is diagonal.
+
+% \begin{example}[Higgs bundles with generic puncture data]
+% If both $m_p^\R$ and $m_p^\C$ are regular elements, 
+% $E_p$ is decomposed into the
+% $1$-dimensional eigenspaces of $\Res \varphi$, giving a
+% reduction to $\U(1)^K$. The eigenvalues
+% of $m_p^\R$ determine an ordering of the eigenspaces
+% and thus determine an upper-triangular subgroup.
+% \end{example}
 
 Relative to a local holomorphic trivialization of $E$
 and local coordinate on $C$, $\varphi$ would
@@ -449,6 +468,47 @@ $G = \SU(2)$ and $C$ a genus $2$ curve, in which case
 $\dim_\C \cM = 6$. 
 \end{itemize}
 \end{example}
+
+
+\subsection{The \hk metric}
+
+A key fact about $\cM$ is that it carries a canonically
+defined \hk metric. However, this metric is not easily
+written in closed form.
+
+To construct it, one needs to consider \ti{Hitchin's equation}:
+given a Higgs bundle $(E,\varphi)$ this is a PDE
+for a Hermitian metric $h$ in $E$, written
+\begin{equation} \label{eq:hitchin-equation}
+  F_{D_h} + [\varphi, \varphi^{\dagger_h}] = 0.
+\end{equation}
+Here $D_h$ denotes the Chern connection in $(E,h)$,
+the unique $h$-unitary connection compatible with
+the holomorphic structure of $E$.
+\fixme{write local coordinates?}
+One considers \eqref{eq:hitchin-equation} for
+metrics $h$ which are smooth on $C - P$ and
+have a prescribed singular behavior near each
+$p \in P$.
+\begin{defn}[Adapted metrics for generic puncture data] 
+In the case of generic puncture data, we say $h$ is
+\ti{adapted} if the $E_{p,\vec\lambda}$ are $h$-orthogonal
+and, for a holomorphic section $s$ with
+$s(p) \in E_{p,\vec\lambda}$, we have
+$h(s,s) \sim \abs{z}^{2 \lambda^\R}$.
+\end{defn}
+\fixme{in general need logs determined by the Jordan
+block structure of $\varphi$}
+
+A basic fact is: \fixme{refs: Simpson}
+\begin{prop}[Existence of solutions to Hitchin equation]
+The equation \eqref{eq:hitchin-equation} has a unique
+adapted solution $h$ for each $(E,\varphi)$.
+\end{prop}
+
+Given the solutions of \eqref{eq:hitchin-equation}
+one can define the \hk metric, as follows.
+\fixme{...}
 
 
 \subsection{The Hitchin base}
@@ -605,7 +665,9 @@ Then we can define a $2$-form
  $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$.
 
 \begin{prop}[Lagrangian property] We have
-$\DIP{\de Z, \de Z} = 0$.
+\begin{equation}  \label{eq:lagrangian-property}
+\DIP{\de Z, \de Z} = 0.
+\end{equation}
 \end{prop}
 
 (Note that this property is automatic in case
@@ -621,13 +683,14 @@ positive $(1,1)$-form on $\cB$ (and thus it defines
 a \kahler metric).
 \end{prop}
 
-For any choice of local vectors $\gamma_1, \dots, \gamma_r$
+From the existence of $Z$ obeying \eqref{eq:lagrangian-property}
+one can deduce all the structure
+of special \kahler manifold on $\cB_\reg$. In particular,
+for any choice of local vectors $\gamma_1, \dots, \gamma_r$
 spanning a maximal isotropic sublattice of $\Gamma$, the functions
 $Z_{\gamma_1}, \dots, Z_{\gamma_r}$ give a local coordinate
 system. These coordinate systems have transition maps
-valued in $\Sp(2r,\Z) \times \C^m$; they are one concrete aspect 
-of the structure of special \kahler manifold on $\cB_\reg$.
-
+valued in $\Sp(2r,\Z) \ltimes \C^r$.
 
 
 \subsection{The Hitchin map}
