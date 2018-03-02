@@ -705,7 +705,13 @@ we can identify $\cM_\vphi$ with the space
 of flat $U(1)$-connections over $\Sigma_\vphi$ with holonomy
 around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
-$\Prym (\rho: \Sigma_\vphi \to C)$.
+$\Prym (\rho: \Sigma_\vphi \to C)$. 
+After choosing spin structures on 
+$C$ and on $\Sigma$, in the case of generic puncture data, 
+we can identify $\cM_\vphi$ with the space
+of flat $U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
+around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$, 
+equipped with a trivialization of $\det \rho_* \nabla$.
 \end{itemize}
 \end{prop}
 
@@ -769,6 +775,8 @@ The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have o
 Suppose $G = \SU(2)$, $\abs{P} = 4$, $g_C = 0$.
 If $m^\C = 0$, $\cB$ is a complex vector space of dimension $1$,
 and $\cB_\sing \subset \cB$ is the origin.
+The fiber $\cM_{\vphi =0}$ consists of four $\bbP^1$
+arranged in a $D_4$ configuration.
 If $m^\C \neq 0$, $\cB$ is a complex affine space of dimension $1$.
 For generic $m^\C$, $\cB_\sing \subset \cB$ consists
 of $6$ points. The fiber $\cM_\vphi$ over any $\vphi \in \cB_\sing$ is
@@ -1085,7 +1093,7 @@ There is a similar construction for other $G$. \fixme{give refs}
 So far we have focused on just one of the complex
 structures of $\cM$. Now let us look at the other
 complex structures $I^\zeta$, $\zeta \in \C^\times$.
-(note $I^{\zeta=0} = I_1, I^{\zeta = 1} = I_2, I^{\zeta = \I} = I_3$.)
+(note $I^{\zeta=0} = I_1, I^{\zeta = \I} = I_2, I^{\zeta = 1} = I_3$.)
 
 Given a Higgs bundle $(E,\varphi)$ and 
 solution $h$ of Hitchin's equations \eqref{eq:hitchin-equation}
@@ -1115,16 +1123,17 @@ $\Omega^{AB}$ is the standard ``Atiyah-Bott'' symplectic
 structure.
 \end{prop}
 
-In particular, this means that any holomorphic function of
+In particular, this means that any holomorphic function $\cX$ of
 the flat connection $\nabla(\zeta)$ becomes a holomorphic
 function on $(\cM, I^\zeta)$; and any holomorphic 
 Darboux coordinate system on $(\cM^\flat, \Omega^{AB})$
 induces a holomorphic Darboux coordinate system on
-$(\cM, I^\zeta)$.
+$(\cM, I^\zeta)$. Moreover, since $\nabla(\zeta)$ varies
+\ti{holomorphically} with $\zeta$,
 
 Our aim is to use this idea to calculate some holomorphic Darboux
 coordinates $\cX_\gamma(\zeta)$ in an ``explicit'' way,
-in terms of the original data $(\vphi, \theta)$.
+in terms of the data $(Z, \theta)$.
 
 \begin{itemize}
 \item Q: Which holomorphic Darboux coordinate system on
@@ -1176,11 +1185,7 @@ i.e. exactly the semiflat metric!
 We could try to do similarly for general $G$.
 The trouble is that in this case $\cX_\gamma(\zeta)$ 
 given above is \ti{not} exactly a holomorphic function.
-Claiming that it is, would be equivalent to claiming that
-$(D,\varphi)$ arise as the pushforward
-of a solution of the $\U(1)$ Hitchin equations
-from $\Sigma_\vphi$.
-This is not true, although it is true ``asymptotically'',
+Nevetheless it is true ``asymptotically'',
 in two different senses: both as we go to infinity 
 in $\cM$ \ti{or} as $\zeta \to 0,\infty$.
 
@@ -1190,23 +1195,68 @@ in $\cM$ \ti{or} as $\zeta \to 0,\infty$.
 What are the coordinates $\cX_\gamma(\zeta)$
 which we will use?
 
-Specialize to $G = \SU(2)$.
-
-Let $\vartheta = \arg \zeta$.
+Specialize to $G = \SU(2)$, and fix $\phi_2 \in \cB$
+and a phase $\vartheta$ (think of $\vartheta$ as $\arg \zeta$.)
+$\phi_2$ is a holomorphic section of $K_C(P)^2$, i.e.
+a meromorphic quadratic differential on $C$ with
+double poles at $P$ of residue $(m_p^\C)^2$.
 
 \begin{defn}[$\vartheta$-trajectories of a quadratic differential]
-A \ti{$\vartheta$-trajectory} of $\phi_2$ is a connected
-real $1$-manifold $p$ on $C$
-such that $e^{- \I \vartheta} \sqrt \phi_2$ (with either choice of sign
+A \ti{$\vartheta$-trajectory} of $\phi_2$ is a path on $C$
+along which
+$\e^{- \I \vartheta} \sqrt \phi_2$ (with either choice of sign
 for $\sqrt{\phi_2}$) is a
-\ti{real} and nowhere vanishing form on $p$.
-Call a $\vartheta$-trajectory \ti{maximal} if
-it is not properly contained in any other.
+\ti{real} and nowhere vanishing form.
+% Call a $\vartheta$-trajectory \ti{maximal} if
+% it is not properly contained in any other.
 \end{defn}
 
-\fixme{draw foliation}
+\begin{prop}[$\vartheta$-trajectories give a foliation] The
+$\vartheta$-trajectories are the leaves of a singular
+foliation of $C$, with singularities at the zeroes
+and poles of $\phi_2$. 
+At each zero of $\phi_2$, the foliation
+by $\vartheta$-trajectories has a three-pronged singularity,
+as shown below.
+\insfig{higgs-metric-8}{0.8}
+At each pole $p$ of $\phi_2$ with $m^\C_p \neq 0$
+and $\e^{\I \vartheta} m^\R_p \notin \R$, 
+the foliation has a ``spiraling'' singularity, as shown
+below.
+\insfig{higgs-metric-7}{1.0}
+\end{prop}
 
-\fixme{define complexified shear coordinates}
+
+\begin{prop}[Ideal triangulation determined by the
+$\vartheta$-trajectories]
+Suppose $\vartheta$ is generic, in the sense that
+$\e^{\I \vartheta} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\vartheta$-trajectories determine an ideal
+triangulation $T(\phi_2,\vartheta)$ of $C$, by the picture below.
+\end{prop}
+\insfig{higgs-metric-9}{0.95}
+
+Now fix an edge $E \in T(\phi_2,\vartheta)$.
+This edge determines a class $\gamma \in \Gamma_{\phi_2}$:
+\insfig{higgs-metric-10}{1.0}
+To define $\cX_\gamma(\zeta)$ we consider the connection
+$\nabla(\zeta)$ restricted to the quadrilateral shown.
+Its space of flat sections is a $2$-dimensional vector space $V$,
+equipped with $4$ distinguished lines $\ell_i \subset V$:
+$\ell_i$ consists of the flat sections
+which have exponentially \ti{decaying} norm 
+as we go into the $i$-th 
+puncture along a leaf of $T(\phi_2,\vartheta)$.
+Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
+We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
+these $4$ points. \fixme{Fock-Goncharov}
+
+Making the same construction for all edges $E$
+gives functions $\cX_\gamma(\zeta)$ with
+$\gamma$ running over a basis \fixme{up to finite index?}
+for $\Gamma$. They are Darboux coordinates:
+\begin{equation}
+  \Omega^\zeta = \DIP{\de \log \cX, \de \log \cX}.
+\end{equation}
 
 \fixme{state their asymptotic property}
 
