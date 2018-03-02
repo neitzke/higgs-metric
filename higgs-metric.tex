@@ -345,10 +345,7 @@ The latest version can be found at
 % \newpage
 
 
-\section{Lecture 1}
-
-
-\subsection{Overview}
+\section{Overview}
 
 The aim of these lectures is to describe a \ti{conjectural} 
 approach to 
@@ -407,6 +404,9 @@ The strategy of the lectures will be roughly:
   \item The conjectural metric construction.
   \item The available evidence that the conjecture is correct.
 \end{enumerate}
+
+
+\section{Background on Hitchin system}
 
 \subsection{Data}
 
@@ -644,7 +644,7 @@ We can describe them by their coefficients, ie write
   \det(\lambda - \varphi) = \lambda^K + \sum_{n=1}^K \lambda^{K-n} \phi_n = 0, \qquad \phi_n \in K_C(P)^n.
 \end{equation}
 Then we can write $\Sigma = \Sigma_{\vphi}$ where
-$\vphi = (\phi_1, \dots, \phi_n)$.
+$\vphi = (\phi_1, \dots, \phi_K)$.
 The coefficients $\vphi$ lie in the Hitchin base:
 \begin{defn}[Hitchin base]
 If $G = \U(K)$,
@@ -694,30 +694,45 @@ The \ti{smooth locus} is $\cB_\reg = \cB \setminus \cB_\sing$.
 We also let $\cM_\reg = \pi^{-1}(\cB_\reg)$.
 \end{defn}
 
-\begin{prop}[Fibers of the Hitchin map over $\cB_\reg$, crude version]
+\begin{prop}[Fibers of the Hitchin map over $\cB_\reg$]
 Suppose $\vphi \in \cB_\reg$. Let $\cM_\vphi = \pi^{-1}(\vphi)$.
 Then:
 \begin{itemize}
   \item If $G = \U(K)$, then $\cM_\vphi$ is a torsor over
-$\Jac \Sigma_\vphi$.
+$\Jac \Sigma_\vphi$. After choosing spin structures on 
+$C$ and on $\Sigma$, in the case of generic puncture data, 
+we can identify $\cM_\vphi$ with the space
+of flat $U(1)$-connections over $\Sigma_\vphi$ with holonomy
+around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
 $\Prym (\rho: \Sigma_\vphi \to C)$.
 \end{itemize}
 \end{prop}
 
-\begin{remark}[More precise picture of the fibers
-when $G = \U(K)$]
-A more precise description would say exactly \ti{which} torsor 
-$\cM_\vphi$ is. For example, when $G = \U(K)$,
-in the case of generic puncture data,
-$\cM_\vphi$ is the moduli space of parabolic line bundles
-over $\Sigma_\vphi$ with parabolic degree $-K(K-1)(g_C-1)$
-and parabolic weights at the $K$ preimages of $p$ given
-by the $K$ components of $m^\R_p$.
-\end{remark}
+So we reach the following picture: a point $\vphi \in \cB_\reg$
+gives a smooth spectral curve $\Sigma_\vphi$; the torus
+$\cM_\vphi$ is a space of flat $U(1)$-connections
+over $\Sigma_\vphi$, with fixed holonomies around the
+punctures.
 
-When $\vphi \in \cB_\sing$, $\cM_\vphi$ is compact,
-but generally singular.
+% \begin{remark}[More precise picture of the fibers
+% when $G = \U(K)$]
+% A more precise description would say exactly \ti{which} torsor 
+% $\cM_\vphi$ is. For example, when $G = \U(K)$,
+% in the case of generic puncture data,
+% $\cM_\vphi$ is the moduli space of parabolic line bundles
+% over $\Sigma_\vphi$ with parabolic degree $-K(K-1)(g_C-1)$
+% and parabolic weights at the $K$ preimages of $p$ given
+% by the $K$ components of $m^\R_p$.
+% After choosing spin structures on $C$ and on $\Sigma$
+% we can shift the parabolic degree to zero.
+% So then we can identify $\cM_\vphi$ with the space of
+% flat $U(1)$-connections over $\Sigma_\vphi$ with holonomy
+% around $\rho^{-1}(P)$ given by $\exp(2 \pi \I m^\R)$.
+% \end{remark}
+
+% When $\vphi \in \cB_\sing$, $\cM_\vphi$ is compact,
+% but generally singular.
 
 \begin{remark}[Concrete description of the singular locus]
 What is $\cB_\sing$ concretely?
@@ -797,8 +812,12 @@ in $E$ is \ti{adapted} if, for a holomorphic section $s$
 where $s(p) \in E_p$ has grade $\alpha$, we have
 $h(s,s) \sim \abs{z}^{\frac{2 \alpha}{2\pi}}$ near $p$.
 \end{defn}
+For such a metric $h$ on $E$, and generic puncture data, 
+the holonomy of $D_h$ around $p$
+is just $\exp(\I m^\R)$.
+
 For more general puncture data the situation is a bit 
-more complicated: in addition to these polynomials
+more complicated: in addition to polynomial growth
 we need to allow logarithmic behavior, in a way dictated
 by the Jordan block structure of $\varphi$. \fixme{cite Simpson}
 
@@ -898,7 +917,7 @@ When the puncture data is generic, we can say all this
 more simply:
 \begin{itemize}
  \item $\Gamma^\flavor$ is the free $\Z$-module generated
-by loops around the points of $\pi^{-1}(P)$,
+by loops around the points of $\rho^{-1}(P)$,
  \item $\Gamma_\vphi^\gauge = H_1(\Sigma_\vphi, \Z)$,
  \item $\Gamma_\vphi = H_1(\Sigma'_\vphi, \Z)$.
 \end{itemize}
@@ -1001,6 +1020,37 @@ system, so-called ``special coordinates.''
 
 
 
+\subsection{The semiflat metric}
+
+% In particular there is a canonical $2$-form on the fiber
+
+As we have said, $\cM_\vphi$ is a space of flat $U(1)$-connections
+over $\Sigma_\vphi$, with fixed holonomies around the
+punctures.
+In particular, for each $\gamma \in \Gamma_\vphi$ 
+there is a corresponding
+holonomy $\theta_\gamma: \cM_\vphi \to \R / 2 \pi \Z$.
+Their differentials can be assembled into
+\begin{equation}
+  \de \theta \in \Omega^1(\cM) \otimes (\Gamma^\gauge)^*.
+\end{equation}
+If we choose a basis for $\Gamma_\vphi$ 
+then we get coordinates $\theta_1, \dots, \theta_{2r}$.
+
+\begin{defn}[Semiflat metric]
+The \ti{semiflat metric} on $\cM_\reg$ is the metric $g^\sf$ 
+on $(\cM_\reg, I_1)$ with
+\kahler form
+\begin{equation}
+  \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
+\end{equation}
+\end{defn}
+
+\fixme{write in local coords}
+
+\fixme{remark this is exactly $g$ in abelian case?}
+
+
 \subsection{The Hitchin section}
 
 % We are almost ready to write down the semiflat metric.
@@ -1028,46 +1078,378 @@ This gives a section of the Hitchin map.
 \end{defn}
 There is a similar construction for other $G$. \fixme{give refs}
 
-Using this section we can identify each fiber $\cM_\vphi$
-with the torus $\Jac \Sigma_\vphi = \Hom(\Gamma, U(1))$.
-In particular, this gives local coordinates on the torus
-fibers: for each $\gamma \in \Gamma_\vphi$ there is a corresponding
-coordinate function $\theta_\gamma: \cM_\vphi \to \R / 2 \pi \Z$.
-Their differentials can be assembled into
+
+
+\section{Hyperkahler structure}
+
+So far we have focused on just one of the complex
+structures of $\cM$. Now let us look at the other
+complex structures $I^\zeta$, $\zeta \in \C^\times$.
+(note $I^{\zeta=0} = I_1, I^{\zeta = 1} = I_2, I^{\zeta = \I} = I_3$.)
+
+Given a Higgs bundle $(E,\varphi)$ and 
+solution $h$ of Hitchin's equations \eqref{eq:hitchin-equation}
+there is a correponding $1$-parameter family of flat
+$G_\C$-connections over $C$:
+(where now we suppress the explicit $h$)
 \begin{equation}
-  \de \theta \in \Omega^1(\cM) \otimes (\Gamma^\gauge)^*.
+  \nabla(\zeta) = \zeta^{-1} \varphi + D + \zeta \varphi^\dagger
 \end{equation}
-If we choose a basis for $\Gamma_\vphi$ 
-then we get $\cM_\vphi \simeq (\R / 2 \pi \Z)^{2r}$.
 
-\subsection{The semiflat metric}
-
-% In particular there is a canonical $2$-form on the fiber
-
-\begin{defn}[Semiflat metric]
-The \ti{semiflat metric} on $\cM_\reg$ is the metric $g^\sf$ 
-on $(\cM_\reg, I_1)$ with
-\kahler form \fixme{check factors}
+\begin{prop} For any $\zeta \in \C^\times$,
+the map $(E,h) \to \nabla(\zeta)$ identifies
 \begin{equation}
-  \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
+  (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{AB})
 \end{equation}
+where $\cM^\flat = \cM^\flat(G, C, m_\zeta)$
+is the moduli space of flat reductive 
+$G_\C$-connections
+over $C$ with some prescribed structure at the punctures ---
+e.g. in the case of generic puncture data,
+the holonomy around $p \in P$ has to be conjugate to 
+the diagonal matrix $\exp(m_\zeta)$ with
+\begin{equation}
+m_\zeta = \zeta^{-1} m^\C + \I m^\R + \zeta \overline{m}^\C. 
+\end{equation}
+$\Omega^{AB}$ is the standard ``Atiyah-Bott'' symplectic
+structure.
+\end{prop}
+
+In particular, this means that any holomorphic function of
+the flat connection $\nabla(\zeta)$ becomes a holomorphic
+function on $(\cM, I^\zeta)$; and any holomorphic 
+Darboux coordinate system on $(\cM^\flat, \Omega^{AB})$
+induces a holomorphic Darboux coordinate system on
+$(\cM, I^\zeta)$.
+
+Our aim is to use this idea to calculate some holomorphic Darboux
+coordinates $\cX_\gamma(\zeta)$ in an ``explicit'' way,
+in terms of the original data $(\vphi, \theta)$.
+
+\begin{itemize}
+\item Q: Which holomorphic Darboux coordinate system on
+$(\cM^\flat, \Omega^{AB})$ will you use? A: We actually
+will not use just one: instead, as we move around on the
+Hitchin base $\cB$ and/or vary $\zeta$, 
+we will choose different coordinate
+systems in different places.
+
+\insfig{higgs-metric-6}{0.8}
+
+\item Q: Why will you do that? A: Because we want to study
+these coordinates through their analytic properties in the
+$\zeta$-plane, and only certain coordinates are ``good''
+as $\zeta \to 0, \infty$.
+
+% \item Q: What does ``good'' mean? A: It means that
+% as $\zeta \to 0, \infty$ they have controlled asymptotics:
+% we will get as $\zeta \to 0$
+% \begin{equation}
+%   \cX_\gamma(\zeta) \sim c_\gamma \exp(\zeta^{-1} Z_\gamma + \I \theta_\gamma).
+% \end{equation}
+
+\item Q: How does this help you get the metric? A: On the
+moduli space of Higgs bundles $(\cM, I_1)$ we 
+already have the holomorphic
+symplectic form $\Omega_1 = \omega_2 + \I \omega_3$. All that
+is missing is the third symplectic form $\omega_1$.
+Once we have holomorphic Darboux coordinate functions $\cX_\gamma(\zeta)$,
+we can specialize them to say $\zeta = 1$ and get a formula
+for the holomorphic symplectic form $\Omega^{\zeta = 1} = \Omega_3 = \omega_1 + \I \omega_2$.
+
+\end{itemize}
+
+A toy model for what we are doing would arise in the
+case $G = \U(1)$. In that case we can say easily what
+the good holomorphic Darboux coordinates are: they are
+just the $\C^\times$-valued \ti{holonomies} of the 
+complex flat connection $\nabla(\zeta)$, which are simply
+\begin{equation}
+  \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \bar Z_\gamma \right).
+\end{equation}
+Using these coordinates at $\zeta = 1$ we get
+\begin{equation}
+ \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}
+\end{equation}
+i.e. exactly the semiflat metric!
+
+We could try to do similarly for general $G$.
+The trouble is that in this case $\cX_\gamma(\zeta)$ 
+given above is \ti{not} exactly a holomorphic function.
+Claiming that it is, would be equivalent to claiming that
+$(D,\varphi)$ arise as the pushforward
+of a solution of the $\U(1)$ Hitchin equations
+from $\Sigma_\vphi$.
+This is not true, although it is true ``asymptotically'',
+in two different senses: both as we go to infinity 
+in $\cM$ \ti{or} as $\zeta \to 0,\infty$.
+
+
+\section{The coordinates}
+
+What are the coordinates $\cX_\gamma(\zeta)$
+which we will use?
+
+Specialize to $G = \SU(2)$.
+
+Let $\vartheta = \arg \zeta$.
+
+\begin{defn}[$\vartheta$-trajectories of a quadratic differential]
+A \ti{$\vartheta$-trajectory} of $\phi_2$ is a connected
+real $1$-manifold $p$ on $C$
+such that $e^{- \I \vartheta} \sqrt \phi_2$ (with either choice of sign
+for $\sqrt{\phi_2}$) is a
+\ti{real} and nowhere vanishing form on $p$.
+Call a $\vartheta$-trajectory \ti{maximal} if
+it is not properly contained in any other.
 \end{defn}
 
-\fixme{write in local coords}
+\fixme{draw foliation}
 
-\fixme{remark this is exactly $g$ in abelian case?}
+\fixme{define complexified shear coordinates}
+
+\fixme{state their asymptotic property}
+
+\fixme{state their analytic properties}
 
 
-\section{Lecture 2}
-
-\subsection{Donaldson-Thomas invariants}
+\section{Donaldson-Thomas invariants}
 
 Now we are going to define a function
 \begin{equation}
-  \Omega: \Gamma \to \Z.
+  DT: \Gamma \to \Z.
 \end{equation}
 
-\fixme{trajectory structure of quadratic differentials}
+The definition of $DT$ is easiest to understand in the
+case $K=2$, so let us consider that case first.
+The construction we will describe is closely related to one
+which appeared in the physics literature, first in \cite{Klemm:1996bj}.
+It was later described in \cite{Gaiotto:2009hg} where the application
+to the Hitchin system appeared.
+% Also, the invariants
+% we define here really \ti{are} generalized Donaldson-Thomas
+% invariants; this is shown in \cite{bridgelandsmith}.
+
+Fix a point $\vec\phi = (\phi_1, \phi_2) \in \cB'$.
+Most of what we say in this section is about the discriminant
+\begin{equation}
+\Delta = \phi_1^2 - 4 \phi_2.
+\end{equation}
+$\Delta$ is a holomorphic quadratic differential on $C$.
+
+Recall that the two sheets of $\Sigma_{\vec\phi}$ are given by
+(locally, in any domain where we can choose a single-valued $\sqrt{\Delta}$)
+\begin{equation}
+  \lambda_{\pm} = \half (-\phi_1 \pm \sqrt{\Delta})
+\end{equation}
+and in particular their difference is
+\begin{equation}
+  \lambda_+ - \lambda_- = \sqrt{\Delta}.
+\end{equation}
+
+\begin{defn}[$\vartheta$-trajectories of a quadratic differential]
+A \ti{$\vartheta$-trajectory} of $\Delta$ is a connected
+real $1$-manifold $p$ on $C$
+such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
+for $\sqrt{\Delta}$) is a
+\ti{real} and nowhere vanishing form on $p$.
+Call a $\vartheta$-trajectory \ti{maximal} if
+it is not properly contained in any other.
+\end{defn}
+
+Because of the sign ambiguity of $\sqrt{\Delta}$, there is no canonical
+way of orienting $\vartheta$-trajectories. However, once we pass to the
+double cover, we do get an orientation.
+
+% \begin{defn}[Orientation of lifted $\vartheta$-trajectories]
+% Given a $\vartheta$-trajectory $p$, its lift $\tilde{p} = \pi^{-1}(p)$
+% to $\Sigma_{\vec\phi}$ is canonically oriented. Indeed,
+% the two sheets of $\Sigma_{\vec\phi}$
+% correspond canonically to the two choices of $\sqrt{\Delta}$.
+% Thus we can orient $\tilde{p}$ by the condition that
+% in the positive direction, $e^{-\I \vartheta} \sqrt{\Delta}$
+% is positive.
+% \end{defn}
+
+Changing $\vartheta \to \vartheta+\pi$ preserves
+the notion of $\vartheta$-trajectory but reverses the
+orientation of the lifts.
+
+\insfig{higgs-bundles-17}{0.8}
+
+
+Let $C' = \{z: \Delta(z) \neq 0\} \subset C$.
+
+\begin{prop}[$\vartheta$-trajectories give a foliation] The
+$\vartheta$-trajectories are the leaves of a foliation of $C'$.
+\end{prop}
+% \begin{pf} Around any $z_0 \in C'$ we consider a local coordinate
+% $w$ given by $w(z) = \int^z_{z_0} \sqrt{\Delta}$. Then
+% we have $\Delta = \de w^2$. Thus in the coordinate $w$,
+% $\vartheta$-trajectories are just straight segments
+% of inclination angle $\vartheta$.
+% \end{pf}
+
+\begin{prop}[Local singularities of the foliation by $\vartheta$-trajectories] Around each zero of $\Delta$, the foliation
+by $\vartheta$-trajectories has a three-pronged singularity,
+as shown below.
+\insfig{higgs-bundles-18}{0.8}
+
+\end{prop}
+% \begin{pf} In a neighborhood of a zero of $\Delta$, we may choose a
+% local coordinate such that $\Delta = z\,\de z^2$, using our assumption that
+% all zeroes of $\Delta$ are simple.
+% % (Perhaps this is not really necessary: we could
+% % just make a linear change of coordinate, to arrange that the first-order term in the Taylor
+% % expansion of $\Delta$ is $z \, \de z^2$, and then take a small enough disc that
+% % we can neglect the deviation. But since we can get $z \, \de z^2$
+% % on the nose, we might as well.)
+
+% Then in any simply connected domain away from $z=0$ we have
+% $w = \int \sqrt{\Delta} = \frac23 z^{\frac32}$. In particular,
+% each of the three domains
+% \begin{equation}
+% \frac23 (\vartheta + n\pi) < \arg z < \frac23 (\vartheta + (n+1)\pi), \qquad n=0,1,2,
+% \end{equation}
+% is mapped by $w$ to a half-plane,
+% whose boundary is the line through $0$ of inclination $\vartheta$.
+% This gives the picture shown.
+% \end{pf}
+
+% \begin{exercise} Show that in a neighborhood of a zero of $\Delta$, we may choose a
+% local coordinate $z$ such that $\Delta = z\,\de z^2$.
+% \end{exercise}
+
+% \begin{exercise} Suppose we consider a quadratic differential $\Delta$
+% which is allowed to have higher-order zeroes. What is the behavior of
+% the foliation by $\vartheta$-trajectories around such a zero?
+% \end{exercise}
+
+Thus in the foliation by $\vartheta$-trajectories, there are finitely
+many special leaves, namely those which are asymptotic in one or
+both directions to zeroes of $\Delta$.
+
+% \begin{defn}[Forward and backward asymptotics of trajectories]
+% Given a maximal $\vartheta$-trajectory $p$ with a chosen orientation,
+% we say $p$ is \ti{forward asymptotic} (resp. \ti{backward asymptotic}) to $z$ if, choosing any oriented parameterization of $p$,
+% we have $\lim_{t \to \infty} p(t) = z$ (resp. $\lim_{t \to -\infty} p(t) = z$).
+% \end{defn}
+
+\begin{defn}[Critical trajectories] A maximal $\vartheta$-trajectory
+is called \ti{critical} if it admits an orientation for which
+it is backward asymptotic to a zero of $\Delta$.
+The \ti{$\vartheta$-critical graph} is the union of the critical trajectories and the
+zeroes of $\Delta$.
+\end{defn}
+
+Critical trajectories which are also \ti{forward} asymptotic
+to zeroes of $\Delta$ are particularly special:
+
+\begin{defn}[Saddle connections]
+A \ti{$\vartheta$-saddle connection} is a maximal
+$\vartheta$-trajectory $p$
+such that $\bar p \setminus p$ consists of two points of $C$.
+\end{defn}
+
+\insfig{higgs-bundles-19}{0.8}
+
+\begin{defn}[Charge of a saddle connection]
+If $p$ is a saddle connection, then the closure of $\tilde p$
+is an oriented loop on $\Sigma_{\vec \phi}$; the \ti{charge of $p$}
+is the class of this loop in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
+\end{defn}
+
+\insfig{higgs-bundles-20}{0.8}
+
+There is one other way in which a trajectory can have finite length:
+
+\begin{defn}[Closed loops]
+A \ti{$\vartheta$-closed loop} is a maximal $\vartheta$-trajectory $p$
+such that the closure of $p$ has the topology of $S^1$.
+\end{defn}
+This includes the possibility that $p$ begins and ends
+at the same branch point.
+
+\insfig{higgs-bundles-22}{0.8}
+
+
+\begin{defn}[Charge of a closed loop]
+If $p$ is a closed loop, then $\tilde p$ is the union of two
+oriented loops on $\Sigma$; the \ti{charge} of $\tilde p$
+is the class of this union in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
+\end{defn}
+
+\insfig{higgs-bundles-21}{0.8}
+
+\begin{defn}[Finite $\vartheta$-trajectories] A
+\ti{finite $\vartheta$-trajectory} is a $\vartheta$-saddle connection or
+$\vartheta$-closed loop.
+\end{defn}
+
+As we will now show, the existence of a finite $\vartheta$-trajectory is a
+non-generic phenomenon: for ``most'' angles $\vartheta$ they
+do not occur.
+
+\begin{lem}[Phase constraint for finite trajectories]
+If a $\vartheta$-finite trajectory exists with charge
+$\gamma$, then $e^{- \I \vartheta} Z_\gamma \in \R_+$.
+\end{lem}
+
+% \begin{pf}
+% Choose a $\sqrt{\Delta}$ over $p$, and orient $p$
+% so that $e^{-\I \vartheta} \sqrt{\Delta}$ is positive.
+% Then
+% \begin{equation}
+% Z_\gamma = \int_{\tilde p} \lambda = \int_p \lambda_+ - \lambda_- = \int_p \sqrt{\Delta}
+% \end{equation}
+% so
+% \begin{equation}
+%   e^{-\I \vartheta} Z_\gamma = \int_p e^{\I \vartheta} \sqrt{\Delta} > 0
+% \end{equation}
+% as desired.
+% \end{pf}
+
+In particular, finite $\vartheta$-trajectories can only
+occur at countably many phases $\vartheta$.
+
+% \begin{prop}[Landscape of finite $\vartheta$-trajectories]
+% Fix $\vartheta$ and $\vec\phi \in \cB'$. Then
+% the set of finite $\vartheta$-trajectories is described as follows.
+% There are finitely many
+% subsets of $C$ homeomorphic to open annuli (``ring domains''),
+% foliated by $\vartheta$-closed loops.
+% Each boundary of a ring domain can be a $\vartheta$-closed loop
+% or a union of $\vartheta$-saddle connections.
+% In addition there can be finitely many $\vartheta$-saddle connections elsewhere on
+% $C$.
+% \end{prop}
+
+
+\begin{pf} This is proven in \cite{MR743423}.
+\end{pf}
+
+\begin{defn}[DT invariants]
+Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
+$DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
+(of $\Delta$), where $\vartheta = \arg Z_\gamma$:
+\begin{equation}
+  DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
+\end{equation}
+\end{defn}
+
+Note $DT(\gamma) = DT(-\gamma)$.
+
+% \begin{exercise} Show that $DT(\gamma) = DT(-\gamma)$.
+% \end{exercise}
+
+$DT$ is \ti{not} a locally constant function of $\gamma$.
+Indeed, as we deform $\vec\phi$, saddle connections
+and/or ring domains may appear or disappear; this is
+the \ti{wall-crossing} phenomenon.
+
+
+
+
 
 \printbibliography
 
