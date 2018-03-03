@@ -139,6 +139,7 @@
 
 \declaretheorem[name=Theorem,numberwithin=section,style=theorem]{thm}
 \declaretheorem[name=Proposition,sibling=thm,style=theorem]{prop}
+\declaretheorem[name=Conjecture,sibling=thm,style=theorem]{conj}
 \declaretheorem[name=Corollary,sibling=thm,style=theorem]{cor}
 \declaretheorem[name=Lemma,sibling=thm,style=theorem]{lem}
 \declaretheorem[name=Remark,sibling=thm,style=theorem]{remark}
@@ -1077,7 +1078,7 @@ $(E,\varphi)$:
 \end{equation}
 Note $\phi_2$ is a section of $\Hom(K_C^{-\half}(-P), K_C^\half) \otimes K_C(P) = K_C(P)^2$ as needed, and by $1$ we mean the 
 canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. If at each $p \in P$ we set
-$m^\R = (\alpha,\pi-\alpha)$ for some $\alpha$,
+$m^\R = (\frac{\pi}{2},\frac{\pi}{2})$,
 and $m^\C = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$
 then $(E,\varphi)$ is a stable \fixme{check} 
 $(C,G,\vec{m})$-Higgs bundle
@@ -1105,7 +1106,7 @@ $G_\C$-connections over $C$:
 \end{equation}
 
 \begin{prop} For any $\zeta \in \C^\times$,
-the map $(E,h) \to \nabla(\zeta)$ identifies
+the map $(E,\varphi) \to \nabla(\zeta)$ identifies
 \begin{equation}
   (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{AB})
 \end{equation}
@@ -1248,254 +1249,331 @@ as we go into the $i$-th
 puncture along a leaf of $T(\phi_2,\vartheta)$.
 Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
 We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
-these $4$ points. \fixme{Fock-Goncharov}
+these $4$ points. \fixme{Fock-Goncharov} \fixme{fix sign}
 
 Making the same construction for all edges $E$
 gives functions $\cX_\gamma(\zeta)$ with
-$\gamma$ running over a basis \fixme{up to finite index?}
-for $\Gamma$. They are Darboux coordinates:
+$\gamma$ running over a basis for a finite-index sublattice 
+of $\Gamma$. They are Darboux coordinates:
 \begin{equation}
   \Omega^\zeta = \DIP{\de \log \cX, \de \log \cX}.
 \end{equation}
 
-\fixme{state their asymptotic property}
-
-\fixme{state their analytic properties}
-
-
-\section{Donaldson-Thomas invariants}
-
-Now we are going to define a function
+The main asymptotic property of these coordinates is:
+\begin{conj}
+As $\zeta \to 0$ along any ray,
 \begin{equation}
-  DT: \Gamma \to \Z.
+  \cX_\gamma(\zeta) \sim c_\gamma \exp \left(\zeta^{-1} Z_\gamma + \I \theta_\gamma \right).
+\end{equation}
+When $\theta_\gamma = 0$, $c_\gamma = 1$, so
+\begin{equation}
+  \cX_\gamma(\zeta) \sim \exp \left(\zeta^{-1} Z_\gamma\right).
 \end{equation}
 
-The definition of $DT$ is easiest to understand in the
-case $K=2$, so let us consider that case first.
-The construction we will describe is closely related to one
-which appeared in the physics literature, first in \cite{Klemm:1996bj}.
-It was later described in \cite{Gaiotto:2009hg} where the application
-to the Hitchin system appeared.
-% Also, the invariants
-% we define here really \ti{are} generalized Donaldson-Thomas
-% invariants; this is shown in \cite{bridgelandsmith}.
+\end{conj}
+(The idea: it should follow from the exact WKB method. Morally,
+the connection $\nabla(\zeta) = \varphi / \zeta + \cdots$ 
+is dominated by the leading term.)
 
-Fix a point $\vec\phi = (\phi_1, \phi_2) \in \cB'$.
-Most of what we say in this section is about the discriminant
+As we vary $(\phi_2, \zeta)$ however, the
+function $\cX_\gamma(\zeta)$ is generally not smooth: it suffers
+a jump whenever the triangulation $T(\phi_2, \vartheta)$
+changes. 
+\insfig{higgs-metric-11}{0.8}
+This jump is associated with the ``saddle connection''
+appearing in the middle.
+It can only appear when $\e^{-\I \vartheta} Z_\mu \in \R_-$.
+The coordinates on the two sides of the jump are related by:
 \begin{equation}
-\Delta = \phi_1^2 - 4 \phi_2.
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}
 \end{equation}
-$\Delta$ is a holomorphic quadratic differential on $C$.
-
-Recall that the two sheets of $\Sigma_{\vec\phi}$ are given by
-(locally, in any domain where we can choose a single-valued $\sqrt{\Delta}$)
+A similar phenomenon occurs when there are closed
+trajectories: then get a jump of the form
 \begin{equation}
-  \lambda_{\pm} = \half (-\phi_1 \pm \sqrt{\Delta})
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{-2 \IP{\mu,\gamma}}
 \end{equation}
-and in particular their difference is
+Unify these:
 \begin{equation}
-  \lambda_+ - \lambda_- = \sqrt{\Delta}.
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
+where $DT(\mu) = +1$ for a saddle connection, $DT(\mu) = -2$
+for a closed loop.
 
-\begin{defn}[$\vartheta$-trajectories of a quadratic differential]
-A \ti{$\vartheta$-trajectory} of $\Delta$ is a connected
-real $1$-manifold $p$ on $C$
-such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
-for $\sqrt{\Delta}$) is a
-\ti{real} and nowhere vanishing form on $p$.
-Call a $\vartheta$-trajectory \ti{maximal} if
-it is not properly contained in any other.
-\end{defn}
+Now suppose we fix $\zeta$ and move around in $\cM$.
+We get an interesting structure on $\cB$:
+\insfig{higgs-metric-12}{0.8}
+Each simple discriminant point (where $\phi_2$ develops
+a double zero) emits two walls. The walls are characterized
+by $Z_{\pm \gamma} / \zeta \in \R_-$, where $\gamma$
+is the vanishing cycle. Each wall ``carries'' a transformation
+of the coordinates $\cX_\gamma$. When walls collide, they 
+can generate new walls, as needed so that the $\cX_\gamma$
+are well defined.
 
-Because of the sign ambiguity of $\sqrt{\Delta}$, there is no canonical
-way of orienting $\vartheta$-trajectories. However, once we pass to the
-double cover, we do get an orientation.
+When discriminant points collide, there's a more interesting
+structure:
+\insfig{higgs-metric-13}{0.9}
+Left: a triple zero; all walls carry transformations with
+$DT(\mu) = 1$.
+Right: the example of the $G = \SU(2)$, $g_C = 0$, 
+$\abs{P}=4$, as we adjust all $m^\C$ to zero, so that 
+all zeroes of $\phi_2$ move onto punctures;
+all walls carry compound transformations 
+with $DT(\mu) = 8, DT(2 \mu) = -2$.
 
-% \begin{defn}[Orientation of lifted $\vartheta$-trajectories]
-% Given a $\vartheta$-trajectory $p$, its lift $\tilde{p} = \pi^{-1}(p)$
-% to $\Sigma_{\vec\phi}$ is canonically oriented. Indeed,
-% the two sheets of $\Sigma_{\vec\phi}$
-% correspond canonically to the two choices of $\sqrt{\Delta}$.
-% Thus we can orient $\tilde{p}$ by the condition that
-% in the positive direction, $e^{-\I \vartheta} \sqrt{\Delta}$
-% is positive.
+Now suppose we fix the Higgs bundle and just let $\zeta$
+vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
+$\zeta$ in a piecewise-analytic way:
+\insfig{higgs-metric-14}{0.65}
+Have invariants $DT(\mu)$ giving the jumps of 
+$\cX_\gamma(\zeta)$ at the various
+rays $Z_\mu / \zeta \in \R_-$.
+For example, in 4-punctured sphere case, we can find
+a domain where there are jumps along exactly
+$24$ rays. (In ``wildly ramified'' examples it can be
+even simpler: can get jumps along just $2$ rays.)
+
+Now we conjecture:
+\begin{equation}
+  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ -\frac{1}{4\pi \I} \sum_\mu DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
+\end{equation}
+where $\cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right) $
+
+\fixme{higher rank case}
+
+% \section{Donaldson-Thomas invariants}
+
+% Now we are going to define a function
+% \begin{equation}
+%   DT: \Gamma \to \Z.
+% \end{equation}
+
+% The definition of $DT$ is easiest to understand in the
+% case $K=2$, so let us consider that case first.
+% The construction we will describe is closely related to one
+% which appeared in the physics literature, first in \cite{Klemm:1996bj}.
+% It was later described in \cite{Gaiotto:2009hg} where the application
+% to the Hitchin system appeared.
+% % Also, the invariants
+% % we define here really \ti{are} generalized Donaldson-Thomas
+% % invariants; this is shown in \cite{bridgelandsmith}.
+
+% Fix a point $\vec\phi = (\phi_1, \phi_2) \in \cB'$.
+% Most of what we say in this section is about the discriminant
+% \begin{equation}
+% \Delta = \phi_1^2 - 4 \phi_2.
+% \end{equation}
+% $\Delta$ is a holomorphic quadratic differential on $C$.
+
+% Recall that the two sheets of $\Sigma_{\vec\phi}$ are given by
+% (locally, in any domain where we can choose a single-valued $\sqrt{\Delta}$)
+% \begin{equation}
+%   \lambda_{\pm} = \half (-\phi_1 \pm \sqrt{\Delta})
+% \end{equation}
+% and in particular their difference is
+% \begin{equation}
+%   \lambda_+ - \lambda_- = \sqrt{\Delta}.
+% \end{equation}
+
+% \begin{defn}[$\vartheta$-trajectories of a quadratic differential]
+% A \ti{$\vartheta$-trajectory} of $\Delta$ is a connected
+% real $1$-manifold $p$ on $C$
+% such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
+% for $\sqrt{\Delta}$) is a
+% \ti{real} and nowhere vanishing form on $p$.
+% Call a $\vartheta$-trajectory \ti{maximal} if
+% it is not properly contained in any other.
 % \end{defn}
 
-Changing $\vartheta \to \vartheta+\pi$ preserves
-the notion of $\vartheta$-trajectory but reverses the
-orientation of the lifts.
+% Because of the sign ambiguity of $\sqrt{\Delta}$, there is no canonical
+% way of orienting $\vartheta$-trajectories. However, once we pass to the
+% double cover, we do get an orientation.
 
-\insfig{higgs-bundles-17}{0.8}
+% % \begin{defn}[Orientation of lifted $\vartheta$-trajectories]
+% % Given a $\vartheta$-trajectory $p$, its lift $\tilde{p} = \pi^{-1}(p)$
+% % to $\Sigma_{\vec\phi}$ is canonically oriented. Indeed,
+% % the two sheets of $\Sigma_{\vec\phi}$
+% % correspond canonically to the two choices of $\sqrt{\Delta}$.
+% % Thus we can orient $\tilde{p}$ by the condition that
+% % in the positive direction, $e^{-\I \vartheta} \sqrt{\Delta}$
+% % is positive.
+% % \end{defn}
 
+% Changing $\vartheta \to \vartheta+\pi$ preserves
+% the notion of $\vartheta$-trajectory but reverses the
+% orientation of the lifts.
 
-Let $C' = \{z: \Delta(z) \neq 0\} \subset C$.
-
-\begin{prop}[$\vartheta$-trajectories give a foliation] The
-$\vartheta$-trajectories are the leaves of a foliation of $C'$.
-\end{prop}
-% \begin{pf} Around any $z_0 \in C'$ we consider a local coordinate
-% $w$ given by $w(z) = \int^z_{z_0} \sqrt{\Delta}$. Then
-% we have $\Delta = \de w^2$. Thus in the coordinate $w$,
-% $\vartheta$-trajectories are just straight segments
-% of inclination angle $\vartheta$.
-% \end{pf}
-
-\begin{prop}[Local singularities of the foliation by $\vartheta$-trajectories] Around each zero of $\Delta$, the foliation
-by $\vartheta$-trajectories has a three-pronged singularity,
-as shown below.
-\insfig{higgs-bundles-18}{0.8}
-
-\end{prop}
-% \begin{pf} In a neighborhood of a zero of $\Delta$, we may choose a
-% local coordinate such that $\Delta = z\,\de z^2$, using our assumption that
-% all zeroes of $\Delta$ are simple.
-% % (Perhaps this is not really necessary: we could
-% % just make a linear change of coordinate, to arrange that the first-order term in the Taylor
-% % expansion of $\Delta$ is $z \, \de z^2$, and then take a small enough disc that
-% % we can neglect the deviation. But since we can get $z \, \de z^2$
-% % on the nose, we might as well.)
-
-% Then in any simply connected domain away from $z=0$ we have
-% $w = \int \sqrt{\Delta} = \frac23 z^{\frac32}$. In particular,
-% each of the three domains
-% \begin{equation}
-% \frac23 (\vartheta + n\pi) < \arg z < \frac23 (\vartheta + (n+1)\pi), \qquad n=0,1,2,
-% \end{equation}
-% is mapped by $w$ to a half-plane,
-% whose boundary is the line through $0$ of inclination $\vartheta$.
-% This gives the picture shown.
-% \end{pf}
-
-% \begin{exercise} Show that in a neighborhood of a zero of $\Delta$, we may choose a
-% local coordinate $z$ such that $\Delta = z\,\de z^2$.
-% \end{exercise}
-
-% \begin{exercise} Suppose we consider a quadratic differential $\Delta$
-% which is allowed to have higher-order zeroes. What is the behavior of
-% the foliation by $\vartheta$-trajectories around such a zero?
-% \end{exercise}
-
-Thus in the foliation by $\vartheta$-trajectories, there are finitely
-many special leaves, namely those which are asymptotic in one or
-both directions to zeroes of $\Delta$.
-
-% \begin{defn}[Forward and backward asymptotics of trajectories]
-% Given a maximal $\vartheta$-trajectory $p$ with a chosen orientation,
-% we say $p$ is \ti{forward asymptotic} (resp. \ti{backward asymptotic}) to $z$ if, choosing any oriented parameterization of $p$,
-% we have $\lim_{t \to \infty} p(t) = z$ (resp. $\lim_{t \to -\infty} p(t) = z$).
-% \end{defn}
-
-\begin{defn}[Critical trajectories] A maximal $\vartheta$-trajectory
-is called \ti{critical} if it admits an orientation for which
-it is backward asymptotic to a zero of $\Delta$.
-The \ti{$\vartheta$-critical graph} is the union of the critical trajectories and the
-zeroes of $\Delta$.
-\end{defn}
-
-Critical trajectories which are also \ti{forward} asymptotic
-to zeroes of $\Delta$ are particularly special:
-
-\begin{defn}[Saddle connections]
-A \ti{$\vartheta$-saddle connection} is a maximal
-$\vartheta$-trajectory $p$
-such that $\bar p \setminus p$ consists of two points of $C$.
-\end{defn}
-
-\insfig{higgs-bundles-19}{0.8}
-
-\begin{defn}[Charge of a saddle connection]
-If $p$ is a saddle connection, then the closure of $\tilde p$
-is an oriented loop on $\Sigma_{\vec \phi}$; the \ti{charge of $p$}
-is the class of this loop in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-\end{defn}
-
-\insfig{higgs-bundles-20}{0.8}
-
-There is one other way in which a trajectory can have finite length:
-
-\begin{defn}[Closed loops]
-A \ti{$\vartheta$-closed loop} is a maximal $\vartheta$-trajectory $p$
-such that the closure of $p$ has the topology of $S^1$.
-\end{defn}
-This includes the possibility that $p$ begins and ends
-at the same branch point.
-
-\insfig{higgs-bundles-22}{0.8}
+% \insfig{higgs-bundles-17}{0.8}
 
 
-\begin{defn}[Charge of a closed loop]
-If $p$ is a closed loop, then $\tilde p$ is the union of two
-oriented loops on $\Sigma$; the \ti{charge} of $\tilde p$
-is the class of this union in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-\end{defn}
+% Let $C' = \{z: \Delta(z) \neq 0\} \subset C$.
 
-\insfig{higgs-bundles-21}{0.8}
-
-\begin{defn}[Finite $\vartheta$-trajectories] A
-\ti{finite $\vartheta$-trajectory} is a $\vartheta$-saddle connection or
-$\vartheta$-closed loop.
-\end{defn}
-
-As we will now show, the existence of a finite $\vartheta$-trajectory is a
-non-generic phenomenon: for ``most'' angles $\vartheta$ they
-do not occur.
-
-\begin{lem}[Phase constraint for finite trajectories]
-If a $\vartheta$-finite trajectory exists with charge
-$\gamma$, then $e^{- \I \vartheta} Z_\gamma \in \R_+$.
-\end{lem}
-
-% \begin{pf}
-% Choose a $\sqrt{\Delta}$ over $p$, and orient $p$
-% so that $e^{-\I \vartheta} \sqrt{\Delta}$ is positive.
-% Then
-% \begin{equation}
-% Z_\gamma = \int_{\tilde p} \lambda = \int_p \lambda_+ - \lambda_- = \int_p \sqrt{\Delta}
-% \end{equation}
-% so
-% \begin{equation}
-%   e^{-\I \vartheta} Z_\gamma = \int_p e^{\I \vartheta} \sqrt{\Delta} > 0
-% \end{equation}
-% as desired.
-% \end{pf}
-
-In particular, finite $\vartheta$-trajectories can only
-occur at countably many phases $\vartheta$.
-
-% \begin{prop}[Landscape of finite $\vartheta$-trajectories]
-% Fix $\vartheta$ and $\vec\phi \in \cB'$. Then
-% the set of finite $\vartheta$-trajectories is described as follows.
-% There are finitely many
-% subsets of $C$ homeomorphic to open annuli (``ring domains''),
-% foliated by $\vartheta$-closed loops.
-% Each boundary of a ring domain can be a $\vartheta$-closed loop
-% or a union of $\vartheta$-saddle connections.
-% In addition there can be finitely many $\vartheta$-saddle connections elsewhere on
-% $C$.
+% \begin{prop}[$\vartheta$-trajectories give a foliation] The
+% $\vartheta$-trajectories are the leaves of a foliation of $C'$.
 % \end{prop}
+% % \begin{pf} Around any $z_0 \in C'$ we consider a local coordinate
+% % $w$ given by $w(z) = \int^z_{z_0} \sqrt{\Delta}$. Then
+% % we have $\Delta = \de w^2$. Thus in the coordinate $w$,
+% % $\vartheta$-trajectories are just straight segments
+% % of inclination angle $\vartheta$.
+% % \end{pf}
+
+% \begin{prop}[Local singularities of the foliation by $\vartheta$-trajectories] Around each zero of $\Delta$, the foliation
+% by $\vartheta$-trajectories has a three-pronged singularity,
+% as shown below.
+% \insfig{higgs-bundles-18}{0.8}
+
+% \end{prop}
+% % \begin{pf} In a neighborhood of a zero of $\Delta$, we may choose a
+% % local coordinate such that $\Delta = z\,\de z^2$, using our assumption that
+% % all zeroes of $\Delta$ are simple.
+% % % (Perhaps this is not really necessary: we could
+% % % just make a linear change of coordinate, to arrange that the first-order term in the Taylor
+% % % expansion of $\Delta$ is $z \, \de z^2$, and then take a small enough disc that
+% % % we can neglect the deviation. But since we can get $z \, \de z^2$
+% % % on the nose, we might as well.)
+
+% % Then in any simply connected domain away from $z=0$ we have
+% % $w = \int \sqrt{\Delta} = \frac23 z^{\frac32}$. In particular,
+% % each of the three domains
+% % \begin{equation}
+% % \frac23 (\vartheta + n\pi) < \arg z < \frac23 (\vartheta + (n+1)\pi), \qquad n=0,1,2,
+% % \end{equation}
+% % is mapped by $w$ to a half-plane,
+% % whose boundary is the line through $0$ of inclination $\vartheta$.
+% % This gives the picture shown.
+% % \end{pf}
+
+% % \begin{exercise} Show that in a neighborhood of a zero of $\Delta$, we may choose a
+% % local coordinate $z$ such that $\Delta = z\,\de z^2$.
+% % \end{exercise}
+
+% % \begin{exercise} Suppose we consider a quadratic differential $\Delta$
+% % which is allowed to have higher-order zeroes. What is the behavior of
+% % the foliation by $\vartheta$-trajectories around such a zero?
+% % \end{exercise}
+
+% Thus in the foliation by $\vartheta$-trajectories, there are finitely
+% many special leaves, namely those which are asymptotic in one or
+% both directions to zeroes of $\Delta$.
+
+% % \begin{defn}[Forward and backward asymptotics of trajectories]
+% % Given a maximal $\vartheta$-trajectory $p$ with a chosen orientation,
+% % we say $p$ is \ti{forward asymptotic} (resp. \ti{backward asymptotic}) to $z$ if, choosing any oriented parameterization of $p$,
+% % we have $\lim_{t \to \infty} p(t) = z$ (resp. $\lim_{t \to -\infty} p(t) = z$).
+% % \end{defn}
+
+% \begin{defn}[Critical trajectories] A maximal $\vartheta$-trajectory
+% is called \ti{critical} if it admits an orientation for which
+% it is backward asymptotic to a zero of $\Delta$.
+% The \ti{$\vartheta$-critical graph} is the union of the critical trajectories and the
+% zeroes of $\Delta$.
+% \end{defn}
+
+% Critical trajectories which are also \ti{forward} asymptotic
+% to zeroes of $\Delta$ are particularly special:
+
+% \begin{defn}[Saddle connections]
+% A \ti{$\vartheta$-saddle connection} is a maximal
+% $\vartheta$-trajectory $p$
+% such that $\bar p \setminus p$ consists of two points of $C$.
+% \end{defn}
+
+% \insfig{higgs-bundles-19}{0.8}
+
+% \begin{defn}[Charge of a saddle connection]
+% If $p$ is a saddle connection, then the closure of $\tilde p$
+% is an oriented loop on $\Sigma_{\vec \phi}$; the \ti{charge of $p$}
+% is the class of this loop in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
+% \end{defn}
+
+% \insfig{higgs-bundles-20}{0.8}
+
+% There is one other way in which a trajectory can have finite length:
+
+% \begin{defn}[Closed loops]
+% A \ti{$\vartheta$-closed loop} is a maximal $\vartheta$-trajectory $p$
+% such that the closure of $p$ has the topology of $S^1$.
+% \end{defn}
+% This includes the possibility that $p$ begins and ends
+% at the same branch point.
+
+% \insfig{higgs-bundles-22}{0.8}
 
 
-\begin{pf} This is proven in \cite{MR743423}.
-\end{pf}
+% \begin{defn}[Charge of a closed loop]
+% If $p$ is a closed loop, then $\tilde p$ is the union of two
+% oriented loops on $\Sigma$; the \ti{charge} of $\tilde p$
+% is the class of this union in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
+% \end{defn}
 
-\begin{defn}[DT invariants]
-Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
-$DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
-(of $\Delta$), where $\vartheta = \arg Z_\gamma$:
-\begin{equation}
-  DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
-\end{equation}
-\end{defn}
+% \insfig{higgs-bundles-21}{0.8}
 
-Note $DT(\gamma) = DT(-\gamma)$.
+% \begin{defn}[Finite $\vartheta$-trajectories] A
+% \ti{finite $\vartheta$-trajectory} is a $\vartheta$-saddle connection or
+% $\vartheta$-closed loop.
+% \end{defn}
 
-% \begin{exercise} Show that $DT(\gamma) = DT(-\gamma)$.
-% \end{exercise}
+% As we will now show, the existence of a finite $\vartheta$-trajectory is a
+% non-generic phenomenon: for ``most'' angles $\vartheta$ they
+% do not occur.
 
-$DT$ is \ti{not} a locally constant function of $\gamma$.
-Indeed, as we deform $\vec\phi$, saddle connections
-and/or ring domains may appear or disappear; this is
-the \ti{wall-crossing} phenomenon.
+% \begin{lem}[Phase constraint for finite trajectories]
+% If a $\vartheta$-finite trajectory exists with charge
+% $\gamma$, then $e^{- \I \vartheta} Z_\gamma \in \R_+$.
+% \end{lem}
+
+% % \begin{pf}
+% % Choose a $\sqrt{\Delta}$ over $p$, and orient $p$
+% % so that $e^{-\I \vartheta} \sqrt{\Delta}$ is positive.
+% % Then
+% % \begin{equation}
+% % Z_\gamma = \int_{\tilde p} \lambda = \int_p \lambda_+ - \lambda_- = \int_p \sqrt{\Delta}
+% % \end{equation}
+% % so
+% % \begin{equation}
+% %   e^{-\I \vartheta} Z_\gamma = \int_p e^{\I \vartheta} \sqrt{\Delta} > 0
+% % \end{equation}
+% % as desired.
+% % \end{pf}
+
+% In particular, finite $\vartheta$-trajectories can only
+% occur at countably many phases $\vartheta$.
+
+% % \begin{prop}[Landscape of finite $\vartheta$-trajectories]
+% % Fix $\vartheta$ and $\vec\phi \in \cB'$. Then
+% % the set of finite $\vartheta$-trajectories is described as follows.
+% % There are finitely many
+% % subsets of $C$ homeomorphic to open annuli (``ring domains''),
+% % foliated by $\vartheta$-closed loops.
+% % Each boundary of a ring domain can be a $\vartheta$-closed loop
+% % or a union of $\vartheta$-saddle connections.
+% % In addition there can be finitely many $\vartheta$-saddle connections elsewhere on
+% % $C$.
+% % \end{prop}
+
+
+% \begin{pf} This is proven in \cite{MR743423}.
+% \end{pf}
+
+% \begin{defn}[DT invariants]
+% Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
+% $DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
+% (of $\Delta$), where $\vartheta = \arg Z_\gamma$:
+% \begin{equation}
+%   DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
+% \end{equation}
+% \end{defn}
+
+% Note $DT(\gamma) = DT(-\gamma)$.
+
+% % \begin{exercise} Show that $DT(\gamma) = DT(-\gamma)$.
+% % \end{exercise}
+
+% $DT$ is \ti{not} a locally constant function of $\gamma$.
+% Indeed, as we deform $\vec\phi$, saddle connections
+% and/or ring domains may appear or disappear; this is
+% the \ti{wall-crossing} phenomenon.
 
 
 
