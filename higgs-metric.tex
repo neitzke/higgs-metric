@@ -1269,7 +1269,6 @@ When $\theta_\gamma = 0$, $c_\gamma = 1$, so
 \begin{equation}
   \cX_\gamma(\zeta) \sim \exp \left(\zeta^{-1} Z_\gamma\right).
 \end{equation}
-
 \end{conj}
 (The idea: it should follow from the exact WKB method. Morally,
 the connection $\nabla(\zeta) = \varphi / \zeta + \cdots$ 
@@ -1313,13 +1312,14 @@ are well defined.
 When discriminant points collide, there's a more interesting
 structure:
 \insfig{higgs-metric-13}{0.9}
-Left: a triple zero; all walls carry transformations with
+Left: what happens when three zeroes of $\phi_2$ collide; 
+here all walls carry transformations with
 $DT(\mu) = 1$.
 Right: the example of the $G = \SU(2)$, $g_C = 0$, 
-$\abs{P}=4$, as we adjust all $m^\C$ to zero, so that 
+$\abs{P}=4$; what happens as we adjust all $m^\C$ to zero, so that 
 all zeroes of $\phi_2$ move onto punctures;
-all walls carry compound transformations 
-with $DT(\mu) = 8, DT(2 \mu) = -2$.
+then we get walls with every rational slope, carrying 
+compound transformations with $DT(\mu) = 8, DT(2 \mu) = -2$.
 
 Now suppose we fix the Higgs bundle and just let $\zeta$
 vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
@@ -1328,18 +1328,78 @@ $\zeta$ in a piecewise-analytic way:
 Have invariants $DT(\mu)$ giving the jumps of 
 $\cX_\gamma(\zeta)$ at the various
 rays $Z_\mu / \zeta \in \R_-$.
-For example, in 4-punctured sphere case, we can find
-a domain where there are jumps along exactly
+For example, in case, $G = \SU(2)$, $g_C = 0$, 
+$\abs{P}=4$, we can find
+a domain in $\cB$ where there are jumps along exactly
 $24$ rays. (In ``wildly ramified'' examples it can be
-even simpler: can get jumps along just $2$ rays.)
+even simpler: can get jumps along just $4$ rays.)
 
-Now we conjecture:
+
+
+\section{The integral equation}
+
+\begin{conj}[Integral equation for $\theta_\gamma = 0$]
+When all $\theta_\gamma = 0$,
 \begin{equation}
-  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ -\frac{1}{4\pi \I} \sum_\mu DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
+  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
 \end{equation}
-where $\cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right) $
+where 
+\begin{equation}
+  \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
+\end{equation}
+\end{conj}
 
-\fixme{higher rank case}
+Here $\sigma(\mu)$ is $-1$ when $\mu$ is the charge of a saddle connection,
+and $+1$ when $\mu$ is the charge of a closed loop.
+
+\begin{itemize}
+  \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
+  the right analytic properties in the $\zeta$-plane: asymptotics as $\zeta \to 0,\infty$
+  and jumps at the rays $Z_\mu / \zeta \in \R_-$ with $DT(\mu) \neq 0$.
+  The optimistic hope is that it these analytic properties are strong enough
+  to \ti{determine} $\cX_\gamma(\zeta)$.
+
+  \item Q: How do you actually solve it? A: By iteration: pick
+  $\cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta)$ as initial guess, 
+  and then iterate.
+
+  \item Q: Why would you think that that iteration would converge?
+  A: If all $\abs{Z_\gamma}$ are large enough, and $DT(\mu)$ doesn't grow too fast
+  as a function of $\mu$ (e.g. if only finitely many are nonzero)
+  saddle-point estimates show 
+  it defines a contraction mapping.
+
+  \item Q: How does this lead to asymptotic predictions? A: 
+  If we substitute $\cX = \cX^\sf$, the log in the
+  integrand is bounded above by $\e^{-2 \abs{Z_\mu}}$;
+  that gives an estimate of the leading correction
+  to $\cX_\gamma$,  
+\begin{equation} \label{eq:first-asymptotic-correction}
+\cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \sum_{\mu \in \Gamma} \frac{DT(\mu) \IP{\gamma,\mu}}{4 \pi \I}
+  \frac{\alpha_\mu + \zeta}{\alpha_\mu - \zeta} \sqrt{\frac{\pi}{\abs{Z_\mu}}} \e^{-2 \abs{Z_\mu}} + \cdots \right].
+\end{equation}
+\fixme{should also give the leading correction to $g$}
+\end{itemize}
+
+
+
+\section{Numerical tests}
+
+We consider the case of $G = SU(2)$ with \ti{polynomial} quadratic differential,
+of degree $n$, say
+\begin{equation}
+  \phi_2 = P(z) \de z^2,
+\end{equation}
+and Higgs bundles on the Hitchin section.
+Solving Hitchin's equations in this case is equivalent to studying
+harmonic maps $\C \to SL(2,\R) / SO(2)$ whose image is a polygon
+of $n+2$ vertices.
+
+\insfig{higgs-metric-15}{0.8}
+
+The $\cX_\gamma$ in this case are cross-ratios of the asymptotic vertices.
+
+\fixme{show numerical calc}
 
 % \section{Donaldson-Thomas invariants}
 
@@ -1380,7 +1440,7 @@ where $\cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline
 % real $1$-manifold $p$ on $C$
 % such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
 % for $\sqrt{\Delta}$) is a
-% \ti{real} and nowhere vanishing form on $p$.
+% \ti{real} and nowhere va nishing form on $p$.
 % Call a $\vartheta$-trajectory \ti{maximal} if
 % it is not properly contained in any other.
 % \end{defn}
