@@ -1197,31 +1197,31 @@ What are the coordinates $\cX_\gamma(\zeta)$
 which we will use?
 
 Specialize to $G = \SU(2)$, and fix $\phi_2 \in \cB$
-and a phase $\vartheta$ (think of $\vartheta$ as $\arg \zeta$.)
+and a $\zeta \in \C^\times$.
 $\phi_2$ is a holomorphic section of $K_C(P)^2$, i.e.
 a meromorphic quadratic differential on $C$ with
 double poles at $P$ of residue $(m_p^\C)^2$.
 
-\begin{defn}[$\vartheta$-trajectories of a quadratic differential]
-A \ti{$\vartheta$-trajectory} of $\phi_2$ is a path on $C$
+\begin{defn}[$\zeta$-trajectories of a quadratic differential]
+A \ti{$\zeta$-trajectory} of $\phi_2$ is a path on $C$
 along which
-$\e^{- \I \vartheta} \sqrt \phi_2$ (with either choice of sign
+$\zeta^{-1} \sqrt \phi_2$ (with either choice of sign
 for $\sqrt{\phi_2}$) is a
 \ti{real} and nowhere vanishing form.
 % Call a $\vartheta$-trajectory \ti{maximal} if
 % it is not properly contained in any other.
 \end{defn}
 
-\begin{prop}[$\vartheta$-trajectories give a foliation] The
-$\vartheta$-trajectories are the leaves of a singular
+\begin{prop}[$\zeta$-trajectories give a foliation] The
+$\zeta$-trajectories are the leaves of a singular
 foliation of $C$, with singularities at the zeroes
 and poles of $\phi_2$. 
 At each zero of $\phi_2$, the foliation
-by $\vartheta$-trajectories has a three-pronged singularity,
+by $\zeta$-trajectories has a three-pronged singularity,
 as shown below.
 \insfig{higgs-metric-8}{0.8}
 At each pole $p$ of $\phi_2$ with $m^\C_p \neq 0$
-and $\e^{\I \vartheta} m^\R_p \notin \R$, 
+and $\zeta^{-1} m^\R_p \notin \R$, 
 the foliation has a ``spiraling'' singularity, as shown
 below.
 \insfig{higgs-metric-7}{1.0}
@@ -1229,10 +1229,10 @@ below.
 
 
 \begin{prop}[Ideal triangulation determined by the
-$\vartheta$-trajectories]
-Suppose $\vartheta$ is generic, in the sense that
-$\e^{\I \vartheta} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\vartheta$-trajectories determine an ideal
-triangulation $T(\phi_2,\vartheta)$ of $C$, by the picture below.
+$\zeta$-trajectories]
+Suppose $(\phi_2, \zeta)$ is generic, in the sense that
+$\zeta^{-1} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\vartheta$-trajectories determine an ideal
+triangulation $T(\phi_2,\zeta)$ of $C$, by the picture below.
 \end{prop}
 \insfig{higgs-metric-9}{0.95}
 
@@ -1246,7 +1246,7 @@ equipped with $4$ distinguished lines $\ell_i \subset V$:
 $\ell_i$ consists of the flat sections
 which have exponentially \ti{decaying} norm 
 as we go into the $i$-th 
-puncture along a leaf of $T(\phi_2,\vartheta)$.
+puncture along a leaf of $T(\phi_2,\zeta)$.
 Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
 We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
 these $4$ points. \fixme{Fock-Goncharov} \fixme{fix sign}
@@ -1276,12 +1276,12 @@ is dominated by the leading term.)
 
 As we vary $(\phi_2, \zeta)$ however, the
 function $\cX_\gamma(\zeta)$ is generally not smooth: it suffers
-a jump whenever the triangulation $T(\phi_2, \vartheta)$
+a jump whenever the triangulation $T(\phi_2, \zeta)$
 changes. 
 \insfig{higgs-metric-11}{0.8}
 This jump is associated with the ``saddle connection''
 appearing in the middle.
-It can only appear when $\e^{-\I \vartheta} Z_\mu \in \R_-$.
+It can only appear when $\zeta^{-1} Z_\mu \in \R_-$.
 The coordinates on the two sides of the jump are related by:
 \begin{equation}
   \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}
@@ -1397,7 +1397,12 @@ of $n+2$ vertices.
 
 \insfig{higgs-metric-15}{0.8}
 
-The $\cX_\gamma$ in this case are cross-ratios of the asymptotic vertices.
+The $\cX_\gamma$ in this case are various cross-ratios of the asymptotic vertices.
+For example, when $n=3$, we have $5$ asymptotic vertices and $\dim \cM = 2$, so
+we pick $2$ out of the $5$ possible cross-ratios of those $5$ coordinates.
+The triangulations $T(\phi_2, \zeta)$ look like:
+
+\insfig{higgs-metric-16}{0.8}
 
 \fixme{show numerical calc}
 
