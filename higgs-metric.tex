@@ -280,6 +280,7 @@
 \DeclareMathOperator{\Tot}{Tot}
 \DeclareMathOperator{\pdeg}{pdeg}
 \DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\DT}{DT}
 
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\Sp}{\mathrm{Sp}}
@@ -1293,9 +1294,9 @@ trajectories: then get a jump of the form
 \end{equation}
 Unify these:
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{DT(\mu) \IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
-where $DT(\mu) = +1$ for a saddle connection, $DT(\mu) = -2$
+where $\DT(\mu) = +1$ for a saddle connection, $\DT(\mu) = -2$
 for a closed loop.
 
 Now suppose we fix $\zeta$ and move around in $\cM$.
@@ -1314,18 +1315,18 @@ structure:
 \insfig{higgs-metric-13}{0.9}
 Left: what happens when three zeroes of $\phi_2$ collide; 
 here all walls carry transformations with
-$DT(\mu) = 1$.
+$\DT(\mu) = 1$.
 Right: the example of the $G = \SU(2)$, $g_C = 0$, 
 $\abs{P}=4$; what happens as we adjust all $m^\C$ to zero, so that 
 all zeroes of $\phi_2$ move onto punctures;
 then we get walls with every rational slope, carrying 
-compound transformations with $DT(\mu) = 8, DT(2 \mu) = -2$.
+compound transformations with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 
 Now suppose we fix the Higgs bundle and just let $\zeta$
 vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
 $\zeta$ in a piecewise-analytic way:
 \insfig{higgs-metric-14}{0.65}
-Have invariants $DT(\mu)$ giving the jumps of 
+Have invariants $\DT(\mu)$ giving the jumps of 
 $\cX_\gamma(\zeta)$ at the various
 rays $Z_\mu / \zeta \in \R_-$.
 For example, in case, $G = \SU(2)$, $g_C = 0$, 
@@ -1341,7 +1342,7 @@ even simpler: can get jumps along just $4$ rays.)
 \begin{conj}[Integral equation for $\theta_\gamma = 0$]
 When all $\theta_\gamma = 0$,
 \begin{equation}
-  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
+  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
 \end{equation}
 where 
 \begin{equation}
@@ -1355,7 +1356,7 @@ and $+1$ when $\mu$ is the charge of a closed loop.
 \begin{itemize}
   \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
   the right analytic properties in the $\zeta$-plane: asymptotics as $\zeta \to 0,\infty$
-  and jumps at the rays $Z_\mu / \zeta \in \R_-$ with $DT(\mu) \neq 0$.
+  and jumps at the rays $Z_\mu / \zeta \in \R_-$ with $\DT(\mu) \neq 0$.
   The optimistic hope is that it these analytic properties are strong enough
   to \ti{determine} $\cX_\gamma(\zeta)$.
 
@@ -1364,7 +1365,7 @@ and $+1$ when $\mu$ is the charge of a closed loop.
   and then iterate.
 
   \item Q: Why would you think that that iteration would converge?
-  A: If all $\abs{Z_\gamma}$ are large enough, and $DT(\mu)$ doesn't grow too fast
+  A: If all $\abs{Z_\gamma}$ are large enough, and $\DT(\mu)$ doesn't grow too fast
   as a function of $\mu$ (e.g. if only finitely many are nonzero)
   saddle-point estimates show 
   it defines a contraction mapping.
@@ -1372,16 +1373,22 @@ and $+1$ when $\mu$ is the charge of a closed loop.
   \item Q: How does this lead to asymptotic predictions? A: 
   If we substitute $\cX = \cX^\sf$, the log in the
   integrand is bounded above by $\e^{-2 \abs{Z_\mu}}$;
-  that gives an estimate of the leading correction
-  to $\cX_\gamma$,  
-\begin{equation} \label{eq:first-asymptotic-correction}
-\cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \sum_{\mu \in \Gamma} \frac{DT(\mu) \IP{\gamma,\mu}}{4 \pi \I}
-  \frac{\alpha_\mu + \zeta}{\alpha_\mu - \zeta} \sqrt{\frac{\pi}{\abs{Z_\mu}}} \e^{-2 \abs{Z_\mu}} + \cdots \right], \quad \alpha_\mu = Z_\mu / \abs{Z_\mu}.
-\end{equation}
-\fixme{should also give the leading correction to $g$}
+  thus we expect that the first step of the iteration is already
+  suppressed by $\e^{-2 M}$ where $M$ is the minimum $\abs{Z_\mu}$
+  for which $\DT(\mu) \neq 0$, and later steps
+  should be further exponentially suppressed. That suggests
+  that just truncating to the zeroth iteration (i.e. taking $g^\sf$)
+  would already give a result exponentially close to the true metric,
+  and the accuracy will improve with each iteration we take.
+  In particular we can truncate to the \ti{first} iteration.
+  Working this out leads to
+  \begin{equation}
+    g = g^\sf - \frac{2}{\pi} \sum_{\mu \in \Gamma} \DT(\mu) K_0\left( 2 \abs{Z_\mu} \right) \de \abs{Z_\mu}^2 + \cdots
+  \end{equation}
+  Note that $K_0(x) \sim \sqrt{\frac{\pi}{2x}} \e^{-x}$,
+  so $g - g^\sf$ is already exponentially suppressed as $\e^{-2M}$.
+  The omitted terms $\cdots$ should be of order $\e^{-4M}$.
 \end{itemize}
-
-
 
 \section{Numerical tests}
 
@@ -1410,10 +1417,10 @@ The triangulations $T(\phi_2, \zeta)$ look like:
 
 % Now we are going to define a function
 % \begin{equation}
-%   DT: \Gamma \to \Z.
+%   \DT: \Gamma \to \Z.
 % \end{equation}
 
-% The definition of $DT$ is easiest to understand in the
+% The definition of $\DT$ is easiest to understand in the
 % case $K=2$, so let us consider that case first.
 % The construction we will describe is closely related to one
 % which appeared in the physics literature, first in \cite{Klemm:1996bj}.
@@ -1621,21 +1628,21 @@ The triangulations $T(\phi_2, \zeta)$ look like:
 % \begin{pf} This is proven in \cite{MR743423}.
 % \end{pf}
 
-% \begin{defn}[DT invariants]
+% \begin{defn}[\DT invariants]
 % Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
-% $DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
+% $\DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
 % (of $\Delta$), where $\vartheta = \arg Z_\gamma$:
 % \begin{equation}
-%   DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
+%   \DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
 % \end{equation}
 % \end{defn}
 
-% Note $DT(\gamma) = DT(-\gamma)$.
+% Note $\DT(\gamma) = \DT(-\gamma)$.
 
-% % \begin{exercise} Show that $DT(\gamma) = DT(-\gamma)$.
+% % \begin{exercise} Show that $\DT(\gamma) = \DT(-\gamma)$.
 % % \end{exercise}
 
-% $DT$ is \ti{not} a locally constant function of $\gamma$.
+% $\DT$ is \ti{not} a locally constant function of $\gamma$.
 % Indeed, as we deform $\vec\phi$, saddle connections
 % and/or ring domains may appear or disappear; this is
 % the \ti{wall-crossing} phenomenon.
