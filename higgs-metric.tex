@@ -1288,16 +1288,17 @@ The coordinates on the two sides of the jump are related by:
   \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}
 \end{equation}
 A similar phenomenon occurs when there are closed
-trajectories: then get a jump of the form
+trajectories: then we get a jump of the form
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{-2 \IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}
 \end{equation}
-Unify these:
+We can unify these to:
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 - \sigma(\mu) \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
-where $\DT(\mu) = +1$ for a saddle connection, $\DT(\mu) = -2$
-for a closed loop.
+where for a saddle connection
+we have $\DT(\mu) = +1$ and $\sigma(\mu) = -1$, while
+for a closed loop we have $\DT(\mu) = -2$ and $\sigma(\mu) = +1$.
 
 Now suppose we fix $\zeta$ and move around in $\cM$.
 We get an interesting structure on $\cB$:
@@ -1314,12 +1315,12 @@ When discriminant points collide, there's a more interesting
 structure:
 \insfig{higgs-metric-13}{0.9}
 Left: what happens when three zeroes of $\phi_2$ collide; 
-here all walls carry transformations with
+the $5$ resulting walls carry transformations with
 $\DT(\mu) = 1$.
-Right: the example of the $G = \SU(2)$, $g_C = 0$, 
+Right: the example of $G = \SU(2)$, $g_C = 0$, 
 $\abs{P}=4$; what happens as we adjust all $m^\C$ to zero, so that 
 all zeroes of $\phi_2$ move onto punctures;
-then we get walls with every rational slope, carrying 
+we get walls with every rational slope, carrying 
 compound transformations with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 
 Now suppose we fix the Higgs bundle and just let $\zeta$
@@ -1392,15 +1393,15 @@ and $+1$ when $\mu$ is the charge of a closed loop.
 
 \section{Numerical tests}
 
-We consider the case of $G = SU(2)$ with \ti{polynomial} quadratic differential,
+We consider the case of $G = \SU(2)$ with \ti{polynomial} quadratic differential,
 of degree $n$, say
 \begin{equation}
   \phi_2 = P(z) \de z^2,
 \end{equation}
 and Higgs bundles on the Hitchin section.
 Solving Hitchin's equations in this case is equivalent to studying
-harmonic maps $\C \to SL(2,\R) / SO(2)$ whose image is a polygon
-of $n+2$ vertices.
+harmonic maps $\C \to SL(2,\R) / SO(2)$ whose image is an ideal polygon
+with $n+2$ vertices.
 
 \insfig{higgs-metric-15}{0.8}
 
