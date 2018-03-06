@@ -476,12 +476,12 @@ When $G = \U(K)$, a $(G, C, \vec m)$-\ti{Higgs bundle} is a pair $(E, \varphi)$,
 with additional ``parabolic structure'' at the points $p \in P$
 as follows. Each $E_p$ carries a decreasing filtration with weights in $[0,2\pi)$, where 
 \begin{equation}
-  \dim \Gr_\alpha E_p = \text{multiplicity of $\alpha$ in $m^\R$}.
+  \dim \Gr_\alpha E_p = \text{multiplicity of $\alpha$ in $m_p^\R$}.
 \end{equation}
 The residue $\Res_p \varphi$
 preserves the filtration on $E_p$ and thus descends to
 act on the graded pieces $\Gr_\alpha E_p$, with generalized
-eigenvalues determined by $m^\C$. Altogether then,
+eigenvalues determined by $m_p^\C$. Altogether then,
 \begin{equation}
  \Gr E_p = \bigoplus_{\vec{\lambda}} E_{p,\vec\lambda}
 \end{equation}
@@ -490,13 +490,13 @@ $\Res_p \varphi$ acts on $E_{p,\vec\lambda}$
 with generalized eigenvalue $\lambda^\C$.
 \end{defn}
 
-Relative to a local holomorphic trivialization of $E$
-and local coordinate on $C$, $\varphi$ would
-be written as a matrix of holomorphic $1$-forms: e.g. for $G = \SU(2)$,
-\begin{equation}
-  \varphi = \begin{pmatrix} f_1 & f_2 \\ f_3 & -f_1 \end{pmatrix} \de z,
-\end{equation}
-where all $f_i$ are holomorphic functions of $z$. 
+% Relative to a local holomorphic trivialization of $E$
+% and local coordinate on $C$, $\varphi$ would
+% be written as a matrix of holomorphic $1$-forms: e.g. for $G = \SU(2)$,
+% \begin{equation}
+%   \varphi = \begin{pmatrix} f_1 & f_2 \\ f_3 & -f_1 \end{pmatrix} \de z,
+% \end{equation}
+% where all $f_i$ are holomorphic functions of $z$. 
 
 \begin{remark}[Parabolic structure in case of generic puncture data]
 The case of generic puncture data is simpler:
@@ -535,10 +535,11 @@ The extra term in \eqref{eq:pdeg} keeps track of how $E'$
 sits relative to the filtration of $E_p$.
 
 \begin{example}[Parabolic degrees in the simplest case]
-Thus, for example, with generic puncture data and $G = \SU(2)$,
+With generic puncture data and $G = \SU(2)$,
 the two weights which occur in the decomposition of 
-$\Gr E_p$ are of the form
-$(\alpha, 2\pi-\alpha)$, for some $\alpha \le \pi$.
+$E_p$ are either $(0,0)$ or of the form
+$(\alpha, 2\pi-\alpha)$, for some $\alpha \in (0,\pi]$.
+Assume we are in the latter case.
 Now suppose $E' \subset E$ is a line subbundle.
 If $E'_p \subset E_p$ is a generic line, then the contribution
 to $\pdeg E'$ from $p$ will be $\frac{\alpha}{2\pi}$; the
