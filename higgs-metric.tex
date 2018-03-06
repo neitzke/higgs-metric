@@ -363,8 +363,9 @@ it admits a holomorphic fibration $\pi: \cM \to \cB$
 with complex Lagrangian fibers.
 There is a complex codimension $1$ 
 ``singular locus'' $\cB_\sing \subset \cB$.
-Let $\cB_\reg = \cB \setminus \cB_\sing$.
-Over $\cB_\reg$, the fibers of $\pi$ are compact
+Let $\cB_\reg = \cB \setminus \cB_\sing$,
+and $\cM_\reg = \pi^{-1}(\cB_\reg)$
+On $\cM_\reg$, the fibers of $\pi$ are compact
 complex tori, roughly the Jacobians of a
 family of smooth \ti{spectral curves} $\Sigma_\vphi \subset T^* C$
 parameterized by $\vphi \in \cB_\reg$.
@@ -382,13 +383,13 @@ from two constituents:
 
 
 If one neglects the Donaldson-Thomas invariants one obtains
-a simple and explicit \hk metric $g^\sf$ on $\cB_\reg$, so called
+a simple and explicit \hk metric $g^\sf$ on $\cM_\reg$, so called
 because it is flat (and translation invariant) on the torus
-fibers. $g^\sf$ however does not extend to the full $\cB$.
+fibers. $g^\sf$ however does not extend to the full $\cM$.
 
 The effect of the Donaldson-Thomas invariants
 is to add corrections which break the translation invariance.
-Away from $\cB_\sing$, these corrections are of the order 
+Away from $\cM_\sing$, these corrections are of the order 
 $\e^{-M}$ where $M$ is the area of the smallest 
 special Lagrangian disc, i.e. we predict
 \begin{equation}
@@ -397,7 +398,7 @@ special Lagrangian disc, i.e. we predict
 In particular, if we follow some path to infinity in $\cM$
 along which $M \to \infty$, we expect to see $g$
 converging to $g^\sf$.
-On the other hand, as we approach $\cB_\sing$ the effect
+On the other hand, as we approach $\cM_\sing$ the effect
 of these corrections is large: it smoothes out the singularity
 of $g^\sf$ (partially or completely, depending whether
 $\cM$ is smooth or not.)
@@ -433,8 +434,8 @@ and if $C$ has genus $1$ we require $\abs{P} \ge 1$.
 \insfig{higgs-metric-1}{0.8}
 
 \begin{defn}[Generic puncture data]
-We say $\vec{m}$ is \ti{generic} if all $m^\C_p$
-have all entries distinct. 
+We say $\vec{m}$ is \ti{generic} if each $m^\C_p \in \C^K$
+has all entries distinct. 
 The generic case is the simplest
 case, and for the main purposes of these lectures,
 it is fine to restrict to the generic case throughout.
@@ -545,7 +546,8 @@ $E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, in which case
 the contribution will be $1 - \frac{\alpha}{2\pi}$. 
 \end{example}
 
-\begin{remark}Our conditions on $m^\R$ imply that $\pdeg E \in \Z$.
+\begin{remark}Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
+either for $G = \U(K)$ or $G = \SU(K)$.
 \end{remark}
 
 \begin{defn}[Parabolic stability]
@@ -563,7 +565,7 @@ There is a moduli space $\cM = \cM(G,C,\vec{m})$ parameterizing
 polystable Higgs bundles $(E,\varphi)$, with $\pdeg E = 0$, 
 up to equivalence. 
 $\cM$ is a complex manifold away
-from the locus of strictly polystable Higgs bundles.
+from the locus of unstable (but still polystable) Higgs bundles.
 It carries a natural holomorphic symplectic form $\Omega_1$.
 \end{prop}
 
@@ -576,15 +578,13 @@ valued in $\Omega^{1,0}(\End E)$,
 and the two are naturally dual. \fixme{with some care
 around punctures}
 
-
 \begin{remark}[Dimension of $\cM$]
 The complex dimension of $\cM$ is
 \begin{equation} \label{eq:dim-M}
   \dim_\C \cM = \begin{cases} (2g_C-2) K^2 + 2 + \abs{P} K(K-1), & \quad G = \U(K), \\ (2g_C-2) (K^2-1) + \abs{P} K(K-1), & \quad G = \SU(K). \end{cases}
 \end{equation}
-From now on we write $\dim_C \cM = 2r$.
+From now on we write $\dim_\C \cM = 2r$.
 \end{remark}
-
 
 \begin{example}[The abelian case]
 $G = \U(1)$ is the abelian case, in which $\dim_\C \cM = 2g_C$ irrespective
@@ -816,7 +816,6 @@ for a Hermitian metric $h$ in $E$, written
 Here $D_h$ denotes the Chern connection in $(E,h)$,
 the unique $h$-unitary connection compatible with
 the holomorphic structure of $E$.
-\fixme{write local coordinates?}
 One considers \eqref{eq:hitchin-equation} for
 metrics $h$ which are smooth on $C - P$ and
 have a prescribed singular behavior near each
@@ -827,11 +826,15 @@ in $E$ is \ti{adapted} if, for a holomorphic section $s$
 where $s(p) \in E_p$ has grade $\alpha$, we have
 $h(s,s) \sim \abs{z}^{\frac{2 \alpha}{2\pi}}$ near $p$.
 \end{defn}
-For such a metric $h$ on $E$, and generic puncture data, 
-the holonomy of $D_h$ around $p$
-is just $\exp(\I m^\R)$.
 
-For more general puncture data the situation is a bit 
+\begin{remark}[Holonomy of $D_h$ around punctures for generic puncture data]
+For an adapted metric $h$ on $E$, and generic puncture data, 
+the holonomy of $D_h$ around $p$
+is just $\exp(\I m^\R)$. This is one of the most concrete ways
+of understanding the role of $m^\R$ in the story.
+\end{remark}
+
+For more general puncture data, the situation is a bit 
 more complicated: in addition to polynomial growth
 we need to allow logarithmic behavior, in a way dictated
 by the Jordan block structure of $\varphi$. \fixme{cite Simpson}
@@ -1084,7 +1087,7 @@ $(E,\varphi)$:
 \end{equation}
 Note $\phi_2$ is a section of $\Hom(K_C^{-\half}(-P), K_C^\half) \otimes K_C(P) = K_C(P)^2$ as needed, and by $1$ we mean the 
 canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. If at each $p \in P$ we set
-$m^\R = (\frac{\pi}{2},\frac{\pi}{2})$,
+$m^\R = (\pi,\pi)$,
 and $m^\C = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$
 then $(E,\varphi)$ is a stable \fixme{check} 
 $(C,G,\vec{m})$-Higgs bundle
@@ -1096,6 +1099,8 @@ There is a similar construction for other $G$. \fixme{give refs}
 
 
 \section{Hyperkahler structure}
+
+\subsection{The hyperkahler structure of $\cM$}
 
 So far we have focused on just one of the complex
 structures of $\cM$. Now let us look at the other
@@ -1130,17 +1135,24 @@ $\Omega^{AB}$ is the standard ``Atiyah-Bott'' symplectic
 structure.
 \end{prop}
 
+
+\subsection{Our strategy}
+
 In particular, this means that any holomorphic function $\cX$ of
 the flat connection $\nabla(\zeta)$ becomes a holomorphic
-function on $(\cM, I^\zeta)$; and any holomorphic 
-Darboux coordinate system on $(\cM^\flat, \Omega^{AB})$
+function on $(\cM, I^\zeta)$.
+Extending this to whole coordinate systems, any holomorphic 
+Darboux coordinate system $\{\cX_i\}$ on $(\cM^\flat, \Omega^{AB})$
 induces a holomorphic Darboux coordinate system on
-$(\cM, I^\zeta)$. Moreover, since $\nabla(\zeta)$ varies
-\ti{holomorphically} with $\zeta$,
+$(\cM, I^\zeta)$.
 
-Our aim is to use this idea to calculate some holomorphic Darboux
-coordinates $\cX_\gamma(\zeta)$ in an ``explicit'' way,
+Our aim is to use this idea to calculate holomorphic Darboux
+coordinates $\cX_\gamma(\zeta)$ of a given fixed Higgs bundle,
+in an ``explicit'' way,
 in terms of the data $(Z, \theta)$.
+Note that since $\nabla(\zeta)$ varies
+\ti{holomorphically} with $\zeta$, the coordinates
+$\cX_\gamma(\zeta)$ do as well.
 
 \begin{itemize}
 \item Q: Which holomorphic Darboux coordinate system on
@@ -1148,7 +1160,7 @@ $(\cM^\flat, \Omega^{AB})$ will you use? A: We actually
 will not use just one: instead, as we move around on the
 Hitchin base $\cB$ and/or vary $\zeta$, 
 we will choose different coordinate
-systems in different places.
+systems in different regions, separated by codimension-1 ``walls.''
 
 \insfig{higgs-metric-6}{0.8}
 
@@ -1173,6 +1185,10 @@ Once we have holomorphic Darboux coordinate functions $\cX_\gamma(\zeta)$,
 we can specialize them to say $\zeta = 1$ and get a formula
 for the holomorphic symplectic form $\Omega^{\zeta = 1} = \Omega_3 = \omega_1 + \I \omega_2$; then the desired $\omega_1$ is just
 $\re \Omega^{\zeta = 1}$.
+
+\item Q: Won't the jumping of the $\cX_\gamma(\zeta)$ at the walls
+cause a problem? A: No, the jumps are always by \ti{symplectomorphisms},
+so that even though $\cX_\gamma(\zeta)$ jumps, $\Omega^\zeta$ doesn't.
 \end{itemize}
 
 A toy model for what we are doing would arise in the
@@ -1192,21 +1208,21 @@ i.e. exactly the semiflat metric!
 We could try to do similarly for general $G$.
 The trouble is that in this case $\cX_\gamma(\zeta)$ 
 given above is \ti{not} exactly a holomorphic function.
-Nevetheless it is true ``asymptotically'',
+Nevetheless this is true ``asymptotically'',
 in two different senses: both as we go to infinity 
 in $\cM$ \ti{or} as $\zeta \to 0,\infty$.
 
 
 \section{The coordinates}
 
-What are the coordinates $\cX_\gamma(\zeta)$
+What are the coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
 which we will use?
 
 Specialize to $G = \SU(2)$, and fix $\phi_2 \in \cB$
-and a $\zeta \in \C^\times$.
+and $\zeta \in \C^\times$.
 $\phi_2$ is a holomorphic section of $K_C(P)^2$, i.e.
 a meromorphic quadratic differential on $C$ with
-double poles at $P$ of residue $(m_p^\C)^2$.
+double poles at $P$, of residues $(m_p^\C)^2$.
 
 \begin{defn}[$\zeta$-trajectories of a quadratic differential]
 A \ti{$\zeta$-trajectory} of $\phi_2$ is a path on $C$
@@ -1240,6 +1256,7 @@ $\zeta^{-1} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $
 triangulation $T(\phi_2,\zeta)$ of $C$, by the picture below.
 \end{prop}
 \insfig{higgs-metric-9}{0.95}
+\fixme{ref Strebel}
 
 Now fix an edge $E \in T(\phi_2,\vartheta)$.
 This edge determines a class $\gamma \in \Gamma_{\phi_2}$:
@@ -1346,12 +1363,20 @@ There are invariants $\DT(\mu,\phi_2)$ which determine
 the jumps of the collection
 $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ at the various
 rays $Z_\mu / \zeta \in \R_-$.
+
+\begin{example}
 For example, in case $G = \SU(2)$, $g_C = 0$, 
 $\abs{P}=4$, we can find
 a domain in $\cB$ where there are jumps along exactly
-$24$ rays. (In ``wildly ramified'' examples it can be
+$24$ rays, corresponding to $24$ lattice vectors $\gamma_1, \dots, \gamma_{24} \in \Gamma$ for which 
+$\DT(\gamma_i) = 1$.
+\end{example}
+
+\begin{remark}
+In ``wildly ramified'' examples it can be
 even simpler: we can get jumps along just $4$ rays,
-as shown in the picture above.)
+as shown in the picture above.
+\end{remark}
 
 \begin{remark}[Higher rank]
 So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
