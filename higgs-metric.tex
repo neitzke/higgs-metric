@@ -711,14 +711,14 @@ Then:
 $\Jac \Sigma_\vphi$. After choosing spin structures on 
 $C$ and on $\Sigma$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $U(1)$-connections over $\Sigma_\vphi$ with holonomy
+of flat $\U(1)$-connections over $\Sigma_\vphi$ with holonomy
 around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
 $\Prym (\rho: \Sigma_\vphi \to C)$. 
 After choosing spin structures on 
 $C$ and on $\Sigma$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
+of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
 around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$, 
 equipped with a trivialization of $\det \rho_* \nabla$.
 \end{itemize}
@@ -726,7 +726,7 @@ equipped with a trivialization of $\det \rho_* \nabla$.
 
 So we reach the following picture: a point $\vphi \in \cB_\reg$
 gives a smooth spectral curve $\Sigma_\vphi$; the torus
-$\cM_\vphi$ is a space of flat $U(1)$-connections
+$\cM_\vphi$ is a space of flat $\U(1)$-connections
 over $\Sigma_\vphi$, with fixed holonomies around the
 punctures.
 
@@ -753,12 +753,12 @@ punctures.
 What is $\cB_\sing$ concretely?
 The branch locus of the covering $\rho: \Sigma_\vphi \to C$ 
 is the zero locus of the discriminant $\Delta_{\vphi}$ of the equation \eqref{eq:spectral-coeffs}. $\Delta_\vphi$ 
-is a holomorphic section of $K_C(P)^{K(K-1)}$;
-e.g. for $G = \SU(2)$,
-$\Delta_{\vphi} = - 4 \phi_2$.
+is a holomorphic section of $K_C(P)^{K(K-1)}$.
 $\vphi \in \cB_\reg$ iff $\Delta_\vphi$ has only simple zeroes; in this case
 it has $K(K-1)(2g_C+\abs{P}-2)$ of them, and the genus of $\Sigma_\vphi$ is
-  $g_\Sigma = 1 + K^2(g_C - 1) + \half K(K-1) \abs{P}$.
+\begin{equation}
+g_\Sigma = 1 + K^2(g_C - 1) + \half K(K-1) \abs{P}.
+\end{equation}
 \end{remark}
 
 \begin{example}[Hitchin base and spectral curves for $G = \SU(2)$]
@@ -799,6 +799,8 @@ may collide.)
 \end{example}
 
 \insfig{higgs-metric-2}{0.85}
+
+\fixme{also do the 3-punctured $SU(3)$ case?}
 
 We should emphasize that this one-dimensional example can lead to the
 wrong mental picture about the generic case: generally,
@@ -938,7 +940,7 @@ loop around this point with the weight of the
 determinant representation of this $\U(\nu)$ factor.
 \end{defn}
 
-\begin{example}[Charge lattices for generic puncture data]
+\begin{example}[Charge lattices for $G = \U(K)$ with generic puncture data]
 When the puncture data is generic, we can say all this
 more simply:
 \begin{itemize}
@@ -949,12 +951,14 @@ by loops around the points of $\rho^{-1}(P)$,
 \end{itemize}
 \end{example}
 
+\fixme{discuss $SU(K)$ case}
+
 In any case, these lattices assemble into an exact 
 sequence of local systems of lattices over $\cB_\reg$,
 \begin{equation} \label{eq:lattice-extension}
 0 \to \Gamma^\flavor \to \Gamma \to \Gamma^\gauge \to 0.
 \end{equation}
-$\Gamma^\gauge$ also has a nondegenerate skew pairing,
+$\Gamma^\gauge$ has a nondegenerate skew pairing,
 the intersection pairing on $H_1(\Sigma_\vphi, \Z)$.
 We will sometimes write local formulas using a local
 trivialization of $\Gamma^\gauge$ by ``$A$ and $B$ cycles''
@@ -971,16 +975,16 @@ on $\Tot[K_C]$.
 $\lambda$ has poles along $\rho^{-1}(P)$.
 The \ti{period map} is the map
 \begin{equation}
-   Z_\vphi: \Gamma_\vphi \to \C, \qquad Z_\vphi(\gamma) = \oint_\gamma \lambda
+   Z: \Gamma_\vphi \to \C, \qquad Z_\gamma = \oint_\gamma \lambda
 \end{equation}
 which we could also view as an element $Z \in \Gamma^*_\C$.
 \end{defn}
-The restriction of $Z_\vphi$ to the image of $\Gamma^\flavor$ is constant. 
+The restriction of $Z$ to the image of $\Gamma^\flavor$ is constant. 
 It follows that the derivative $\de Z: \Gamma \to T^* \cB_\reg$ descends to
 $\de Z: \Gamma^\gauge \to T^* \cB_\reg$,
 which we can also view as
 \begin{equation}
-  \de Z \in T^* \cB_\reg \otimes (\Gamma_\C^\gauge)^*
+  \de Z \in T^* \cB_\reg \otimes (\Gamma_\C^\gauge)^*.
 \end{equation}
 % Note moreover the dimensional ``coincidence'' that
 % $\rank \Gamma^\gauge = 2 \dim_\C \cB_{\reg}$.
@@ -990,7 +994,7 @@ Then we can define a $2$-form
 $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$.
 Using a local trivialization of $\Gamma^\gauge$ we have
 \begin{equation}
-  \DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z(A^I) \wedge \de Z(B_I).
+  \DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}.
 \end{equation}
 
 
@@ -1017,24 +1021,25 @@ with the holomorphic symplectic form on $T^* C$)
 and thus
 $\int_\Sigma \delta_1 \wedge \delta_2 = 0$.
 
-Next we define a 2-form on $\cB$ by
+\begin{defn}[Special \kahler form on $\cB_\reg$]
+Next we define a 2-form on $\cB_\reg$ by
 \begin{equation}
-  \omega = \DIP{\de Z, \de \overline{Z}}
+  \omega = \DIP{\de Z, \de \overline{Z}}.
 \end{equation}
-(or using a basis of $\Gamma^\gauge$ with 
-$\IP{A^I, B_J} = \delta^I_J$, 
-$\omega = \sum_{I = 1}^{n} \de Z(A^I) \wedge \de \overline{Z}(B_I)$.)
+In terms of $A$ and $B$ cycles,
+$\omega = \sum_{I = 1}^{n} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
+\end{defn}
 
 \begin{prop}[Positivity of $\omega$] $\omega$ is a
-positive $(1,1)$-form on $\cB_\reg$ (and thus it defines
-a \kahler metric on $\cB_\reg$).
+positive $(1,1)$-form on $\cB_\reg$, and thus it defines
+a \kahler metric on $\cB_\reg$.
 \end{prop}
 
 From the existence of $Z$ with the above properties
 one can deduce all the structure
 of special \kahler manifold on $\cB_\reg$. In particular,
-for any choice of linearly independent 
-vectors $A^1, \dots, A^r \in \Gamma^\gauge$
+for any choice of linearly independent ``$A$ cycles''
+$A^1, \dots, A^r \in \Gamma^\gauge$
 with $\IP{A^I, A^J} = 0$, lifted to $\tilde A^I \in \Gamma$, 
 the functions
 $a^I = Z_{\tilde A^I}$ give a local coordinate
@@ -1061,13 +1066,14 @@ Their differentials can be assembled into
   \de \theta \in \Omega^1(\cM) \otimes (\Gamma^\gauge)^*.
 \end{equation}
 If we choose a basis for $\Gamma_\vphi$ 
-then we get coordinates $\theta_1, \dots, \theta_{2r}$.
+then we get $\R / 2 \pi \Z$-valued coordinates $\theta_1, \dots, \theta_{2r}$
+on $\cM_\vphi$.
 
 \begin{defn}[Semiflat metric]
 The \ti{semiflat metric} on $\cM_\reg$ is the metric $g^\sf$ 
 on $(\cM_\reg, I_1)$ with
 \kahler form
-\begin{equation}
+\begin{equation} \label{eq:omega1-sf}
   \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
 \end{defn}
@@ -1095,12 +1101,12 @@ $(E,\varphi)$:
 \end{equation}
 Note $\phi_2$ is a section of $\Hom(K_C^{-\half}(-P), K_C^\half) \otimes K_C(P) = K_C(P)^2$ as needed, and by $1$ we mean the 
 canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. If at each $p \in P$ we set
-$m^\R = (\pi,\pi)$,
-and $m^\C = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$
+$m^\R = (\pi,\pi)$
+and $m^\C = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$,
 then $(E,\varphi)$ is a stable \fixme{check} 
 $(C,G,\vec{m})$-Higgs bundle
 lying in the fiber over $\phi_2 \in \cB$.
-This gives a section of the Hitchin map.
+This gives a section of the Hitchin map for this $(C,G,\vec{m})$.
 \end{defn}
 There is a similar construction for other $G$. \fixme{give refs}
 
@@ -1200,10 +1206,10 @@ so that even though $\cX_\gamma(\zeta)$ jumps, $\Omega^\zeta$ doesn't.
 \end{itemize}
 
 A toy model for what we are doing would arise in the
-case $G = \U(1)$. In that case we can say easily what
-the good holomorphic Darboux coordinates are: they are
-just the $\C^\times$-valued \ti{holonomies} of the 
-complex flat connection $\nabla(\zeta)$, which are simply
+case $G = \U(1)$. In that case we can easily produce holomorphic Darboux coordinates: 
+just take the $\C^\times$-valued \ti{holonomies} of the 
+complex flat connection $\nabla(\zeta)$, which are simply\footnote{Note that in the case
+$G = \U(1)$ we have $\Sigma = C$, so $\Gamma = H_1(C,\Z)$.}
 \begin{equation}
   \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \bar Z_\gamma \right).
 \end{equation}
@@ -1211,7 +1217,9 @@ Using these coordinates at $\zeta = 1$ we get
 \begin{equation}
  \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}
 \end{equation}
-i.e. exactly the semiflat metric!
+which is the semiflat \kahler form \eqref{eq:omega1-sf}!
+Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
+with the semiflat metric $g^\sf$ on the nose.
 
 We could try to do similarly for general $G$.
 The trouble is that in this case $\cX_\gamma(\zeta)$ 
@@ -1413,9 +1421,6 @@ where
   \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
 \end{equation}
 \end{conj}
-
-Here $\sigma(\mu)$ is $-1$ when $\mu$ is the charge of a saddle connection,
-and $+1$ when $\mu$ is the charge of a closed loop.
 
 \begin{itemize}
   \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
