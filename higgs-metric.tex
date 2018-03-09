@@ -1331,7 +1331,7 @@ trajectories: then we get a jump of the form
   \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}
 \end{equation}
 We can unify these to:
-\begin{equation}
+\begin{equation} \label{eq:ks-map}
   \cX_\gamma \to \cX_\gamma(1 - \sigma(\mu) \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
 where for a saddle connection
@@ -1348,18 +1348,20 @@ in the sense of the special \kahler structure, characterized
 by $Z_{\pm \mu} / \zeta \in \R_-$, where $\mu$
 is the vanishing cycle. Each wall carries a transformation
 of the coordinates $\cX_\gamma$. When walls collide, they 
-can generate new walls, as needed so that the $\cX_\gamma$
-are well defined, a la Kontsevich-Soibelman.
+can generate new walls; this process is completely
+determined by the requirement that the $\cX_\gamma$
+are well defined. \fixme{cite KS}
 \end{remark}
 
 
 \begin{remark}[More interesting discriminant points]
-When the discriminant meets itself, there's a more interesting
-structure. Many things can happen; here are two:
+When the discriminant meets itself, there's a more interesting structure of walls emanating. 
+Many things can happen; here are two:
 \insfig{higgs-metric-13}{0.9}
 At left is what happens when three zeroes of $\phi_2$ collide:
 this produces a discriminant point which emits $5$ walls.
-Each of these walls is carrying a transformation with
+Each of these walls carries a transformation 
+of the form \eqref{eq:ks-map} with
 $\DT(\mu) = 1$.
 At right is the example of $G = \SU(2)$, $g_C = 0$, 
 $\abs{P}=4$: as we adjust all $m^\C$ to zero, so that 
@@ -1367,7 +1369,8 @@ all zeroes of $\phi_2$ move onto punctures,
 the six discriminant points collapse into one.
 The resulting point emits
 walls with every rational slope, each one carrying 
-a compound transformation with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
+a product of two transformations 
+\eqref{eq:ks-map}, with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 \end{remark}
 
 For our purpose right now though, what we really need 
@@ -1383,12 +1386,18 @@ rays $Z_\mu / \zeta \in \R_-$.
 
 \begin{example}[Finite chamber for $G = \SU(2)$, $g_C = 0$, $\abs{P} = 4$]
 In case $G = \SU(2)$, $g_C = 0$, 
-$\abs{P}=4$, we can find
+$\abs{P}=4$, at least for some choices of 
+$m^\C$, there exists 
 a domain $D \subset \cB$ such that, when $\phi_2 \in D$, 
 the function $\cX_\gamma(\zeta)$ jumps at exactly
 $24$ rays in the $\zeta$-plane, 
 corresponding to $24$ lattice vectors $\gamma_1, \dots, \gamma_{24} \in \Gamma$ for which 
-$\DT(\gamma_i) = 1$.
+$\DT(\gamma_i) = 1$. For all other $\gamma \in \Gamma$
+we have $\DT(\gamma) = 0$.
+One concrete example of a $\phi_2 \in D$ is
+\begin{equation}
+  \phi_2 = \frac{z^4 - \half (z^4-1)}{(z^4-1)^2} \de z^2.
+\end{equation}
 \end{example}
 
 \begin{remark}[Even simpler cases]
