@@ -563,9 +563,13 @@ of vanishing by an integer can be accomplished as usual by multiplying sections 
 \end{remark}
 
 \begin{defn}[Parabolic Higgs bundles for $G = \SU(K)$]
-When $G = \SU(K)$, we impose the additional condition that
-$\det E$ is trivial \fixme{in the parabolic sense...} and 
-$\Tr \varphi = 0$.
+When $G = \SU(K)$, a \ti{$(G,C,\vec m)$-Higgs bundle} 
+is a pair $(E, \varphi)$ as for $G = \U(K)$, with two additional conditions:
+\begin{itemize} 
+\item $\det E$ is trivial in the parabolic sense: this means
+that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p\right)$ over $C$ is trivial, where $n_p = \frac{1}{2\pi}\Tr \alpha_p^\R$.
+\item $\Tr \varphi = 0$.
+\end{itemize}
 \end{defn}
 
 \begin{defn}[Parabolic degree]
@@ -1182,9 +1186,9 @@ $G_\C$-connections over $C$:
 \begin{prop} \label{prop:generic-structures-flat-connections} For any $\zeta \in \C^\times$,
 the map $(E,\varphi) \to \nabla(\zeta)$ identifies
 \begin{equation}
-  (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{AB})
+  (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{ABG})
 \end{equation}
-where $\cM^\flat = \cM^\flat(G, C, m_\zeta)$
+Here $\cM^\flat = \cM^\flat(G, C, m^\zeta)$
 is the moduli space of flat reductive 
 $G_\C$-connections over $C \setminus P$ 
 with some prescribed structure at the points of $P$ 
@@ -1195,8 +1199,8 @@ the diagonal matrix $\exp(m^\zeta_p)$ with
 \begin{equation}
 m^{\zeta}_p = \zeta^{-1} m_p^\C + \I m_p^\R + \zeta \overline{m}_p^\C. 
 \end{equation}
-$\Omega^{AB}$ is the standard ``Atiyah-Bott'' symplectic
-structure.
+$\Omega^{ABG}$ is the standard ``Atiyah-Bott-Goldman'' symplectic
+structure on $\cM^\flat$.
 \end{prop}
 
 
@@ -1208,7 +1212,7 @@ when applied to
 the flat connection $\nabla(\zeta)$, becomes a holomorphic
 function on $(\cM, I^\zeta)$.
 Extending this to coordinate systems, any holomorphic 
-Darboux coordinate system $\{\cX_i\}$ on $(\cM^\flat, \Omega^{AB})$
+Darboux coordinate system $\{\cX_i\}$ on $(\cM^\flat, \Omega^{ABG})$
 becomes a holomorphic Darboux coordinate system on
 $(\cM, I^\zeta)$.
 
@@ -1336,11 +1340,11 @@ and poles of $\phi_2$.
 At each zero of $\phi_2$, the foliation
 by $\zeta$-trajectories has a three-pronged singularity,
 as shown below.
-\insfig{higgs-metric-8}{0.8}
+\insfig{higgs-metric-8}{0.92}
 At each pole $p$ of $\phi_2$ with $\zeta^{-1} m^\C_p \notin \R$, 
 the foliation has a ``spiraling'' singularity, as shown
 below.
-\insfig{higgs-metric-7}{1.0}
+\insfig{higgs-metric-7}{1.15}
 \end{prop}
 
 
@@ -1407,9 +1411,9 @@ function $\cX_\gamma(\zeta)$ is only piecewise
 smooth: it suffers
 a jump whenever the triangulation $T(\phi_2, \zeta)$
 changes. 
-\insfig{higgs-metric-11}{0.8}
+\insfig{higgs-metric-11}{1.25}
 This jump is associated with the ``saddle connection''
-appearing in the middle.
+appearing in the middle of the figure above.
 It can only appear when $\zeta^{-1} Z_\mu \in \R_-$.
 The coordinates on the two sides of the jump are related by:
 \begin{equation}
