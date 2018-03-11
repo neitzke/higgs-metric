@@ -350,8 +350,6 @@ The latest version can be found at
 
 \section{Overview}
 
-\fixme{need to add many references}
-
 The aim of these lectures is to describe a \ti{conjectural} 
 approach to 
 ``more explicitly'' understanding the \hk metric $g$ on 
@@ -415,6 +413,47 @@ The strategy of the lectures will be roughly:
 \end{enumerate}
 
 
+\subsection{References}
+
+The conjecture I am going to review is mostly contained in 
+the papers \cite{Gaiotto:2008cd,Gaiotto:2009hg},
+which are joint work of mine with Davide Gaiotto and Greg
+Moore.
+In \cite{notes-hk} I reviewed some parts of the conjecture,
+focusing on the abstract construction of \hk metrics from a
+special \kahler base and Donaldson-Thomas invariants;
+in these lectures I focus more on the specific example
+of moduli spaces of parabolic Higgs bundles.
+
+These works depend on many prior developments
+in physics and mathematics. Here I can only single out a few
+which were of singular importance (for more, see the references
+in \cite{Gaiotto:2008cd,Gaiotto:2009hg}):
+\begin{itemize}
+\item The work \cite{Gaiotto:2008cd} 
+originated in an attempt to understand the physical
+meaning of the remarkable wall-crossing formula for generalized
+Donaldson-Thomas invariants, given by Kontsevich-Soibelman \cite{ks1}.
+\item Many of the key constructions in 
+\cite{Gaiotto:2008cd} can
+be understood as infinite-dimensional analogues 
+of constructions used by Cecotti-Vafa and Dubrovin in 
+$tt^*$ geometry \cite{Cecotti:1993rm,MR1213301}, with
+additional inspiration from work of Bridgeland and 
+Toledano Laredo \cite{stab-stokes}.
+\item The application to Hitchin systems
+in \cite{Gaiotto:2009hg} depended importantly on
+the work of Fock-Goncharov on moduli spaces
+of local systems over surfaces \cite{MR2233852},
+as well as the foundational work
+of Hitchin \cite{MR89a:32021} and Corlette, Donaldson, Simpson
+\cite{MR965220,MR887285,MR944577} on Higgs bundles without
+singularities, Simpson's extension to 
+Higgs bundles with regular 
+singularities \cite{hbnc}, and Biquard-Boalch for Higgs
+bundles with wild ramification \cite{wnh}.
+\end{itemize}
+
 \section{Background on Hitchin system}
 
 \subsection{Data}
@@ -463,6 +502,11 @@ but with an eye to what will come later, we go straight
 to the parabolic case. Roughly this means that we will consider
 Higgs fields which, rather than being holomorphic, are
 allowed to have simple poles at the points $p \in P$.
+
+The original reference for the material in this section
+is Simpson \cite{hbnc}.
+A very useful review of the unpunctured case can be found in
+\cite{Wentworth2014} and references therein.
 
 \begin{defn}[Parabolic Higgs bundles for $G = \U(K)$]
 When $G = \U(K)$, a $(G, C, \vec m)$-\ti{Higgs bundle} is a pair $(E, \varphi)$, where:
@@ -569,11 +613,10 @@ stable Higgs bundles with the same $\frac{\pdeg}{\rank}$.
 There is a moduli space $\cM = \cM(G,C,\vec{m})$ parameterizing
 polystable Higgs bundles $(E,\varphi)$, with $\pdeg E = 0$, 
 up to equivalence. 
-$\cM$ is a complex manifold away
+$\cM$ is a manifold away
 from the locus of unstable (but still polystable) Higgs bundles.
-It carries a natural holomorphic symplectic form $\Omega_1$.
+It carries a natural complex structure $I_1$ and holomorphic symplectic form $\Omega_1$.
 \end{prop}
-
 
 The holomorphic symplectic form 
 $\Omega_1$ comes from the fact that variations of the
@@ -850,9 +893,10 @@ of understanding the role of $m^\R$ in the story.
 For more general puncture data, the situation is a bit 
 more complicated: in addition to polynomial growth
 we need to allow logarithmic behavior, in a way dictated
-by the Jordan block structure of $\varphi$. \fixme{cite Simpson}
+by the Jordan block structure of $\varphi$.
+The precise statement can be found in \cite{hbnc}.
 
-A basic fact is: \fixme{refs: Simpson}
+A basic fact from \cite{hbnc} is:
 \begin{thm}[Existence of harmonic metrics] \label{thm:hitchin-existence}
 The equation \eqref{eq:hitchin-equation} has an
 adapted solution $h$ for each $(E,\varphi)$;
@@ -886,7 +930,8 @@ where for $(\dot A, \dot \Phi)$ we choose the representative
 why the metric $g$ constructed in this way turns out to 
 be \hk, or even \kahler. The most conceptual explanation
 of this comes by viewing the construction in terms of 
-an infinite-dimensional \hk quotient \fixme{cite Hitchin}.
+an infinite-dimensional \hk quotient, as explained by
+Hitchin in \cite{MR89a:32021}.
 \end{remark}
 
 % \subsection{Hyperkahler structure}
@@ -1073,9 +1118,8 @@ then we get $\R / 2 \pi \Z$-valued coordinates $\theta_1, \dots, \theta_{2r}$
 on $\cM_\vphi$.
 
 \begin{defn}[Semiflat metric]
-The \ti{semiflat metric} on $\cM_\reg$ is the metric $g^\sf$ 
-on $(\cM_\reg, I_1)$ with
-\kahler form
+The \ti{semiflat metric}  $g^\sf$ on $\cM_\reg$ is the metric 
+whose \kahler form in structure $I_1$ is
 \begin{equation} \label{eq:omega1-sf}
   \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
@@ -1083,7 +1127,8 @@ on $(\cM_\reg, I_1)$ with
 
 \fixme{write in local coords}
 
-\fixme{remark this is exactly $g$ in abelian case?}
+As we will show below, $\omega_1^\sf$ is the \kahler
+form for the \hk metric on $\cM$ in the case $G = \U(1)$.
 
 
 \subsection{The Hitchin section}
@@ -1106,18 +1151,19 @@ Note $\phi_2$ is a section of $\Hom(K_C^{-\half}(-P), K_C^\half) \otimes K_C(P) 
 canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. If at each $p \in P$ we set
 $m^\R_p = (\pi,\pi)$
 and $m^\C_p = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$,
-then $(E,\varphi)$ is a stable \fixme{check} 
-$(C,G,\vec{m})$-Higgs bundle
-lying in the fiber over $\phi_2 \in \cB$.
+then $(E,\varphi)$ is a stable $(C,G,\vec{m})$-Higgs bundle
+lying in the fiber $\cM_{\phi_2}$.
 This gives a section of the Hitchin map for this $(C,G,\vec{m})$.
 \end{defn}
-There is a similar construction for other $G$. \fixme{give refs}
+There is a similar construction of sections
+of the Hitchin map for other $G$; for the
+unpunctured case it originates in \cite{MR1174252}.
 
 
 
 \section{Hyperk\"ahler structure}
 
-\subsection{The hyperk\"ahler structure of $\cM$}
+\subsection{The hyperk\"ahler structure of \texorpdfstring{$\cM$}{M}}
 
 So far we have focused on just one of the complex
 structures of $\cM$. Now let us look at the other
@@ -1126,27 +1172,27 @@ complex structures $I^\zeta$, $\zeta \in \C^\times$.
 
 Given a Higgs bundle $(E,\varphi)$ and 
 solution $h$ of Hitchin's equations \eqref{eq:hitchin-equation}
-there is a correponding $1$-parameter family of flat
+there is a corresponding $1$-parameter family of flat
 $G_\C$-connections over $C$:
-(where now we suppress the explicit $h$)
 \begin{equation}
-  \nabla(\zeta) = \zeta^{-1} \varphi + D + \zeta \varphi^\dagger
+  \nabla(\zeta) = \zeta^{-1} \varphi + D + \zeta \varphi^\dagger.
 \end{equation}
 
-\begin{prop} For any $\zeta \in \C^\times$,
+\begin{prop} \label{prop:generic-structures-flat-connections} For any $\zeta \in \C^\times$,
 the map $(E,\varphi) \to \nabla(\zeta)$ identifies
 \begin{equation}
   (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{AB})
 \end{equation}
 where $\cM^\flat = \cM^\flat(G, C, m_\zeta)$
 is the moduli space of flat reductive 
-$G_\C$-connections
-over $C$ with some prescribed structure at the punctures ---
+$G_\C$-connections over $C \setminus P$ 
+with some prescribed structure at the points of $P$ 
+---
 e.g. in the case of generic puncture data,
 the holonomy around $p \in P$ has to be conjugate to 
-the diagonal matrix $\exp(m_\zeta)$ with
+the diagonal matrix $\exp(m^\zeta_p)$ with
 \begin{equation}
-m_\zeta = \zeta^{-1} m^\C + \I m^\R + \zeta \overline{m}^\C. 
+m^{\zeta}_p = \zeta^{-1} m_p^\C + \I m_p^\R + \zeta \overline{m}_p^\C. 
 \end{equation}
 $\Omega^{AB}$ is the standard ``Atiyah-Bott'' symplectic
 structure.
@@ -1155,10 +1201,12 @@ structure.
 
 \subsection{Our strategy}
 
-In particular, this means that any holomorphic function $\cX$ of
-the flat connection $\nabla(\zeta)$ becomes a holomorphic
+\autoref{prop:generic-structures-flat-connections} 
+implies that any holomorphic function $\cX$ on $\cM^\flat$,
+when applied to
+the flat connection $\nabla(\zeta)$, becomes a holomorphic
 function on $(\cM, I^\zeta)$.
-Extending this to whole coordinate systems, any holomorphic 
+Extending this to coordinate systems, any holomorphic 
 Darboux coordinate system $\{\cX_i\}$ on $(\cM^\flat, \Omega^{AB})$
 becomes a holomorphic Darboux coordinate system on
 $(\cM, I^\zeta)$.
@@ -1208,12 +1256,13 @@ cause a problem? A: No, the jumps are always by \ti{symplectomorphisms},
 so that even though $\cX_\gamma(\zeta)$ jumps, $\Omega^\zeta$ doesn't.
 \end{itemize}
 
-A toy model for what we are doing would arise in the
+\begin{remark}[The case of $G = \U(1)$]
+A toy model for what we are doing arises in the
 case $G = \U(1)$. In that case we can easily produce holomorphic Darboux coordinates: 
 just take the $\C^\times$-valued \ti{holonomies} of the 
 complex flat connection $\nabla(\zeta)$, which are simply\footnote{Note that in the case
 $G = \U(1)$ we have $\Sigma = C$, so $\Gamma = H_1(C,\Z)$.}
-\begin{equation}
+\begin{equation} \label{eq:X-sf}
   \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \bar Z_\gamma \right).
 \end{equation}
 Using these coordinates at $\zeta = 1$ we get
@@ -1223,14 +1272,16 @@ Using these coordinates at $\zeta = 1$ we get
 which is the semiflat \kahler form \eqref{eq:omega1-sf}!
 Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
 with the semiflat metric $g^\sf$ on the nose.
+\end{remark}
 
 We could try to do similarly for general $G$.
 The trouble is that in this case $\cX_\gamma(\zeta)$ 
-given above is \ti{not} a holomorphic function on $(\cM, I^\zeta)$.
-Nevetheless this is true ``asymptotically'',
-in two different senses: as we go to infinity 
-in $\cM$ \ti{or} as $\zeta \to 0,\infty$.
-Below we will see more precisely what we mean by this.
+given by \eqref{eq:X-sf} is \ti{not} a holomorphic function
+on $(\cM, I^\zeta)$. Nevetheless this is
+true ``asymptotically'', in two different senses: as we go
+to infinity in $\cM$ \ti{or} as we take $\zeta \to 0$ or
+$\zeta \to \infty$. Below we will see more precisely what
+we mean by this.
 
 
 \section{The coordinates}
