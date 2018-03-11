@@ -364,7 +364,7 @@ with complex Lagrangian fibers.
 There is a complex codimension $1$ 
 ``singular locus'' $\cB_\sing \subset \cB$.
 Let $\cB_\reg = \cB \setminus \cB_\sing$,
-and $\cM_\reg = \pi^{-1}(\cB_\reg)$
+and $\cM_\reg = \pi^{-1}(\cB_\reg)$.
 On $\cM_\reg$, the fibers of $\pi$ are compact
 complex tori, roughly the Jacobians of a
 family of smooth \ti{spectral curves} $\Sigma_\vphi \subset T^* C$
@@ -373,10 +373,13 @@ parameterized by $\vphi \in \cB_\reg$.
 The picture is that the \hk metric $g$ on $\cM$ is constructed
 from two constituents:
 \begin{itemize}
-  \item The special \kahler structure on $\cB_\reg$, constructed from \ti{periods} of the spectral curves $\Sigma_\vphi$ ($\vphi \in \cB_\reg$),
+  \item The special \kahler structure on $\cB_\reg$, constructed from 
+  \ti{periods} of the spectral curves $\Sigma_\vphi$ ($\vphi \in \cB_\reg$),
+  denoted $Z_\gamma$ below,
   \insfig{higgs-metric-4}{0.9}
   \item A collection of integer ``Donaldson-Thomas invariants,''
-  which (in a tropical sense) count special Lagrangian discs
+  denoted $\DT(\gamma)$ below,
+  which count (tropicalizations of) special Lagrangian discs
   in $T^*C$ with boundary on $\Sigma_\vphi$.
   \insfig{higgs-metric-5}{0.8}
 \end{itemize}
@@ -391,10 +394,10 @@ fibers. $g^\sf$ however does not extend to the full $\cM$.
 The effect of the Donaldson-Thomas invariants
 is to add corrections which break the translation invariance.
 Away from $\cM_\sing$, these corrections are of the order 
-$\e^{-M}$ where $M$ is the area of the smallest 
+$\e^{-2M}$ where $M$ is the area of the smallest 
 special Lagrangian disc, i.e. we predict
 \begin{equation}
-  g = g^\sf + O(\e^{-M}).
+  g = g^\sf + O(\e^{-2M}).
 \end{equation}
 In particular, if we follow some path to infinity in $\cM$
 along which $M \to \infty$, we expect to see $g$
@@ -426,7 +429,7 @@ We write $\Tr$ for the sum of the entries of a $K$-vector.
 If $G = \SU(K)$ then we require
 $\Tr m_p^\C = 0$ and $\Tr m_p^\R = 0$.
 If $G = \U(K)$ we require instead 
-$\sum_{p \in P} \Tr m_p^\C = 0$,
+$\sum_{p \in P} \Tr m_p^\C = 0$ and
 $\sum_{p \in P} \Tr m_p^\R = 0$.
 
 We require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
