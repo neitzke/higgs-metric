@@ -969,8 +969,9 @@ Hitchin in \cite{MR89a:32021}.
 
 \subsection{The special \kahler structure}
 
-The regular part of the Hitchin base $\cB_\reg$ 
-carries a (rigid) special \kahler structure, as follows.
+The regular part $\cB_\reg$ of the Hitchin base 
+carries a (rigid) special \kahler structure 
+in the sense of \cite{Freed:1997dp}, as follows.
 
 \begin{defn}[Charge lattices for $G = \U(K)$]
 Suppose $G = \U(K)$ and $\vphi \in \cB_\reg$. 
@@ -1265,6 +1266,16 @@ $G = \U(1)$ we have $\Sigma = C$, so $\Gamma = H_1(C,\Z)$.}
 \begin{equation} \label{eq:X-sf}
   \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \bar Z_\gamma \right).
 \end{equation}
+These functions obey the relation
+\begin{equation}
+	\cX_{\gamma} \cX_{\gamma'} = \cX_{\gamma + \gamma'}.
+\end{equation}
+If we choose a basis $\{\gamma_1, \dots, \gamma_{2r}\}$
+for $\Gamma$, then the corresponding functions
+$\{\cX_{\gamma_1}, \dots, \cX_{\gamma_{2r}}\}$
+give coordinates on $\cM$; by abuse of
+language we refer to the whole collection 
+$\cX_\gamma$ as a coordinate system.
 Using these coordinates at $\zeta = 1$ we get
 \begin{equation}
  \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}
@@ -1275,19 +1286,32 @@ with the semiflat metric $g^\sf$ on the nose.
 \end{remark}
 
 We could try to do similarly for general $G$.
-The trouble is that in this case $\cX_\gamma(\zeta)$ 
-given by \eqref{eq:X-sf} is \ti{not} a holomorphic function
-on $(\cM, I^\zeta)$. Nevetheless this is
-true ``asymptotically'', in two different senses: as we go
-to infinity in $\cM$ \ti{or} as we take $\zeta \to 0$ or
-$\zeta \to \infty$. Below we will see more precisely what
-we mean by this.
+Indeed, if we choose a local section $\gamma$ of the local
+system $\Gamma$, then 
+the formula \eqref{eq:X-sf} makes good local sense,
+and the functions $\cX_\gamma(\zeta)$ so defined 
+give an honest local coordinate system
+on $\cM$. The trouble is that it is not a \ti{holomorphic}
+coordinate system in complex structure $I^\zeta$.
+Instead we will construct some
+other functions $\cX_\gamma(\zeta)$ which \ti{are} true 
+holomorphic Darboux coordinates. 
+
+Happily, it will turn out 
+that \eqref{eq:X-sf} does not have to be abandoned completely:
+it is true ``asymptotically'', in two different senses --- 
+either as we go
+to infinity in $\cM$, or as we take $\zeta \to 0$ or
+$\zeta \to \infty$.
 
 
 \section{The coordinates}
 
 What are the true holomorphic coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
 which we will use?
+
+
+\subsection{Defining the coordinates}
 
 Specialize to $G = \SU(2)$, and fix $\phi_2 \in \cB$
 and $\zeta \in \C^\times$.
@@ -1321,17 +1345,21 @@ below.
 
 
 \begin{prop}[Ideal triangulation determined by the
-$\zeta$-trajectories]
+$\zeta$-trajectories] \label{prop:triangulation}
 Suppose $(\phi_2, \zeta)$ is generic, in the sense that
 $\zeta^{-1} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\vartheta$-trajectories determine an ideal
 triangulation $T(\phi_2,\zeta)$ of $C$, by the picture below.
 \end{prop}
 \insfig{higgs-metric-9}{0.95}
-\fixme{ref Strebel}
+The proof of \autoref{prop:triangulation} 
+is given in \cite{Gaiotto:2009hg},
+leaning heavily on the analysis of trajctories
+given by Strebel \cite{MR743423}.
 
+\begin{defn}[Fock-Goncharov coordinate attached to an edge] \label{def:fg-coordinate}
 Now fix an edge $E \in T(\phi_2,\vartheta)$.
 This edge determines a class $\gamma \in \Gamma_{\phi_2}$:
-\insfig{higgs-metric-10}{1.0}
+\insfig{higgs-metric-10}{1.3}
 To define $\cX_\gamma(\zeta)$ we consider the connection
 $\nabla(\zeta)$ restricted to the quadrilateral shown.
 Its space of flat sections is a $2$-dimensional vector space $V$,
@@ -1342,15 +1370,20 @@ as we go into the $i$-th
 puncture along a leaf of $T(\phi_2,\zeta)$.
 Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
 We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
-these $4$ points. \fixme{Fock-Goncharov} \fixme{fix sign}
+these $4$ points. \fixme{write precise formula} (This definition comes essentially from
+the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.) 
+\end{defn}
 
-Making the same construction for all edges $E$
-gives functions $\cX_\gamma(\zeta)$ with
-$\gamma$ running over a basis for a finite-index sublattice 
-of $\Gamma$. They are Darboux coordinates:
+Applying \autoref{def:fg-coordinate} for all edges $E$
+of $T(\phi_2,\vartheta)$ gives functions
+$\cX_\gamma(\zeta)$ with $\gamma$ running over a basis for
+a finite-index sublattice of $\Gamma$. They are local
+Darboux coordinates:
 \begin{equation}
   \Omega^\zeta = \DIP{\de \log \cX, \de \log \cX}.
 \end{equation}
+
+\subsection{Asymptotic behavior of the coordinates}
 
 The main asymptotic property of these coordinates is:
 \begin{conj}
@@ -1365,10 +1398,13 @@ When $\theta_\gamma = 0$, $c_\gamma = 1$, so
 \end{conj}
 (The idea: it should follow from the exact WKB method. Morally,
 the connection $\nabla(\zeta) = \varphi / \zeta + \cdots$ 
-is dominated by the leading term.)
+is dominated by the leading term. \fixme{explain a little more?})
 
-As we vary $(\phi_2, \zeta)$ however, the
-function $\cX_\gamma(\zeta)$ is generally not smooth: it suffers
+\subsection{Piecewise analytic behavior of the coordinates}
+
+As we vary $(\phi_2, \zeta)$, the
+function $\cX_\gamma(\zeta)$ is only piecewise 
+smooth: it suffers
 a jump whenever the triangulation $T(\phi_2, \zeta)$
 changes. 
 \insfig{higgs-metric-11}{0.8}
@@ -1393,18 +1429,28 @@ we have $\DT(\mu) = +1$ and $\sigma(\mu) = -1$, while
 for a closed loop we have $\DT(\mu) = -2$ and $\sigma(\mu) = +1$.
 
 \begin{remark}[Wall structure on $\cB$]
-Now suppose we fix $\zeta$ and move around in $\cM$.
+Suppose we fix $\zeta$ and move around in $\cM$.
 We get an interesting structure on $\cB$:
 \insfig{higgs-metric-12}{0.8}
 Each simple discriminant point (where $\phi_2$ develops
-a double zero) emits two walls. The walls are ``hyperplanes'' 
-in the sense of the special \kahler structure, characterized
-by $Z_{\pm \mu} / \zeta \in \R_-$, where $\mu$
-is the vanishing cycle. Each wall carries a transformation
-of the coordinates $\cX_\gamma$. When walls collide, they 
-can generate new walls; this process is completely
+a double zero) emits two walls. These two 
+walls are ``hyperplanes'' 
+in the sense of the special \kahler structure on $\cB_\reg$:
+they are of the form $Z_{\pm \mu} / \zeta \in \R_-$, where 
+$\mu$ is the vanishing cycle.
+Each of these two walls carries a transformation
+of the coordinates $\cX_\gamma$, of the form
+\eqref{eq:ks-map}, with $\DT(\mu) = +1$.
+
+When walls collide, they 
+can generate new walls. The new walls are also of the form
+ $Z_\mu / \zeta \in \R_-$ for some $\mu$, and carry
+ transformations of the form \eqref{eq:ks-map}.
+ The precise structure of the new walls is completely
 determined by the requirement that the $\cX_\gamma$
-are well defined. \fixme{cite KS}
+are well defined; this is essentially an application 
+of the Kontsevich-Soibelman wall-crossing formula
+\cite{ks1}. 
 \end{remark}
 
 
@@ -1468,7 +1514,7 @@ more below.
 So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
 less the same. For $K>2$ the situation becomes more interesting:
 instead of studying ideal triangulations $T(\phi_2, \zeta)$ 
-one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$.
+one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.
 Then again there is a recipe for invariants $\DT(\gamma)$
 and coordinates $\cX_\gamma(\zeta)$. This recipe however 
 depends on some conjectures:
