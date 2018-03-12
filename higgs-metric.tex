@@ -260,6 +260,8 @@
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ParEnd}{ParEnd}
+\DeclareMathOperator{\SParEnd}{SParEnd}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Sym}{Sym}
@@ -283,6 +285,8 @@
 \DeclareMathOperator{\Gr}{Gr}
 \DeclareMathOperator{\DT}{DT}
 
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SL}{\mathrm{SL}}
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\U}{\mathrm{U}}
@@ -500,8 +504,12 @@ be invariant under the symmetric group $S_K$ acting on $\vec m_p$.
 Usually one would start out with ordinary Higgs bundles,
 but with an eye to what will come later, we go straight
 to the parabolic case. Roughly this means that we will consider
-Higgs fields which, rather than being holomorphic, are
-allowed to have simple poles at the points $p \in P$.
+Higgs fields $\varphi$ which, rather than being holomorphic, are
+allowed to have simple poles at the points $p \in P$.\footnote{The parameter $m_p^\C$ will
+control the eigenvalues of the residue; the
+``strongly parabolic'' case of nilpotent residues
+is thus the case $m_p^\C = 0$, which we usually
+avoid.}
 
 The original reference for the material in this section
 is Simpson \cite{hbnc}.
@@ -549,7 +557,7 @@ with generalized eigenvalue $\lambda^\C$.
 The case of generic puncture data is simpler:
 then $E_p = \bigoplus_{\vec\lambda} E_{p,\vec\lambda}$
 with all $E_{p,\vec\lambda}$ one-dimensional, $\Res_p \varphi$ 
-acting by $\lambda^\C$, and filtration weight given by $\lambda^\R$.
+acting by $\lambda^\C$ on $E_{p,\vec\lambda}$, and filtration weight given by $\lambda^\R$ on $E_{p,\vec\lambda}$.
 \end{remark}
 
 \begin{remark}[Motivation of the filtration]
@@ -575,7 +583,7 @@ that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p
 \begin{defn}[Parabolic degree]
 Let $E$ be a $(G, C, \vec m)$-Higgs bundle,
 and $E' \subset E$ any holomorphic subbundle preserved by
-$\varphi$. Then $E'_p$ also get a filtration with
+$\varphi$. Then $E'_p$ also gets a filtration with
 weights in $[0,2\pi)$, and we define
 \begin{equation} \label{eq:pdeg}
   \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_p \sum_{\mu \in [0,2\pi)} \mu \dim \Gr^\mu E'_p.
@@ -624,11 +632,15 @@ It carries a natural complex structure $I_1$ and holomorphic symplectic form $\O
 
 The holomorphic symplectic form 
 $\Omega_1$ comes from the fact that variations of the
-holomorphic bundle $E$ are valued in $\Omega^{0,1}(\End E)$,
+parabolic bundle $E$ are valued in (for $G = \U(K)$)
+$H^1(\ParEnd E)$,
 while variations of the Higgs field $\varphi$ are
-valued in $\Omega^{1,0}(\End E)$,
-and the two are naturally dual. \fixme{with some care
-around punctures}
+valued in $H^0(\SParEnd E \otimes K_C(P))$,
+and the two are Serre dual.\footnote{Here $\ParEnd$ means
+endomorphisms preserving the filtration, and $\SParEnd \subset \ParEnd$ means
+endomorphisms which in addition act as $0$
+on the associated graded (i.e. they are \ti{strictly} 
+upper triangular, not just upper triangular).}
 
 \begin{remark}[Dimension of $\cM$]
 The complex dimension of $\cM$ is
@@ -762,14 +774,14 @@ $\Jac \Sigma_\vphi$. After choosing spin structures on
 $C$ and on $\Sigma$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
 of flat $\U(1)$-connections over $\Sigma_\vphi$ with holonomy
-around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$.
+around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
 $\Prym (\rho: \Sigma_\vphi \to C)$. 
 After choosing spin structures on 
 $C$ and on $\Sigma$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
 of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
-around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$, 
+around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$, 
 equipped with a trivialization of $\det \rho_* \nabla$.
 \end{itemize}
 \end{prop}
@@ -837,7 +849,7 @@ Suppose $G = \SU(2)$, $\abs{P} = 4$, $g_C = 0$.
 If $m^\C = 0$, $\cB$ is a complex vector space of dimension $1$,
 and $\cB_\sing \subset \cB$ is the origin;
 for generic $m^\R$,
-the fiber $\cM_{\vphi =0}$ consists of five $\bbP^1$
+the fiber $\cM_{\vphi =0}$ consists of five $\C \bbP^1$'s
 arranged in an affine $D_4$ configuration.
 
 \item If $m^\C \neq 0$, $\cB$ is a complex affine space of dimension $1$.
@@ -929,6 +941,8 @@ Then the norm of $v$ is the $L^2$ norm
 \end{equation}
 where for $(\dot A, \dot \Phi)$ we choose the representative
 \ti{minimizing} the norm.
+
+\fixme{ref Konno}
 
 \begin{remark}[\Hk quotient] I have not really explained
 why the metric $g$ constructed in this way turns out to 
@@ -1280,13 +1294,14 @@ $\{\cX_{\gamma_1}, \dots, \cX_{\gamma_{2r}}\}$
 give coordinates on $\cM$; by abuse of
 language we refer to the whole collection 
 $\cX_\gamma$ as a coordinate system.
+
 Using these coordinates at $\zeta = 1$ we get
 \begin{equation}
  \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}
 \end{equation}
-which is the semiflat \kahler form \eqref{eq:omega1-sf}!
+which is the semiflat \kahler form \eqref{eq:omega1-sf}.
 Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
-with the semiflat metric $g^\sf$ on the nose.
+with the semiflat metric $g^\sf$ on the nose!
 \end{remark}
 
 We could try to do similarly for general $G$.
@@ -1296,9 +1311,10 @@ the formula \eqref{eq:X-sf} makes good local sense,
 and the functions $\cX_\gamma(\zeta)$ so defined 
 give an honest local coordinate system
 on $\cM$. The trouble is that it is not a \ti{holomorphic}
-coordinate system in complex structure $I^\zeta$.
+coordinate system in complex structure $I^\zeta$, so we 
+cannot use it to compute the \hk metric.
 Instead we will construct some
-other functions $\cX_\gamma(\zeta)$ which \ti{are} true 
+other functions $\cX_\gamma(\zeta)$ which are true 
 holomorphic Darboux coordinates. 
 
 Happily, it will turn out 
@@ -1411,20 +1427,26 @@ function $\cX_\gamma(\zeta)$ is only piecewise
 smooth: it suffers
 a jump whenever the triangulation $T(\phi_2, \zeta)$
 changes. 
+The simplest kind of jump is shown below:
 \insfig{higgs-metric-11}{1.25}
-This jump is associated with the ``saddle connection''
-appearing in the middle of the figure above.
-It can only appear when $\zeta^{-1} Z_\mu \in \R_-$.
+This jump is associated with the ``saddle connection'' 
+connecting two zeroes of $\phi_2$, 
+appearing in the middle of the figure.
+Such a saddle connection can only 
+appear when $\zeta^{-1} Z_\mu \in \R_-$.
 The coordinates on the two sides of the jump are related by:
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}.
 \end{equation}
-A similar phenomenon occurs when there are closed
-trajectories: then we get a jump of the form
+A similar (but more intricate) 
+phenomenon occurs when we cross a $(\phi_2, \zeta)$
+for which an annulus of closed trajectories appears: 
+then the $\cX_\gamma$ undergo a jump of the form
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}.
 \end{equation}
-We can unify these to:
+Both of these are instances of the following general
+structure:
 \begin{equation} \label{eq:ks-map}
   \cX_\gamma \to \cX_\gamma(1 - \sigma(\mu) \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
@@ -1440,7 +1462,7 @@ Each simple discriminant point (where $\phi_2$ develops
 a double zero) emits two walls. These two 
 walls are ``hyperplanes'' 
 in the sense of the special \kahler structure on $\cB_\reg$:
-they are of the form $Z_{\pm \mu} / \zeta \in \R_-$, where 
+they are of the form $\zeta^{-1} Z_{\pm \mu} \in \R_-$, where 
 $\mu$ is the vanishing cycle.
 Each of these two walls carries a transformation
 of the coordinates $\cX_\gamma$, of the form
@@ -1461,7 +1483,7 @@ of the Kontsevich-Soibelman wall-crossing formula
 \begin{remark}[More interesting discriminant points]
 When the discriminant meets itself, there's a more interesting structure of walls emanating. 
 Many things can happen; here are two:
-\insfig{higgs-metric-13}{0.9}
+\insfig{higgs-metric-13}{1.05}
 At left is what happens when three zeroes of $\phi_2$ collide:
 this produces a discriminant point which emits $5$ walls.
 Each of these walls carries a transformation 
@@ -1477,16 +1499,21 @@ a product of two transformations
 \eqref{eq:ks-map}, with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 \end{remark}
 
-For our purpose right now though, what we really need 
-is to understand what happens when 
+For our purpose right now, we do not need to understand
+the details of the wall structure on $\cB$: rather, 
+what we need is to understand what happens when 
 we fix the Higgs bundle and just let $\zeta$
 vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
 $\zeta$ in a piecewise-analytic way:
-\insfig{higgs-metric-14}{0.65}
-There are invariants $\DT(\mu,\phi_2)$ which determine 
-the jumps of the collection
-$\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ at the various
-rays $Z_\mu / \zeta \in \R_-$.
+\insfig{higgs-metric-14}{0.85}
+The collection
+$\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ jumps 
+at various rays $\ell$ in the $\zeta$-plane. 
+At each such ray, the jump is a
+product of transformations of the form \eqref{eq:ks-map},
+where the $\mu$ in \eqref{eq:ks-map} can be any
+$\mu \in \Gamma$ such that $Z_\mu / \zeta \in \R_-$
+along $\ell$.
 
 \begin{example}[Finite chamber for $G = \SU(2)$, $g_C = 0$, $\abs{P} = 4$]
 In case $G = \SU(2)$, $g_C = 0$, 
@@ -1518,7 +1545,10 @@ more below.
 So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
 less the same. For $K>2$ the situation becomes more interesting:
 instead of studying ideal triangulations $T(\phi_2, \zeta)$ 
-one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.
+one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.\footnote{In retrospect,
+essentially the same graphs had appeared earlier as 
+\ti{Stokes graphs} associated to the WKB analysis of
+rank $K$ ODEs; see in particular \cite{berk:988}.}
 Then again there is a recipe for invariants $\DT(\gamma)$
 and coordinates $\cX_\gamma(\zeta)$. This recipe however 
 depends on some conjectures:
@@ -1526,12 +1556,16 @@ most importantly, to construct the $\cX_\gamma(\zeta)$
 one has to solve a certain linear algebra problem determined by the 
 network $\cW(\vphi,\zeta)$.
 Thus the construction has been carried out to the end in various special
-cases but not for arbitrary $(G,C,\vec{m})$ and $(\vphi, \zeta)$.
+cases but not for arbitrary $(G,C,\vec{m})$ and $(\vphi, \zeta)$. In the special cases which have been worked out
+\cite{Gaiotto:2012db,Neitzke:2017yos} the $\cX_\gamma(\zeta)$
+turn out to be cluster coordinate systems on $\cM$,
+i.e. they belong to the distinguished atlas constructed
+by Fock-Goncharov in \cite{MR2233852}.
 \end{remark}
 
 \section{The integral equation}
 
-\begin{conj}[Integral equation for $\theta_\gamma = 0$]
+\begin{conj}[Integral equation for $\theta_\gamma = 0$] \label{conj:integral-equation}
 When all $\theta_\gamma = 0$,
 \begin{equation}
   \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
@@ -1581,7 +1615,13 @@ where
   The omitted terms $\cdots$ should be of order $\e^{-4M}$.
 \end{itemize}
 
+
 \section{Numerical tests}
+
+In this last section I want to explain some of the numerical
+evidence supporting \autoref{conj:integral-equation}.
+
+
 
 We consider the case of $G = \SU(2)$ with \ti{polynomial} quadratic differential,
 of degree $n$, say
@@ -1590,7 +1630,7 @@ of degree $n$, say
 \end{equation}
 and Higgs bundles on the Hitchin section.
 Solving Hitchin's equations in this case is equivalent to studying
-harmonic maps $\C \to SL(2,\R) / SO(2)$ whose image is an ideal polygon
+harmonic maps $\C \to \SL(2,\R) / \SO(2)$ whose image is an ideal polygon
 with $n+2$ vertices.
 
 \insfig{higgs-metric-15}{0.8}
