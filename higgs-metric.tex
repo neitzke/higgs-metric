@@ -352,12 +352,14 @@ The latest version can be found at
 % \newpage
 
 
-\section{Overview}
+\section{Introduction}
 
 The aim of these lectures is to describe a \ti{conjectural} 
 approach to 
 ``more explicitly'' understanding the \hk metric $g$ on 
 the moduli space $\cM$ of Higgs bundles.
+
+\subsection{Overview}
 
 The basic structure we are aiming for is as follows.
 $\cM$ is a complex integrable system: this means that
@@ -464,25 +466,28 @@ bundles with wild ramification \cite{wnh}.
 
 Throughout these lectures we will fix data $(G,C,\vec m)$ as follows:
 \begin{itemize}
-  \item a group $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
-  \item a compact Riemann surface $C$, equipped with a finite subset $P \subset C$,
-  \item a vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus (\R / 2 \pi \Z)^K$ for each $p \in P$.
+  \item A group $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
+  \item A compact Riemann surface $C$, equipped with a finite subset $P \subset C$,
+  \item A vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus (\R / 2 \pi \Z)^K$ for each $p \in P$.
 \end{itemize}
-We write $\Tr$ for the sum of the entries of a $K$-vector.
-If $G = \SU(K)$ then we require
+We sometimes think of $m_p^\C$ and $m_p^\R$ as diagonal
+$K \times K$ matrices. We impose a constraint:
+\begin{itemize}
+\item If $G = \SU(K)$, then
 $\Tr m_p^\C = 0$ and $\Tr m_p^\R = 0$.
-If $G = \U(K)$ we require instead 
+\item If $G = \U(K)$, then 
 $\sum_{p \in P} \Tr m_p^\C = 0$ and
 $\sum_{p \in P} \Tr m_p^\R = 0$.
-
-We require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
+\end{itemize}
+We also require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
 if $C$ has genus $0$ we require $\abs{P} \ge 3$, 
 and if $C$ has genus $1$ we require $\abs{P} \ge 1$.
 \insfig{higgs-metric-1}{0.8}
 
 \begin{defn}[Generic puncture data]
 We say $\vec{m}$ is \ti{generic} if each $m^\C_p \in \C^K$
-has all entries distinct. 
+has all entries distinct; equivalently, as a diagonal
+matrix, $m^\C_p$ is a regular element.
 The generic case is the simplest
 case, and for the main purposes of these lectures,
 it is fine to restrict to the generic case throughout.
@@ -560,15 +565,15 @@ with all $E_{p,\vec\lambda}$ one-dimensional, $\Res_p \varphi$
 acting by $\lambda^\C$ on $E_{p,\vec\lambda}$, and filtration weight given by $\lambda^\R$ on $E_{p,\vec\lambda}$.
 \end{remark}
 
-\begin{remark}[Motivation of the filtration]
-One can think of the filtration as a sort of modification
-of the structure of the bundle $E$ to allow fractional
-orders of vanishing: given a section
-$s$ of $E$, if $s(p)$ is in the weight $\alpha$ piece of $E_p$,
-then we say that $s(p)$  ``vanishes to order $\frac{\alpha}{2\pi}$ at $p$''. This explains in particular why we have the strange
-restriction that the weights lie in $[0,2\pi)$: changing the order
-of vanishing by an integer can be accomplished as usual by multiplying sections by $z^n$.
-\end{remark}
+% \begin{remark}[Motivation of the filtration]
+% One can think of the filtration as a sort of modification
+% of the structure of the bundle $E$ to allow fractional
+% orders of vanishing: given a section
+% $s$ of $E$, if $s(p)$ is in the weight $\alpha$ piece of $E_p$,
+% then we say that $s(p)$  ``vanishes to order $\frac{\alpha}{2\pi}$ at $p$''. This explains in particular why we have the strange
+% restriction that the weights lie in $[0,2\pi)$: changing the order
+% of vanishing by an integer can be accomplished as usual by multiplying sections by $z^n$.
+% \end{remark}
 
 \begin{defn}[Parabolic Higgs bundles for $G = \SU(K)$]
 When $G = \SU(K)$, a \ti{$(G,C,\vec m)$-Higgs bundle} 
@@ -607,7 +612,7 @@ $E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, in which case
 the contribution will be $1 - \frac{\alpha}{2\pi}$. 
 \end{example}
 
-\begin{remark}Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
+\begin{remark}[Integrality of $\pdeg E$] Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
 either for $G = \U(K)$ or $G = \SU(K)$.
 \end{remark}
 
@@ -707,16 +712,15 @@ The curve $\Sigma$ is an invariant of the Higgs
 bundle $(E,\varphi)$, which we call
 the \ti{spectral curve}. 
 The projection to $C$ induces $\rho: \Sigma \to C$ which is a $K$-fold branched covering.
-
+\insfig{higgs-metric-17}{0.8}
 Now what are all the curves $\Sigma$
 we can get in this way?
 We can describe them by their coefficients, ie write
 \begin{equation} \label{eq:spectral-coeffs}
   \det(\lambda - \varphi) = \lambda^K + \sum_{n=1}^K \lambda^{K-n} \phi_n = 0, \qquad \phi_n \in K_C(P)^n.
 \end{equation}
-Then we can write $\Sigma = \Sigma_{\vphi}$ where
-$\vphi = (\phi_1, \dots, \phi_K)$.
-The coefficients $\vphi$ lie in the Hitchin base:
+The coefficients $\vphi = (\phi_1, \dots, \phi_K)$ lie in the Hitchin base:
+
 \begin{defn}[Hitchin base]
 If $G = \U(K)$,
 the \ti{Hitchin base} $\cB = \cB(G,C,m^\C)$ is
@@ -732,13 +736,15 @@ and likewise for $K_C(P)^n$.}
 \end{equation}
 If $G = \SU(K)$ then we make the same definition except that
 $\phi_1 = 0$ everywhere.
-$\cB$ is a complex affine space, a torsor for the complex vector space
-of $\vphi$ vanishing at $P$.
+\end{defn}
+
 % \begin{equation}
 %   \cB_0 = \begin{cases} \bigoplus_{n=1}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \U(K), \\
 %   \bigoplus_{n=2}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \SU(K).
 %   \end{cases}
 % \end{equation}
+$\cB$ is a complex affine space, a torsor for the complex vector space
+of $\vphi$ vanishing at $P$.
 
 \begin{defn}[Hitchin map]
 The \ti{Hitchin map} is the map $\pi: \cM \to \cB$ given by
@@ -755,7 +761,7 @@ are compact complex Lagrangian subsets of $(\cM, \Omega_1)$. (In particular, $\d
 
 \fixme{say why?}
 
-We can say more precisely what the fibers are, at least 
+We can say more precisely what the fibers are,
 over most of the Hitchin base:
 
 \begin{defn}[Singular locus and smooth locus]
@@ -771,16 +777,16 @@ Then:
 \begin{itemize}
   \item If $G = \U(K)$, then $\cM_\vphi$ is a torsor over
 $\Jac \Sigma_\vphi$. After choosing spin structures on 
-$C$ and on $\Sigma$, in the case of generic puncture data, 
+$C$ and on $\Sigma_\vphi$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections over $\Sigma_\vphi$ with holonomy
+of flat $\U(1)$-connections over $\Sigma_\vphi \setminus \rho^{-1}(P)$ with holonomy
 around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
 $\Prym (\rho: \Sigma_\vphi \to C)$. 
 After choosing spin structures on 
-$C$ and on $\Sigma$, in the case of generic puncture data, 
+$C$ and on $\Sigma_\vphi$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
+of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi \setminus \rho^{-1}(P)$ with holonomy
 around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$, 
 equipped with a trivialization of $\det \rho_* \nabla$.
 \end{itemize}
@@ -839,7 +845,6 @@ is
 $\Sigma_{\phi_2}$ is a $2$-fold branched covering of $C$, branched at the zeroes of $\phi_2$.
 The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have only simple zeroes ($4 g_C + 2\abs{P} - 4$ of them).
 \end{example}
-\end{defn}
 
 
 \begin{example}[A one-dimensional Hitchin base]
@@ -996,12 +1001,13 @@ Suppose $G = \U(K)$ and $\vphi \in \cB_\reg$.
 Then define:
 \begin{itemize}
  \item $\Gamma^\flavor = \bigoplus_{p \in P} \Gamma^{\flavor,p}$ where $\Gamma^{\flavor,p}$
- is the weight lattice of the centralizer of $m^\C_p$,
+ is the weight lattice of the centralizer of $m^\C_p$
+ in $G$,
  \item $\Gamma_\vphi^\gauge = H_1(\Sigma_\vphi, \Z)$,
  % \item $\Gamma_\vphi = H_1(\Sigma_\vphi - \rho^{-1}(P), \Z)$,
  \item $\Gamma_\vphi = \left( \Gamma^\flavor \oplus H_1(\Sigma'_\vphi,\Z) \right) / \sim$
 \end{itemize}
-where $\Sigma'_\vphi = \Sigma_\vphi - \pi^{-1}(P)$,
+where $\Sigma'_\vphi = \Sigma_\vphi \setminus \rho^{-1}(P)$,
 and the relation $\sim$ is as follows. A point of $\pi^{-1}(p)$ with ramification index $\nu$ corresponds to a factor $\U(\nu)$ in the centralizer of $m_p^\C$. We identify a clockwise 
 loop around this point with the weight of the 
 determinant representation of this $\U(\nu)$ factor.
@@ -1059,7 +1065,7 @@ Let $\IP{,}$ denote the intersection pairing on $\Gamma^\gauge$
 and $\DIP{,}$ its inverse on $(\Gamma^\gauge)^*$.
 Then we can define a $2$-form
 $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$.
-Using a local trivialization of $\Gamma^\gauge$ we have
+Using a local trivialization of $\Gamma^\gauge$,
 \begin{equation}
   \DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}.
 \end{equation}
@@ -1094,7 +1100,7 @@ Next we define a 2-form on $\cB_\reg$ by
   \omega = \DIP{\de Z, \de \overline{Z}}.
 \end{equation}
 In terms of $A$ and $B$ cycles,
-$\omega = \sum_{I = 1}^{n} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
+$\omega = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
 \end{defn}
 
 \begin{prop}[Positivity of $\omega$] $\omega$ is a
@@ -1111,7 +1117,8 @@ with $\IP{A^I, A^J} = 0$, lifted to $\tilde A^I \in \Gamma$,
 the functions
 $a^I = Z_{\tilde A^I}$ give a local coordinate
 system, so-called ``special coordinates.''
-
+It is conventional to also define dual coordinates
+$a_{D,J} = Z_{\tilde B_J}$.
 
 %  The transition maps between these local coordinate
 % systems are valued in $\Sp(2r,\Z) \ltimes \C^r$.
@@ -1123,8 +1130,8 @@ system, so-called ``special coordinates.''
 % In particular there is a canonical $2$-form on the fiber
 
 As we have said, $\cM_\vphi$ is a space of flat $U(1)$-connections
-over $\Sigma_\vphi$, with fixed holonomies around the
-punctures.
+over $\Sigma_\vphi \setminus \rho^{-1}(P)$, 
+with fixed holonomies around $\rho^{-1}(P)$.
 In particular, for each $\gamma \in \Gamma_\vphi$ 
 there is a corresponding
 holonomy $\theta_\gamma: \cM_\vphi \to \R / 2 \pi \Z$.
@@ -1143,8 +1150,11 @@ whose \kahler form in structure $I_1$ is
   \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
 \end{defn}
-
-\fixme{write in local coords}
+Relative to special coordinates, \eqref{eq:omega1-sf} becomes
+\begin{equation}
+	\omega_1^\sf = -4 \I (\im \tau)_{IJ} (\de a^I \wedge \de \bar{a}^J) - 2 \de \theta_{A^I} \wedge \de \theta_{B_I},
+\end{equation}
+where $\tau_{IJ} = \frac{\partial a_{D,I}}{\partial a^J}$.
 
 As we will show below, $\omega_1^\sf$ is the \kahler
 form for the \hk metric on $\cM$ in the case $G = \U(1)$.
@@ -1377,8 +1387,15 @@ leaning heavily on the analysis of trajctories
 given by Strebel \cite{MR743423}.
 
 \begin{defn}[Fock-Goncharov coordinate attached to an edge] \label{def:fg-coordinate}
-Now fix an edge $E \in T(\phi_2,\vartheta)$.
-This edge determines a class $\gamma \in \Gamma_{\phi_2}$:
+Fix an edge $E \in T(\phi_2,\vartheta)$.
+$E$ determines a class $\gamma \in \Gamma_{\phi_2}$, shown
+below:\footnote{More precisely, the picture shows
+only the projection of $\gamma$ to $C$, and does not show
+the orientation. The ambiguity can be fixed as follows:
+the intersection $\IP{\gamma,\hat E}$ should be positive,
+where $\hat E$ denotes one of the lifts of $E$ to $\Sigma$,
+oriented so that $\lambda$ is a positive $1$-form
+along $\hat E$.}
 \insfig{higgs-metric-10}{1.3}
 To define $\cX_\gamma(\zeta)$ we consider the connection
 $\nabla(\zeta)$ restricted to the quadrilateral shown.
@@ -1389,9 +1406,13 @@ which have exponentially \ti{decaying} norm
 as we go into the $i$-th 
 puncture along a leaf of $T(\phi_2,\zeta)$.
 Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
-We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
-these $4$ points. \fixme{write precise formula} (This definition comes essentially from
-the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.) 
+We define $\cX_\gamma(\zeta)$ to be the
+$\SL(2,\C)$-invariant cross-ratio of these $4$ points:
+\begin{equation}
+	\cX_\gamma(\zeta) = - \frac{(\ell_1 \wedge \ell_2)(\ell_3 \wedge \ell_4)}{(\ell_2 \wedge \ell_3) (\ell_4 \wedge \ell_1)} .
+\end{equation}
+This definition comes essentially from
+the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.
 \end{defn}
 
 Applying \autoref{def:fg-coordinate} for all edges $E$
@@ -1400,12 +1421,12 @@ $\cX_\gamma(\zeta)$ with $\gamma$ running over a basis for
 a finite-index sublattice of $\Gamma$. They are local
 Darboux coordinates:
 \begin{equation}
-  \Omega^\zeta = \DIP{\de \log \cX, \de \log \cX}.
+  \Omega^\zeta = \DIP{\de \log \cX(\zeta), \de \log \cX(\zeta)}.
 \end{equation}
 
 \subsection{Asymptotic behavior of the coordinates}
 
-The main asymptotic property of these coordinates is:
+The main asymptotic property of the coordinates $\cX_\gamma(\zeta)$ is:
 \begin{conj}
 As $\zeta \to 0$ along any ray,
 \begin{equation}
@@ -1459,15 +1480,16 @@ Suppose we fix $\zeta$ and move around in $\cM$.
 We get an interesting structure on $\cB$:
 \insfig{higgs-metric-12}{0.8}
 Each simple discriminant point (where $\phi_2$ develops
-a double zero) emits two walls. These two 
-walls are ``hyperplanes'' 
-in the sense of the special \kahler structure on $\cB_\reg$:
-they are of the form $\zeta^{-1} Z_{\pm \mu} \in \R_-$, where 
-$\mu$ is the vanishing cycle.
+a double zero) emits two walls. 
 Each of these two walls carries a transformation
 of the coordinates $\cX_\gamma$, of the form
 \eqref{eq:ks-map}, with $\DT(\mu) = +1$.
 
+These two 
+walls are ``hyperplanes'' 
+in the sense of the special \kahler structure on $\cB_\reg$:
+they are of the form $\zeta^{-1} Z_{\pm \mu} \in \R_-$, where 
+$\mu$ is the vanishing cycle.
 When walls collide, they 
 can generate new walls. The new walls are also of the form
  $Z_\mu / \zeta \in \R_-$ for some $\mu$, and carry
@@ -1481,9 +1503,9 @@ of the Kontsevich-Soibelman wall-crossing formula
 
 
 \begin{remark}[More interesting discriminant points]
-When the discriminant meets itself, there's a more interesting structure of walls emanating. 
+When $\cB_\sing \subset \cB$ meets itself, there's a more interesting structure of walls emanating. 
 Many things can happen; here are two:
-\insfig{higgs-metric-13}{1.05}
+\insfig{higgs-metric-13}{1.15}
 At left is what happens when three zeroes of $\phi_2$ collide:
 this produces a discriminant point which emits $5$ walls.
 Each of these walls carries a transformation 
@@ -1503,12 +1525,11 @@ For our purpose right now, we do not need to understand
 the details of the wall structure on $\cB$: rather, 
 what we need is to understand what happens when 
 we fix the Higgs bundle and just let $\zeta$
-vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
-$\zeta$ in a piecewise-analytic way:
-\insfig{higgs-metric-14}{0.85}
-The collection
+vary. Then $\cX_\gamma(\zeta)$ depends on 
+$\zeta$ in a piecewise-analytic way: the collection
 $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ jumps 
 at various rays $\ell$ in the $\zeta$-plane. 
+\insfig{higgs-metric-14}{0.85}
 At each such ray, the jump is a
 product of transformations of the form \eqref{eq:ks-map},
 where the $\mu$ in \eqref{eq:ks-map} can be any
@@ -1567,7 +1588,7 @@ by Fock-Goncharov in \cite{MR2233852}.
 
 \begin{conj}[Integral equation for $\theta_\gamma = 0$] \label{conj:integral-equation}
 When all $\theta_\gamma = 0$,
-\begin{equation}
+\begin{equation} \label{eq:integral-equation}
   \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
 \end{equation}
 where 
@@ -1575,6 +1596,10 @@ where
   \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
 \end{equation}
 \end{conj}
+The functions $\cX_\gamma(\zeta)$ appear on both sides of
+\eqref{eq:integral-equation}. Thus \eqref{eq:integral-equation} is an integral equation, which needs to be solved for 
+the whole collection $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$
+at once, rather than an integral formula.
 
 \begin{itemize}
   \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
@@ -1620,13 +1645,13 @@ where
 
 In this last section I want to explain some of the numerical
 evidence supporting \autoref{conj:integral-equation}.
-
-
+This evidence was obtained in ongoing joint work with 
+David Dumas.
 
 We consider the case of $G = \SU(2)$ with \ti{polynomial} quadratic differential,
 of degree $n$, say
 \begin{equation}
-  \phi_2 = P(z) \de z^2,
+  \phi_2 = P(z) \, \de z^2,
 \end{equation}
 and Higgs bundles on the Hitchin section.
 Solving Hitchin's equations in this case is equivalent to studying
