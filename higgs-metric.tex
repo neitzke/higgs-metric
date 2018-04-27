@@ -1149,7 +1149,7 @@ whose \kahler form in structure $I_1$ is
 \begin{equation} \label{eq:omega1-sf}
   \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
-\end{defn}
+\end{defn}                                   
 Relative to special coordinates, \eqref{eq:omega1-sf} becomes
 \begin{equation}
 	\omega_1^\sf = -4 \I (\im \tau)_{IJ} (\de a^I \wedge \de \bar{a}^J) - 2 \de \theta_{A^I} \wedge \de \theta_{B_I},
@@ -1654,9 +1654,15 @@ of degree $n$, say
   \phi_2 = P(z) \, \de z^2,
 \end{equation}
 and Higgs bundles on the Hitchin section.
+Strictly speaking this case is outside the class of
+examples we have considered so far, because the singularity
+at $z = \infty$ is of a different kind.
+However, essentially all
+of the theory carries over to this situation, and indeed
+these examples turn out to be simpler in some respects.
 Solving Hitchin's equations in this case is equivalent to studying
 harmonic maps $\C \to \SL(2,\R) / \SO(2)$ whose image is an ideal polygon
-with $n+2$ vertices.
+with $n+2$ vertices; $\phi_2$ is the ``Hopf differential.''
 
 \insfig{higgs-metric-15}{0.8}
 
@@ -1667,245 +1673,123 @@ The triangulations $T(\phi_2, \zeta)$ look like:
 
 \insfig{higgs-metric-16}{0.8}
 
-\fixme{show numerical calc}
+To take a concrete example we consider
+the case
+\begin{equation}
+  P(z) = R^2 (z^3 - 1),
+\end{equation}
+and run over various values of $R$.
+\fixme{explain what are $X_1$ and $X_2$ here}
+We have computed the $\cX_\gamma(\zeta = 1)$ numerically by
+directly solving Hitchin's equations and also
+by solving the integral equations.
+The agreement is extremely good, which we view as evidence
+that the integral equations for $\cX_\gamma(\zeta)$ indeed
+hold.
+Numerical results are in the table below.
 
-% \section{Donaldson-Thomas invariants}
+{
+\tiny
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+      R         &      X1f        &      X1i        &    X1logerr     &      X2f        &      X2i        &    X2logerr    \\ 
+\hline
+ 1.0000E-08     & -6.1803E-01     & -6.1803E-01     & -5.3535E-13     & -1.0000E+00     & -1.0000E+00     &  2.3093E-14    \\ 
+ 3.0000E-08     & -6.1803E-01     & -6.1803E-01     &  4.9855E-13     & -1.0000E+00     & -1.0000E+00     &  7.1054E-15    \\ 
+ 5.0000E-08     & -6.1803E-01     & -6.1803E-01     &  3.6915E-13     & -1.0000E+00     & -1.0000E+00     & -4.5963E-14    \\ 
+ 1.0000E-07     & -6.1803E-01     & -6.1803E-01     & -2.1161E-13     & -1.0000E+00     & -1.0000E+00     &  7.9936E-15    \\ 
+ 3.0000E-07     & -6.1803E-01     & -6.1803E-01     &  2.7073E-13     & -1.0000E+00     & -1.0000E+00     & -3.4195E-14    \\ 
+ 5.0000E-07     & -6.1803E-01     & -6.1803E-01     &  1.6814E-13     & -1.0000E+00     & -1.0000E+00     &  2.2204E-15    \\ 
+ 1.0000E-06     & -6.1803E-01     & -6.1803E-01     &  3.8120E-13     & -1.0000E+00     & -1.0000E+00     &  2.9088E-14    \\ 
+ 3.0000E-06     & -6.1803E-01     & -6.1803E-01     &  5.2419E-13     & -1.0000E+00     & -1.0000E+00     & -6.9944E-15    \\ 
+ 5.0000E-06     & -6.1803E-01     & -6.1803E-01     &  6.9145E-13     & -1.0000E+00     & -1.0000E+00     &  1.8874E-14    \\ 
+ 1.0000E-05     & -6.1803E-01     & -6.1803E-01     &  1.8925E-12     & -1.0000E+00     & -1.0000E+00     &  3.1086E-15    \\ 
+ 2.0000E-05     & -6.1803E-01     & -6.1803E-01     &  4.3279E-12     & -1.0000E+00     & -1.0000E+00     & -3.8858E-14    \\ 
+ 4.0000E-05     & -6.1802E-01     & -6.1802E-01     &  1.0631E-11     & -1.0000E+00     & -1.0000E+00     &  4.2188E-15    \\ 
+ 6.0000E-05     & -6.1801E-01     & -6.1801E-01     &  1.7785E-11     & -1.0000E+00     & -1.0000E+00     & -4.1078E-15    \\ 
+ 8.0000E-05     & -6.1800E-01     & -6.1800E-01     &  2.4704E-11     & -1.0000E+00     & -1.0000E+00     & -1.4733E-13    \\ 
+ 1.0000E-04     & -6.1799E-01     & -6.1799E-01     &  3.2402E-11     & -1.0000E+00     & -1.0000E+00     & -3.1530E-14    \\ 
+ 2.0000E-04     & -6.1793E-01     & -6.1793E-01     &  7.3994E-11     & -1.0000E+00     & -1.0000E+00     &  8.6597E-15    \\ 
+ 3.0000E-04     & -6.1787E-01     & -6.1787E-01     &  1.2078E-10     & -1.0000E+00     & -1.0000E+00     &  3.9968E-15    \\ 
+ 4.0000E-04     & -6.1780E-01     & -6.1780E-01     &  1.7021E-10     & -1.0000E+00     & -1.0000E+00     & -2.9088E-14    \\ 
+ 5.0000E-04     & -6.1772E-01     & -6.1772E-01     &  2.2230E-10     & -1.0000E+00     & -1.0000E+00     &  1.7764E-15    \\ 
+ 6.0000E-04     & -6.1765E-01     & -6.1765E-01     &  2.7808E-10     & -1.0000E+00     & -1.0000E+00     & -5.2180E-15    \\ 
+ 7.0000E-04     & -6.1757E-01     & -6.1757E-01     &  3.3356E-10     & -1.0000E+00     & -1.0000E+00     & -4.7629E-14    \\ 
+ 8.0000E-04     & -6.1749E-01     & -6.1749E-01     &  3.9063E-10     & -1.0000E+00     & -1.0000E+00     &  1.7764E-14    \\ 
+ 9.0000E-04     & -6.1741E-01     & -6.1741E-01     &  4.5234E-10     & -1.0000E+00     & -1.0000E+00     & -1.4322E-14    \\ 
+ 1.0000E-03     & -6.1732E-01     & -6.1732E-01     &  5.1126E-10     & -1.0000E+00     & -1.0000E+00     & -9.9920E-16    \\ 
+ 1.1000E-03     & -6.1724E-01     & -6.1724E-01     &  5.7634E-10     & -1.0000E+00     & -1.0000E+00     & -3.4417E-15    \\ 
+ 1.2000E-03     & -6.1715E-01     & -6.1715E-01     &  6.3652E-10     & -1.0000E+00     & -1.0000E+00     &  3.7748E-15    \\ 
+ 1.3000E-03     & -6.1706E-01     & -6.1706E-01     &  7.0317E-10     & -1.0000E+00     & -1.0000E+00     &  2.2204E-15    \\ 
+ 1.4000E-03     & -6.1697E-01     & -6.1697E-01     &  7.7037E-10     & -1.0000E+00     & -1.0000E+00     &  1.9318E-14    \\ 
+ 1.5000E-03     & -6.1688E-01     & -6.1688E-01     &  8.3383E-10     & -1.0000E+00     & -1.0000E+00     &  2.2204E-16    \\ 
+ 1.6000E-03     & -6.1678E-01     & -6.1678E-01     &  9.0331E-10     & -1.0000E+00     & -1.0000E+00     & -3.6304E-14    \\ 
+ 1.7000E-03     & -6.1669E-01     & -6.1669E-01     &  9.6743E-10     & -1.0000E+00     & -1.0000E+00     &  9.5479E-15    \\ 
+ 1.8000E-03     & -6.1659E-01     & -6.1659E-01     &  1.0382E-09     & -1.0000E+00     & -1.0000E+00     & -4.9738E-14    \\ 
+ 1.9000E-03     & -6.1650E-01     & -6.1650E-01     &  1.1111E-09     & -1.0000E+00     & -1.0000E+00     &  4.2188E-15    \\ 
+ 2.0000E-03     & -6.1640E-01     & -6.1640E-01     &  1.1764E-09     & -1.0000E+00     & -1.0000E+00     &  5.2847E-14    \\ 
+ 2.1000E-03     & -6.1630E-01     & -6.1630E-01     &  1.2488E-09     & -1.0000E+00     & -1.0000E+00     & -3.6415E-14    \\ 
+ 2.2000E-03     & -6.1620E-01     & -6.1620E-01     &  1.3255E-09     & -1.0000E+00     & -1.0000E+00     &  6.4393E-15    \\ 
+ 2.3000E-03     & -6.1610E-01     & -6.1610E-01     &  1.4013E-09     & -1.0000E+00     & -1.0000E+00     &  5.7732E-15    \\ 
+ 2.4000E-03     & -6.1600E-01     & -6.1600E-01     &  1.4668E-09     & -1.0000E+00     & -1.0000E+00     & -9.7700E-15    \\ 
+ 2.5000E-03     & -6.1590E-01     & -6.1590E-01     &  1.5448E-09     & -1.0000E+00     & -1.0000E+00     & -6.6613E-15    \\ 
+ 2.6000E-03     & -6.1580E-01     & -6.1580E-01     &  1.6222E-09     & -1.0000E+00     & -1.0000E+00     & -2.2427E-14    \\ 
+ 2.8000E-03     & -6.1559E-01     & -6.1559E-01     &  1.7676E-09     & -1.0000E+00     & -1.0000E+00     &  1.4433E-14    \\ 
+ 3.0000E-03     & -6.1538E-01     & -6.1538E-01     &  1.9277E-09     & -1.0000E+00     & -1.0000E+00     &  1.1102E-15    \\ 
+ 4.0000E-03     & -6.1429E-01     & -6.1429E-01     &  2.7115E-09     & -1.0000E+00     & -1.0000E+00     & -8.3267E-15    \\ 
+ 5.0000E-03     & -6.1314E-01     & -6.1314E-01     &  3.5473E-09     & -1.0000E+00     & -1.0000E+00     & -2.3315E-14    \\ 
+ 6.0000E-03     & -6.1195E-01     & -6.1195E-01     &  4.4102E-09     & -1.0000E+00     & -1.0000E+00     & -9.2149E-15    \\ 
+ 7.0000E-03     & -6.1072E-01     & -6.1072E-01     &  5.3334E-09     & -1.0000E+00     & -1.0000E+00     &  2.2204E-16    \\ 
+ 8.0000E-03     & -6.0945E-01     & -6.0945E-01     &  6.2366E-09     & -1.0000E+00     & -1.0000E+00     &  3.6415E-14    \\ 
+ 9.0000E-03     & -6.0816E-01     & -6.0816E-01     &  7.1963E-09     & -1.0000E+00     & -1.0000E+00     & -7.7716E-16    \\ 
+ 1.0000E-02     & -6.0684E-01     & -6.0684E-01     &  8.1950E-09     & -1.0000E+00     & -1.0000E+00     & -2.4425E-15    \\ 
+ 2.0000E-02     & -5.9259E-01     & -5.9259E-01     &  1.8879E-08     & -1.0000E+00     & -1.0000E+00     & -5.6621E-15    \\ 
+ 3.0000E-02     & -5.7712E-01     & -5.7712E-01     &  3.0802E-08     & -1.0000E+00     & -1.0000E+00     & -2.4425E-15    \\ 
+ 4.0000E-02     & -5.6098E-01     & -5.6098E-01     &  4.3867E-08     & -1.0000E+00     & -1.0000E+00     &  1.9540E-14    \\ 
+ 5.0000E-02     & -5.4444E-01     & -5.4444E-01     &  5.7434E-08     & -1.0000E+00     & -1.0000E+00     &  6.6613E-16    \\ 
+ 6.0000E-02     & -5.2770E-01     & -5.2770E-01     &  7.1756E-08     & -1.0000E+00     & -1.0000E+00     &  7.9936E-15    \\ 
+ 7.0000E-02     & -5.1088E-01     & -5.1088E-01     &  8.7096E-08     & -1.0000E+00     & -1.0000E+00     & -1.3767E-14    \\ 
+ 8.0000E-02     & -4.9409E-01     & -4.9409E-01     &  1.0219E-07     & -1.0000E+00     & -1.0000E+00     &  1.1990E-14    \\ 
+ 9.0000E-02     & -4.7740E-01     & -4.7740E-01     &  1.1819E-07     & -1.0000E+00     & -1.0000E+00     &  1.9984E-14    \\ 
+ 1.0000E-01     & -4.6088E-01     & -4.6088E-01     &  1.3447E-07     & -1.0000E+00     & -1.0000E+00     & -8.5487E-15    \\ 
+ 1.5000E-01     & -3.8221E-01     & -3.8221E-01     &  2.2336E-07     & -1.0000E+00     & -1.0000E+00     &  2.5091E-14    \\ 
+ 2.0000E-01     & -3.1227E-01     & -3.1227E-01     &  3.2033E-07     & -1.0000E+00     & -1.0000E+00     & -5.3957E-14    \\ 
+ 2.5000E-01     & -2.5217E-01     & -2.5217E-01     &  4.2295E-07     & -1.0000E+00     & -1.0000E+00     & -4.6221E-12    \\ 
+ 3.0000E-01     & -2.0178E-01     & -2.0178E-01     &  5.3092E-07     & -1.0000E+00     & -1.0000E+00     & -6.9056E-14    \\ 
+ 3.5000E-01     & -1.6030E-01     & -1.6030E-01     &  6.4436E-07     & -1.0000E+00     & -1.0000E+00     &  6.3238E-13    \\ 
+ 4.0000E-01     & -1.2664E-01     & -1.2664E-01     &  7.6367E-07     & -1.0000E+00     & -1.0000E+00     & -5.9619E-14    \\ 
+ 4.5000E-01     & -9.9628E-02     & -9.9628E-02     &  8.9095E-07     & -1.0000E+00     & -1.0000E+00     & -2.3173E-11    \\ 
+ 5.0000E-01     & -7.8122E-02     & -7.8122E-02     &  1.0189E-06     & -1.0000E+00     & -1.0000E+00     & -2.4425E-15    \\ 
+ 5.5000E-01     & -6.1111E-02     & -6.1110E-02     &  1.1577E-06     & -1.0000E+00     & -1.0000E+00     &  4.3698E-13    \\ 
+ 6.0000E-01     & -4.7717E-02     & -4.7717E-02     &  1.3048E-06     & -1.0000E+00     & -1.0000E+00     & -3.1464E-13    \\ 
+ 6.5000E-01     & -3.7210E-02     & -3.7210E-02     &  1.4675E-06     & -1.0000E+00     & -1.0000E+00     &  9.9565E-13    \\ 
+ 7.0000E-01     & -2.8988E-02     & -2.8988E-02     &  1.6421E-06     & -1.0000E+00     & -1.0000E+00     &  2.3648E-13    \\ 
+ 7.5000E-01     & -2.2566E-02     & -2.2566E-02     &  1.8283E-06     & -1.0000E+00     & -1.0000E+00     &  2.1805E-13    \\ 
+ 8.0000E-01     & -1.7558E-02     & -1.7558E-02     &  2.0251E-06     & -1.0000E+00     & -1.0000E+00     &  6.1950E-14    \\ 
+ 8.5000E-01     & -1.3656E-02     & -1.3656E-02     &  2.2285E-06     & -1.0000E+00     & -1.0000E+00     & -6.8390E-14    \\ 
+ 9.0000E-01     & -1.0618E-02     & -1.0618E-02     &  2.4377E-06     & -1.0000E+00     & -1.0000E+00     & -5.7732E-14    \\ 
+ 9.5000E-01     & -8.2542E-03     & -8.2542E-03     &  2.5983E-06     & -1.0000E+00     & -1.0000E+00     & -8.4377E-14    \\ 
+ 1.0000E+00     & -6.4157E-03     & -6.4157E-03     &  2.8163E-06     & -1.0000E+00     & -1.0000E+00     &  3.4506E-11    \\ 
+ 1.1000E+00     & -3.8748E-03     & -3.8748E-03     &  3.3170E-06     & -1.0000E+00     & -1.0000E+00     &  1.3234E-12    \\ 
+ 1.2000E+00     & -2.3396E-03     & -2.3396E-03     &  3.7300E-06     & -1.0000E+00     & -1.0000E+00     &  1.0841E-11    \\ 
+ 1.3000E+00     & -1.4125E-03     & -1.4125E-03     &  3.5632E-06     & -1.0000E+00     & -1.0000E+00     & -4.0227E-11    \\ 
+ 1.4000E+00     & -8.5271E-04     & -8.5270E-04     &  2.0999E-06     & -1.0000E+00     & -1.0000E+00     &  1.5365E-12    \\ 
+ 1.5000E+00     & -5.1475E-04     & -5.1475E-04     & -1.1449E-06     & -1.0000E+00     & -1.0000E+00     & -1.3545E-13    \\ 
+ 1.6000E+00     & -3.1072E-04     & -3.1073E-04     & -6.0803E-06     & -1.0000E+00     & -1.0000E+00     & -1.2168E-12    \\ 
+ 1.7000E+00     & -1.8757E-04     & -1.8757E-04     & -1.2105E-05     & -1.0000E+00     & -1.0000E+00     & -8.0053E-11    \\ 
+ 1.8000E+00     & -1.1322E-04     & -1.1322E-04     & -1.8396E-05     & -1.0000E+00     & -1.0000E+00     & -6.9589E-13    \\ 
+ 1.9000E+00     & -6.8344E-05     & -6.8346E-05     & -2.4628E-05     & -1.0000E+00     & -1.0000E+00     & -2.5896E-11    \\ 
+ 2.0000E+00     & -4.1255E-05     & -4.1256E-05     & -3.1620E-05     & -1.0000E+00     & -1.0000E+00     &  3.9080E-14    \\ 
+\hline
+\end{tabular}
+}
 
-% Now we are going to define a function
-% \begin{equation}
-%   \DT: \Gamma \to \Z.
-% \end{equation}
+\medskip
 
-% The definition of $\DT$ is easiest to understand in the
-% case $K=2$, so let us consider that case first.
-% The construction we will describe is closely related to one
-% which appeared in the physics literature, first in \cite{Klemm:1996bj}.
-% It was later described in \cite{Gaiotto:2009hg} where the application
-% to the Hitchin system appeared.
-% % Also, the invariants
-% % we define here really \ti{are} generalized Donaldson-Thomas
-% % invariants; this is shown in \cite{bridgelandsmith}.
-
-% Fix a point $\vec\phi = (\phi_1, \phi_2) \in \cB'$.
-% Most of what we say in this section is about the discriminant
-% \begin{equation}
-% \Delta = \phi_1^2 - 4 \phi_2.
-% \end{equation}
-% $\Delta$ is a holomorphic quadratic differential on $C$.
-
-% Recall that the two sheets of $\Sigma_{\vec\phi}$ are given by
-% (locally, in any domain where we can choose a single-valued $\sqrt{\Delta}$)
-% \begin{equation}
-%   \lambda_{\pm} = \half (-\phi_1 \pm \sqrt{\Delta})
-% \end{equation}
-% and in particular their difference is
-% \begin{equation}
-%   \lambda_+ - \lambda_- = \sqrt{\Delta}.
-% \end{equation}
-
-% \begin{defn}[$\vartheta$-trajectories of a quadratic differential]
-% A \ti{$\vartheta$-trajectory} of $\Delta$ is a connected
-% real $1$-manifold $p$ on $C$
-% such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
-% for $\sqrt{\Delta}$) is a
-% \ti{real} and nowhere va nishing form on $p$.
-% Call a $\vartheta$-trajectory \ti{maximal} if
-% it is not properly contained in any other.
-% \end{defn}
-
-% Because of the sign ambiguity of $\sqrt{\Delta}$, there is no canonical
-% way of orienting $\vartheta$-trajectories. However, once we pass to the
-% double cover, we do get an orientation.
-
-% % \begin{defn}[Orientation of lifted $\vartheta$-trajectories]
-% % Given a $\vartheta$-trajectory $p$, its lift $\tilde{p} = \pi^{-1}(p)$
-% % to $\Sigma_{\vec\phi}$ is canonically oriented. Indeed,
-% % the two sheets of $\Sigma_{\vec\phi}$
-% % correspond canonically to the two choices of $\sqrt{\Delta}$.
-% % Thus we can orient $\tilde{p}$ by the condition that
-% % in the positive direction, $e^{-\I \vartheta} \sqrt{\Delta}$
-% % is positive.
-% % \end{defn}
-
-% Changing $\vartheta \to \vartheta+\pi$ preserves
-% the notion of $\vartheta$-trajectory but reverses the
-% orientation of the lifts.
-
-% \insfig{higgs-bundles-17}{0.8}
-
-
-% Let $C' = \{z: \Delta(z) \neq 0\} \subset C$.
-
-% \begin{prop}[$\vartheta$-trajectories give a foliation] The
-% $\vartheta$-trajectories are the leaves of a foliation of $C'$.
-% \end{prop}
-% % \begin{pf} Around any $z_0 \in C'$ we consider a local coordinate
-% % $w$ given by $w(z) = \int^z_{z_0} \sqrt{\Delta}$. Then
-% % we have $\Delta = \de w^2$. Thus in the coordinate $w$,
-% % $\vartheta$-trajectories are just straight segments
-% % of inclination angle $\vartheta$.
-% % \end{pf}
-
-% \begin{prop}[Local singularities of the foliation by $\vartheta$-trajectories] Around each zero of $\Delta$, the foliation
-% by $\vartheta$-trajectories has a three-pronged singularity,
-% as shown below.
-% \insfig{higgs-bundles-18}{0.8}
-
-% \end{prop}
-% % \begin{pf} In a neighborhood of a zero of $\Delta$, we may choose a
-% % local coordinate such that $\Delta = z\,\de z^2$, using our assumption that
-% % all zeroes of $\Delta$ are simple.
-% % % (Perhaps this is not really necessary: we could
-% % % just make a linear change of coordinate, to arrange that the first-order term in the Taylor
-% % % expansion of $\Delta$ is $z \, \de z^2$, and then take a small enough disc that
-% % % we can neglect the deviation. But since we can get $z \, \de z^2$
-% % % on the nose, we might as well.)
-
-% % Then in any simply connected domain away from $z=0$ we have
-% % $w = \int \sqrt{\Delta} = \frac23 z^{\frac32}$. In particular,
-% % each of the three domains
-% % \begin{equation}
-% % \frac23 (\vartheta + n\pi) < \arg z < \frac23 (\vartheta + (n+1)\pi), \qquad n=0,1,2,
-% % \end{equation}
-% % is mapped by $w$ to a half-plane,
-% % whose boundary is the line through $0$ of inclination $\vartheta$.
-% % This gives the picture shown.
-% % \end{pf}
-
-% % \begin{exercise} Show that in a neighborhood of a zero of $\Delta$, we may choose a
-% % local coordinate $z$ such that $\Delta = z\,\de z^2$.
-% % \end{exercise}
-
-% % \begin{exercise} Suppose we consider a quadratic differential $\Delta$
-% % which is allowed to have higher-order zeroes. What is the behavior of
-% % the foliation by $\vartheta$-trajectories around such a zero?
-% % \end{exercise}
-
-% Thus in the foliation by $\vartheta$-trajectories, there are finitely
-% many special leaves, namely those which are asymptotic in one or
-% both directions to zeroes of $\Delta$.
-
-% % \begin{defn}[Forward and backward asymptotics of trajectories]
-% % Given a maximal $\vartheta$-trajectory $p$ with a chosen orientation,
-% % we say $p$ is \ti{forward asymptotic} (resp. \ti{backward asymptotic}) to $z$ if, choosing any oriented parameterization of $p$,
-% % we have $\lim_{t \to \infty} p(t) = z$ (resp. $\lim_{t \to -\infty} p(t) = z$).
-% % \end{defn}
-
-% \begin{defn}[Critical trajectories] A maximal $\vartheta$-trajectory
-% is called \ti{critical} if it admits an orientation for which
-% it is backward asymptotic to a zero of $\Delta$.
-% The \ti{$\vartheta$-critical graph} is the union of the critical trajectories and the
-% zeroes of $\Delta$.
-% \end{defn}
-
-% Critical trajectories which are also \ti{forward} asymptotic
-% to zeroes of $\Delta$ are particularly special:
-
-% \begin{defn}[Saddle connections]
-% A \ti{$\vartheta$-saddle connection} is a maximal
-% $\vartheta$-trajectory $p$
-% such that $\bar p \setminus p$ consists of two points of $C$.
-% \end{defn}
-
-% \insfig{higgs-bundles-19}{0.8}
-
-% \begin{defn}[Charge of a saddle connection]
-% If $p$ is a saddle connection, then the closure of $\tilde p$
-% is an oriented loop on $\Sigma_{\vec \phi}$; the \ti{charge of $p$}
-% is the class of this loop in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-% \end{defn}
-
-% \insfig{higgs-bundles-20}{0.8}
-
-% There is one other way in which a trajectory can have finite length:
-
-% \begin{defn}[Closed loops]
-% A \ti{$\vartheta$-closed loop} is a maximal $\vartheta$-trajectory $p$
-% such that the closure of $p$ has the topology of $S^1$.
-% \end{defn}
-% This includes the possibility that $p$ begins and ends
-% at the same branch point.
-
-% \insfig{higgs-bundles-22}{0.8}
-
-
-% \begin{defn}[Charge of a closed loop]
-% If $p$ is a closed loop, then $\tilde p$ is the union of two
-% oriented loops on $\Sigma$; the \ti{charge} of $\tilde p$
-% is the class of this union in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-% \end{defn}
-
-% \insfig{higgs-bundles-21}{0.8}
-
-% \begin{defn}[Finite $\vartheta$-trajectories] A
-% \ti{finite $\vartheta$-trajectory} is a $\vartheta$-saddle connection or
-% $\vartheta$-closed loop.
-% \end{defn}
-
-% As we will now show, the existence of a finite $\vartheta$-trajectory is a
-% non-generic phenomenon: for ``most'' angles $\vartheta$ they
-% do not occur.
-
-% \begin{lem}[Phase constraint for finite trajectories]
-% If a $\vartheta$-finite trajectory exists with charge
-% $\gamma$, then $e^{- \I \vartheta} Z_\gamma \in \R_+$.
-% \end{lem}
-
-% % \begin{pf}
-% % Choose a $\sqrt{\Delta}$ over $p$, and orient $p$
-% % so that $e^{-\I \vartheta} \sqrt{\Delta}$ is positive.
-% % Then
-% % \begin{equation}
-% % Z_\gamma = \int_{\tilde p} \lambda = \int_p \lambda_+ - \lambda_- = \int_p \sqrt{\Delta}
-% % \end{equation}
-% % so
-% % \begin{equation}
-% %   e^{-\I \vartheta} Z_\gamma = \int_p e^{\I \vartheta} \sqrt{\Delta} > 0
-% % \end{equation}
-% % as desired.
-% % \end{pf}
-
-% In particular, finite $\vartheta$-trajectories can only
-% occur at countably many phases $\vartheta$.
-
-% % \begin{prop}[Landscape of finite $\vartheta$-trajectories]
-% % Fix $\vartheta$ and $\vec\phi \in \cB'$. Then
-% % the set of finite $\vartheta$-trajectories is described as follows.
-% % There are finitely many
-% % subsets of $C$ homeomorphic to open annuli (``ring domains''),
-% % foliated by $\vartheta$-closed loops.
-% % Each boundary of a ring domain can be a $\vartheta$-closed loop
-% % or a union of $\vartheta$-saddle connections.
-% % In addition there can be finitely many $\vartheta$-saddle connections elsewhere on
-% % $C$.
-% % \end{prop}
-
-
-% \begin{pf} This is proven in \cite{MR743423}.
-% \end{pf}
-
-% \begin{defn}[\DT invariants]
-% Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
-% $\DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
-% (of $\Delta$), where $\vartheta = \arg Z_\gamma$:
-% \begin{equation}
-%   \DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
-% \end{equation}
-% \end{defn}
-
-% Note $\DT(\gamma) = \DT(-\gamma)$.
-
-% % \begin{exercise} Show that $\DT(\gamma) = \DT(-\gamma)$.
-% % \end{exercise}
-
-% $\DT$ is \ti{not} a locally constant function of $\gamma$.
-% Indeed, as we deform $\vec\phi$, saddle connections
-% and/or ring domains may appear or disappear; this is
-% the \ti{wall-crossing} phenomenon.
-
-
-
-
+There are similar numerical results for higher
+degree polynomials $P(z)$, as well as for Higgs bundles
+in the plane with $G = \SU(3)$, with $\phi_2 = 0$
+and polynomial $\phi_3$.
 
 \printbibliography
 
