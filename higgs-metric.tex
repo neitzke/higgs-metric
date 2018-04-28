@@ -1335,7 +1335,7 @@ to infinity in $\cM$, or as we take $\zeta \to 0$ or
 $\zeta \to \infty$.
 
 
-\section{The coordinates}
+\section{The coordinates} \label{sec:coordinates}
 
 What are the true holomorphic coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
 which we will use?
@@ -1584,7 +1584,7 @@ i.e. they belong to the distinguished atlas constructed
 by Fock-Goncharov in \cite{MR2233852}.
 \end{remark}
 
-\section{The integral equation}
+\section{The integral equation} \label{sec:integral-equations}
 
 \begin{conj}[Integral equation for $\theta_\gamma = 0$] \label{conj:integral-equation}
 When all $\theta_\gamma = 0$,
@@ -1648,30 +1648,67 @@ evidence supporting \autoref{conj:integral-equation}.
 This evidence was obtained in ongoing joint work with 
 David Dumas.
 
-We consider the case of $G = \SU(2)$ with \ti{polynomial} quadratic differential,
+
+\subsection{The simplest nontrivial Hitchin equations}
+
+We consider the case of $G = \SU(2)$ 
+and $C = \C\PP^1$, where we take $\phi_2$ to be a
+\ti{polynomial} quadratic differential
 of degree $n$, say
-\begin{equation}
+\begin{equation} \label{eq:poly-quad}
   \phi_2 = P(z) \, \de z^2,
 \end{equation}
-and Higgs bundles on the Hitchin section.
+and the Higgs bundles are 
+of the form\footnote{Here $\cO(\pm\frac{n}{4})$ means a parabolic line bundle 
+over $\C\PP^1$ of
+degree $\pm \frac{n}{4}$, trivialized away from $z = \infty$; see \cite{Fredrickson2017} for some more explanation.
+}
+\begin{equation} \label{eq:poly-higgs-bundle}
+  \cE = \cO\left(\frac{n}{4}\right) \oplus \cO\left(-\frac{n}{4}\right), \qquad \varphi = \begin{pmatrix} 0 & P(z) \\ 1 & 0 \end{pmatrix} \de z.
+\end{equation}
 Strictly speaking this case is outside the class of
-examples we have considered so far, because the singularity
-at $z = \infty$ is of a different kind.
-However, essentially all
+examples we have considered so far: the singularity
+of the Higgs field $\varphi$ 
+at $z = \infty$ is a non-simple pole.
+The theory of Higgs bundles with non-simple poles
+has been worked out by Biquard-Boalch and Mochizuki, extending
+Simpson's work which we used above for simple
+poles. See e.g. \cite{wnh}.
+In short, essentially all
 of the theory carries over to this situation, and indeed
 these examples turn out to be simpler in some respects.
-Solving Hitchin's equations in this case is equivalent to 
-finding a harmonic map from $\C$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. The image of such a map
-turns out to be an ideal polygon with $n+2$ vertices.
-\fixme{Han-Tam-Treibergs-Wan}
+
+Solving Hitchin's equation \eqref{eq:hitchin-equation} 
+in the specific
+case \eqref{eq:poly-higgs-bundle} is equivalent to 
+finding a harmonic map from $\C$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. Such a map exists and 
+is unique up to $PSL(2,\R)$ action on the disc; its image
+turns out to be an ideal polygon with $n+2$ vertices
+\cite{HTTW}, again determined up to $PSL(2,\R)$ action.
 
 \insfig{higgs-metric-15}{0.8}
 
-The quantities $X_\gamma = \cX_\gamma(\zeta = 1)$ in this case are monomials in cross-ratios $r_{ijkl}$ of the 
-vertices of the polygon.
-For example, when $n=3$, we have $5$ asymptotic vertices and $\dim \cM = 2$, so the $X_\gamma$ are monomials in
-$2$ out of the $5$ possible cross-ratios $r_{ijkl}$ 
-of those $5$ vertices.
+
+\subsection{The \texorpdfstring{$\cX_\gamma$}{X_\gamma}}
+
+All of the analysis we described in
+\S\ref{sec:coordinates}-\S\ref{sec:integral-equations}
+carries over to this case.
+The quantities $\cX_\gamma(\zeta)$ in this case are monomials in cross-ratios $r_{ijkl}$ of $n+2$ flat sections $s_i$
+of $\nabla(\zeta)$,
+determined by their asymptotic behavior along $n+2$ rays
+approaching $z \to \infty$.\footnote{Incidentally, 
+when $\zeta = 1$ these quantities have
+a particularly simple geometric meaning: the flat sections
+$s_i$ are the asymptotic vertices of the
+polygon above, so the $r_{ijkl}$ are literally
+the cross-ratios of these asymptotic vertices.
+In particular they are \ti{real}: this is a special feature
+arising for these particular Higgs bundles when 
+$\abs{\zeta}=1$.}
+
+For example, when $n=3$, we have $5$ asymptotic rays and $\dim \cM = 2$. The $X_\gamma$ are monomials in
+$2$ out of the $5$ possible cross-ratios $r_{ijkl}$. 
 Precisely \ti{which} cross-ratios we take is 
 determined by a triangulation $T(\phi_2, \zeta)$ 
 of an $(n+2)$-gon, constructed similarly to the
@@ -1679,91 +1716,105 @@ ideal triangulations $T(\phi_2, \zeta)$ in
 the preceding sections.
 We take the concrete example
 \begin{equation}
-  P(z) = R^2 (z^3 - 1),
+  P(z) = R^2 (z^3 - 1), \qquad R \in \R_+.
 \end{equation}
-and run over various values of $R$.
 In this case the triangulation $T(\phi_2, \zeta = 1)$ looks
 like:
-
 \insfig{higgs-metric-16}{0.8}
+From this picture we can read off that the 
+relevant cross-ratios are $r_{1235}$ and $r_{1345}$.
 
-We have computed the $\cX_\gamma(\zeta = 1)$ numerically by
-directly solving Hitchin's equations and also
-by solving the integral equations.
-The agreement is extremely good, which we view as evidence
-that the integral equations for $\cX_\gamma(\zeta)$ indeed
-hold.
+\subsection{Numerical results}
+
+In joint work with David Dumas we 
+have computed the $X_\gamma = \cX_\gamma(\zeta = 1)$ numerically
+in this example, in two different ways: 
+\begin{itemize}
+\item by
+directly solving Hitchin's equation i.e. finding
+the harmonic maps,
+\item
+by solving the integral equations of \S\ref{sec:integral-equations}.
+\end{itemize}
 Explicit numerical results are below, where we 
 define $X_1 = r_{1235}$ and $X_2 = r_{1235} r_{1345}$.
+On the left we plot the values of $X_1$ computed by
+both methods; on the right we plot the error in
+$\log X_1$.
+The agreement is extremely good (the difference
+$\log(X_1^{\mathrm i}) - \log(X_1^{\mathrm f})$ never exceeds $10^{-5}$), 
+which we view as evidence
+that the integral equations of \S\ref{sec:integral-equations} indeed hold.
 
-\insfig{numerics-plot}{0.70}
+\insfig{numerics-plot}{0.60}
 
-{\begin{center}
-\tiny
-\begin{tabular}{|c|c|c|c|c|c|c|}
-\hline
-     $R$        & $X_1^{\mathrm{f}}$ & $X_1^{\mathrm{i}}$ & $\mathrm{logerr}(X_1)$ & $X_2^{\mathrm{f}}$ & $X_2^{\mathrm{i}}$ & $\mathrm{logerr}(X_2)$\\ 
-\hline
-$ 1.1000\mathrm{e-}03 $ & $-6.1724\mathrm{e-}01 $ & $-6.1724\mathrm{e-}01 $ & $ 5.7634\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.4417\mathrm{e-}15 $\\ 
-$ 1.2000\mathrm{e-}03 $ & $-6.1715\mathrm{e-}01 $ & $-6.1715\mathrm{e-}01 $ & $ 6.3652\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.7748\mathrm{e-}15 $\\ 
-$ 1.3000\mathrm{e-}03 $ & $-6.1706\mathrm{e-}01 $ & $-6.1706\mathrm{e-}01 $ & $ 7.0317\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}15 $\\ 
-$ 1.4000\mathrm{e-}03 $ & $-6.1697\mathrm{e-}01 $ & $-6.1697\mathrm{e-}01 $ & $ 7.7037\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9318\mathrm{e-}14 $\\ 
-$ 1.5000\mathrm{e-}03 $ & $-6.1688\mathrm{e-}01 $ & $-6.1688\mathrm{e-}01 $ & $ 8.3383\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
-$ 1.6000\mathrm{e-}03 $ & $-6.1678\mathrm{e-}01 $ & $-6.1678\mathrm{e-}01 $ & $ 9.0331\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6304\mathrm{e-}14 $\\ 
-$ 1.7000\mathrm{e-}03 $ & $-6.1669\mathrm{e-}01 $ & $-6.1669\mathrm{e-}01 $ & $ 9.6743\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.5479\mathrm{e-}15 $\\ 
-$ 1.8000\mathrm{e-}03 $ & $-6.1659\mathrm{e-}01 $ & $-6.1659\mathrm{e-}01 $ & $ 1.0382\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.9738\mathrm{e-}14 $\\ 
-$ 1.9000\mathrm{e-}03 $ & $-6.1650\mathrm{e-}01 $ & $-6.1650\mathrm{e-}01 $ & $ 1.1111\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.2188\mathrm{e-}15 $\\ 
-$ 2.0000\mathrm{e-}03 $ & $-6.1640\mathrm{e-}01 $ & $-6.1640\mathrm{e-}01 $ & $ 1.1764\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.2847\mathrm{e-}14 $\\ 
-$ 2.1000\mathrm{e-}03 $ & $-6.1630\mathrm{e-}01 $ & $-6.1630\mathrm{e-}01 $ & $ 1.2488\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6415\mathrm{e-}14 $\\ 
-$ 2.2000\mathrm{e-}03 $ & $-6.1620\mathrm{e-}01 $ & $-6.1620\mathrm{e-}01 $ & $ 1.3255\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.4393\mathrm{e-}15 $\\ 
-$ 2.3000\mathrm{e-}03 $ & $-6.1610\mathrm{e-}01 $ & $-6.1610\mathrm{e-}01 $ & $ 1.4013\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.7732\mathrm{e-}15 $\\ 
-$ 2.4000\mathrm{e-}03 $ & $-6.1600\mathrm{e-}01 $ & $-6.1600\mathrm{e-}01 $ & $ 1.4668\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.7700\mathrm{e-}15 $\\ 
-$ 2.5000\mathrm{e-}03 $ & $-6.1590\mathrm{e-}01 $ & $-6.1590\mathrm{e-}01 $ & $ 1.5448\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.6613\mathrm{e-}15 $\\ 
-$ 2.6000\mathrm{e-}03 $ & $-6.1580\mathrm{e-}01 $ & $-6.1580\mathrm{e-}01 $ & $ 1.6222\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.2427\mathrm{e-}14 $\\ 
-$ 2.8000\mathrm{e-}03 $ & $-6.1559\mathrm{e-}01 $ & $-6.1559\mathrm{e-}01 $ & $ 1.7676\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.4433\mathrm{e-}14 $\\ 
-$ 3.0000\mathrm{e-}03 $ & $-6.1538\mathrm{e-}01 $ & $-6.1538\mathrm{e-}01 $ & $ 1.9277\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1102\mathrm{e-}15 $\\ 
-$ 4.0000\mathrm{e-}03 $ & $-6.1429\mathrm{e-}01 $ & $-6.1429\mathrm{e-}01 $ & $ 2.7115\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.3267\mathrm{e-}15 $\\ 
-$ 5.0000\mathrm{e-}03 $ & $-6.1314\mathrm{e-}01 $ & $-6.1314\mathrm{e-}01 $ & $ 3.5473\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3315\mathrm{e-}14 $\\ 
-$ 6.0000\mathrm{e-}03 $ & $-6.1195\mathrm{e-}01 $ & $-6.1195\mathrm{e-}01 $ & $ 4.4102\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.2149\mathrm{e-}15 $\\ 
-$ 7.0000\mathrm{e-}03 $ & $-6.1072\mathrm{e-}01 $ & $-6.1072\mathrm{e-}01 $ & $ 5.3334\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
-$ 8.0000\mathrm{e-}03 $ & $-6.0945\mathrm{e-}01 $ & $-6.0945\mathrm{e-}01 $ & $ 6.2366\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.6415\mathrm{e-}14 $\\ 
-$ 9.0000\mathrm{e-}03 $ & $-6.0816\mathrm{e-}01 $ & $-6.0816\mathrm{e-}01 $ & $ 7.1963\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-7.7716\mathrm{e-}16 $\\ 
-$ 1.0000\mathrm{e-}02 $ & $-6.0684\mathrm{e-}01 $ & $-6.0684\mathrm{e-}01 $ & $ 8.1950\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-$ 2.0000\mathrm{e-}02 $ & $-5.9259\mathrm{e-}01 $ & $-5.9259\mathrm{e-}01 $ & $ 1.8879\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.6621\mathrm{e-}15 $\\ 
-$ 3.0000\mathrm{e-}02 $ & $-5.7712\mathrm{e-}01 $ & $-5.7712\mathrm{e-}01 $ & $ 3.0802\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-$ 4.0000\mathrm{e-}02 $ & $-5.6098\mathrm{e-}01 $ & $-5.6098\mathrm{e-}01 $ & $ 4.3867\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9540\mathrm{e-}14 $\\ 
-$ 5.0000\mathrm{e-}02 $ & $-5.4444\mathrm{e-}01 $ & $-5.4444\mathrm{e-}01 $ & $ 5.7434\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.6613\mathrm{e-}16 $\\ 
-$ 6.0000\mathrm{e-}02 $ & $-5.2770\mathrm{e-}01 $ & $-5.2770\mathrm{e-}01 $ & $ 7.1756\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 7.9936\mathrm{e-}15 $\\ 
-$ 7.0000\mathrm{e-}02 $ & $-5.1088\mathrm{e-}01 $ & $-5.1088\mathrm{e-}01 $ & $ 8.7096\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-1.3767\mathrm{e-}14 $\\ 
-$ 8.0000\mathrm{e-}02 $ & $-4.9409\mathrm{e-}01 $ & $-4.9409\mathrm{e-}01 $ & $ 1.0219\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1990\mathrm{e-}14 $\\ 
-$ 9.0000\mathrm{e-}02 $ & $-4.7740\mathrm{e-}01 $ & $-4.7740\mathrm{e-}01 $ & $ 1.1819\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9984\mathrm{e-}14 $\\ 
-$ 1.0000\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $ 1.3447\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.5487\mathrm{e-}15 $\\ 
-$ 1.5000\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $ 2.2336\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.5091\mathrm{e-}14 $\\ 
-$ 2.0000\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $ 3.2033\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.3957\mathrm{e-}14 $\\ 
-$ 2.5000\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $ 4.2295\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.6221\mathrm{e-}12 $\\ 
-$ 3.0000\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $ 5.3092\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.9056\mathrm{e-}14 $\\ 
-$ 3.5000\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $ 6.4436\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.3238\mathrm{e-}13 $\\ 
-$ 4.0000\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $ 7.6367\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.9619\mathrm{e-}14 $\\ 
-$ 4.5000\mathrm{e-}01 $ & $-9.9628\mathrm{e-}02 $ & $-9.9628\mathrm{e-}02 $ & $ 8.9095\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3173\mathrm{e-}11 $\\ 
-$ 5.0000\mathrm{e-}01 $ & $-7.8122\mathrm{e-}02 $ & $-7.8122\mathrm{e-}02 $ & $ 1.0189\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-$ 5.5000\mathrm{e-}01 $ & $-6.1111\mathrm{e-}02 $ & $-6.1110\mathrm{e-}02 $ & $ 1.1577\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.3698\mathrm{e-}13 $\\ 
-$ 6.0000\mathrm{e-}01 $ & $-4.7717\mathrm{e-}02 $ & $-4.7717\mathrm{e-}02 $ & $ 1.3048\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.1464\mathrm{e-}13 $\\ 
-$ 6.5000\mathrm{e-}01 $ & $-3.7210\mathrm{e-}02 $ & $-3.7210\mathrm{e-}02 $ & $ 1.4675\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.9565\mathrm{e-}13 $\\ 
-$ 7.0000\mathrm{e-}01 $ & $-2.8988\mathrm{e-}02 $ & $-2.8988\mathrm{e-}02 $ & $ 1.6421\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.3648\mathrm{e-}13 $\\ 
-$ 7.5000\mathrm{e-}01 $ & $-2.2566\mathrm{e-}02 $ & $-2.2566\mathrm{e-}02 $ & $ 1.8283\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.1805\mathrm{e-}13 $\\ 
-$ 8.0000\mathrm{e-}01 $ & $-1.7558\mathrm{e-}02 $ & $-1.7558\mathrm{e-}02 $ & $ 2.0251\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.1950\mathrm{e-}14 $\\ 
-$ 8.5000\mathrm{e-}01 $ & $-1.3656\mathrm{e-}02 $ & $-1.3656\mathrm{e-}02 $ & $ 2.2285\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.8390\mathrm{e-}14 $\\ 
-$ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 2.4377\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.7732\mathrm{e-}14 $\\ 
-$ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
-\hline
-\end{tabular}
-\end{center}
-}
+% {\begin{center}
+% \tiny
+% \begin{tabular}{|c|c|c|c|c|c|c|}
+% \hline
+%      $R$        & $X_1^{\mathrm{f}}$ & $X_1^{\mathrm{i}}$ & $\mathrm{logerr}(X_1)$ & $X_2^{\mathrm{f}}$ & $X_2^{\mathrm{i}}$ & $\mathrm{logerr}(X_2)$\\ 
+% \hline
+% $ 1.1000\mathrm{e-}03 $ & $-6.1724\mathrm{e-}01 $ & $-6.1724\mathrm{e-}01 $ & $ 5.7634\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.4417\mathrm{e-}15 $\\ 
+% $ 1.2000\mathrm{e-}03 $ & $-6.1715\mathrm{e-}01 $ & $-6.1715\mathrm{e-}01 $ & $ 6.3652\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.7748\mathrm{e-}15 $\\ 
+% $ 1.3000\mathrm{e-}03 $ & $-6.1706\mathrm{e-}01 $ & $-6.1706\mathrm{e-}01 $ & $ 7.0317\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}15 $\\ 
+% $ 1.4000\mathrm{e-}03 $ & $-6.1697\mathrm{e-}01 $ & $-6.1697\mathrm{e-}01 $ & $ 7.7037\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9318\mathrm{e-}14 $\\ 
+% $ 1.5000\mathrm{e-}03 $ & $-6.1688\mathrm{e-}01 $ & $-6.1688\mathrm{e-}01 $ & $ 8.3383\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% $ 1.6000\mathrm{e-}03 $ & $-6.1678\mathrm{e-}01 $ & $-6.1678\mathrm{e-}01 $ & $ 9.0331\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6304\mathrm{e-}14 $\\ 
+% $ 1.7000\mathrm{e-}03 $ & $-6.1669\mathrm{e-}01 $ & $-6.1669\mathrm{e-}01 $ & $ 9.6743\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.5479\mathrm{e-}15 $\\ 
+% $ 1.8000\mathrm{e-}03 $ & $-6.1659\mathrm{e-}01 $ & $-6.1659\mathrm{e-}01 $ & $ 1.0382\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.9738\mathrm{e-}14 $\\ 
+% $ 1.9000\mathrm{e-}03 $ & $-6.1650\mathrm{e-}01 $ & $-6.1650\mathrm{e-}01 $ & $ 1.1111\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.2188\mathrm{e-}15 $\\ 
+% $ 2.0000\mathrm{e-}03 $ & $-6.1640\mathrm{e-}01 $ & $-6.1640\mathrm{e-}01 $ & $ 1.1764\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.2847\mathrm{e-}14 $\\ 
+% $ 2.1000\mathrm{e-}03 $ & $-6.1630\mathrm{e-}01 $ & $-6.1630\mathrm{e-}01 $ & $ 1.2488\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6415\mathrm{e-}14 $\\ 
+% $ 2.2000\mathrm{e-}03 $ & $-6.1620\mathrm{e-}01 $ & $-6.1620\mathrm{e-}01 $ & $ 1.3255\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.4393\mathrm{e-}15 $\\ 
+% $ 2.3000\mathrm{e-}03 $ & $-6.1610\mathrm{e-}01 $ & $-6.1610\mathrm{e-}01 $ & $ 1.4013\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.7732\mathrm{e-}15 $\\ 
+% $ 2.4000\mathrm{e-}03 $ & $-6.1600\mathrm{e-}01 $ & $-6.1600\mathrm{e-}01 $ & $ 1.4668\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.7700\mathrm{e-}15 $\\ 
+% $ 2.5000\mathrm{e-}03 $ & $-6.1590\mathrm{e-}01 $ & $-6.1590\mathrm{e-}01 $ & $ 1.5448\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.6613\mathrm{e-}15 $\\ 
+% $ 2.6000\mathrm{e-}03 $ & $-6.1580\mathrm{e-}01 $ & $-6.1580\mathrm{e-}01 $ & $ 1.6222\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.2427\mathrm{e-}14 $\\ 
+% $ 2.8000\mathrm{e-}03 $ & $-6.1559\mathrm{e-}01 $ & $-6.1559\mathrm{e-}01 $ & $ 1.7676\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.4433\mathrm{e-}14 $\\ 
+% $ 3.0000\mathrm{e-}03 $ & $-6.1538\mathrm{e-}01 $ & $-6.1538\mathrm{e-}01 $ & $ 1.9277\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1102\mathrm{e-}15 $\\ 
+% $ 4.0000\mathrm{e-}03 $ & $-6.1429\mathrm{e-}01 $ & $-6.1429\mathrm{e-}01 $ & $ 2.7115\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.3267\mathrm{e-}15 $\\ 
+% $ 5.0000\mathrm{e-}03 $ & $-6.1314\mathrm{e-}01 $ & $-6.1314\mathrm{e-}01 $ & $ 3.5473\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3315\mathrm{e-}14 $\\ 
+% $ 6.0000\mathrm{e-}03 $ & $-6.1195\mathrm{e-}01 $ & $-6.1195\mathrm{e-}01 $ & $ 4.4102\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.2149\mathrm{e-}15 $\\ 
+% $ 7.0000\mathrm{e-}03 $ & $-6.1072\mathrm{e-}01 $ & $-6.1072\mathrm{e-}01 $ & $ 5.3334\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% $ 8.0000\mathrm{e-}03 $ & $-6.0945\mathrm{e-}01 $ & $-6.0945\mathrm{e-}01 $ & $ 6.2366\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.6415\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}03 $ & $-6.0816\mathrm{e-}01 $ & $-6.0816\mathrm{e-}01 $ & $ 7.1963\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-7.7716\mathrm{e-}16 $\\ 
+% $ 1.0000\mathrm{e-}02 $ & $-6.0684\mathrm{e-}01 $ & $-6.0684\mathrm{e-}01 $ & $ 8.1950\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 2.0000\mathrm{e-}02 $ & $-5.9259\mathrm{e-}01 $ & $-5.9259\mathrm{e-}01 $ & $ 1.8879\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.6621\mathrm{e-}15 $\\ 
+% $ 3.0000\mathrm{e-}02 $ & $-5.7712\mathrm{e-}01 $ & $-5.7712\mathrm{e-}01 $ & $ 3.0802\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 4.0000\mathrm{e-}02 $ & $-5.6098\mathrm{e-}01 $ & $-5.6098\mathrm{e-}01 $ & $ 4.3867\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9540\mathrm{e-}14 $\\ 
+% $ 5.0000\mathrm{e-}02 $ & $-5.4444\mathrm{e-}01 $ & $-5.4444\mathrm{e-}01 $ & $ 5.7434\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.6613\mathrm{e-}16 $\\ 
+% $ 6.0000\mathrm{e-}02 $ & $-5.2770\mathrm{e-}01 $ & $-5.2770\mathrm{e-}01 $ & $ 7.1756\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 7.9936\mathrm{e-}15 $\\ 
+% $ 7.0000\mathrm{e-}02 $ & $-5.1088\mathrm{e-}01 $ & $-5.1088\mathrm{e-}01 $ & $ 8.7096\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-1.3767\mathrm{e-}14 $\\ 
+% $ 8.0000\mathrm{e-}02 $ & $-4.9409\mathrm{e-}01 $ & $-4.9409\mathrm{e-}01 $ & $ 1.0219\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1990\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}02 $ & $-4.7740\mathrm{e-}01 $ & $-4.7740\mathrm{e-}01 $ & $ 1.1819\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9984\mathrm{e-}14 $\\ 
+% $ 1.0000\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $ 1.3447\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.5487\mathrm{e-}15 $\\ 
+% $ 1.5000\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $ 2.2336\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.5091\mathrm{e-}14 $\\ 
+% $ 2.0000\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $ 3.2033\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.3957\mathrm{e-}14 $\\ 
+% $ 2.5000\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $ 4.2295\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.6221\mathrm{e-}12 $\\ 
+% $ 3.0000\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $ 5.3092\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.9056\mathrm{e-}14 $\\ 
+% $ 3.5000\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $ 6.4436\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.3238\mathrm{e-}13 $\\ 
+% $ 4.0000\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $ 7.6367\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.9619\mathrm{e-}14 $\\ 
+% $ 4.5000\mathrm{e-}01 $ & $-9.9628\mathrm{e-}02 $ & $-9.9628\mathrm{e-}02 $ & $ 8.9095\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3173\mathrm{e-}11 $\\ 
+% $ 5.0000\mathrm{e-}01 $ & $-7.8122\mathrm{e-}02 $ & $-7.8122\mathrm{e-}02 $ & $ 1.0189\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 5.5000\mathrm{e-}01 $ & $-6.1111\mathrm{e-}02 $ & $-6.1110\mathrm{e-}02 $ & $ 1.1577\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.3698\mathrm{e-}13 $\\ 
+% $ 6.0000\mathrm{e-}01 $ & $-4.7717\mathrm{e-}02 $ & $-4.7717\mathrm{e-}02 $ & $ 1.3048\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.1464\mathrm{e-}13 $\\ 
+% $ 6.5000\mathrm{e-}01 $ & $-3.7210\mathrm{e-}02 $ & $-3.7210\mathrm{e-}02 $ & $ 1.4675\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.9565\mathrm{e-}13 $\\ 
+% $ 7.0000\mathrm{e-}01 $ & $-2.8988\mathrm{e-}02 $ & $-2.8988\mathrm{e-}02 $ & $ 1.6421\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.3648\mathrm{e-}13 $\\ 
+% $ 7.5000\mathrm{e-}01 $ & $-2.2566\mathrm{e-}02 $ & $-2.2566\mathrm{e-}02 $ & $ 1.8283\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.1805\mathrm{e-}13 $\\ 
+% $ 8.0000\mathrm{e-}01 $ & $-1.7558\mathrm{e-}02 $ & $-1.7558\mathrm{e-}02 $ & $ 2.0251\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.1950\mathrm{e-}14 $\\ 
+% $ 8.5000\mathrm{e-}01 $ & $-1.3656\mathrm{e-}02 $ & $-1.3656\mathrm{e-}02 $ & $ 2.2285\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.8390\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 2.4377\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.7732\mathrm{e-}14 $\\ 
+% $ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
+% \hline
+% \end{tabular}
+% \end{center}
+% }
 
-\medskip 
+% \medskip 
 
-There are similar numerical results for higher
-degree polynomials $P(z)$, as well as for Higgs bundles
+Dumas and I have made similar numerical calculations 
+for higher degree polynomials $P(z)$, 
+as well as in a slightly fancier case: Higgs bundles
 in the plane with $G = \SU(3)$, with $\phi_2 = 0$
 and polynomial $\phi_3$.
 
