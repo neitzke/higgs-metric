@@ -1660,37 +1660,45 @@ at $z = \infty$ is of a different kind.
 However, essentially all
 of the theory carries over to this situation, and indeed
 these examples turn out to be simpler in some respects.
-Solving Hitchin's equations in this case is equivalent to studying
-harmonic maps $\C \to \SL(2,\R) / \SO(2)$ whose image is an ideal polygon
-with $n+2$ vertices; $\phi_2$ is the ``Hopf differential.''
+Solving Hitchin's equations in this case is equivalent to 
+finding a harmonic map from $\C$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. The image of such a map
+turns out to be an ideal polygon with $n+2$ vertices.
+\fixme{Han-Tam-Treibergs-Wan}
 
 \insfig{higgs-metric-15}{0.8}
 
-The $\cX_\gamma$ in this case are various cross-ratios of the asymptotic vertices.
-For example, when $n=3$, we have $5$ asymptotic vertices and $\dim \cM = 2$, so
-we pick $2$ out of the $5$ possible cross-ratios of those $5$ coordinates.
-The triangulations $T(\phi_2, \zeta)$ look like:
-
-\insfig{higgs-metric-16}{0.8}
-
-To take a concrete example we consider
-the case
+The quantities $X_\gamma = \cX_\gamma(\zeta = 1)$ in this case are monomials in cross-ratios $r_{ijkl}$ of the 
+vertices of the polygon.
+For example, when $n=3$, we have $5$ asymptotic vertices and $\dim \cM = 2$, so the $X_\gamma$ are monomials in
+$2$ out of the $5$ possible cross-ratios $r_{ijkl}$ 
+of those $5$ vertices.
+Precisely \ti{which} cross-ratios we take is 
+determined by a triangulation $T(\phi_2, \zeta)$ 
+of an $(n+2)$-gon, constructed similarly to the
+ideal triangulations $T(\phi_2, \zeta)$ in 
+the preceding sections.
+We take the concrete example
 \begin{equation}
   P(z) = R^2 (z^3 - 1),
 \end{equation}
 and run over various values of $R$.
-\fixme{explain what are $X_1$ and $X_2$ here}
+In this case the triangulation $T(\phi_2, \zeta = 1)$ looks
+like:
+
+\insfig{higgs-metric-16}{0.8}
+
 We have computed the $\cX_\gamma(\zeta = 1)$ numerically by
 directly solving Hitchin's equations and also
 by solving the integral equations.
 The agreement is extremely good, which we view as evidence
 that the integral equations for $\cX_\gamma(\zeta)$ indeed
 hold.
-Numerical results are below.
+Explicit numerical results are below, where we 
+define $X_1 = r_{1235}$ and $X_2 = r_{1235} r_{1345}$.
 
 \insfig{numerics-plot}{0.70}
 
-{
+{\begin{center}
 \tiny
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline
@@ -1749,6 +1757,7 @@ $ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 
 $ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
 \hline
 \end{tabular}
+\end{center}
 }
 
 \medskip 
