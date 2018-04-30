@@ -260,6 +260,8 @@
 \DeclareMathOperator{\re}{Re}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ParEnd}{ParEnd}
+\DeclareMathOperator{\SParEnd}{SParEnd}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Sym}{Sym}
@@ -283,6 +285,8 @@
 \DeclareMathOperator{\Gr}{Gr}
 \DeclareMathOperator{\DT}{DT}
 
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SL}{\mathrm{SL}}
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\U}{\mathrm{U}}
@@ -350,13 +354,16 @@ The latest version can be found at
 % \newpage
 
 
-\section{Overview}
+\section{Introduction}
 
 The aim of these lectures is to describe a \ti{conjectural} 
 approach to 
 ``more explicitly'' understanding the \hk metric $g$ on 
 the moduli space $\cM$ of Higgs bundles.
 
+\subsection{Overview}
+
+The basic structure we are aiming for is as follows.
 $\cM$ is a complex integrable system: this means that
 it admits a holomorphic fibration $\pi: \cM \to \cB$
 with complex Lagrangian fibers.
@@ -460,25 +467,28 @@ bundles with wild ramification \cite{wnh}.
 
 Throughout these lectures we will fix data $(G,C,\vec m)$ as follows:
 \begin{itemize}
-  \item a group $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
-  \item a compact Riemann surface $C$, equipped with a finite subset $P \subset C$,
-  \item a vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus (\R / 2 \pi \Z)^K$ for each $p \in P$.
+  \item A group $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
+  \item A compact Riemann surface $C$, equipped with a finite subset $P \subset C$,
+  \item A vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus (\R / 2 \pi \Z)^K$ for each $p \in P$.
 \end{itemize}
-We write $\Tr$ for the sum of the entries of a $K$-vector.
-If $G = \SU(K)$ then we require
+We sometimes think of $m_p^\C$ and $m_p^\R$ as diagonal
+$K \times K$ matrices. We impose a constraint:
+\begin{itemize}
+\item If $G = \SU(K)$, then
 $\Tr m_p^\C = 0$ and $\Tr m_p^\R = 0$.
-If $G = \U(K)$ we require instead 
+\item If $G = \U(K)$, then 
 $\sum_{p \in P} \Tr m_p^\C = 0$ and
 $\sum_{p \in P} \Tr m_p^\R = 0$.
-
-We require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
+\end{itemize}
+We also require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
 if $C$ has genus $0$ we require $\abs{P} \ge 3$, 
 and if $C$ has genus $1$ we require $\abs{P} \ge 1$.
 \insfig{higgs-metric-1}{0.8}
 
 \begin{defn}[Generic puncture data]
 We say $\vec{m}$ is \ti{generic} if each $m^\C_p \in \C^K$
-has all entries distinct. 
+has all entries distinct; equivalently, as a diagonal
+matrix, $m^\C_p$ is a regular element.
 The generic case is the simplest
 case, and for the main purposes of these lectures,
 it is fine to restrict to the generic case throughout.
@@ -500,8 +510,12 @@ be invariant under the symmetric group $S_K$ acting on $\vec m_p$.
 Usually one would start out with ordinary Higgs bundles,
 but with an eye to what will come later, we go straight
 to the parabolic case. Roughly this means that we will consider
-Higgs fields which, rather than being holomorphic, are
-allowed to have simple poles at the points $p \in P$.
+Higgs fields $\varphi$ which, rather than being holomorphic, are
+allowed to have simple poles at the points $p \in P$.\footnote{The parameter $m_p^\C$ will
+control the eigenvalues of the residue; the
+``strongly parabolic'' case of nilpotent residues
+is thus the case $m_p^\C = 0$, which we usually
+avoid.}
 
 The original reference for the material in this section
 is Simpson \cite{hbnc}.
@@ -549,18 +563,18 @@ with generalized eigenvalue $\lambda^\C$.
 The case of generic puncture data is simpler:
 then $E_p = \bigoplus_{\vec\lambda} E_{p,\vec\lambda}$
 with all $E_{p,\vec\lambda}$ one-dimensional, $\Res_p \varphi$ 
-acting by $\lambda^\C$, and filtration weight given by $\lambda^\R$.
+acting by $\lambda^\C$ on $E_{p,\vec\lambda}$, and filtration weight given by $\lambda^\R$ on $E_{p,\vec\lambda}$.
 \end{remark}
 
-\begin{remark}[Motivation of the filtration]
-One can think of the filtration as a sort of modification
-of the structure of the bundle $E$ to allow fractional
-orders of vanishing: given a section
-$s$ of $E$, if $s(p)$ is in the weight $\alpha$ piece of $E_p$,
-then we say that $s(p)$  ``vanishes to order $\frac{\alpha}{2\pi}$ at $p$''. This explains in particular why we have the strange
-restriction that the weights lie in $[0,2\pi)$: changing the order
-of vanishing by an integer can be accomplished as usual by multiplying sections by $z^n$.
-\end{remark}
+% \begin{remark}[Motivation of the filtration]
+% One can think of the filtration as a sort of modification
+% of the structure of the bundle $E$ to allow fractional
+% orders of vanishing: given a section
+% $s$ of $E$, if $s(p)$ is in the weight $\alpha$ piece of $E_p$,
+% then we say that $s(p)$  ``vanishes to order $\frac{\alpha}{2\pi}$ at $p$''. This explains in particular why we have the strange
+% restriction that the weights lie in $[0,2\pi)$: changing the order
+% of vanishing by an integer can be accomplished as usual by multiplying sections by $z^n$.
+% \end{remark}
 
 \begin{defn}[Parabolic Higgs bundles for $G = \SU(K)$]
 When $G = \SU(K)$, a \ti{$(G,C,\vec m)$-Higgs bundle} 
@@ -575,7 +589,7 @@ that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p
 \begin{defn}[Parabolic degree]
 Let $E$ be a $(G, C, \vec m)$-Higgs bundle,
 and $E' \subset E$ any holomorphic subbundle preserved by
-$\varphi$. Then $E'_p$ also get a filtration with
+$\varphi$. Then $E'_p$ also gets a filtration with
 weights in $[0,2\pi)$, and we define
 \begin{equation} \label{eq:pdeg}
   \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_p \sum_{\mu \in [0,2\pi)} \mu \dim \Gr^\mu E'_p.
@@ -599,7 +613,7 @@ $E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, in which case
 the contribution will be $1 - \frac{\alpha}{2\pi}$. 
 \end{example}
 
-\begin{remark}Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
+\begin{remark}[Integrality of $\pdeg E$] Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
 either for $G = \U(K)$ or $G = \SU(K)$.
 \end{remark}
 
@@ -624,11 +638,15 @@ It carries a natural complex structure $I_1$ and holomorphic symplectic form $\O
 
 The holomorphic symplectic form 
 $\Omega_1$ comes from the fact that variations of the
-holomorphic bundle $E$ are valued in $\Omega^{0,1}(\End E)$,
+parabolic bundle $E$ are valued in (for $G = \U(K)$)
+$H^1(\ParEnd E)$,
 while variations of the Higgs field $\varphi$ are
-valued in $\Omega^{1,0}(\End E)$,
-and the two are naturally dual. \fixme{with some care
-around punctures}
+valued in $H^0(\SParEnd E \otimes K_C(P))$,
+and the two are Serre dual.\footnote{Here $\ParEnd$ means
+endomorphisms preserving the filtration, and $\SParEnd \subset \ParEnd$ means
+endomorphisms which in addition act as $0$
+on the associated graded (i.e. they are \ti{strictly} 
+upper triangular, not just upper triangular).}
 
 \begin{remark}[Dimension of $\cM$]
 The complex dimension of $\cM$ is
@@ -666,7 +684,7 @@ When some $\vec\lambda$ occurs with multiplicity
 greater than $1$ in $\vec{m}_p$, there 
 is a natural way of getting a subspace of $\cM$:
 we can restrict the Jordan block structure of
-the unipotent endomorphism $\Res_p \varphi$
+the endomorphism $\Res_p \varphi$
 acting in each $E_{p,\vec\lambda}$ (e.g. if $\vec\lambda$ has
 multiplicity $2$ we can require that $\Res_p \varphi$ acts
 by the scalar $\lambda^\C$ in $E_{p,\vec\lambda}$ instead of
@@ -695,16 +713,15 @@ The curve $\Sigma$ is an invariant of the Higgs
 bundle $(E,\varphi)$, which we call
 the \ti{spectral curve}. 
 The projection to $C$ induces $\rho: \Sigma \to C$ which is a $K$-fold branched covering.
-
+\insfig{higgs-metric-17}{0.8}
 Now what are all the curves $\Sigma$
 we can get in this way?
 We can describe them by their coefficients, ie write
 \begin{equation} \label{eq:spectral-coeffs}
   \det(\lambda - \varphi) = \lambda^K + \sum_{n=1}^K \lambda^{K-n} \phi_n = 0, \qquad \phi_n \in K_C(P)^n.
 \end{equation}
-Then we can write $\Sigma = \Sigma_{\vphi}$ where
-$\vphi = (\phi_1, \dots, \phi_K)$.
-The coefficients $\vphi$ lie in the Hitchin base:
+The coefficients $\vphi = (\phi_1, \dots, \phi_K)$ lie in the Hitchin base:
+
 \begin{defn}[Hitchin base]
 If $G = \U(K)$,
 the \ti{Hitchin base} $\cB = \cB(G,C,m^\C)$ is
@@ -720,13 +737,15 @@ and likewise for $K_C(P)^n$.}
 \end{equation}
 If $G = \SU(K)$ then we make the same definition except that
 $\phi_1 = 0$ everywhere.
-$\cB$ is a complex affine space, a torsor for the complex vector space
-of $\vphi$ vanishing at $P$.
+\end{defn}
+
 % \begin{equation}
 %   \cB_0 = \begin{cases} \bigoplus_{n=1}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \U(K), \\
 %   \bigoplus_{n=2}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \SU(K).
 %   \end{cases}
 % \end{equation}
+$\cB$ is a complex affine space, a torsor for the complex vector space
+of $\vphi$ vanishing at $P$.
 
 \begin{defn}[Hitchin map]
 The \ti{Hitchin map} is the map $\pi: \cM \to \cB$ given by
@@ -743,7 +762,7 @@ are compact complex Lagrangian subsets of $(\cM, \Omega_1)$. (In particular, $\d
 
 \fixme{say why?}
 
-We can say more precisely what the fibers are, at least 
+We can say more precisely what the fibers are,
 over most of the Hitchin base:
 
 \begin{defn}[Singular locus and smooth locus]
@@ -759,17 +778,17 @@ Then:
 \begin{itemize}
   \item If $G = \U(K)$, then $\cM_\vphi$ is a torsor over
 $\Jac \Sigma_\vphi$. After choosing spin structures on 
-$C$ and on $\Sigma$, in the case of generic puncture data, 
+$C$ and on $\Sigma_\vphi$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections over $\Sigma_\vphi$ with holonomy
-around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$.
+of flat $\U(1)$-connections over $\Sigma_\vphi \setminus \rho^{-1}(P)$ with holonomy
+around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$.
  \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
 $\Prym (\rho: \Sigma_\vphi \to C)$. 
 After choosing spin structures on 
-$C$ and on $\Sigma$, in the case of generic puncture data, 
+$C$ and on $\Sigma_\vphi$, in the case of generic puncture data, 
 we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$ with holonomy
-around $\rho^{-1}(P)$ given by $\exp(\I m^\R)$, 
+of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi \setminus \rho^{-1}(P)$ with holonomy
+around $\rho^{-1}(p)$ given by $\exp(\I m_p^\R)$, 
 equipped with a trivialization of $\det \rho_* \nabla$.
 \end{itemize}
 \end{prop}
@@ -827,7 +846,6 @@ is
 $\Sigma_{\phi_2}$ is a $2$-fold branched covering of $C$, branched at the zeroes of $\phi_2$.
 The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have only simple zeroes ($4 g_C + 2\abs{P} - 4$ of them).
 \end{example}
-\end{defn}
 
 
 \begin{example}[A one-dimensional Hitchin base]
@@ -837,7 +855,7 @@ Suppose $G = \SU(2)$, $\abs{P} = 4$, $g_C = 0$.
 If $m^\C = 0$, $\cB$ is a complex vector space of dimension $1$,
 and $\cB_\sing \subset \cB$ is the origin;
 for generic $m^\R$,
-the fiber $\cM_{\vphi =0}$ consists of five $\bbP^1$
+the fiber $\cM_{\vphi =0}$ consists of five $\C \bbP^1$'s
 arranged in an affine $D_4$ configuration.
 
 \item If $m^\C \neq 0$, $\cB$ is a complex affine space of dimension $1$.
@@ -930,6 +948,8 @@ Then the norm of $v$ is the $L^2$ norm
 where for $(\dot A, \dot \Phi)$ we choose the representative
 \ti{minimizing} the norm.
 
+\fixme{ref Konno}
+
 \begin{remark}[\Hk quotient] I have not really explained
 why the metric $g$ constructed in this way turns out to 
 be \hk, or even \kahler. The most conceptual explanation
@@ -982,12 +1002,13 @@ Suppose $G = \U(K)$ and $\vphi \in \cB_\reg$.
 Then define:
 \begin{itemize}
  \item $\Gamma^\flavor = \bigoplus_{p \in P} \Gamma^{\flavor,p}$ where $\Gamma^{\flavor,p}$
- is the weight lattice of the centralizer of $m^\C_p$,
+ is the weight lattice of the centralizer of $m^\C_p$
+ in $G$,
  \item $\Gamma_\vphi^\gauge = H_1(\Sigma_\vphi, \Z)$,
  % \item $\Gamma_\vphi = H_1(\Sigma_\vphi - \rho^{-1}(P), \Z)$,
  \item $\Gamma_\vphi = \left( \Gamma^\flavor \oplus H_1(\Sigma'_\vphi,\Z) \right) / \sim$
 \end{itemize}
-where $\Sigma'_\vphi = \Sigma_\vphi - \pi^{-1}(P)$,
+where $\Sigma'_\vphi = \Sigma_\vphi \setminus \rho^{-1}(P)$,
 and the relation $\sim$ is as follows. A point of $\pi^{-1}(p)$ with ramification index $\nu$ corresponds to a factor $\U(\nu)$ in the centralizer of $m_p^\C$. We identify a clockwise 
 loop around this point with the weight of the 
 determinant representation of this $\U(\nu)$ factor.
@@ -1045,7 +1066,7 @@ Let $\IP{,}$ denote the intersection pairing on $\Gamma^\gauge$
 and $\DIP{,}$ its inverse on $(\Gamma^\gauge)^*$.
 Then we can define a $2$-form
 $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$.
-Using a local trivialization of $\Gamma^\gauge$ we have
+Using a local trivialization of $\Gamma^\gauge$,
 \begin{equation}
   \DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}.
 \end{equation}
@@ -1080,7 +1101,7 @@ Next we define a 2-form on $\cB_\reg$ by
   \omega = \DIP{\de Z, \de \overline{Z}}.
 \end{equation}
 In terms of $A$ and $B$ cycles,
-$\omega = \sum_{I = 1}^{n} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
+$\omega = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
 \end{defn}
 
 \begin{prop}[Positivity of $\omega$] $\omega$ is a
@@ -1097,7 +1118,8 @@ with $\IP{A^I, A^J} = 0$, lifted to $\tilde A^I \in \Gamma$,
 the functions
 $a^I = Z_{\tilde A^I}$ give a local coordinate
 system, so-called ``special coordinates.''
-
+It is conventional to also define dual coordinates
+$a_{D,J} = Z_{\tilde B_J}$.
 
 %  The transition maps between these local coordinate
 % systems are valued in $\Sp(2r,\Z) \ltimes \C^r$.
@@ -1109,8 +1131,8 @@ system, so-called ``special coordinates.''
 % In particular there is a canonical $2$-form on the fiber
 
 As we have said, $\cM_\vphi$ is a space of flat $U(1)$-connections
-over $\Sigma_\vphi$, with fixed holonomies around the
-punctures.
+over $\Sigma_\vphi \setminus \rho^{-1}(P)$, 
+with fixed holonomies around $\rho^{-1}(P)$.
 In particular, for each $\gamma \in \Gamma_\vphi$ 
 there is a corresponding
 holonomy $\theta_\gamma: \cM_\vphi \to \R / 2 \pi \Z$.
@@ -1128,9 +1150,12 @@ whose \kahler form in structure $I_1$ is
 \begin{equation} \label{eq:omega1-sf}
   \omega^\sf_1 = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
-\end{defn}
-
-\fixme{write in local coords}
+\end{defn}                                   
+Relative to special coordinates, \eqref{eq:omega1-sf} becomes
+\begin{equation}
+	\omega_1^\sf = -4 \I (\im \tau)_{IJ} (\de a^I \wedge \de \bar{a}^J) - 2 \de \theta_{A^I} \wedge \de \theta_{B_I},
+\end{equation}
+where $\tau_{IJ} = \frac{\partial a_{D,I}}{\partial a^J}$.
 
 As we will show below, $\omega_1^\sf$ is the \kahler
 form for the \hk metric on $\cM$ in the case $G = \U(1)$.
@@ -1280,13 +1305,14 @@ $\{\cX_{\gamma_1}, \dots, \cX_{\gamma_{2r}}\}$
 give coordinates on $\cM$; by abuse of
 language we refer to the whole collection 
 $\cX_\gamma$ as a coordinate system.
+
 Using these coordinates at $\zeta = 1$ we get
 \begin{equation}
  \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \bar{Z}} - \DIP{\de \theta, \de \theta}
 \end{equation}
-which is the semiflat \kahler form \eqref{eq:omega1-sf}!
+which is the semiflat \kahler form \eqref{eq:omega1-sf}.
 Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
-with the semiflat metric $g^\sf$ on the nose.
+with the semiflat metric $g^\sf$ on the nose!
 \end{remark}
 
 We could try to do similarly for general $G$.
@@ -1296,9 +1322,10 @@ the formula \eqref{eq:X-sf} makes good local sense,
 and the functions $\cX_\gamma(\zeta)$ so defined 
 give an honest local coordinate system
 on $\cM$. The trouble is that it is not a \ti{holomorphic}
-coordinate system in complex structure $I^\zeta$.
+coordinate system in complex structure $I^\zeta$, so we 
+cannot use it to compute the \hk metric.
 Instead we will construct some
-other functions $\cX_\gamma(\zeta)$ which \ti{are} true 
+other functions $\cX_\gamma(\zeta)$ which are true 
 holomorphic Darboux coordinates. 
 
 Happily, it will turn out 
@@ -1309,7 +1336,7 @@ to infinity in $\cM$, or as we take $\zeta \to 0$ or
 $\zeta \to \infty$.
 
 
-\section{The coordinates}
+\section{The coordinates} \label{sec:coordinates}
 
 What are the true holomorphic coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
 which we will use?
@@ -1361,8 +1388,15 @@ leaning heavily on the analysis of trajctories
 given by Strebel \cite{MR743423}.
 
 \begin{defn}[Fock-Goncharov coordinate attached to an edge] \label{def:fg-coordinate}
-Now fix an edge $E \in T(\phi_2,\vartheta)$.
-This edge determines a class $\gamma \in \Gamma_{\phi_2}$:
+Fix an edge $E \in T(\phi_2,\vartheta)$.
+$E$ determines a class $\gamma \in \Gamma_{\phi_2}$, shown
+below:\footnote{More precisely, the picture shows
+only the projection of $\gamma$ to $C$, and does not show
+the orientation. The ambiguity can be fixed as follows:
+the intersection $\IP{\gamma,\hat E}$ should be positive,
+where $\hat E$ denotes one of the lifts of $E$ to $\Sigma$,
+oriented so that $\lambda$ is a positive $1$-form
+along $\hat E$.}
 \insfig{higgs-metric-10}{1.3}
 To define $\cX_\gamma(\zeta)$ we consider the connection
 $\nabla(\zeta)$ restricted to the quadrilateral shown.
@@ -1373,9 +1407,13 @@ which have exponentially \ti{decaying} norm
 as we go into the $i$-th 
 puncture along a leaf of $T(\phi_2,\zeta)$.
 Said otherwise, the $\ell_i$ give $4$ points of $\C\PP^1$.
-We define $\cX_\gamma(\zeta)$ to be the cross-ratio of 
-these $4$ points. \fixme{write precise formula} (This definition comes essentially from
-the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.) 
+We define $\cX_\gamma(\zeta)$ to be the
+$\SL(2,\C)$-invariant cross-ratio of these $4$ points:
+\begin{equation}
+	\cX_\gamma(\zeta) = - \frac{(\ell_1 \wedge \ell_2)(\ell_3 \wedge \ell_4)}{(\ell_2 \wedge \ell_3) (\ell_4 \wedge \ell_1)} .
+\end{equation}
+This definition comes essentially from
+the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.
 \end{defn}
 
 Applying \autoref{def:fg-coordinate} for all edges $E$
@@ -1384,12 +1422,12 @@ $\cX_\gamma(\zeta)$ with $\gamma$ running over a basis for
 a finite-index sublattice of $\Gamma$. They are local
 Darboux coordinates:
 \begin{equation}
-  \Omega^\zeta = \DIP{\de \log \cX, \de \log \cX}.
+  \Omega^\zeta = \DIP{\de \log \cX(\zeta), \de \log \cX(\zeta)}.
 \end{equation}
 
 \subsection{Asymptotic behavior of the coordinates}
 
-The main asymptotic property of these coordinates is:
+The main asymptotic property of the coordinates $\cX_\gamma(\zeta)$ is:
 \begin{conj}
 As $\zeta \to 0$ along any ray,
 \begin{equation}
@@ -1411,20 +1449,26 @@ function $\cX_\gamma(\zeta)$ is only piecewise
 smooth: it suffers
 a jump whenever the triangulation $T(\phi_2, \zeta)$
 changes. 
+The simplest kind of jump is shown below:
 \insfig{higgs-metric-11}{1.25}
-This jump is associated with the ``saddle connection''
-appearing in the middle of the figure above.
-It can only appear when $\zeta^{-1} Z_\mu \in \R_-$.
+This jump is associated with the ``saddle connection'' 
+connecting two zeroes of $\phi_2$, 
+appearing in the middle of the figure.
+Such a saddle connection can only 
+appear when $\zeta^{-1} Z_\mu \in \R_-$.
 The coordinates on the two sides of the jump are related by:
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}.
 \end{equation}
-A similar phenomenon occurs when there are closed
-trajectories: then we get a jump of the form
+A similar (but more intricate) 
+phenomenon occurs when we cross a $(\phi_2, \zeta)$
+for which an annulus of closed trajectories appears: 
+then the $\cX_\gamma$ undergo a jump of the form
 \begin{equation}
-  \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}
+  \cX_\gamma \to \cX_\gamma(1 - \cX_\mu)^{-2 \IP{\mu,\gamma}}.
 \end{equation}
-We can unify these to:
+Both of these are instances of the following general
+structure:
 \begin{equation} \label{eq:ks-map}
   \cX_\gamma \to \cX_\gamma(1 - \sigma(\mu) \cX_\mu)^{\DT(\mu) \IP{\mu,\gamma}}
 \end{equation}
@@ -1437,15 +1481,16 @@ Suppose we fix $\zeta$ and move around in $\cM$.
 We get an interesting structure on $\cB$:
 \insfig{higgs-metric-12}{0.8}
 Each simple discriminant point (where $\phi_2$ develops
-a double zero) emits two walls. These two 
-walls are ``hyperplanes'' 
-in the sense of the special \kahler structure on $\cB_\reg$:
-they are of the form $Z_{\pm \mu} / \zeta \in \R_-$, where 
-$\mu$ is the vanishing cycle.
+a double zero) emits two walls. 
 Each of these two walls carries a transformation
 of the coordinates $\cX_\gamma$, of the form
 \eqref{eq:ks-map}, with $\DT(\mu) = +1$.
 
+These two 
+walls are ``hyperplanes'' 
+in the sense of the special \kahler structure on $\cB_\reg$:
+they are of the form $\zeta^{-1} Z_{\pm \mu} \in \R_-$, where 
+$\mu$ is the vanishing cycle.
 When walls collide, they 
 can generate new walls. The new walls are also of the form
  $Z_\mu / \zeta \in \R_-$ for some $\mu$, and carry
@@ -1459,9 +1504,9 @@ of the Kontsevich-Soibelman wall-crossing formula
 
 
 \begin{remark}[More interesting discriminant points]
-When the discriminant meets itself, there's a more interesting structure of walls emanating. 
+When $\cB_\sing \subset \cB$ meets itself, there's a more interesting structure of walls emanating. 
 Many things can happen; here are two:
-\insfig{higgs-metric-13}{0.9}
+\insfig{higgs-metric-13}{1.15}
 At left is what happens when three zeroes of $\phi_2$ collide:
 this produces a discriminant point which emits $5$ walls.
 Each of these walls carries a transformation 
@@ -1477,16 +1522,20 @@ a product of two transformations
 \eqref{eq:ks-map}, with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 \end{remark}
 
-For our purpose right now though, what we really need 
-is to understand what happens when 
+For our purpose right now, we do not need to understand
+the details of the wall structure on $\cB$: rather, 
+what we need is to understand what happens when 
 we fix the Higgs bundle and just let $\zeta$
-vary. Then we'll see $\cX_\gamma(\zeta)$ depending on 
-$\zeta$ in a piecewise-analytic way:
-\insfig{higgs-metric-14}{0.65}
-There are invariants $\DT(\mu,\phi_2)$ which determine 
-the jumps of the collection
-$\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ at the various
-rays $Z_\mu / \zeta \in \R_-$.
+vary. Then $\cX_\gamma(\zeta)$ depends on 
+$\zeta$ in a piecewise-analytic way: the collection
+$\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ jumps 
+at various rays $\ell$ in the $\zeta$-plane. 
+\insfig{higgs-metric-14}{0.85}
+At each such ray, the jump is a
+product of transformations of the form \eqref{eq:ks-map},
+where the $\mu$ in \eqref{eq:ks-map} can be any
+$\mu \in \Gamma$ such that $Z_\mu / \zeta \in \R_-$
+along $\ell$.
 
 \begin{example}[Finite chamber for $G = \SU(2)$, $g_C = 0$, $\abs{P} = 4$]
 In case $G = \SU(2)$, $g_C = 0$, 
@@ -1518,7 +1567,10 @@ more below.
 So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
 less the same. For $K>2$ the situation becomes more interesting:
 instead of studying ideal triangulations $T(\phi_2, \zeta)$ 
-one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.
+one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.\footnote{In retrospect,
+essentially the same graphs had appeared earlier as 
+\ti{Stokes graphs} associated to the WKB analysis of
+rank $K$ ODEs; see in particular \cite{berk:988}.}
 Then again there is a recipe for invariants $\DT(\gamma)$
 and coordinates $\cX_\gamma(\zeta)$. This recipe however 
 depends on some conjectures:
@@ -1526,14 +1578,18 @@ most importantly, to construct the $\cX_\gamma(\zeta)$
 one has to solve a certain linear algebra problem determined by the 
 network $\cW(\vphi,\zeta)$.
 Thus the construction has been carried out to the end in various special
-cases but not for arbitrary $(G,C,\vec{m})$ and $(\vphi, \zeta)$.
+cases but not for arbitrary $(G,C,\vec{m})$ and $(\vphi, \zeta)$. In the special cases which have been worked out
+\cite{Gaiotto:2012db,Neitzke:2017yos} the $\cX_\gamma(\zeta)$
+turn out to be cluster coordinate systems on $\cM$,
+i.e. they belong to the distinguished atlas constructed
+by Fock-Goncharov in \cite{MR2233852}.
 \end{remark}
 
-\section{The integral equation}
+\section{The integral equation} \label{sec:integral-equations}
 
-\begin{conj}[Integral equation for $\theta_\gamma = 0$]
+\begin{conj}[Integral equation for $\theta_\gamma = 0$] \label{conj:integral-equation}
 When all $\theta_\gamma = 0$,
-\begin{equation}
+\begin{equation} \label{eq:integral-equation}
   \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
 \end{equation}
 where 
@@ -1541,6 +1597,10 @@ where
   \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
 \end{equation}
 \end{conj}
+The functions $\cX_\gamma(\zeta)$ appear on both sides of
+\eqref{eq:integral-equation}. Thus \eqref{eq:integral-equation} is an integral equation, which needs to be solved for 
+the whole collection $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$
+at once, rather than an integral formula.
 
 \begin{itemize}
   \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
@@ -1581,266 +1641,183 @@ where
   The omitted terms $\cdots$ should be of order $\e^{-4M}$.
 \end{itemize}
 
+
 \section{Numerical tests}
 
-We consider the case of $G = \SU(2)$ with \ti{polynomial} quadratic differential,
+In this last section I want to explain some of the numerical
+evidence supporting \autoref{conj:integral-equation}.
+This evidence was obtained in ongoing joint work with 
+David Dumas.
+
+
+\subsection{The simplest nontrivial Hitchin equations}
+
+We consider the case of $G = \SU(2)$ 
+and $C = \C\PP^1$, where we take $\phi_2$ to be a
+\ti{polynomial} quadratic differential
 of degree $n$, say
-\begin{equation}
-  \phi_2 = P(z) \de z^2,
+\begin{equation} \label{eq:poly-quad}
+  \phi_2 = P(z) \, \de z^2,
 \end{equation}
-and Higgs bundles on the Hitchin section.
-Solving Hitchin's equations in this case is equivalent to studying
-harmonic maps $\C \to SL(2,\R) / SO(2)$ whose image is an ideal polygon
-with $n+2$ vertices.
+and the Higgs bundles are 
+of the form\footnote{Here $\cO(\pm\frac{n}{4})$ means a parabolic line bundle 
+over $\C\PP^1$ of
+degree $\pm \frac{n}{4}$, trivialized away from $z = \infty$; see \cite{Fredrickson2017} for some more explanation.
+}
+\begin{equation} \label{eq:poly-higgs-bundle}
+  \cE = \cO\left(\frac{n}{4}\right) \oplus \cO\left(-\frac{n}{4}\right), \qquad \varphi = \begin{pmatrix} 0 & P(z) \\ 1 & 0 \end{pmatrix} \de z.
+\end{equation}
+Strictly speaking this case is outside the class of
+examples we have considered so far: the singularity
+of the Higgs field $\varphi$ 
+at $z = \infty$ is a non-simple pole.
+The theory of Higgs bundles with non-simple poles
+has been worked out by Biquard-Boalch and Mochizuki, extending
+Simpson's work which we used above for simple
+poles. See e.g. \cite{wnh}.
+In short, essentially all
+of the theory carries over to this situation, and indeed
+these examples turn out to be simpler in some respects.
+
+Solving Hitchin's equation \eqref{eq:hitchin-equation} 
+in the specific
+case \eqref{eq:poly-higgs-bundle} is equivalent to 
+finding a harmonic map from $\C$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. Such a map exists and 
+is unique up to $PSL(2,\R)$ action on the disc; its image
+turns out to be an ideal polygon with $n+2$ vertices
+\cite{HTTW}, again determined up to $PSL(2,\R)$ action.
 
 \insfig{higgs-metric-15}{0.8}
 
-The $\cX_\gamma$ in this case are various cross-ratios of the asymptotic vertices.
-For example, when $n=3$, we have $5$ asymptotic vertices and $\dim \cM = 2$, so
-we pick $2$ out of the $5$ possible cross-ratios of those $5$ coordinates.
-The triangulations $T(\phi_2, \zeta)$ look like:
 
+\subsection{The \texorpdfstring{$\cX_\gamma$}{Xgamma}}
+
+All of the analysis we described in
+\S\ref{sec:coordinates}-\S\ref{sec:integral-equations}
+carries over to this case.
+The quantities $\cX_\gamma(\zeta)$ in this case are monomials in cross-ratios $r_{ijkl}$ of $n+2$ flat sections $s_i$
+of $\nabla(\zeta)$,
+determined by their asymptotic behavior along $n+2$ rays
+approaching $z \to \infty$.\footnote{Incidentally, 
+when $\zeta = 1$ these quantities have
+a particularly simple geometric meaning: the flat sections
+$s_i$ are the asymptotic vertices of the
+polygon above, so the $r_{ijkl}$ are literally
+the cross-ratios of these asymptotic vertices.
+In particular they are \ti{real}: this is a special feature
+arising for these particular Higgs bundles when 
+$\abs{\zeta}=1$.}
+
+For example, when $n=3$, we have $5$ asymptotic rays and $\dim \cM = 2$. The $X_\gamma$ are monomials in
+$2$ out of the $5$ possible cross-ratios $r_{ijkl}$. 
+Precisely \ti{which} cross-ratios we take depends on $P$ and $\zeta$:
+it is determined by a triangulation $T(\phi_2, \zeta)$ 
+of an $(n+2)$-gon, constructed similarly to the
+ideal triangulation $T(\phi_2, \zeta)$ of a punctured surface 
+$C$ constructed in \autoref{prop:triangulation}.
+We take the concrete example
+\begin{equation}
+  P(z) = R^2 (z^3 - 1), \qquad R \in \R_+.
+\end{equation}
+In this case the triangulation $T(\phi_2, \zeta = 1)$ looks
+like:
 \insfig{higgs-metric-16}{0.8}
+From this picture we can read off that the 
+relevant cross-ratios are $r_{1235}$ and $r_{1345}$.
 
-\fixme{show numerical calc}
+\subsection{Numerical results}
 
-% \section{Donaldson-Thomas invariants}
+In joint work with David Dumas we 
+have computed the $X_\gamma = \cX_\gamma(\zeta = 1)$ numerically
+in this example, in two different ways: 
+\begin{itemize}
+\item by
+directly solving Hitchin's equation i.e. finding
+the harmonic maps,
+\item
+by solving the integral equations of \S\ref{sec:integral-equations}.
+\end{itemize}
+Explicit numerical results are below, where we 
+define $X_1 = r_{1235}$ and $X_2 = r_{1235} r_{1345}$.
+On the left we plot the values of $X_1$ computed by
+both methods; on the right we plot the error in
+$\log X_1$.
+The agreement is extremely good (the difference
+$\log(X_1^{\mathrm i}) - \log(X_1^{\mathrm f})$ never exceeds $10^{-5}$), 
+which we view as evidence
+that the integral equations of \S\ref{sec:integral-equations} indeed hold.
 
-% Now we are going to define a function
-% \begin{equation}
-%   \DT: \Gamma \to \Z.
-% \end{equation}
+\insfig{numerics-plot}{0.60}
 
-% The definition of $\DT$ is easiest to understand in the
-% case $K=2$, so let us consider that case first.
-% The construction we will describe is closely related to one
-% which appeared in the physics literature, first in \cite{Klemm:1996bj}.
-% It was later described in \cite{Gaiotto:2009hg} where the application
-% to the Hitchin system appeared.
-% % Also, the invariants
-% % we define here really \ti{are} generalized Donaldson-Thomas
-% % invariants; this is shown in \cite{bridgelandsmith}.
+% {\begin{center}
+% \tiny
+% \begin{tabular}{|c|c|c|c|c|c|c|}
+% \hline
+%      $R$        & $X_1^{\mathrm{f}}$ & $X_1^{\mathrm{i}}$ & $\mathrm{logerr}(X_1)$ & $X_2^{\mathrm{f}}$ & $X_2^{\mathrm{i}}$ & $\mathrm{logerr}(X_2)$\\ 
+% \hline
+% $ 1.1000\mathrm{e-}03 $ & $-6.1724\mathrm{e-}01 $ & $-6.1724\mathrm{e-}01 $ & $ 5.7634\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.4417\mathrm{e-}15 $\\ 
+% $ 1.2000\mathrm{e-}03 $ & $-6.1715\mathrm{e-}01 $ & $-6.1715\mathrm{e-}01 $ & $ 6.3652\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.7748\mathrm{e-}15 $\\ 
+% $ 1.3000\mathrm{e-}03 $ & $-6.1706\mathrm{e-}01 $ & $-6.1706\mathrm{e-}01 $ & $ 7.0317\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}15 $\\ 
+% $ 1.4000\mathrm{e-}03 $ & $-6.1697\mathrm{e-}01 $ & $-6.1697\mathrm{e-}01 $ & $ 7.7037\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9318\mathrm{e-}14 $\\ 
+% $ 1.5000\mathrm{e-}03 $ & $-6.1688\mathrm{e-}01 $ & $-6.1688\mathrm{e-}01 $ & $ 8.3383\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% $ 1.6000\mathrm{e-}03 $ & $-6.1678\mathrm{e-}01 $ & $-6.1678\mathrm{e-}01 $ & $ 9.0331\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6304\mathrm{e-}14 $\\ 
+% $ 1.7000\mathrm{e-}03 $ & $-6.1669\mathrm{e-}01 $ & $-6.1669\mathrm{e-}01 $ & $ 9.6743\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.5479\mathrm{e-}15 $\\ 
+% $ 1.8000\mathrm{e-}03 $ & $-6.1659\mathrm{e-}01 $ & $-6.1659\mathrm{e-}01 $ & $ 1.0382\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.9738\mathrm{e-}14 $\\ 
+% $ 1.9000\mathrm{e-}03 $ & $-6.1650\mathrm{e-}01 $ & $-6.1650\mathrm{e-}01 $ & $ 1.1111\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.2188\mathrm{e-}15 $\\ 
+% $ 2.0000\mathrm{e-}03 $ & $-6.1640\mathrm{e-}01 $ & $-6.1640\mathrm{e-}01 $ & $ 1.1764\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.2847\mathrm{e-}14 $\\ 
+% $ 2.1000\mathrm{e-}03 $ & $-6.1630\mathrm{e-}01 $ & $-6.1630\mathrm{e-}01 $ & $ 1.2488\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6415\mathrm{e-}14 $\\ 
+% $ 2.2000\mathrm{e-}03 $ & $-6.1620\mathrm{e-}01 $ & $-6.1620\mathrm{e-}01 $ & $ 1.3255\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.4393\mathrm{e-}15 $\\ 
+% $ 2.3000\mathrm{e-}03 $ & $-6.1610\mathrm{e-}01 $ & $-6.1610\mathrm{e-}01 $ & $ 1.4013\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.7732\mathrm{e-}15 $\\ 
+% $ 2.4000\mathrm{e-}03 $ & $-6.1600\mathrm{e-}01 $ & $-6.1600\mathrm{e-}01 $ & $ 1.4668\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.7700\mathrm{e-}15 $\\ 
+% $ 2.5000\mathrm{e-}03 $ & $-6.1590\mathrm{e-}01 $ & $-6.1590\mathrm{e-}01 $ & $ 1.5448\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.6613\mathrm{e-}15 $\\ 
+% $ 2.6000\mathrm{e-}03 $ & $-6.1580\mathrm{e-}01 $ & $-6.1580\mathrm{e-}01 $ & $ 1.6222\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.2427\mathrm{e-}14 $\\ 
+% $ 2.8000\mathrm{e-}03 $ & $-6.1559\mathrm{e-}01 $ & $-6.1559\mathrm{e-}01 $ & $ 1.7676\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.4433\mathrm{e-}14 $\\ 
+% $ 3.0000\mathrm{e-}03 $ & $-6.1538\mathrm{e-}01 $ & $-6.1538\mathrm{e-}01 $ & $ 1.9277\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1102\mathrm{e-}15 $\\ 
+% $ 4.0000\mathrm{e-}03 $ & $-6.1429\mathrm{e-}01 $ & $-6.1429\mathrm{e-}01 $ & $ 2.7115\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.3267\mathrm{e-}15 $\\ 
+% $ 5.0000\mathrm{e-}03 $ & $-6.1314\mathrm{e-}01 $ & $-6.1314\mathrm{e-}01 $ & $ 3.5473\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3315\mathrm{e-}14 $\\ 
+% $ 6.0000\mathrm{e-}03 $ & $-6.1195\mathrm{e-}01 $ & $-6.1195\mathrm{e-}01 $ & $ 4.4102\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.2149\mathrm{e-}15 $\\ 
+% $ 7.0000\mathrm{e-}03 $ & $-6.1072\mathrm{e-}01 $ & $-6.1072\mathrm{e-}01 $ & $ 5.3334\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% $ 8.0000\mathrm{e-}03 $ & $-6.0945\mathrm{e-}01 $ & $-6.0945\mathrm{e-}01 $ & $ 6.2366\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.6415\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}03 $ & $-6.0816\mathrm{e-}01 $ & $-6.0816\mathrm{e-}01 $ & $ 7.1963\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-7.7716\mathrm{e-}16 $\\ 
+% $ 1.0000\mathrm{e-}02 $ & $-6.0684\mathrm{e-}01 $ & $-6.0684\mathrm{e-}01 $ & $ 8.1950\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 2.0000\mathrm{e-}02 $ & $-5.9259\mathrm{e-}01 $ & $-5.9259\mathrm{e-}01 $ & $ 1.8879\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.6621\mathrm{e-}15 $\\ 
+% $ 3.0000\mathrm{e-}02 $ & $-5.7712\mathrm{e-}01 $ & $-5.7712\mathrm{e-}01 $ & $ 3.0802\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 4.0000\mathrm{e-}02 $ & $-5.6098\mathrm{e-}01 $ & $-5.6098\mathrm{e-}01 $ & $ 4.3867\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9540\mathrm{e-}14 $\\ 
+% $ 5.0000\mathrm{e-}02 $ & $-5.4444\mathrm{e-}01 $ & $-5.4444\mathrm{e-}01 $ & $ 5.7434\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.6613\mathrm{e-}16 $\\ 
+% $ 6.0000\mathrm{e-}02 $ & $-5.2770\mathrm{e-}01 $ & $-5.2770\mathrm{e-}01 $ & $ 7.1756\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 7.9936\mathrm{e-}15 $\\ 
+% $ 7.0000\mathrm{e-}02 $ & $-5.1088\mathrm{e-}01 $ & $-5.1088\mathrm{e-}01 $ & $ 8.7096\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-1.3767\mathrm{e-}14 $\\ 
+% $ 8.0000\mathrm{e-}02 $ & $-4.9409\mathrm{e-}01 $ & $-4.9409\mathrm{e-}01 $ & $ 1.0219\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1990\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}02 $ & $-4.7740\mathrm{e-}01 $ & $-4.7740\mathrm{e-}01 $ & $ 1.1819\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9984\mathrm{e-}14 $\\ 
+% $ 1.0000\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $ 1.3447\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.5487\mathrm{e-}15 $\\ 
+% $ 1.5000\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $ 2.2336\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.5091\mathrm{e-}14 $\\ 
+% $ 2.0000\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $ 3.2033\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.3957\mathrm{e-}14 $\\ 
+% $ 2.5000\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $ 4.2295\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.6221\mathrm{e-}12 $\\ 
+% $ 3.0000\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $ 5.3092\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.9056\mathrm{e-}14 $\\ 
+% $ 3.5000\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $ 6.4436\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.3238\mathrm{e-}13 $\\ 
+% $ 4.0000\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $ 7.6367\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.9619\mathrm{e-}14 $\\ 
+% $ 4.5000\mathrm{e-}01 $ & $-9.9628\mathrm{e-}02 $ & $-9.9628\mathrm{e-}02 $ & $ 8.9095\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3173\mathrm{e-}11 $\\ 
+% $ 5.0000\mathrm{e-}01 $ & $-7.8122\mathrm{e-}02 $ & $-7.8122\mathrm{e-}02 $ & $ 1.0189\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% $ 5.5000\mathrm{e-}01 $ & $-6.1111\mathrm{e-}02 $ & $-6.1110\mathrm{e-}02 $ & $ 1.1577\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.3698\mathrm{e-}13 $\\ 
+% $ 6.0000\mathrm{e-}01 $ & $-4.7717\mathrm{e-}02 $ & $-4.7717\mathrm{e-}02 $ & $ 1.3048\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.1464\mathrm{e-}13 $\\ 
+% $ 6.5000\mathrm{e-}01 $ & $-3.7210\mathrm{e-}02 $ & $-3.7210\mathrm{e-}02 $ & $ 1.4675\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.9565\mathrm{e-}13 $\\ 
+% $ 7.0000\mathrm{e-}01 $ & $-2.8988\mathrm{e-}02 $ & $-2.8988\mathrm{e-}02 $ & $ 1.6421\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.3648\mathrm{e-}13 $\\ 
+% $ 7.5000\mathrm{e-}01 $ & $-2.2566\mathrm{e-}02 $ & $-2.2566\mathrm{e-}02 $ & $ 1.8283\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.1805\mathrm{e-}13 $\\ 
+% $ 8.0000\mathrm{e-}01 $ & $-1.7558\mathrm{e-}02 $ & $-1.7558\mathrm{e-}02 $ & $ 2.0251\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.1950\mathrm{e-}14 $\\ 
+% $ 8.5000\mathrm{e-}01 $ & $-1.3656\mathrm{e-}02 $ & $-1.3656\mathrm{e-}02 $ & $ 2.2285\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.8390\mathrm{e-}14 $\\ 
+% $ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 2.4377\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.7732\mathrm{e-}14 $\\ 
+% $ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
+% \hline
+% \end{tabular}
+% \end{center}
+% }
 
-% Fix a point $\vec\phi = (\phi_1, \phi_2) \in \cB'$.
-% Most of what we say in this section is about the discriminant
-% \begin{equation}
-% \Delta = \phi_1^2 - 4 \phi_2.
-% \end{equation}
-% $\Delta$ is a holomorphic quadratic differential on $C$.
+% \medskip 
 
-% Recall that the two sheets of $\Sigma_{\vec\phi}$ are given by
-% (locally, in any domain where we can choose a single-valued $\sqrt{\Delta}$)
-% \begin{equation}
-%   \lambda_{\pm} = \half (-\phi_1 \pm \sqrt{\Delta})
-% \end{equation}
-% and in particular their difference is
-% \begin{equation}
-%   \lambda_+ - \lambda_- = \sqrt{\Delta}.
-% \end{equation}
-
-% \begin{defn}[$\vartheta$-trajectories of a quadratic differential]
-% A \ti{$\vartheta$-trajectory} of $\Delta$ is a connected
-% real $1$-manifold $p$ on $C$
-% such that $e^{- \I \vartheta} \sqrt \Delta$ (with either choice of sign
-% for $\sqrt{\Delta}$) is a
-% \ti{real} and nowhere va nishing form on $p$.
-% Call a $\vartheta$-trajectory \ti{maximal} if
-% it is not properly contained in any other.
-% \end{defn}
-
-% Because of the sign ambiguity of $\sqrt{\Delta}$, there is no canonical
-% way of orienting $\vartheta$-trajectories. However, once we pass to the
-% double cover, we do get an orientation.
-
-% % \begin{defn}[Orientation of lifted $\vartheta$-trajectories]
-% % Given a $\vartheta$-trajectory $p$, its lift $\tilde{p} = \pi^{-1}(p)$
-% % to $\Sigma_{\vec\phi}$ is canonically oriented. Indeed,
-% % the two sheets of $\Sigma_{\vec\phi}$
-% % correspond canonically to the two choices of $\sqrt{\Delta}$.
-% % Thus we can orient $\tilde{p}$ by the condition that
-% % in the positive direction, $e^{-\I \vartheta} \sqrt{\Delta}$
-% % is positive.
-% % \end{defn}
-
-% Changing $\vartheta \to \vartheta+\pi$ preserves
-% the notion of $\vartheta$-trajectory but reverses the
-% orientation of the lifts.
-
-% \insfig{higgs-bundles-17}{0.8}
-
-
-% Let $C' = \{z: \Delta(z) \neq 0\} \subset C$.
-
-% \begin{prop}[$\vartheta$-trajectories give a foliation] The
-% $\vartheta$-trajectories are the leaves of a foliation of $C'$.
-% \end{prop}
-% % \begin{pf} Around any $z_0 \in C'$ we consider a local coordinate
-% % $w$ given by $w(z) = \int^z_{z_0} \sqrt{\Delta}$. Then
-% % we have $\Delta = \de w^2$. Thus in the coordinate $w$,
-% % $\vartheta$-trajectories are just straight segments
-% % of inclination angle $\vartheta$.
-% % \end{pf}
-
-% \begin{prop}[Local singularities of the foliation by $\vartheta$-trajectories] Around each zero of $\Delta$, the foliation
-% by $\vartheta$-trajectories has a three-pronged singularity,
-% as shown below.
-% \insfig{higgs-bundles-18}{0.8}
-
-% \end{prop}
-% % \begin{pf} In a neighborhood of a zero of $\Delta$, we may choose a
-% % local coordinate such that $\Delta = z\,\de z^2$, using our assumption that
-% % all zeroes of $\Delta$ are simple.
-% % % (Perhaps this is not really necessary: we could
-% % % just make a linear change of coordinate, to arrange that the first-order term in the Taylor
-% % % expansion of $\Delta$ is $z \, \de z^2$, and then take a small enough disc that
-% % % we can neglect the deviation. But since we can get $z \, \de z^2$
-% % % on the nose, we might as well.)
-
-% % Then in any simply connected domain away from $z=0$ we have
-% % $w = \int \sqrt{\Delta} = \frac23 z^{\frac32}$. In particular,
-% % each of the three domains
-% % \begin{equation}
-% % \frac23 (\vartheta + n\pi) < \arg z < \frac23 (\vartheta + (n+1)\pi), \qquad n=0,1,2,
-% % \end{equation}
-% % is mapped by $w$ to a half-plane,
-% % whose boundary is the line through $0$ of inclination $\vartheta$.
-% % This gives the picture shown.
-% % \end{pf}
-
-% % \begin{exercise} Show that in a neighborhood of a zero of $\Delta$, we may choose a
-% % local coordinate $z$ such that $\Delta = z\,\de z^2$.
-% % \end{exercise}
-
-% % \begin{exercise} Suppose we consider a quadratic differential $\Delta$
-% % which is allowed to have higher-order zeroes. What is the behavior of
-% % the foliation by $\vartheta$-trajectories around such a zero?
-% % \end{exercise}
-
-% Thus in the foliation by $\vartheta$-trajectories, there are finitely
-% many special leaves, namely those which are asymptotic in one or
-% both directions to zeroes of $\Delta$.
-
-% % \begin{defn}[Forward and backward asymptotics of trajectories]
-% % Given a maximal $\vartheta$-trajectory $p$ with a chosen orientation,
-% % we say $p$ is \ti{forward asymptotic} (resp. \ti{backward asymptotic}) to $z$ if, choosing any oriented parameterization of $p$,
-% % we have $\lim_{t \to \infty} p(t) = z$ (resp. $\lim_{t \to -\infty} p(t) = z$).
-% % \end{defn}
-
-% \begin{defn}[Critical trajectories] A maximal $\vartheta$-trajectory
-% is called \ti{critical} if it admits an orientation for which
-% it is backward asymptotic to a zero of $\Delta$.
-% The \ti{$\vartheta$-critical graph} is the union of the critical trajectories and the
-% zeroes of $\Delta$.
-% \end{defn}
-
-% Critical trajectories which are also \ti{forward} asymptotic
-% to zeroes of $\Delta$ are particularly special:
-
-% \begin{defn}[Saddle connections]
-% A \ti{$\vartheta$-saddle connection} is a maximal
-% $\vartheta$-trajectory $p$
-% such that $\bar p \setminus p$ consists of two points of $C$.
-% \end{defn}
-
-% \insfig{higgs-bundles-19}{0.8}
-
-% \begin{defn}[Charge of a saddle connection]
-% If $p$ is a saddle connection, then the closure of $\tilde p$
-% is an oriented loop on $\Sigma_{\vec \phi}$; the \ti{charge of $p$}
-% is the class of this loop in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-% \end{defn}
-
-% \insfig{higgs-bundles-20}{0.8}
-
-% There is one other way in which a trajectory can have finite length:
-
-% \begin{defn}[Closed loops]
-% A \ti{$\vartheta$-closed loop} is a maximal $\vartheta$-trajectory $p$
-% such that the closure of $p$ has the topology of $S^1$.
-% \end{defn}
-% This includes the possibility that $p$ begins and ends
-% at the same branch point.
-
-% \insfig{higgs-bundles-22}{0.8}
-
-
-% \begin{defn}[Charge of a closed loop]
-% If $p$ is a closed loop, then $\tilde p$ is the union of two
-% oriented loops on $\Sigma$; the \ti{charge} of $\tilde p$
-% is the class of this union in $\Gamma_{\vec\phi} = H_1(\Sigma_{\vec\phi},\Z)$.
-% \end{defn}
-
-% \insfig{higgs-bundles-21}{0.8}
-
-% \begin{defn}[Finite $\vartheta$-trajectories] A
-% \ti{finite $\vartheta$-trajectory} is a $\vartheta$-saddle connection or
-% $\vartheta$-closed loop.
-% \end{defn}
-
-% As we will now show, the existence of a finite $\vartheta$-trajectory is a
-% non-generic phenomenon: for ``most'' angles $\vartheta$ they
-% do not occur.
-
-% \begin{lem}[Phase constraint for finite trajectories]
-% If a $\vartheta$-finite trajectory exists with charge
-% $\gamma$, then $e^{- \I \vartheta} Z_\gamma \in \R_+$.
-% \end{lem}
-
-% % \begin{pf}
-% % Choose a $\sqrt{\Delta}$ over $p$, and orient $p$
-% % so that $e^{-\I \vartheta} \sqrt{\Delta}$ is positive.
-% % Then
-% % \begin{equation}
-% % Z_\gamma = \int_{\tilde p} \lambda = \int_p \lambda_+ - \lambda_- = \int_p \sqrt{\Delta}
-% % \end{equation}
-% % so
-% % \begin{equation}
-% %   e^{-\I \vartheta} Z_\gamma = \int_p e^{\I \vartheta} \sqrt{\Delta} > 0
-% % \end{equation}
-% % as desired.
-% % \end{pf}
-
-% In particular, finite $\vartheta$-trajectories can only
-% occur at countably many phases $\vartheta$.
-
-% % \begin{prop}[Landscape of finite $\vartheta$-trajectories]
-% % Fix $\vartheta$ and $\vec\phi \in \cB'$. Then
-% % the set of finite $\vartheta$-trajectories is described as follows.
-% % There are finitely many
-% % subsets of $C$ homeomorphic to open annuli (``ring domains''),
-% % foliated by $\vartheta$-closed loops.
-% % Each boundary of a ring domain can be a $\vartheta$-closed loop
-% % or a union of $\vartheta$-saddle connections.
-% % In addition there can be finitely many $\vartheta$-saddle connections elsewhere on
-% % $C$.
-% % \end{prop}
-
-
-% \begin{pf} This is proven in \cite{MR743423}.
-% \end{pf}
-
-% \begin{defn}[\DT invariants]
-% Fix $\vec\phi \in \cB_\reg$ and $\gamma \in \Gamma_{\vec \phi}$.
-% $\DT(\gamma) \in \Z$ is a count of finite $\vartheta$-trajectories
-% (of $\Delta$), where $\vartheta = \arg Z_\gamma$:
-% \begin{equation}
-%   \DT(\gamma) = (\# \text{ $\vartheta$-saddle connections of charge $\gamma$}) - 2 (\# \text{ $\vartheta$-ring domains of charge $\gamma$}).
-% \end{equation}
-% \end{defn}
-
-% Note $\DT(\gamma) = \DT(-\gamma)$.
-
-% % \begin{exercise} Show that $\DT(\gamma) = \DT(-\gamma)$.
-% % \end{exercise}
-
-% $\DT$ is \ti{not} a locally constant function of $\gamma$.
-% Indeed, as we deform $\vec\phi$, saddle connections
-% and/or ring domains may appear or disappear; this is
-% the \ti{wall-crossing} phenomenon.
-
-
-
-
+Dumas and I have made similar numerical calculations 
+for higher degree polynomials $P(z)$, 
+as well as in a slightly fancier case: Higgs bundles
+in the plane with $G = \SU(3)$, with $\phi_2 = 0$
+and polynomial $\phi_3$.
 
 \printbibliography
 
