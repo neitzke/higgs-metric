@@ -1563,7 +1563,7 @@ as shown in the picture above. We will discuss that example
 more below.
 \end{remark}
 
-\begin{remark}[Higher rank]
+\begin{remark}[Higher rank] \label{rem:higher-rank}
 So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
 less the same. For $K>2$ the situation becomes more interesting:
 instead of studying ideal triangulations $T(\phi_2, \zeta)$ 
@@ -1743,7 +1743,7 @@ from $R = 10^{-8}$ to $R = 1$. On the left we show
 the values of $X_1$ computed by both methods, which we call
  $X_1^{\mathrm i}$ and $X_1^{\mathrm f}$; on the scale of that
 plot it appears as though $X_1^{\mathrm i} = X_1^{\mathrm f}$,
-as predicted by the conjecture.
+as predicted by \autoref{conj:integral-equation}.
 On the right we plot the difference
 $\log(X_1^{\mathrm i}) - \log(X_1^{\mathrm f})$, 
 which never exceeds $10^{-5}$ over the range of $R$ shown.
@@ -1820,11 +1820,16 @@ understood in detail.)
 Dumas and I have also made similar numerical calculations in other
 cases:
 \begin{itemize}
-  \item as above but with a polynomial $P(z)$ of degree $4$,
-  \item for Higgs bundles in the plane with $G = \SU(3)$, 
-  with $\phi_2 = 0$ and $\phi_3 = P(z) \de z^3$, for $P(z)$ of degree $2$ or $3$.
+  \item As above but with a polynomial $P(z)$ of degree $4$,
+  \item For Higgs bundles in the plane with $G = \SU(3)$, 
+  with $\phi_2 = 0$ and $\phi_3 = P(z) \de z^3$, for $P(z)$ of degree $2$ or $3$. (In this case the coordinates $\cX_\gamma(\zeta)$ 
+  are not built from a triangulation, 
+  but rather from a ``WKB spectral network'' built from $\phi_3$,
+  as we explained in \autoref{rem:higher-rank}.
+  The construction in this case is described in \cite{Neitzke:2017yos}.)
 \end{itemize}
-The results are qualitatively similar to those shown above.
+The results are qualitatively similar to those shown above: they appear to
+support \autoref{conj:integral-equation}.
 
 \printbibliography
 
