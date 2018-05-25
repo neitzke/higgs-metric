@@ -363,7 +363,6 @@ the moduli space $\cM$ of Higgs bundles.
 
 \subsection{Overview}
 
-The basic structure we are aiming for is as follows.
 $\cM$ is a complex integrable system: this means that
 it admits a holomorphic fibration $\pi: \cM \to \cB$
 with complex Lagrangian fibers.
@@ -377,26 +376,28 @@ family of smooth \ti{spectral curves} $\Sigma_\vphi \subset T^* C$
 parameterized by $\vphi \in \cB_\reg$.
 
 The conjectural picture we are aiming for is that the \hk metric
-$g$ on $\cM$ is constructed from two distinct constituents:
+$g$ on $\cM$ is constructed from two ingredients:
 \begin{enumerate}
   \item The special \kahler structure on $\cB_\reg$, constructed from 
-  \ti{periods} of the spectral curves $\Sigma_\vphi$ ($\vphi \in \cB_\reg$),
-  denoted $Z_\gamma$ below,
+  \ti{periods} $Z_\gamma$ of the spectral curves $\Sigma_\vphi$,
   \insfig{higgs-metric-4}{0.9}
-  \item A collection of integer ``Donaldson-Thomas invariants,''
-  denoted $\DT(\gamma)$ below,
+  \item A collection of integer ``Donaldson-Thomas invariants''
+  $\DT(\gamma)$,
   which count (tropicalizations of) special Lagrangian discs
   in $T^*C$ with boundary on $\Sigma_\vphi$.
   \insfig{higgs-metric-5}{0.8}
 \end{enumerate}
 
-If one neglects the Donaldson-Thomas invariants one obtains
-a simple and explicit \hk metric $g^\sf$ on $\cM_\reg$, 
+So, what we will describe is a conjectural recipe which uses $Z_\gamma$
+and $\DT(\gamma)$ to build the \hk metric on $\cM$.
+
+If one sets all $\DT(\gamma) = 0$ in this recipe,
+one obtains a simple and explicit \hk metric $g^\sf$ on $\cM_\reg$, 
 the ``semiflat metric,'' so called
 because it is flat (and translation invariant) on the torus
-fibers. $g^\sf$ however does not extend to the full $\cM$.
-
-The effect of the Donaldson-Thomas invariants
+fibers. $g^\sf$ however does not extend over $\cM_\sing$, so it cannot
+be equal to Hitchin's metric on $\cM$.
+The effect of the nonzero $\DT(\gamma)$
 is to add corrections which break the translation invariance.
 Away from $\cM_\sing$, these corrections are of the order 
 $\e^{-2M}$ where $M$ is the area of the smallest 
@@ -409,8 +410,11 @@ along which $M \to \infty$, we expect to see $g$
 converging to $g^\sf$.
 On the other hand, as we approach $\cM_\sing$ the effect
 of these corrections is large: it smoothes out the singularity
-of $g^\sf$ (partially or completely, depending whether
-$\cM$ is smooth or not.)
+of $g^\sf$.\footnote{In some cases the \hk metric $g$ on $\cM$ actually has
+singularities. The singularities of $g$ are milder than those of $g^\sf$ --- in particular, the singularities of $g$ occur 
+in complex codimension at least $2$. In these cases,
+the corrections do not completely \ti{smooth} the singularity of $g^\sf$, but they
+still \ti{improve} it.}
 
 The strategy of the lectures will be roughly:
 \begin{enumerate}
@@ -475,10 +479,10 @@ We sometimes think of $m_p^\C$ and $m_p^\R$ as diagonal
 $K \times K$ matrices. We impose a constraint:
 \begin{itemize}
 \item If $G = \SU(K)$, then
-$\Tr m_p^\C = 0$ and $\Tr m_p^\R = 0$.
+$\Tr m_p^\C = 0$, and $\Tr m_p^\R = 0 \mod 2 \pi \Z$.
 \item If $G = \U(K)$, then 
-$\sum_{p \in P} \Tr m_p^\C = 0$ and
-$\sum_{p \in P} \Tr m_p^\R = 0$.
+$\sum_{p \in P} \Tr m_p^\C = 0$, and
+$\sum_{p \in P} \Tr m_p^\R = 0 \mod 2 \pi \Z$.
 \end{itemize}
 We also require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
 if $C$ has genus $0$ we require $\abs{P} \ge 3$, 
@@ -496,7 +500,7 @@ it is fine to restrict to the generic case throughout.
 
 \begin{example}[The case of $G = \SU(2)$]
 A good case to keep in mind is the case $G = \SU(2)$. In that case our data reduces to a Riemann surface $C$, a finite subset $P \subset C$,
-and numbers $m^\C_p \in \C$, $m^\R_p \in \R$ for each $p \in P$. The generic case is the case when all $m^\C_p \neq 0$.
+and numbers $m^\C_p \in \C$, $m^\R_p \in \R / 2 \pi \Z$ for each $p \in P$. The generic case is the case when all $m^\C_p \neq 0$.
 \end{example}
 
 \begin{remark} The outputs of all our constructions will 
@@ -703,16 +707,17 @@ more $2$-dimensional examples in this way.
 Now we want to exhibit $\cM$ as a complex integrable system,
 i.e. a holomorphic Lagrangian fibration.
 
-Given a Higgs bundle $(E,\varphi) \in \cM$ we can consider
-the eigenvalues of $\varphi(z)$: as $z \in C$ varies
-these sweep out a curve in $\Tot[K_C(P)]$, a $K$-fold cover of $C$:
+Given a Higgs bundle $(E,\varphi) \in \cM$ and $z \in C$,
+we can consider the eigenvalues of $\varphi(z)$. As $z$ varies
+these sweep out a curve $\Sigma \subset \Tot[K_C(P)]$:
 \begin{equation}
-  \Sigma = \{ \lambda: \det(\lambda - \varphi) = 0\} \subset \Tot[K_C(P)].
+  \Sigma = \{ (z,\lambda): \det(\lambda - \varphi(z)) = 0\} \subset \Tot[K_C(P)].
 \end{equation}
-The curve $\Sigma$ is an invariant of the Higgs 
-bundle $(E,\varphi)$, which we call
-the \ti{spectral curve}. 
-The projection to $C$ induces $\rho: \Sigma \to C$ which is a $K$-fold branched covering.
+We call $\Sigma$
+the \ti{spectral curve} associated to the Higgs 
+bundle $(E,\varphi)$.
+The projection $\Tot[K_C(P)] \to C$ 
+restricts to $\rho: \Sigma \to C$ which is a $K$-fold branched covering.
 \insfig{higgs-metric-17}{0.8}
 Now what are all the curves $\Sigma$
 we can get in this way?
@@ -841,7 +846,7 @@ $\dim_\C \cB = 3 g_C - 3 + \abs{P}$.
 The spectral curve for a given $\phi_2 \in \cB$
 is
 \begin{equation}
-  \Sigma_{\phi_2} = \{\lambda: \lambda^2 + \phi_2 = 0\} \subset \Tot[K_C(P)].
+  \Sigma_{\phi_2} = \{(z,\lambda): \lambda^2 + \phi_2(z) = 0\} \subset \Tot[K_C(P)].
 \end{equation}
 $\Sigma_{\phi_2}$ is a $2$-fold branched covering of $C$, branched at the zeroes of $\phi_2$.
 The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have only simple zeroes ($4 g_C + 2\abs{P} - 4$ of them).
@@ -948,14 +953,19 @@ Then the norm of $v$ is the $L^2$ norm
 where for $(\dot A, \dot \Phi)$ we choose the representative
 \ti{minimizing} the norm.
 
-\fixme{ref Konno}
-
 \begin{remark}[\Hk quotient] I have not really explained
 why the metric $g$ constructed in this way turns out to 
 be \hk, or even \kahler. The most conceptual explanation
 of this comes by viewing the construction in terms of 
-an infinite-dimensional \hk quotient, as explained by
+an infinite-dimensional \hk quotient.
+In the original context of Higgs bundles without 
+singularities, this was explained by
 Hitchin in \cite{MR89a:32021}.
+In the case of parabolic Higgs bundles which we
+are considering here,
+the construction of $\cM$ and $g$ by \hk quotient
+was given by Konno in \cite{MR1206652}.
+
 \end{remark}
 
 % \subsection{Hyperkahler structure}
@@ -1698,8 +1708,7 @@ carries over to this case.
 The quantities $\cX_\gamma(\zeta)$ in this case are monomials in cross-ratios $r_{ijkl}$ of $n+2$ flat sections $s_i$
 of $\nabla(\zeta)$,
 determined by their asymptotic behavior along $n+2$ rays
-approaching $z \to \infty$.\footnote{Incidentally, 
-when $\zeta = 1$ these quantities have
+approaching $z \to \infty$.\footnote{When $\zeta = 1$ these quantities have
 a particularly simple geometric meaning: the flat sections
 $s_i$ are the asymptotic vertices of the
 polygon above, so the $r_{ijkl}$ are literally
@@ -1708,7 +1717,7 @@ In particular they are \ti{real}: this is a special feature
 arising for these particular Higgs bundles when 
 $\abs{\zeta}=1$.}
 
-For example, when $n=3$, we have $5$ asymptotic rays and $\dim \cM = 2$. The $X_\gamma$ are monomials in
+For example, when $n=3$, we have $5$ asymptotic rays and $\dim \cM = 2$. The $\cX_\gamma(\zeta)$ are monomials in
 $2$ out of the $5$ possible cross-ratios $r_{ijkl}$. 
 Precisely \ti{which} cross-ratios we take depends on $P$ and $\zeta$:
 it is determined by a triangulation $T(\phi_2, \zeta)$ 
