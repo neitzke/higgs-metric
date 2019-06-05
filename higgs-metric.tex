@@ -29,7 +29,7 @@
 \definecolor{shadecolor}{rgb}{0.85,0.85,0.85}
 
 % Bibliography formatting
-\usepackage[bibstyle=authoryear-comp,labeldate=false,defernumbers=true,maxnames=20,uniquename=init,dashed=false,backend=biber,sorting=none]{biblatex}
+\usepackage[bibstyle=authoryear-comp,labeldateparts=false,defernumbers=true,maxnames=20,uniquename=init,dashed=false,backend=biber,sorting=none]{biblatex}
 
 \DeclareNameAlias{sortname}{first-last}
 
@@ -287,6 +287,7 @@
 
 \newcommand{\SO}{\mathrm{SO}}
 \newcommand{\SL}{\mathrm{SL}}
+\newcommand{\PSL}{\mathrm{PSL}}
 \newcommand{\SU}{\mathrm{SU}}
 \newcommand{\Sp}{\mathrm{Sp}}
 \newcommand{\U}{\mathrm{U}}
@@ -472,24 +473,26 @@ Throughout these lectures we will fix data $(G,C,\vec m)$ as follows:
 \begin{itemize}
   \item A group $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
   \item A compact Riemann surface $C$, equipped with a finite subset $P \subset C$,
-  \item A vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus (\R / 2 \pi \Z)^K$ for each $p \in P$.
+  \item A vector $\vec{m}_p = (m^\C_p, m^\R_p) \in \C^K \oplus \R^K$ for each $p \in P$, with the additional constraint that all components of $m_p^\R$ lie in $[0,2\pi)$.
 \end{itemize}
-We sometimes think of $m_p^\C$ and $m_p^\R$ as diagonal
-$K \times K$ matrices. We impose a constraint:
+It is often convenient to think of $m_p^\C$ and $m_p^\R$ as diagonal
+$K \times K$ matrices rather than as vectors. They must satisfy 
+a further constraint:
 \begin{itemize}
-\item If $G = \SU(K)$, then
-$\Tr m_p^\C = 0$, and $\Tr m_p^\R = 0 \mod 2 \pi \Z$.
 \item If $G = \U(K)$, then 
 $\sum_{p \in P} \Tr m_p^\C = 0$, and
-$\sum_{p \in P} \Tr m_p^\R = 0 \mod 2 \pi \Z$.
+$\sum_{p \in P} \Tr m_p^\R \in 2 \pi \Z$.
+\item If $G = \SU(K)$, then
+$\Tr m_p^\C = 0$, and $\Tr m_p^\R \in 2 \pi \Z$.
 \end{itemize}
-We also require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
+Finally, we require that $2g_C + \abs{P} - 2 > 0$; equivalently, 
 if $C$ has genus $0$ we require $\abs{P} \ge 3$, 
 and if $C$ has genus $1$ we require $\abs{P} \ge 1$.
 \insfig{higgs-metric-1}{0.8}
 
 \begin{defn}[Generic puncture data]
-We say $\vec{m}$ is \ti{generic} if each $m^\C_p \in \C^K$
+We say $\vec{m}$ is \ti{generic} if,
+for all $p \in P$, each $m^\C_p \in \C^K$
 has all entries distinct; equivalently, as a diagonal
 matrix, $m^\C_p$ is a regular element.
 The generic case is the simplest
@@ -499,11 +502,12 @@ it is fine to restrict to the generic case throughout.
 
 \begin{example}[The case of $G = \SU(2)$]
 A good case to keep in mind is the case $G = \SU(2)$. In that case our data reduces to a Riemann surface $C$, a finite subset $P \subset C$,
-and numbers $m^\C_p \in \C$, $m^\R_p \in \R / 2 \pi \Z$ for each $p \in P$. The generic case is the case when all $m^\C_p \neq 0$.
+and numbers $m^\C_p \in \C$, $m^\R_p \in \R$ for each $p \in P$. The generic case is the case when all $m^\C_p \neq 0$.
 \end{example}
 
-\begin{remark} The outputs of all our constructions will 
-be invariant under the symmetric group $S_K$ acting on $\vec m_p$.
+\begin{remark} For any $p \in P$, the outputs of all constructions to
+be discussed below are invariant under the symmetric group $S_K$ 
+acting on $\vec m_p$.
 \end{remark}
 
 % \fixme{remark on irregular singularities?}
@@ -515,7 +519,7 @@ but with an eye to what will come later, we go straight
 to the parabolic case. Roughly this means that we will consider
 Higgs fields $\varphi$ which, rather than being holomorphic, are
 allowed to have simple poles at the points $p \in P$.\footnote{The parameter $m_p^\C$ will
-control the eigenvalues of the residue; the
+control the eigenvalues of the residue of $\varphi$; the
 ``strongly parabolic'' case of nilpotent residues
 is thus the case $m_p^\C = 0$, which we usually
 avoid.}
@@ -525,7 +529,7 @@ is Simpson \cite{hbnc}.
 A very useful review of the unpunctured case can be found in
 \cite{Wentworth2014} and references therein.
 
-\begin{defn}[Parabolic Higgs bundles for $G = \U(K)$]
+\begin{defn}[Parabolic Higgs bundles for $G = \U(K)$] \label{def:parabolic-higgs}
 When $G = \U(K)$, a $(G, C, \vec m)$-\ti{Higgs bundle} is a pair $(E, \varphi)$, where:
 \begin{itemize}
   \item $E$ is a holomorphic vector bundle of rank $K$ over $C$,
@@ -581,10 +585,11 @@ acting by $\lambda^\C$ on $E_{p,\vec\lambda}$, and filtration weight given by $\
 
 \begin{defn}[Parabolic Higgs bundles for $G = \SU(K)$]
 When $G = \SU(K)$, a \ti{$(G,C,\vec m)$-Higgs bundle} 
-is a pair $(E, \varphi)$ as for $G = \U(K)$, with two additional conditions:
+is a pair $(E, \varphi)$ as in \autoref{def:parabolic-higgs}, 
+obeying two additional conditions:
 \begin{itemize} 
 \item $\det E$ is trivial in the parabolic sense: this means
-that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p\right)$ over $C$ is trivial, where $n_p = \frac{1}{2\pi}\Tr \alpha_p^\R$.
+that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p\right)$ over $C$ is trivial, where $n_p = \frac{1}{2\pi}\Tr m_p^\R$.
 \item $\Tr \varphi = 0$.
 \end{itemize}
 \end{defn}
@@ -595,12 +600,9 @@ and $E' \subset E$ any holomorphic subbundle preserved by
 $\varphi$. Then $E'_p$ also gets a filtration with
 weights in $[0,2\pi)$, and we define
 \begin{equation} \label{eq:pdeg}
-  \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_p \sum_{\mu \in [0,2\pi)} \mu \dim \Gr^\mu E'_p.
+  \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_p \sum_{\mu \in [0,2\pi)} \mu \dim \Gr_\mu E'_p.
 \end{equation}
 \end{defn}
-
-The extra term in \eqref{eq:pdeg} keeps track of how $E'$
-sits relative to the filtration of $E_p$.
 
 \begin{example}[Parabolic degrees in the simplest case]
 With generic puncture data and $G = \SU(2)$,
@@ -609,18 +611,19 @@ $E_p$ are either $(0,0)$ or of the form
 $(\alpha, 2\pi-\alpha)$, for some $\alpha \in (0,\pi]$.
 Assume we are in the latter case.
 Now suppose $E' \subset E$ is a line subbundle.
-If $E'_p \subset E_p$ is a generic line, then the contribution
-to $\pdeg E'$ from $p$ will be $\frac{\alpha}{2\pi}$; the
-only exception arises if $E'_p$ is the line 
-$E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, in which case 
-the contribution will be $1 - \frac{\alpha}{2\pi}$. 
+If $E'_p$ is the line 
+$E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, 
+then the contribution
+to $\pdeg E'$ from $p \in P$ is $1 - \frac{\alpha}{2\pi}$;
+otherwise
+the contribution is $1 - \frac{\alpha}{2\pi}$. 
 \end{example}
 
 \begin{remark}[Integrality of $\pdeg E$] Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
 either for $G = \U(K)$ or $G = \SU(K)$.
 \end{remark}
 
-\begin{defn}[Parabolic stability]
+\begin{defn}[Stability of parabolic Higgs bundles]
 We say $E$ is \ti{stable} if for all $E' \subset E$ preserved
 by $\varphi$ we have
 \begin{equation}
@@ -630,9 +633,9 @@ We say $E$ is \ti{polystable} if it is a direct sum of
 stable Higgs bundles with the same $\frac{\pdeg}{\rank}$.
 \end{defn}
 
-\begin{prop}[Moduli space of Higgs bundles exists]
+\begin{prop}[Moduli space of parabolic Higgs bundles exists]
 There is a moduli space $\cM = \cM(G,C,\vec{m})$ parameterizing
-polystable Higgs bundles $(E,\varphi)$, with $\pdeg E = 0$, 
+polystable $(G,C,\vec{m})$-Higgs bundles $(E,\varphi)$, with $\pdeg E = 0$, 
 up to equivalence. 
 $\cM$ is a manifold away
 from the locus of unstable (but still polystable) Higgs bundles.
@@ -691,12 +694,15 @@ the endomorphism $\Res_p \varphi$
 acting in each $E_{p,\vec\lambda}$ (e.g. if $\vec\lambda$ has
 multiplicity $2$ we can require that $\Res_p \varphi$ acts
 by the scalar $\lambda^\C$ in $E_{p,\vec\lambda}$ instead of
-a nontrivial Jordan block). This subspace can be considered
-as a moduli space of Higgs bundles in its own right, which
-has all the structure we will discuss
+a nontrivial Jordan block).
+In the physics literature
+it is proposed that this subspace of $\cM$ can be considered
+as a moduli space of Higgs bundles in its own right, with
+all the structure we will discuss
 in the rest of these lectures; 
-in particular we can get
-more $2$-dimensional examples in this way.
+in particular we can get more $2$-dimensional examples in this way.
+I am not sure whether this construction has yet been carefully
+developed in the mathematics literature.
 \end{remark}
 
 
@@ -1260,9 +1266,9 @@ $\cX_\gamma(\zeta)$ do as well.
 
 \begin{itemize}
 \item Q: Which holomorphic Darboux coordinate system on
-$(\cM^\flat, \Omega^{AB})$ will you use? A: We actually
+$(\cM^\flat, \Omega^{ABG})$ will you use? A: We actually
 will not use just one: instead, as we move around on the
-Hitchin base $\cB$ and/or vary $\zeta$, 
+Hitchin base $\cB$ and/or vary the argument of $\zeta$, 
 we will choose different coordinate
 systems in different regions, separated by codimension-1 ``walls.''
 
@@ -1271,7 +1277,8 @@ systems in different regions, separated by codimension-1 ``walls.''
 \item Q: Why will you do that? A: Because we want to study
 these coordinates through their analytic properties in the
 $\zeta$-plane, and only certain coordinates are ``good''
-as $\zeta \to 0, \infty$.
+as $\zeta \to 0, \infty$; moreover, which ones are ``good'' changes as
+we move around on $\cB$ or vary the argument of $\zeta$.
 
 % \item Q: What does ``good'' mean? A: It means that
 % as $\zeta \to 0, \infty$ they have controlled asymptotics:
@@ -1406,7 +1413,7 @@ where $\hat E$ denotes one of the lifts of $E$ to $\Sigma$,
 oriented so that $\lambda$ is a positive $1$-form
 along $\hat E$.}
 \insfig{higgs-metric-10}{1.3}
-To define $\cX_\gamma(\zeta)$ we consider the connection
+To define $\cX_\gamma(\zeta)$, we consider the connection
 $\nabla(\zeta)$ restricted to the quadrilateral shown.
 Its space of flat sections is a $2$-dimensional vector space $V$,
 equipped with $4$ distinguished lines $\ell_i \subset V$:
@@ -1437,11 +1444,13 @@ Darboux coordinates:
 
 The main asymptotic property of the coordinates $\cX_\gamma(\zeta)$ is:
 \begin{conj}
-As $\zeta \to 0$ along any ray,
+Fix a point of $\cM$.
+Then, as $\zeta \to 0$ along any ray,
 \begin{equation}
   \cX_\gamma(\zeta) \sim c_\gamma \exp \left(\zeta^{-1} Z_\gamma + \I \theta_\gamma \right).
 \end{equation}
-When $\theta_\gamma = 0$, $c_\gamma = 1$, so
+If our chosen point of $\cM$ has all 
+$\theta_\gamma = 0$, then all $c_\gamma = 1$, so in that case
 \begin{equation}
   \cX_\gamma(\zeta) \sim \exp \left(\zeta^{-1} Z_\gamma\right).
 \end{equation}
@@ -1578,7 +1587,7 @@ instead of studying ideal triangulations $T(\phi_2, \zeta)$
 one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.\footnote{In retrospect,
 essentially the same graphs had appeared earlier as 
 \ti{Stokes graphs} associated to the WKB analysis of
-rank $K$ ODEs; see in particular \cite{berk:988}.}
+linear scalar $K$-th order ODEs; see in particular \cite{berk:988}.}
 Then again there is a recipe for invariants $\DT(\gamma)$
 and coordinates $\cX_\gamma(\zeta)$. This recipe however 
 depends on some conjectures:
@@ -1602,8 +1611,9 @@ When all $\theta_\gamma = 0$,
 \end{equation}
 where 
 \begin{equation}
-  \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
+  \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right)
 \end{equation}
+and $\sigma(\mu) = \pm 1$ for each $\mu$.
 \end{conj}
 The functions $\cX_\gamma(\zeta)$ appear on both sides of
 \eqref{eq:integral-equation}. Thus \eqref{eq:integral-equation} is an integral equation, which needs to be solved for 
@@ -1691,9 +1701,9 @@ Solving Hitchin's equation \eqref{eq:hitchin-equation}
 in the specific
 case \eqref{eq:poly-higgs-bundle} is equivalent to 
 finding a harmonic map from $\C$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. Such a map exists and 
-is unique up to $PSL(2,\R)$ action on the disc; its image
+is unique up to $\PSL(2,\R)$ action on the disc; its image
 turns out to be an ideal polygon with $n+2$ vertices
-\cite{HTTW}, again determined up to $PSL(2,\R)$ action.
+\cite{HTTW}, again determined up to $\PSL(2,\R)$ action.
 
 \insfig{higgs-metric-15}{0.8}
 
