@@ -589,7 +589,7 @@ is a pair $(E, \varphi)$ as in \autoref{def:parabolic-higgs},
 obeying two additional conditions:
 \begin{itemize} 
 \item $\det E$ is trivial in the parabolic sense: this means
-that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p\right)$ over $C$ is trivial, where $n_p = \frac{1}{2\pi}\Tr m_p^\R$.
+that the holomorphic line bundle $(\det E) \otimes \cO\left(\sum_{p \in P} n_p p\right)$ over $C$ is trivial, where $n_p = \frac{1}{2\pi}\Tr m_p^\R \in \Z$.
 \item $\Tr \varphi = 0$.
 \end{itemize}
 \end{defn}
@@ -600,7 +600,7 @@ and $E' \subset E$ any holomorphic subbundle preserved by
 $\varphi$. Then $E'_p$ also gets a filtration with
 weights in $[0,2\pi)$, and we define
 \begin{equation} \label{eq:pdeg}
-  \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_p \sum_{\mu \in [0,2\pi)} \mu \dim \Gr_\mu E'_p.
+  \pdeg E' = \deg E' + \frac{1}{2\pi} \sum_{p \in P} \sum_{\alpha \in [0,2\pi)} \alpha \dim \Gr_\alpha E'_p.
 \end{equation}
 \end{defn}
 
@@ -608,19 +608,22 @@ weights in $[0,2\pi)$, and we define
 With generic puncture data and $G = \SU(2)$,
 the two weights which occur in the decomposition of 
 $E_p$ are either $(0,0)$ or of the form
-$(\alpha, 2\pi-\alpha)$, for some $\alpha \in (0,\pi]$.
+$(\mu, 2\pi-\mu)$, for some $\mu \in (0,\pi]$.
 Assume we are in the latter case.
 Now suppose $E' \subset E$ is a line subbundle.
 If $E'_p$ is the line 
-$E_{p,\vec\lambda}$ with $\lambda^\R = \alpha$, 
+$E_{p,\vec\lambda}$ with $\lambda^\R = \mu$, 
 then the contribution
-to $\pdeg E'$ from $p \in P$ is $1 - \frac{\alpha}{2\pi}$;
+to $\pdeg E'$ from $p \in P$ is $1 - \frac{\mu}{2\pi}$;
 otherwise
-the contribution is $1 - \frac{\alpha}{2\pi}$. 
+the contribution is $1 - \frac{\mu}{2\pi}$. 
 \end{example}
 
-\begin{remark}[Integrality of $\pdeg E$] Our conditions on $m^\R$ imply that the whole bundle $E$ has $\pdeg E \in \Z$,
-either for $G = \U(K)$ or $G = \SU(K)$.
+\begin{remark}[Integrality of $\pdeg E$] The full bundle $E$
+has 
+\begin{equation}
+  \pdeg E = \deg E + \frac{1}{2\pi} \sum_{p \in P} \Tr m_p \in \Z.
+\end{equation}
 \end{remark}
 
 \begin{defn}[Stability of parabolic Higgs bundles]
@@ -862,14 +865,17 @@ The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have o
 Suppose $G = \SU(2)$, $\abs{P} = 4$, $g_C = 0$.
 \begin{itemize}
   \item
-If $m^\C = 0$, $\cB$ is a complex vector space of dimension $1$,
-and $\cB_\sing \subset \cB$ is the origin;
-for generic $m^\R$,
-the fiber $\cM_{\vphi =0}$ consists of five $\C \bbP^1$'s
+Suppose $m^\C = 0$. Then $\cB$ is a complex vector space of dimension $1$,
+and $\cB_\sing \subset \cB$ is the set containing only the point
+$\vphi = 0$, so
+the only singular fiber is $\cM_{\vphi = 0}$.
+For generic $m^\R$,
+$\cM_{\vphi =0}$ consists of five $\C \bbP^1$'s
 arranged in an affine $D_4$ configuration.
 
-\item If $m^\C \neq 0$, $\cB$ is a complex affine space of dimension $1$.
-If $m^\C$ is completely generic, $\cB_\sing \subset \cB$ consists
+\item Suppose $m^\C \neq 0$. Then 
+$\cB$ is a complex affine space of dimension $1$.
+If $m^\C$ is generic, $\cB_\sing \subset \cB$ consists
 of $6$ points, and the fiber $\cM_\vphi$ over any $\vphi \in \cB_\sing$ is
 a nodal torus. (For special choices of $m^\C$ some of these discriminant points 
 may collide.)
@@ -918,7 +924,7 @@ $h(s,s) \sim \abs{z}^{\frac{2 \alpha}{2\pi}}$ near $p$.
 \begin{remark}[Holonomy of $D_h$ around punctures for generic puncture data]
 For an adapted metric $h$ on $E$, and generic puncture data, 
 the holonomy of $D_h$ around $p$
-is just $\exp(\I m^\R)$. This is one of the most concrete ways
+is $\exp(\I m^\R)$. This is one of the most concrete ways
 of understanding the role of $m^\R$ in the story.
 \end{remark}
 
@@ -1033,8 +1039,9 @@ determinant representation of this $\U(\nu)$ factor.
 When the puncture data is generic, we can say all this
 more simply:
 \begin{itemize}
- \item $\Gamma^\flavor$ is the free $\Z$-module generated
-by loops around the points of $\rho^{-1}(P)$,
+ \item $\Gamma^\flavor$ is the free $\Z$-module on
+ $K \abs{P}$ generators, identified with small clockwise
+ loops around the points of $\rho^{-1}(P)$,
  \item $\Gamma_\vphi^\gauge = H_1(\Sigma_\vphi, \Z)$,
  \item $\Gamma_\vphi = H_1(\Sigma'_\vphi, \Z)$.
 \end{itemize}
@@ -1193,8 +1200,8 @@ $(E,\varphi)$:
   E = K_C^{\half} \oplus K_C^{-\half}(-P), \qquad \varphi = \begin{pmatrix} 0 & \phi_2 \\ 1 & 0 \end{pmatrix}.
 \end{equation}
 Note $\phi_2$ is a section of $\Hom(K_C^{-\half}(-P), K_C^\half) \otimes K_C(P) = K_C(P)^2$ as needed, and by $1$ we mean the 
-canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. If at each $p \in P$ we set
-$m^\R_p = (\pi,\pi)$
+canonical section of $\Hom(K_C^\half, K_C^{-\half}(-P)) \otimes K_C(P) = \cO$. 
+If for each $p \in P$ we set $m^\R_p = (\pi,\pi)$
 and $m^\C_p = (\sqrt{\Res_p \phi_2}, -\sqrt{\Res_p \phi_2})$,
 then $(E,\varphi)$ is a stable $(C,G,\vec{m})$-Higgs bundle
 lying in the fiber $\cM_{\phi_2}$.
@@ -1611,10 +1618,14 @@ When all $\theta_\gamma = 0$,
 \end{equation}
 where 
 \begin{equation}
-  \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right)
+  \cX_\gamma^\sf(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \zeta \overline{Z}_\gamma \right).
 \end{equation}
-and $\sigma(\mu) = \pm 1$ for each $\mu$.
+The signs $\sigma(\mu) = \pm 1$ obey the relation
+\begin{equation}
+  \sigma(\mu) \sigma(\mu') = (-1)^{\IP{\mu,\mu'}} \sigma(\mu + \mu').
+\end{equation}
 \end{conj}
+
 The functions $\cX_\gamma(\zeta)$ appear on both sides of
 \eqref{eq:integral-equation}. Thus \eqref{eq:integral-equation} is an integral equation, which needs to be solved for 
 the whole collection $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$
