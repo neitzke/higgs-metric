@@ -388,33 +388,33 @@ $g$ on $\cM$ is constructed from two ingredients:
   % \insfig{higgs-metric-5}{0.8}
 \end{enumerate}
 
-So, what we will describe is a conjectural recipe which uses $Z_\gamma$
-and $\DT(\gamma)$ to build the \hk metric on $\cM$.
+% So, what we will describe is a conjectural recipe which uses $Z_\gamma$
+% and $\DT(\gamma)$ to build the \hk metric on $\cM$.
 
-If one sets all $\DT(\gamma) = 0$ in this recipe,
-one obtains a simple and explicit \hk metric $g^\sf$ on $\cM_\reg$, 
-the ``semiflat metric,'' so called
-because it is flat (and translation invariant) on the torus
-fibers. $g^\sf$ however does not extend over $\cM_\sing$, so it cannot
-be equal to Hitchin's metric on $\cM$.
-The effect of the nonzero $\DT(\gamma)$
-is to add corrections which break the translation invariance.
-Away from $\cM_\sing$, these corrections are of the order 
-$\e^{-2M}$ where $M$ is the area of the smallest 
-special Lagrangian disc, i.e. we predict
-\begin{equation} \label{eq:conjecture-intro}
-  g = g^\sf + O(\e^{-2M}).
-\end{equation}
-In particular, if we follow some path to infinity in $\cM$
-along which $M \to \infty$, we expect to see $g$
-converging to $g^\sf$.
-On the other hand, as we approach $\cM_\sing$ the effect
-of these corrections is large: it smoothes out the singularity
-of $g^\sf$.\footnote{In some cases the \hk metric $g$ on $\cM$ actually has
-singularities. The singularities of $g$ are milder than those of $g^\sf$ --- in particular, the singularities of $g$ occur 
-in complex codimension at least $2$. In these cases,
-the corrections do not completely \ti{smooth} the singularity of $g^\sf$, but they
-still \ti{improve} it.}
+% If one sets all $\DT(\gamma) = 0$ in this recipe,
+% one obtains a simple and explicit \hk metric $g^\sf$ on $\cM_\reg$, 
+% the ``semiflat metric,'' so called
+% because it is flat (and translation invariant) on the torus
+% fibers. $g^\sf$ however does not extend over $\cM_\sing$, so it cannot
+% be equal to Hitchin's metric on $\cM$.
+% The effect of the nonzero $\DT(\gamma)$
+% is to add corrections which break the translation invariance.
+% Away from $\cM_\sing$, these corrections are of the order 
+% $\e^{-2M}$ where $M$ is the area of the smallest 
+% special Lagrangian disc, i.e. we predict
+% \begin{equation} \label{eq:conjecture-intro}
+%   g = g^\sf + O(\e^{-2M}).
+% \end{equation}
+% In particular, if we follow some path to infinity in $\cM$
+% along which $M \to \infty$, we expect to see $g$
+% converging to $g^\sf$.
+% On the other hand, as we approach $\cM_\sing$ the effect
+% of these corrections is large: it smoothes out the singularity
+% of $g^\sf$.\footnote{In some cases the \hk metric $g$ on $\cM$ actually has
+% singularities. The singularities of $g$ are milder than those of $g^\sf$ --- in particular, the singularities of $g$ occur 
+% in complex codimension at least $2$. In these cases,
+% the corrections do not completely \ti{smooth} the singularity of $g^\sf$, but they
+% still \ti{improve} it.}
 
 The strategy of the lectures will be roughly:
 \begin{enumerate}
@@ -490,8 +490,9 @@ by a traceless $2 \times 2$ matrix whose entries are holomorphic $1$-forms.
 \begin{defn}[Stability of $\SU(2)$-Higgs bundles]
 We say $(E,\varphi)$ is \ti{stable} if for all $E' \subset E$ preserved
 by $\varphi$ we have $\deg E' < 0$.
-We say $(E,\varphi)$ is \ti{polystable} if it is a direct sum of
+We say $(E,\varphi)$ is \ti{strictly polystable} if it is a direct sum of
 two degree zero line bundles which are both preserved by $\varphi$.
+We say $(E,\varphi)$ is \ti{polystable} if it is either stable or strictly polystable.
 \end{defn}
 
 \begin{prop}[Moduli space of Higgs bundles]
@@ -499,7 +500,7 @@ There is a moduli space $\cM = \cM(G,C)$ parameterizing
 polystable $\SU(2)$-Higgs bundles $(E,\varphi)$ 
 up to equivalence. 
 $\cM$ is a manifold away
-from the locus of unstable (but still polystable) Higgs bundles.
+from the locus of strictly-polystable Higgs bundles.
 It has complex dimension $6 g_C - 6$.
 It carries a natural complex structure $I_1$ and holomorphic symplectic form $\Omega_1$.
 \end{prop}
@@ -799,33 +800,34 @@ The \ti{period map} is the map
 \end{equation}
 which we could also view as an element $Z \in \Gamma^*_\bbC$.
 \end{defn}
-From the periods we can assemble a $2$-form
-$\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$, given concretely by
-$\DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}$.
-\begin{prop}[Lagrangian property] We have
-\begin{equation}  \label{eq:lagrangian-property}
-\DIP{\de Z, \de Z} = 0.
-\end{equation}
-\end{prop}
 
-Note that \eqref{eq:lagrangian-property} is automatic in case
-$\dim_\bbC \cB = 1$, but otherwise it is a nontrivial
-constraint on $Z$. The idea of the proof
-of \eqref{eq:lagrangian-property} is to consider two
-tangent vectors to $\cB$ i.e. infinitesimal variations 
-of $\Sigma$, and study the corresponding variations 
-$\delta_1, \delta_2$ of 
-the cohomology class $[\lambda] \in H^1(\Sigma,\bbC)$ 
-by integrating along arbitrary
-$1$-cycles on $\Sigma$. $\delta_1$, $\delta_2$ turn out to be
-of type $(1,0)$
-(you can get them by pairing the normal variation of $\Sigma$
-with the holomorphic symplectic form on $T^* C$)
-and thus
-$\int_\Sigma \delta_1 \wedge \delta_2 = 0$.
+% From the periods we can assemble a $2$-form
+% $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$, given concretely by
+% $\DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}$.
+% \begin{prop}[Lagrangian property] We have
+% \begin{equation}  \label{eq:lagrangian-property}
+% \DIP{\de Z, \de Z} = 0.
+% \end{equation}
+% \end{prop}
+
+% Note that \eqref{eq:lagrangian-property} is automatic in case
+% $\dim_\bbC \cB = 1$, but otherwise it is a nontrivial
+% constraint on $Z$. The idea of the proof
+% of \eqref{eq:lagrangian-property} is to consider two
+% tangent vectors to $\cB$ i.e. infinitesimal variations 
+% of $\Sigma$, and study the corresponding variations 
+% $\delta_1, \delta_2$ of 
+% the cohomology class $[\lambda] \in H^1(\Sigma,\bbC)$ 
+% by integrating along arbitrary
+% $1$-cycles on $\Sigma$. $\delta_1$, $\delta_2$ turn out to be
+% of type $(1,0)$
+% (you can get them by pairing the normal variation of $\Sigma$
+% with the holomorphic symplectic form on $T^* C$)
+% and thus
+% $\int_\Sigma \delta_1 \wedge \delta_2 = 0$.
 
 \begin{defn}[Special \kahler form on $\cB_\reg$]
-Next we define a 2-form $\omega \in \Omega^{1,1}(\cB_\reg)$ by
+We define a 2-form $\omega \in \Omega^{1,1}(\cB_\reg)$ by
 \begin{equation}
   \omega = \DIP{\de Z, \de \overline{Z}} = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I} \, .
 \end{equation}
@@ -873,6 +875,20 @@ whose \kahler form in structure $I_1$ is
   \omega^\sf_1 = 2 \DIP{\de Z, \de \overline{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
 \end{defn}                                   
+
+Now we can formulate the weak version of our conjecture.
+It involves the asymptotic behavior of the metric.
+
+\begin{conj}
+Fix $\phi_2 \in \cB_\reg$.
+As we rescale $\phi_2 \to t^2 \phi_2$ with $t > 0$,
+Hitchin's metric is related to the semiflat metric by
+\begin{equation}
+  g = g^\sf + O(e^{-4 M t}) \, ,
+\end{equation}
+where $M > 0$ is the \ti{threshold} (length of the shortest saddle connection).
+\end{conj}
+
 
 \fixme{formulate the weak form of conjecture}
 
