@@ -166,6 +166,7 @@
 \newcommand{\fq}{{\mathfrak q}}
 \newcommand{\fm}{{\mathfrak m}}
 \newcommand{\fr}{{\mathfrak r}}
+\newcommand{\fsu}{{\mathfrak{su}}}
 \newcommand{\fu}{{\mathfrak u}}
 \newcommand{\fG}{{\mathfrak G}}
 
@@ -187,16 +188,14 @@
 \newcommand{\cI}{\ensuremath{\mathcal I}}
 \newcommand{\cW}{\ensuremath{\mathcal W}}
 
-\newcommand{\R}{\ensuremath{\mathbb R}}
-\newcommand{\Q}{\ensuremath{\mathbb Q}}
-\newcommand{\A}{\ensuremath{\mathbb A}}
+\newcommand{\bbR}{\ensuremath{\mathbb R}}
+\newcommand{\bbQ}{\ensuremath{\mathbb Q}}
 \newcommand{\bbZ}{\ensuremath{\mathbb Z}}
 \newcommand{\bbC}{\ensuremath{\mathbb C}}
 \newcommand{\bbN}{\ensuremath{\mathbb N}}
 \newcommand{\bbH}{\ensuremath{\mathbb H}}
 \newcommand{\bbP}{\ensuremath{\mathbb P}}
 \newcommand{\bbI}{\ensuremath{\mathbb I}}
-\newcommand{\bS}{\ensuremath{\mathbb S}}
 
 \newcommand{\half}{\ensuremath{\frac{1}{2}}}
 \newcommand{\qtr}{\ensuremath{\frac{1}{4}}}
@@ -353,11 +352,17 @@ March 1-4, 2018, subsequently modified and updated for the 2024 Simons Workshop 
 \section{Introduction}
 
 The aim of these lectures is to describe a \ti{conjectural} 
-approach to 
-``more explicitly'' understanding the \hk metric $g$ on 
-the moduli space $\cM$ of Higgs bundles.
+approach to more explicitly understanding the \hk metrics on 
+moduli spaces of Higgs bundles.
+
+I will specialize to $\SU(2)$-Higgs bundles, but the
+picture is similar for any reductive $G$.
 
 \subsection{Overview}
+
+Fix a compact Riemann surface $C$, of genus $g_C \ge 2$,
+and let $\cM$ be the 
+moduli space of $\SU(2)$-Higgs bundles over $C$.
 
 $\cM$ is a complex integrable system: this means that
 it admits a holomorphic fibration $\pi: \cM \to \cB$
@@ -374,14 +379,13 @@ parameterized by $\vphi \in \cB_\reg$.
 The conjectural picture we are aiming for is that the \hk metric
 $g$ on $\cM$ is constructed from two ingredients:
 \begin{enumerate}
-  \item The special \kahler structure on $\cB_\reg$, constructed from 
-  \ti{periods} $Z_\gamma$ of the spectral curves $\Sigma_\vphi$,
-  \insfig{higgs-metric-4}{0.9}
+  \item The \ti{periods} $Z_\gamma$ of the spectral curves $\Sigma_\vphi$,
+  % \insfig{higgs-metric-4}{0.9}
   \item A collection of integer ``Donaldson-Thomas invariants''
   $\DT(\gamma)$,
   which count (tropicalizations of) special Lagrangian discs
   in $T^*C$ with boundary on $\Sigma_\vphi$.
-  \insfig{higgs-metric-5}{0.8}
+  % \insfig{higgs-metric-5}{0.8}
 \end{enumerate}
 
 So, what we will describe is a conjectural recipe which uses $Z_\gamma$
@@ -398,7 +402,7 @@ is to add corrections which break the translation invariance.
 Away from $\cM_\sing$, these corrections are of the order 
 $\e^{-2M}$ where $M$ is the area of the smallest 
 special Lagrangian disc, i.e. we predict
-\begin{equation}
+\begin{equation} \label{eq:conjecture-intro}
   g = g^\sf + O(\e^{-2M}).
 \end{equation}
 In particular, if we follow some path to infinity in $\cM$
@@ -414,9 +418,8 @@ still \ti{improve} it.}
 
 The strategy of the lectures will be roughly:
 \begin{enumerate}
-  \item The moduli space $\cM$, its fibration $\cM \to \cB$ and special \kahler structure.
-  \item The conjectural metric construction.
-  \item The available evidence that the conjecture is correct.
+  \item The moduli space $\cM$, its basic features and \hk structure; the weak form of the metric conjecture.
+  \item The strong form of the conjecture, and the available evidence that the conjecture is correct.
 \end{enumerate}
 
 
@@ -472,69 +475,62 @@ case to study!) The most fundamental reference is \cite{MR89a:32021}.
 A very useful review can be found in
 \cite{Wentworth2014} and references therein.
 
-We fix:
-\begin{itemize}
-  \item A compact reductive Lie group, say $G = \SU(K)$ or $\U(K)$, with diagonal subgroup $T \subset G$,
-  \item A compact Riemann surface $C$ of genus $g_C \ge 2$.
-\end{itemize}
+We fix a compact Riemann surface $C$ of genus $g_C \ge 2$.
 
-Now I'll specialize to $G = \U(K)$.
-\begin{defn}[Higgs bundles for $G = \U(K)$] \label{def:parabolic-higgs}
-A $(G, C)$-\ti{Higgs bundle} is a pair $(E, \varphi)$, where:
+\begin{defn}[$\SU(2)$-Higgs bundles] \label{def:higgs}
+A $\SU(2)$-\ti{Higgs bundle} is a pair $(E, \varphi)$, where:
 \begin{itemize}
-  \item $E$ is a holomorphic vector bundle of rank $K$ over $C$,
-  \item $\varphi$ is a holomorphic section of $\End E \otimes K_C(P)$.
+  \item $E$ is a holomorphic vector bundle of rank $2$ over $C$, with $\det E = \cO$,
+  \item $\varphi$ is a holomorphic section of $\End E \otimes K_C(P)$, with $\Tr \varphi = 0$.
 \end{itemize}
 \end{defn}
 With respect to a local trivialization of $E$, then, $\varphi$ is represented
-by a $K \times K$ matrix whose entries are holomorphic $1$-forms.
+by a traceless $2 \times 2$ matrix whose entries are holomorphic $1$-forms.
 
-\begin{defn}[Stability of Higgs bundles]
-We say $E$ is \ti{stable} if for all $E' \subset E$ preserved
-by $\varphi$ we have
-\begin{equation}
-  \frac{\deg E'}{\rank E'} < \frac{\deg E}{\rank E}.
-\end{equation}
-We say $E$ is \ti{polystable} if it is a direct sum of
-stable Higgs bundles with the same $\frac{\pdeg}{\rank}$.
+\begin{defn}[Stability of $\SU(2)$-Higgs bundles]
+We say $(E,\varphi)$ is \ti{stable} if for all $E' \subset E$ preserved
+by $\varphi$ we have $\deg E' < 0$.
+We say $(E,\varphi)$ is \ti{polystable} if it is a direct sum of
+two degree zero line bundles which are both preserved by $\varphi$.
 \end{defn}
 
-\begin{prop}[Moduli space of Higgs bundles exists]
+\begin{prop}[Moduli space of Higgs bundles]
 There is a moduli space $\cM = \cM(G,C)$ parameterizing
-polystable $(G,C)$-Higgs bundles $(E,\varphi)$, with $\deg E = 0$, 
+polystable $\SU(2)$-Higgs bundles $(E,\varphi)$ 
 up to equivalence. 
 $\cM$ is a manifold away
 from the locus of unstable (but still polystable) Higgs bundles.
+It has complex dimension $6 g_C - 6$.
 It carries a natural complex structure $I_1$ and holomorphic symplectic form $\Omega_1$.
 \end{prop}
 
 The holomorphic symplectic form $\Omega_1$ comes from the fact 
 that variations of the bundle $E$ are valued in $H^1(\End E)$,
 while variations of the Higgs field $\varphi$ are
-valued in $H^0(\End E \otimes K_C(P))$,
+valued in $H^0(\End E \otimes K_C)$,
 and the two are Serre dual.
 
-\begin{remark}[Dimension of $\cM$]
-The complex dimension of $\cM$ is
-\begin{equation} \label{eq:dim-M}
-  \dim_\bbC \cM = \begin{cases} (2g_C-2) K^2 + 2, & \quad G = \U(K), \\ (2g_C-2) (K^2-1), & \quad G = \SU(K). \end{cases}
-\end{equation}
-From now on we write $\dim_\bbC \cM = 2r$.
-\end{remark}
+% \begin{remark}[Dimension of $\cM$]
+% The complex dimension of $\cM$ is
+% \begin{equation} \label{eq:dim-M}
+%   \dim_\bbC \cM = \begin{cases} (2g_C-2) K^2 + 2, & \quad G = \U(K), \\ (2g_C-2) (K^2-1), & \quad G = \SU(K). \end{cases}
+% \end{equation}
+% From now on we write $\dim_\bbC \cM = 2r$.
+% \end{remark}
 
-\begin{example}[The abelian case]
-$G = \U(1)$ is the abelian case, in which $\dim_\bbC \cM = 2g_C$,
-and $\cM = T^* \Jac C$, the cotangent
-bundle to a compact complex torus.
-This is the only example of $\cM$ which is so ``linear'' in nature:
-for nonabelian $G$ the space $\cM$ will be much more interesting.
-\end{example}
+% \begin{example}[The abelian case]
+% $G = \U(1)$ is the abelian case, in which $\dim_\bbC \cM = 2g_C$,
+% and $\cM = T^* \Jac C$, the cotangent
+% bundle to a compact complex torus.
+% This is the only example of $\cM$ which is so ``linear'' in nature:
+% for nonabelian $G$ the space $\cM$ will be much more interesting.
+% \end{example}
 
-\begin{example}[Lowest-dimensional nonabelian case] 
-The simplest nonabelian case is
-$G = \SU(2)$ and $g_C = 2$, in which case
-$\dim_\bbC \cM = 6$. 
-\end{example}
+% \begin{example}[Lowest-dimensional nonabelian case] 
+% The simplest nonabelian case is
+% $G = \SU(2)$ and $g_C = 2$, in which case
+% $\dim_\bbC \cM = 6$. 
+% \end{example}
 
 
 
@@ -545,48 +541,30 @@ i.e. a holomorphic Lagrangian fibration.
 
 Given a Higgs bundle $(E,\varphi) \in \cM$ and $z \in C$,
 we can consider the eigenvalues of $\varphi(z)$. As $z$ varies
-these sweep out a curve $\Sigma \subset \Tot[K_C(P)]$:
+these sweep out a curve $\Sigma \subset \Tot[K_C]$:
 \begin{equation}
-  \Sigma = \{ (z,\lambda): \det(\lambda - \varphi(z)) = 0\} \subset \Tot[K_C(P)].
+  \Sigma = \{ (z,\lambda): \det(\lambda - \varphi(z)) = 0\} \subset \Tot[K_C].
 \end{equation}
 We call $\Sigma$
 the \ti{spectral curve} associated to the Higgs 
 bundle $(E,\varphi)$.
-The projection $\Tot[K_C(P)] \to C$ 
-restricts to $\rho: \Sigma \to C$ which is a $K$-fold branched covering.
-\insfig{higgs-metric-17}{0.8}
-Now what are all the curves $\Sigma$
-we can get in this way?
-We can describe them by their coefficients, ie write
-\begin{equation} \label{eq:spectral-coeffs}
-  \det(\lambda - \varphi) = \sum_{n=0}^K \lambda^{K-n} \phi_n = 0, \qquad \phi_n \in K_C(P)^n.
+Concretely it is of the form
+\begin{equation}
+  \Sigma = \{ (z,\lambda): \lambda^2 + \phi_2(z) = 0\}
 \end{equation}
-We always have $\phi_0 = 1$.
-The remaining coefficients $\vphi = (\phi_1, \dots, \phi_K)$ 
-define a point of the Hitchin base:
+where
+\begin{equation}
+  \phi_2 = \frac12 \Tr \varphi^2 \, .
+\end{equation}
+The projection $\rho: \Sigma \to C$ given by $\rho(z,\lambda) = z$ 
+is a branched double cover.
 
-\begin{defn}[Hitchin base]
-If $G = \U(K)$,
-the \ti{Hitchin base} $\cB = \cB(G,C)$ is
-the space of tuples $\vphi = (\phi_1, \phi_2, \dots, \phi_K)$
-where $\phi_n$ is a holomorphic section of $K_C^n$.
-If $G = \SU(K)$ then we make the same definition except that
-$\phi_1 = 0$.
-\end{defn}
-
-% \begin{equation}
-%   \cB_0 = \begin{cases} \bigoplus_{n=1}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \U(K), \\
-%   \bigoplus_{n=2}^K H^0\left(C, K_C^n((n-1)P)\right), & G = \SU(K).
-%   \end{cases}
-% \end{equation}
-$\cB$ is a complex vector space.
-
-\begin{defn}[Hitchin map]
+\begin{defn}[Hitchin base and Hitchin map]
+Define the \ti{Hitchin base} $\cB = H^0(C, K_C^2)$.
 The \ti{Hitchin map} is the map $\pi: \cM \to \cB$ given by
 \begin{equation}
-  (E, \varphi) \mapsto (\phi_1, \dots, \phi_K)
+  (E, \varphi) \mapsto \phi_2 = \frac12 \Tr \varphi^2 \, .
 \end{equation}
-where the $\phi_n$ are defined by \eqref{eq:spectral-coeffs}.
 \end{defn}
 
 \begin{prop}[Hitchin map has Lagrangian fibers] The fibers
@@ -594,53 +572,44 @@ $\cM_\vphi = \pi^{-1}(\vphi)$
 are compact complex Lagrangian subsets of $(\cM, \Omega_1)$. (In particular, $\dim_\bbC \cB = \half \dim_\bbC \cM$.)
 \end{prop}
 
-\fixme{say why?}
-
 We can say more precisely what the fibers are,
 over most of the Hitchin base:
 
 \begin{defn}[Singular locus and smooth locus]
 The \ti{singular locus} $\cB_\sing \subset \cB$ is the set of $\vphi \in \cB$
-for which $\Sigma_{\vec \phi}$ is singular. $\cB_\sing$ has complex codimension $1$ in $\cB$.
+for which $\Sigma_{\vec \phi}$ is singular.
+  % $\cB_\sing$ has complex codimension $1$ in $\cB$.
 The \ti{smooth locus} is $\cB_\reg = \cB \setminus \cB_\sing$.
-We also let $\cM_\reg = \pi^{-1}(\cB_\reg)$.
+It consists of those $\phi_2$ which have only simple zeroes ($4 g_C - 4$ of them).
+Also let $\cM_\reg = \pi^{-1}(\cB_\reg)$.
 \end{defn}
 
 \begin{prop}[Fibers of the Hitchin map over $\cB_\reg$]
 Suppose $\vphi \in \cB_\reg$. Let $\cM_\vphi = \pi^{-1}(\vphi)$.
-Then:
-\begin{itemize}
-  \item If $G = \U(K)$, then $\cM_\vphi$ is a torsor over 
-  $\Jac \Sigma_\vphi$. After choosing spin structures on 
-$C$ and on $\Sigma_\vphi$, we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections over $\Sigma_\vphi$.
- \item If $G = \SU(K)$, then $\cM_\vphi$ is a torsor over
+Then $\cM_\vphi$ is a torsor over the compact complex torus 
 $\Prym (\rho: \Sigma_\vphi \to C)$. 
 After choosing spin structures on 
 $C$ and on $\Sigma_\vphi$, 
 we can identify $\cM_\vphi$ with the space
-of flat $\U(1)$-connections over $\Sigma_\vphi$, 
+of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$, 
 equipped with a trivialization of $\det \rho_* \nabla$.
-\end{itemize}
 \end{prop}
 
 So we reach the following picture: a point $\vphi \in \cB_\reg$
 gives a smooth spectral curve $\Sigma_\vphi$; the torus
 $\cM_\vphi$ is a space of flat $\U(1)$-connections
 over $\Sigma_\vphi$.
-
-\begin{remark}[More precise picture of the fibers
-when $G = \U(K)$]
-A more precise description would say exactly \ti{which} torsor 
-$\cM_\vphi$ is. For example, when $G = \U(K)$,
-$\cM_\vphi$ is the moduli space of holomorphic line bundles
-over $\Sigma_\vphi$ with degree $-K(K-1)(g_C-1)$.
-After choosing spin structures on $C$ and on $\Sigma$
-we can shift the parabolic degree to zero.
-So then we can identify $\cM_\vphi$ with the space of
-flat $U(1)$-connections over $\Sigma_\vphi$.
-\end{remark}
-
+% \begin{remark}[More precise picture of the fibers
+% when $G = \U(K)$]
+% A more precise description would say exactly \ti{which} torsor 
+% $\cM_\vphi$ is. For example, when $G = \U(K)$,
+% $\cM_\vphi$ is the moduli space of holomorphic line bundles
+% over $\Sigma_\vphi$ with degree $-K(K-1)(g_C-1)$.
+% After choosing spin structures on $C$ and on $\Sigma$
+% we can shift the degree to zero.
+% So then we can identify $\cM_\vphi$ with the space of
+% flat $U(1)$-connections over $\Sigma_\vphi$.
+% \end{remark}
 When $\vphi \in \cB_\sing$, $\cM_\vphi$ is compact,
 but generally singular.
 
@@ -657,11 +626,8 @@ but generally singular.
 % \end{remark}
 
 \begin{example}[Hitchin base and spectral curves for $G = \SU(2)$]
-When $G = \SU(2)$, $\cB$ is the space of meromorphic quadratic
-differentials $\phi_2$ on $C$, with a pole of order $\le 2$ at 
-each $p \in P$, of residue $\Res_p \phi_2 = (m_p^\bbC)^2$.
-% It is a torsor over the space $\cB_0$ of meromorphic quadratic differentials
-% with pole order $\le 1$ at each $p \in P$. 
+When $G = \SU(2)$, $\cB$ is the space of holomorphic quadratic
+differentials $\phi_2$ on $C$.
 It has complex dimension
 $\dim_\bbC \cB = 3 g_C - 3$. 
 The spectral curve for a given $\phi_2 \in \cB$
@@ -670,7 +636,7 @@ is
   \Sigma_{\phi_2} = \{(z,\lambda): \lambda^2 + \phi_2(z) = 0\} \subset \Tot[K_C(P)].
 \end{equation}
 $\Sigma_{\phi_2}$ is a $2$-fold branched covering of $C$, branched at the zeroes of $\phi_2$.
-The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have only simple zeroes ($4 g_C - 4$ of them).
+The eigenvalues of $\varphi(z)$ are $\pm \sqrt{- \phi_2(z)}$.
 \end{example}
 
 
@@ -713,7 +679,6 @@ The regular locus $\cB_\reg \subset \cB$ consists of those $\phi_2$ which have o
 A key fact about $\cM$ is that it carries a canonically
 defined \hk metric $g$. However, $g$ is not easily
 written in closed form.
-
 To construct $g$, one needs to consider \ti{Hitchin's equation}:
 given a Higgs bundle $(E,\varphi)$ this is a PDE
 for a Hermitian metric $h$ in $E$, written
@@ -724,10 +689,9 @@ Here $D_h$ denotes the Chern connection in $(E,h)$,
 the unique $h$-unitary connection compatible with
 the holomorphic structure of $E$.
 
-A basic fact is:
+Now there is the following key theorem:
 \begin{thm}[Existence of harmonic metrics] \label{thm:hitchin-existence}
-The equation \eqref{eq:hitchin-equation} has an
-adapted solution $h$ for each $(E,\varphi)$;
+The equation \eqref{eq:hitchin-equation} has a solution $h$ for each $(E,\varphi)$;
 this $h$ is unique up to scalar multiple.
 We call $h$ the \ti{harmonic metric}.
 \end{thm}
@@ -744,11 +708,11 @@ automorphisms of $(E,h)$.
 In particular, differentiating at $t = 0$ gives a pair
 \begin{equation}
 \frac{\de}{\de t}\Bigg\rvert_{t=0} (D_t, \Phi_t) = 
-(\dot A, \dot \Phi) \in \Omega^1(\fu(E)) \oplus \I \Omega^{1}(\fu(E)),
+(\dot A, \dot \Phi) \in \Omega^1(\fsu(E)) \oplus \I \Omega^{1}(\fsu(E)),
 \end{equation}
 defined up to gauge transformations.
 Then the norm of $v$ is the $L^2$ norm
-\begin{equation}
+\begin{equation} \label{eq:l2-metric-def}
   g(v,v) = \int_C \norm{\dot A}^2 + \norm{\dot \Phi}^2
 \end{equation}
 where for $(\dot A, \dot \Phi)$ we choose the representative
@@ -801,31 +765,30 @@ Hitchin in \cite{MR89a:32021}.
 
 % In particular, $\cM$ is noncompact.
 
-\subsection{The special \kahler structure}
+\subsection{The semiflat metric}
+
+Now we want to describe a first approximation to Hitchin's metric.
 
 The regular part $\cB_\reg$ of the Hitchin base 
 carries a (rigid) special \kahler structure 
 in the sense of \cite{Freed:1997dp}, as follows.
 
-\begin{example}[Charge lattices for $G = \U(K)$]
+\begin{defn}[Charge lattice]
 The \ti{charge lattice} is
 \begin{equation}
-    \Gamma_\vphi = H_1(\Sigma_\vphi, \bbZ) \, .
+    \Gamma_\vphi = H_1(\Sigma_\vphi, \bbZ)^- \, .
 \end{equation}
-\end{example}
+\end{defn}
 
-$\Gamma_\vphi$ has a nondegenerate skew pairing,
-namely the 
-intersection pairing on $H_1(\Sigma_\vphi, \bbZ)$.
-These lattices give make up a local system over $\cB_\reg$.
-We will sometimes write local formulas using a local
-trivialization of $\Gamma$ by ``$A$ and $B$ cycles''
+Let $\IP{,}$ denote the intersection pairing on $\Gamma$
+and $\DIP{,}$ its inverse on $\Gamma^*_\bbR$.
+These lattices make up a local system $\Gamma$ over $\cB_\reg$.
+We write local formulas using a local
+trivialization of $\Gamma_\bbR$ by ``$A$ and $B$ cycles''
 obeying
 \begin{equation}
   \IP{A^I, A^J}=0, \quad \IP{B_I, B_J}=0, \quad \IP{A^I,B_J} = \delta^I_J.
 \end{equation}
-
-\fixme{discuss $SU(K)$ case}
 
 \begin{defn}[Period map]
 Let $\lambda$ denote the tautological (Liouville) holomorphic $1$-form
@@ -836,15 +799,9 @@ The \ti{period map} is the map
 \end{equation}
 which we could also view as an element $Z \in \Gamma^*_\bbC$.
 \end{defn}
-Let $\IP{,}$ denote the intersection pairing on $\Gamma$
-and $\DIP{,}$ its inverse on $\Gamma^*$.
-Then we can define a $2$-form
-$\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$.
-Using a local trivialization of $\Gamma^\gauge$,
-\begin{equation}
-  \DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}.
-\end{equation}
-
+From the periods we can assemble a $2$-form
+$\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$, given concretely by
+$\DIP{\de Z,  \de Z} = \sum_{I=1}^n \de Z_{A^I} \wedge \de Z_{B_I}$.
 \begin{prop}[Lagrangian property] We have
 \begin{equation}  \label{eq:lagrangian-property}
 \DIP{\de Z, \de Z} = 0.
@@ -868,12 +825,10 @@ and thus
 $\int_\Sigma \delta_1 \wedge \delta_2 = 0$.
 
 \begin{defn}[Special \kahler form on $\cB_\reg$]
-Next we define a 2-form on $\cB_\reg$ by
+Next we define a 2-form $\omega \in \Omega^{1,1}(\cB_\reg)$ by
 \begin{equation}
-  \omega = \DIP{\de Z, \de \overline{Z}}.
+  \omega = \DIP{\de Z, \de \overline{Z}} = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I} \, .
 \end{equation}
-In terms of $A$ and $B$ cycles,
-$\omega = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I}$.
 \end{defn}
 
 \begin{prop}[Positivity of $\omega$] $\omega$ is a
@@ -881,39 +836,34 @@ positive $(1,1)$-form on $\cB_\reg$, and thus it defines
 a \kahler metric on $\cB_\reg$.
 \end{prop}
 
-From the existence of $Z$ with the above properties
-one can deduce all the structure
-of special \kahler manifold on $\cB_\reg$. In particular,
-for any choice of linearly independent ``$A$ cycles''
-$A^1, \dots, A^r \in \Gamma^\gauge$
-with $\IP{A^I, A^J} = 0$, 
-the functions
-$a^I = Z_{A^I}$ give a local coordinate
-system, so-called ``special coordinates.''
-It is conventional to also define dual coordinates
-$a_{D,J} = Z_{B_J}$.
+% From the existence of $Z$ with the above properties
+% one can deduce all the structure
+% of special \kahler manifold on $\cB_\reg$. In particular,
+% for any choice of linearly independent ``$A$ cycles''
+% $A^1, \dots, A^r \in \Gamma^\gauge$
+% with $\IP{A^I, A^J} = 0$, 
+% the functions
+% $a^I = Z_{A^I}$ give a local coordinate
+% system, so-called ``special coordinates.''
+% It is conventional to also define dual coordinates
+% $a_{D,J} = Z_{B_J}$.
 
 %  The transition maps between these local coordinate
 % systems are valued in $\Sp(2r,\bbZ) \ltimes \bbC^r$.
 
 
-
-\subsection{The semiflat metric}
-
-% In particular there is a canonical $2$-form on the fiber
-
+Now we consider the fiber directions.
 As we have said, $\cM_\vphi$ is a space of flat $U(1)$-connections
-over $\Sigma_\vphi \setminus \rho^{-1}(P)$, 
-with fixed holonomies around $\rho^{-1}(P)$.
+over $\Sigma_\vphi$. 
 In particular, for each $\gamma \in \Gamma_\vphi$ 
 there is a corresponding
-holonomy $\theta_\gamma: \cM_\vphi \to \R / 2 \pi \bbZ$.
+holonomy $\theta_\gamma: \cM_\vphi \to \bbR / 2 \pi \bbZ$.
 Their differentials can be assembled into
 \begin{equation}
-  \de \theta \in \Omega^1(\cM) \otimes \Gamma^*.
+  \de \theta \in \Omega^1(\cM) \otimes \Gamma^*_\bbR.
 \end{equation}
 If we choose a basis for $\Gamma_\vphi$ 
-then we get $\R / 2 \pi \bbZ$-valued coordinates $\theta_1, \dots, \theta_{2r}$
+then we get $\bbR / 2 \pi \bbZ$-valued coordinates $\theta_1, \dots, \theta_{2r}$
 on $\cM_\vphi$.
 
 \begin{defn}[Semiflat metric]
@@ -923,68 +873,74 @@ whose \kahler form in structure $I_1$ is
   \omega^\sf_1 = 2 \DIP{\de Z, \de \overline{Z}} - \DIP{\de \theta, \de \theta}.
 \end{equation}
 \end{defn}                                   
-Relative to special coordinates, \eqref{eq:omega1-sf} becomes
-\begin{equation}
-	\omega_1^\sf = -4 \I (\im \tau)_{IJ} (\de a^I \wedge \de \bar{a}^J) - 2 \de \theta_{A^I} \wedge \de \theta_{B_I},
-\end{equation}
-where $\tau_{IJ} = \frac{\partial a_{D,I}}{\partial a^J}$.
 
-As we will show below, $\omega_1^\sf$ is the \kahler
-form for the \hk metric on $\cM$ in the case $G = \U(1)$.
+\fixme{formulate the weak form of conjecture}
 
 
-\subsection{The Hitchin section}
+% Relative to special coordinates, \eqref{eq:omega1-sf} becomes
+% \begin{equation}
+% 	\omega_1^\sf = -4 \I (\im \tau)_{IJ} (\de a^I \wedge \de \bar{a}^J) - 2 \de \theta_{A^I} \wedge \de \theta_{B_I},
+% \end{equation}
+% where $\tau_{IJ} = \frac{\partial a_{D,I}}{\partial a^J}$.
+% As we will show below, $\omega_1^\sf$ is the \kahler
+% form for the \hk metric on $\cM$ in the case $G = \U(1)$.
 
-% We are almost ready to write down the semiflat metric.
-% To do so, we will need a natural decomposition of
-% $T \cM$ into horizontal and vertical. To define ``horizontal''
-% we need to be able to compare nearby fibers $\cM_\vphi$.
-% For this we use:
 
-\begin{defn}[Hitchin section, for $G = \SU(2)$]
-Choose a spin structure on $C$ and thus a line bundle
-$K_C^\half$.
-Given $\phi_2 \in \cB$ we consider the Higgs bundle
-$(E,\varphi)$:
-\begin{equation}
-  E = K_C^{\half} \oplus K_C^{-\half}, \qquad \varphi = \begin{pmatrix} 0 & \phi_2 \\ 1 & 0 \end{pmatrix}.
-\end{equation}
-Note $\phi_2$ is a section of $\Hom(K_C^{-\half}, K_C^\half) \otimes K_C = K_C$ as needed, and by $1$ we mean the 
-canonical section of $\Hom(K_C^\half, K_C^{-\half}) \otimes K_C = \cO$. 
-Then $(E,\varphi)$ is a stable $(C,G)$-Higgs bundle
-lying in the fiber $\cM_{\phi_2}$.
-This gives a section of the Hitchin map for this $(C,G)$.
-\end{defn}
-There is a similar construction of sections
-of the Hitchin map for other $G$; it originates in \cite{MR1174252}.
+% \subsection{The Hitchin section}
+
+% \begin{defn}[Hitchin section, for $G = \SU(2)$]
+% Choose a spin structure on $C$ and thus a line bundle
+% $K_C^\half$.
+% Given $\phi_2 \in \cB$ we consider the Higgs bundle
+% $(E,\varphi)$:
+% \begin{equation}
+%   E = K_C^{\half} \oplus K_C^{-\half}, \qquad \varphi = \begin{pmatrix} 0 & -\phi_2 \\ 1 & 0 \end{pmatrix}.
+% \end{equation}
+% Note $\phi_2$ is a section of $\Hom(K_C^{-\half}, K_C^\half) \otimes K_C = K_C^2$ as needed, and by $1$ we mean the 
+% canonical section of $\Hom(K_C^\half, K_C^{-\half}) \otimes K_C = \cO$. 
+% Then $(E,\varphi)$ is a stable $(C,G)$-Higgs bundle
+% lying in the fiber $\cM_{\phi_2}$.
+% This gives a section of the Hitchin map for this $(C,G)$.
+% \end{defn}
+% There is a similar construction of sections
+% of the Hitchin map for other $G$; it originates in \cite{MR1174252}.
 
 
 
-\section{Hyperk\"ahler structure}
+\section{Our strategy}
 
-\subsection{The hyperk\"ahler structure of \texorpdfstring{$\cM$}{M}}
+Now let us explain our strategy for describing the \hk metric on $\cM$.
+
+\subsection{The other complex structures of \texorpdfstring{$\cM$}{M}}
 
 So far we have focused on just one of the complex
-structures of $\cM$. Now let us look at the other
-complex structures $I^\zeta$, $\zeta \in \bbC^\times$.
-(note $I^{\zeta=0} = I_1, I^{\zeta = \I} = I_2, I^{\zeta = 1} = I_3$.)
+structures of $\cM$, which we called $I_1$,
+and its holomorphic symplectic form $\Omega_1$.
+We have also said that $\cM$ is \hk, which means it has more structure.
+Our construction of the metric needs to use all that structure.
 
-Given a Higgs bundle $(E,\varphi)$ and 
+First, $\cM$ has complex structures $I_1, I_2, I_3$ obeying
+$I_1 I_2 = -I_2 I_1 = I_3$ and cyclic permutations,
+with corresponding \kahler forms $\omega_1, \omega_2, \omega_3$.
+The holomorphic symplectic forms are related to the
+\kahler forms by $\Omega_1 = \omega_2 + \I \omega_3$ 
+and cyclic permutations.
+In fact $\cM$ has a whole family of complex structures 
+$I^\zeta$, $\zeta \in \bbC\bbP^1$, where
+$I^{\zeta=0} = I_1, I^{\zeta = \I} = I_2, I^{\zeta = 1} = I_3$,
+and corresponding holomorphic symplectic forms $\Omega^\zeta$.
+What are they?
+
+Given a $\SU(2)$-Higgs bundle $(E,\varphi)$ and 
 solution $h$ of Hitchin's equations \eqref{eq:hitchin-equation}
 there is a corresponding $1$-parameter family of flat
-$G_\bbC$-connections over $C$:
+$\SL(2,\bbC)$-connections over $C$:
 \begin{equation}
   \nabla(\zeta) = \zeta^{-1} \varphi + D + \zeta \varphi^\dagger.
 \end{equation}
-
-\begin{prop} \label{prop:generic-structures-flat-connections} For any $\zeta \in \bbC^\times$,
-the map $(E,\varphi) \to \nabla(\zeta)$ identifies
-\begin{equation}
-  (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, \Omega^{ABG})
-\end{equation}
-Here $\cM^\flat = \cM^\flat(G, C, m^\zeta)$
-is the moduli space of flat reductive 
-$G_\bbC$-connections over $C$. 
+Let $\cM^\flat$
+be the moduli space of flat reductive 
+$\SL(2,\bbC)$-connections over $C$. 
 % with some prescribed structure at the points of $P$ 
 % ---
 % e.g. in the case of generic puncture data,
@@ -993,12 +949,22 @@ $G_\bbC$-connections over $C$.
 % \begin{equation}
 % m^{\zeta}_p = \zeta^{-1} m_p^\bbC + \I m_p^\R + \zeta \overline{m}_p^\bbC. 
 % \end{equation}
-$\Omega^{ABG}$ is the standard ``Atiyah-Bott-Goldman'' symplectic
-structure on $\cM^\flat$.
+$\cM^\flat$ carries a complex structure $I^\flat$
+and a holomorphic symplectic
+structure $\Omega^{ABG}$ (Atiyah-Bott-Goldman).
+
+\begin{prop} \label{prop:generic-structures-flat-connections} For any $\zeta \in \bbC^\times$,
+the map $(E,\varphi) \mapsto \nabla(\zeta)$ identifies
+\begin{equation}
+  (\cM, I^\zeta, \Omega^\zeta) \simarrow (\cM^\flat, I^\flat, \Omega^{ABG}) \, .
+\end{equation}
 \end{prop}
 
+So the complex structures $I^\zeta$, $\zeta \in \bbC^\times$, look very different
+from $I^0$ and $I^\infty$.
 
-\subsection{Our strategy}
+
+\subsection{Local Darboux coordinates}
 
 \autoref{prop:generic-structures-flat-connections} 
 implies that any holomorphic function $\cX$ on $\cM^\flat$,
@@ -1010,17 +976,18 @@ Darboux coordinate system $\{\cX_i\}$ on $(\cM^\flat, \Omega^{ABG})$
 becomes a holomorphic Darboux coordinate system on
 $(\cM, I^\zeta)$.
 
-Our aim is to use this idea to calculate holomorphic Darboux
+Our aim is to calculate holomorphic Darboux
 coordinates $\cX_\gamma(\zeta)$ of a given fixed Higgs bundle,
-in an ``explicit'' way,
 in terms of the data $(Z, \theta)$.
-Note that since $\nabla(\zeta)$ varies
-\ti{holomorphically} with $\zeta$, the coordinates
-$\cX_\gamma(\zeta)$ do as well.
+Since $\nabla(\zeta)$ varies
+holomorphically with $\zeta$, the coordinates
+$\cX_\gamma(\zeta)$ do as well; so they can be thought of
+as functions on the \ti{twistor space} of $\cM$.
 
 \begin{itemize}
-\item Q: Which holomorphic Darboux coordinate system on
-$(\cM^\flat, \Omega^{ABG})$ will you use? A: We actually
+\item {\bf Q}: Which holomorphic Darboux coordinate system on
+$(\cM^\flat, \Omega^{ABG})$ will we use? 
+{\bf A}: We actually
 will not use just one: instead, as we move around on the
 Hitchin base $\cB$ and/or vary the argument of $\zeta$, 
 we will choose different coordinate
@@ -1028,10 +995,11 @@ systems in different regions, separated by codimension-1 ``walls.''
 
 \insfig{higgs-metric-6}{0.8}
 
-\item Q: Why will you do that? A: Because we want to study
+\item {\bf Q}: Why do you need to have such a complicated structure? {\bf A}: Because we want to study
 these coordinates through their analytic properties in the
-$\zeta$-plane, and only certain coordinates are ``good''
-as $\zeta \to 0, \infty$; moreover, which ones are ``good'' changes as
+$\zeta$-plane, and only certain coordinates will be \ti{good} in the sense of having 
+simple analytic behavior
+as $\zeta \to 0, \infty$; moreover, which coordinates are good changes as
 we move around on $\cB$ or vary the argument of $\zeta$.
 
 % \item Q: What does ``good'' mean? A: It means that
@@ -1041,8 +1009,7 @@ we move around on $\cB$ or vary the argument of $\zeta$.
 %   \cX_\gamma(\zeta) \sim c_\gamma \exp(\zeta^{-1} Z_\gamma + \I \theta_\gamma).
 % \end{equation}
 
-\item Q: How does this help you get the metric? A: On the
-moduli space of Higgs bundles $(\cM, I_1)$ we 
+\item {\bf Q}: How does this help you get the metric? {\bf A}: On $(\cM, I_1)$ we 
 already have the holomorphic
 symplectic form $\Omega_1 = \omega_2 + \I \omega_3$. All that
 is missing is the third symplectic form $\omega_1$.
@@ -1051,126 +1018,184 @@ we can specialize them to say $\zeta = 1$ and get a formula
 for the holomorphic symplectic form $\Omega^{\zeta = 1} = \Omega_3 = \omega_1 + \I \omega_2$; then the desired $\omega_1$ is just
 $\re \Omega^{\zeta = 1}$.
 
-\item Q: Won't the jumping of the $\cX_\gamma(\zeta)$ at the walls
-cause a problem? A: No, the jumps are always by \ti{symplectomorphisms},
+\item {\bf Q}: Won't the jumping of the $\cX_\gamma(\zeta)$ at the walls
+cause a problem? {\bf A}: No, the jumps are always by \ti{symplectomorphisms},
 so that even though $\cX_\gamma(\zeta)$ jumps, $\Omega^\zeta$ doesn't.
 \end{itemize}
 
-\begin{remark}[The case of $G = \U(1)$]
-A toy model for what we are doing arises in the
-case $G = \U(1)$. In that case we can easily produce holomorphic Darboux coordinates: 
-just take the $\bbC^\times$-valued \ti{holonomies} of the 
-complex flat connection $\nabla(\zeta)$, which are simply\footnote{Note that in the case
-$G = \U(1)$ we have $\Sigma = C$, so $\Gamma = H_1(C,\bbZ)$.}
-\begin{equation} \label{eq:X-sf}
-  \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \overline{Z}_\gamma \right).
-\end{equation}
-These functions obey the relation
-\begin{equation}
-	\cX_{\gamma} \cX_{\gamma'} = \cX_{\gamma + \gamma'}.
-\end{equation}
-If we choose a basis $\{\gamma_1, \dots, \gamma_{2r}\}$
-for $\Gamma$, then the corresponding functions
-$\{\cX_{\gamma_1}, \dots, \cX_{\gamma_{2r}}\}$
-give coordinates on $\cM$; by abuse of
-language we refer to the whole collection 
-$\cX_\gamma$ as a coordinate system.
+% \begin{remark}[The case of $G = \U(1)$]
+% A toy model for what we are doing arises in the
+% case $G = \U(1)$. In that case we can easily produce holomorphic Darboux coordinates: 
+% just take the $\bbC^\times$-valued \ti{holonomies} of the 
+% complex flat connection $\nabla(\zeta)$, which are simply\footnote{Note that in the case
+% $G = \U(1)$ we have $\Sigma = C$, so $\Gamma = H_1(C,\bbZ)$.}
+% \begin{equation} \label{eq:X-sf}
+%   \cX_\gamma(\zeta) = \exp \left( \zeta^{-1} Z_\gamma + \I \theta_\gamma + \zeta \overline{Z}_\gamma \right).
+% \end{equation}
+% These functions obey the relation
+% \begin{equation}
+% 	\cX_{\gamma} \cX_{\gamma'} = \cX_{\gamma + \gamma'}.
+% \end{equation}
+% If we choose a basis $\{\gamma_1, \dots, \gamma_{2r}\}$
+% for $\Gamma$, then the corresponding functions
+% $\{\cX_{\gamma_1}, \dots, \cX_{\gamma_{2r}}\}$
+% give coordinates on $\cM$; by abuse of
+% language we refer to the whole collection 
+% $\cX_\gamma$ as a coordinate system.
 
-Using these coordinates at $\zeta = 1$ we get
-\begin{equation}
- \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \overline{Z}} - \DIP{\de \theta, \de \theta}
-\end{equation}
-which is the semiflat \kahler form \eqref{eq:omega1-sf}.
-Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
-with the semiflat metric $g^\sf$ on the nose!
-\end{remark}
+% Using these coordinates at $\zeta = 1$ we get
+% \begin{equation}
+%  \omega_1 = \re \Omega_3 = \re \DIP{\de \log \cX, \de \log \cX} = 2 \DIP{\de Z, \de \overline{Z}} - \DIP{\de \theta, \de \theta}
+% \end{equation}
+% which is the semiflat \kahler form \eqref{eq:omega1-sf}.
+% Thus we have proven that, in case $G = \U(1)$, Hitchin's metric $g$ agrees
+% with the semiflat metric $g^\sf$ on the nose!
+% \end{remark}
 
-We could try to do similarly for $G$ nonabelian.
-Indeed, if we choose a local section $\gamma$ of the local
-system $\Gamma$, then 
-the formula \eqref{eq:X-sf} makes good local sense,
-and the functions $\cX_\gamma(\zeta)$ so defined 
-give an honest local coordinate system
-on $\cM$. The trouble is that it is not a \ti{holomorphic}
-coordinate system in complex structure $I^\zeta$, so we 
-cannot use it to compute the \hk metric.
-Instead we will construct some
-other functions $\cX_\gamma(\zeta)$ which are true 
-holomorphic Darboux coordinates. 
+% We could try to do similarly for $G$ nonabelian.
+% Indeed, if we choose a local section $\gamma$ of the local
+% system $\Gamma$, then 
+% the formula \eqref{eq:X-sf} makes good local sense,
+% and the functions $\cX_\gamma(\zeta)$ so defined 
+% give an honest local coordinate system
+% on $\cM$. The trouble is that it is not a \ti{holomorphic}
+% coordinate system in complex structure $I^\zeta$, so we 
+% cannot use it to compute the \hk metric.
+% Instead we will construct some
+% other functions $\cX_\gamma(\zeta)$ which are true 
+% holomorphic Darboux coordinates. 
 
-Happily, it will turn out 
-that \eqref{eq:X-sf} does not have to be abandoned completely:
-it is true ``asymptotically'', in two different senses --- 
-either as we go
-to infinity in $\cM$, or as we take $\zeta \to 0$ or
-$\zeta \to \infty$.
+% Happily, it will turn out 
+% that \eqref{eq:X-sf} does not have to be abandoned completely:
+% it is true ``asymptotically'', in two different senses --- 
+% either as we go
+% to infinity in $\cM$, or as we take $\zeta \to 0$ or
+% $\zeta \to \infty$.
+
+
 
 
 \section{An irregular extension} \label{sec:irregular-extension}
 
-Now we consider an extension.
+\subsection{Definitions}
+
 We let $C = \bbC\bbP^1$, with the usual inhomogeneous coordinate $z$, 
 and use objects which are \ti{meromorphic},
 with poles at $z = \infty$, rather than holomorphic.
 
-We specialize to $G = \SU(2)$. See \cite{Fredrickson2017} for the case
-$G = \SU(K)$. Fix $N \in 2 \bbN + 1$.
+Fix a polynomial $q$ of degree $N \in 2 \bbN + 1$.
+(In fact we only need to know $q$ modulo polynomials of degree
+$\le \frac{N-3}{2}$.)
 
-\begin{defn}[Good filtered Higgs bundle]
-A \ti{good filtered Higgs bundle} of order $N$ is
+\begin{defn}[Irregular Higgs bundle]
+An \ti{irregular $\SU(2)$-Higgs bundle} of type $q$ is
 a pair $(E,\varphi)$, where:
 \begin{itemize} 
   \item $E$ is a 
 meromorphic vector bundle, holomorphic away from 
 $z = \infty$, 
-with a filtration $\nu_\infty$
-by ``pole order,'' 
- \item $\varphi$ is a meromorphic section of $\End(E) \otimes K_C$,
- holomorphic away from $z = \infty$,
-\end{itemize}
-such that on a neighborhood of $z = \infty$,
-after pulling back to a 4-fold cover with coordinate $z^{\frac14}$,
-there is a trivialization of $E$ with
-\begin{equation}
-  \varphi = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \, z^{\frac12 N} \, \de z + \cdots
+with a valuation $\nu_\infty$ on meromorphic sections,
+and a nowhere-vanishing section $\eta \in \wedge^2(E)$ with $\nu_\infty(\eta) = 0$,
+ \item $\varphi$ is a traceless meromorphic section of $\End(E) \otimes K_C$,
+ holomorphic away from $z = \infty$, obeying 
+\begin{equation} \label{eq:phi2-polynomial}
+  \phi_2 = \frac12 \Tr \varphi^2 = (q(z) + l(z)) \, \de z^2
 \end{equation}
-where the terms in $\cdots$ are holomorphic in $z^{- \frac14}$.
-and the filtration $\nu_\infty$ is the standard one.
+with $\deg l < \frac{N}{2} - 1$,
+\end{itemize}
+such that for any meromorphic section $s$ of $E$, 
+\begin{equation}
+\nu_\infty(z^{m} s) = \nu_\infty(s) + m, \qquad \nu_\infty(\varphi \cdot s) = \nu_\infty(s) + \frac{N}{2} \, .  
+\end{equation}
+% such that on a neighborhood of $z = \infty$,
+% after pulling back to a 4-fold cover with coordinate $z^{\frac14}$,
+% there is a trivialization of $E$ with
+% \begin{equation}
+%   \varphi = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \, \sqrt{-q(z)} \, \de z + \cdots
+% \end{equation}
+% where the terms in $\cdots$ are holomorphic in $z^{- \frac14}$.
+% and the filtration $\nu_\infty$ is the standard one.
 \end{defn}
 
+Everything we said about ordinary $\SU(2)$-Higgs bundles has an analogue for these 
+irregular ones. 
+In particular:
+
 \begin{defn}[Adapted metric]
-Suppose $(E,\varphi)$ is a good filtered Higgs bundle of order $N$. An \ti{adapted metric} in $(E,\varphi)$ is a Hermitian metric $h$ in $E$, such that
+Suppose $(E,\varphi)$ is an irregular Higgs bundle. An \ti{adapted metric} in $(E,\varphi)$ is a Hermitian metric $h$ in $E$, such that
 \begin{equation}
 \log h(s,s) \sim 2 \nu_\infty(s) \log \abs{z} \quad \text{ as } \abs{z} \to \infty \, . 
 \end{equation}
 \end{defn}
 
-Here is some standard folklore:
-\begin{itemize}
-\item If $(E,\varphi)$ is a good filtered Higgs bundle, there is a 
-unique adapted metric in $E$ which obeys Hitchin's equations \eqref{eq:hitchin-equation}. \fixme{Biquard-Boalch plus epsilon}
+\begin{thm}
+If $(E,\varphi)$ is an irregular Higgs bundle, there is an adapted metric $h$ in $E$ which obeys Hitchin's equations \eqref{eq:hitchin-equation}, and $h$ is unique up to scalar multiple. \fixme{Mochizuki}
+\end{thm}
 
-\item There is a moduli space $\cM_{2,N}$ parameterizing good filtered
-Higgs bundles of order $N$ up to equivalence.
+\begin{thm}
+There is a moduli space $\cM(q)$ parameterizing irregular Higgs bundles of type $q$ up to equivalence.
+$\cM(q)$ is a smooth manifold, of dimension $N-1$.
+The formula \eqref{eq:l2-metric-def} defines a complete \hk metric on $\cM(q)$.
+\fixme{Biquard-Boalch plus epsilon}
+\end{thm}
 
-\item The Hitchin map $\cM_{2,N} \to \cB_{2,N}$
-\end{itemize}
+So this is a continuous family of \hk spaces, parameterized by the choice of $q$.
+The space of polynomials $q$ has dimension $N+1$, but we should mod out by automorphisms
+of $\bbC\bbP^1$ preserving $z = \infty$ and by low-degree shifts,
+so the effective number of parameters in the family 
+is $(N+1) - 2 - (\frac{N-3}{2} + 1) = \frac{N-1}{2}$.
+
+The Hitchin base $\cB(q)$ in this case is just the space of polynomials 
+$P_2 = q + l$ appearing above, with $q$ fixed and $l$ varying.
+It has complex dimension $\frac12(N-1)$ as it should.
+
+\begin{example}
+The case $N=3$ is the first interesting one. Here we pick
+\begin{equation}
+  q(z) = z^3 + \Lambda z
+\end{equation}
+for $\Lambda \in \bbC^\times$. Then $\cM(q)$ is a \hk space of complex dimension $2$,
+depending on the choice of $\Lambda$. \fixme{show picture of $\cB(q)$}
+\end{example}
+
+
+% \item There is a moduli space $\cM_{2,N}$ parameterizing good filtered
+% Higgs bundles of order $N$ up to equivalence.
+% \end{itemize}
+
+\subsection{The Hitchin section}
+
+We should give at least one example of an irregular Higgs bundle:
+
+\begin{defn}[Hitchin section]
+Let $\cO(\alpha)$ denote the trivial meromorphic bundle over $\bbC \bbP^1$, 
+with a valuation $\nu_\infty$ given by the usual pole order at $z = \infty$ 
+shifted by $-\alpha$.
+Then given $\phi_2 = P_2(z) \de z^2 \in \cB(q)$ we consider the Higgs bundle
+$(E,\varphi)$:
+\begin{equation}
+  E = \cO\left(\frac{N}{4}\right) \oplus \cO\left(-\frac{N}{4}\right), \qquad \varphi = \begin{pmatrix} 0 & -P_2 \\ 1 & 0 \end{pmatrix}.
+\end{equation}
+% Then $(E,\varphi)$ is a stable $(C,G)$-Higgs bundle
+% lying in the fiber $\cM_{\phi_2}$.
+This gives a section of the Hitchin map for $\cM(q)$.
+\end{defn}
+% There is a similar construction of sections
+% of the Hitchin map for other $G$; it originates in \cite{MR1174252}.
+
+
 
 
 
 \section{The coordinates} \label{sec:coordinates}
 
-What are the true holomorphic coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
-which we will use?
+Now we describe the holomorphic coordinates $\cX_\gamma(\zeta)$ on $(\cM, I^\zeta)$
+which we will use.
 
 
 \subsection{Defining the coordinates}
 
-Specialize to $G = \SU(2)$, and fix $\phi_2 \in \cB$
-and $\zeta \in \bbC^\times$.
-$\phi_2$ is a holomorphic section of $K_C(P)^2$, i.e.
-a meromorphic quadratic differential on $C$ with
-double poles at $P$, of residues $(m_p^\bbC)^2$.
+Fix $\phi_2 \in \cB$ and $\zeta \in \bbC^\times$.
 
 \begin{defn}[$\zeta$-trajectories of a quadratic differential]
 A \ti{$\zeta$-trajectory} of $\phi_2$ is a path on $C$
@@ -1178,8 +1203,6 @@ along which
 $\zeta^{-1} \sqrt \phi_2$ (with either choice of sign
 for $\sqrt{\phi_2}$) is a
 \ti{real} and nowhere vanishing form.
-% Call a $\vartheta$-trajectory \ti{maximal} if
-% it is not properly contained in any other.
 \end{defn}
 
 \begin{prop}[$\zeta$-trajectories give a foliation] The
@@ -1190,16 +1213,12 @@ At each zero of $\phi_2$, the foliation
 by $\zeta$-trajectories has a three-pronged singularity,
 as shown below.
 \insfig{higgs-metric-8}{0.92}
-At each pole $p$ of $\phi_2$ with $\zeta^{-1} m^\bbC_p \notin \R$, 
-the foliation has a ``spiraling'' singularity, as shown
-below.
-\insfig{higgs-metric-7}{1.15}
 \end{prop}
 
 \begin{prop}[Ideal triangulation determined by the
 $\zeta$-trajectories] \label{prop:triangulation}
 Suppose $(\phi_2, \zeta)$ is generic, in the sense that
-$\zeta^{-1} Z_\gamma \notin \R$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\zeta$-trajectories determine an ideal
+$\zeta^{-1} Z_\gamma \notin \bbR$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\zeta$-trajectories determine an ideal
 triangulation $T(\phi_2,\zeta)$ of $C$, by the picture below.
 \end{prop}
 \insfig{higgs-metric-9}{0.95}
@@ -1278,7 +1297,7 @@ This jump is associated with the ``saddle connection''
 connecting two zeroes of $\phi_2$, 
 appearing in the middle of the figure.
 Such a saddle connection can only 
-appear when $\zeta^{-1} Z_\mu \in \R_-$.
+appear when $\zeta^{-1} Z_\mu \in \bbR_-$.
 The coordinates on the two sides of the jump are related by:
 \begin{equation}
   \cX_\gamma \to \cX_\gamma(1 + \cX_\mu)^{\IP{\mu,\gamma}}.
@@ -1312,11 +1331,11 @@ of the coordinates $\cX_\gamma$, of the form
 These two 
 walls are ``hyperplanes'' 
 in the sense of the special \kahler structure on $\cB_\reg$:
-they are of the form $\zeta^{-1} Z_{\pm \mu} \in \R_-$, where 
+they are of the form $\zeta^{-1} Z_{\pm \mu} \in \bbR_-$, where 
 $\mu$ is the vanishing cycle.
 When walls collide, they 
 can generate new walls. The new walls are also of the form
- $Z_\mu / \zeta \in \R_-$ for some $\mu$, and carry
+ $Z_\mu / \zeta \in \bbR_-$ for some $\mu$, and carry
  transformations of the form \eqref{eq:ks-map}.
  The precise structure of the new walls is completely
 determined by the requirement that the $\cX_\gamma$
@@ -1357,41 +1376,40 @@ at various rays $\ell$ in the $\zeta$-plane.
 At each such ray, the jump is a
 product of transformations of the form \eqref{eq:ks-map},
 where the $\mu$ in \eqref{eq:ks-map} can be any
-$\mu \in \Gamma$ such that $Z_\mu / \zeta \in \R_-$
+$\mu \in \Gamma$ such that $Z_\mu / \zeta \in \bbR_-$
 along $\ell$.
 
-\begin{example}[Finite chamber for $G = \SU(2)$, $g_C = 0$, $\abs{P} = 4$]
-In case $G = \SU(2)$, $g_C = 0$, 
-$\abs{P}=4$, at least for some choices of 
-$m^\bbC$, there exists 
-a domain $D \subset \cB$ such that, when $\phi_2 \in D$, 
-the function $\cX_\gamma(\zeta)$ jumps at exactly
-$24$ rays in the $\zeta$-plane, 
-corresponding to $24$ lattice vectors $\gamma_1, \dots, \gamma_{24} \in \Gamma$ for which 
-$\DT(\gamma_i) = 1$. For all other $\gamma \in \Gamma$
-we have $\DT(\gamma) = 0$.
-One concrete example of a $\phi_2 \in D$ is
-\begin{equation}
-  \phi_2 = \frac{z^4 - \half (z^4-1)}{(z^4-1)^2} \de z^2.
-\end{equation}
-\end{example}
+% \begin{example}[Finite chamber for $G = \SU(2)$, $g_C = 0$, $\abs{P} = 4$]
+% In case $G = \SU(2)$, $g_C = 0$, 
+% $\abs{P}=4$, at least for some choices of 
+% $m^\bbC$, there exists 
+% a domain $D \subset \cB$ such that, when $\phi_2 \in D$, 
+% the function $\cX_\gamma(\zeta)$ jumps at exactly
+% $24$ rays in the $\zeta$-plane, 
+% corresponding to $24$ lattice vectors $\gamma_1, \dots, \gamma_{24} \in \Gamma$ for which 
+% $\DT(\gamma_i) = 1$. For all other $\gamma \in \Gamma$
+% we have $\DT(\gamma) = 0$.
+% One concrete example of a $\phi_2 \in D$ is
+% \begin{equation}
+%   \phi_2 = \frac{z^4 - \half (z^4-1)}{(z^4-1)^2} \de z^2.
+% \end{equation}
+% \end{example}
 
-\begin{remark}[Even simpler cases]
-In ``wildly ramified'' examples (where we allow higher-order poles
-for the Higgs field) the analytic structure of the functions $\cX_\gamma(\zeta)$ 
-can be even simpler: in the simplest example, 
-we can arrange that in some domain $D \subset \cB$
-there are jumps along just $4$ rays,
-as shown in the picture above. We will discuss that example
-more below.
-\end{remark}
+% \begin{remark}[Even simpler cases]
+% In ``wildly ramified'' examples (where we allow higher-order poles
+% for the Higgs field) the analytic structure of the functions $\cX_\gamma(\zeta)$ 
+% can be even simpler: in the simplest example, 
+% we can arrange that in some domain $D \subset \cB$
+% there are jumps along just $4$ rays,
+% as shown in the picture above. We will discuss that example
+% more below.
+% \end{remark}
 
 \begin{remark}[Higher rank] \label{rem:higher-rank}
-So far we focused on $G = \SU(2)$. The case of $G = \U(2)$ is more or
-less the same. For $K>2$ the situation becomes more interesting:
+So far we focused on $G = \SU(2)$.
+For $\SU(K)$ with $K>2$ the situation becomes more interesting:
 instead of studying ideal triangulations $T(\phi_2, \zeta)$ 
-one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.\footnote{In retrospect,
-essentially the same graphs had appeared earlier as 
+one needs to study \ti{WKB spectral networks} $\cW(\vphi, \zeta)$, as defined in \cite{Gaiotto2012}.\footnote{Essentially the same graphs had appeared earlier as 
 \ti{Stokes graphs} associated to the WKB analysis of
 linear scalar $K$-th order ODEs; see in particular \cite{berk:988}.}
 Then again there is a recipe for invariants $\DT(\gamma)$
@@ -1413,7 +1431,7 @@ by Fock-Goncharov in \cite{MR2233852}.
 \begin{conj}[Integral equation for $\theta_\gamma = 0$] \label{conj:integral-equation}
 When all $\theta_\gamma = 0$,
 \begin{equation} \label{eq:integral-equation}
-  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \R_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
+  \cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta) \exp \left[ \frac{1}{4\pi \I} \sum_{\mu \in \Gamma} \DT(\mu) \IP{\gamma,\mu} \int_{Z_\mu \bbR_-} \frac{\de \zeta'}{\zeta'} \frac{\zeta' + \zeta}{\zeta'-\zeta} \log(1 - \sigma(\mu) \cX_\mu(\zeta')) \right]
 \end{equation}
 where 
 \begin{equation}
@@ -1431,24 +1449,24 @@ the whole collection $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$
 at once, rather than an integral formula.
 
 \begin{itemize}
-  \item Q: Why this equation? A: It is expected to lead to $\cX_\gamma(\zeta)$ with
+  \item {\bf Q}: Why this equation? {\bf A}: It is expected to lead to $\cX_\gamma(\zeta)$ with
   the right analytic properties in the $\zeta$-plane: asymptotics as $\zeta \to 0,\infty$
-  and jumps at the rays $Z_\mu / \zeta \in \R_-$ with $\DT(\mu) \neq 0$.
+  and jumps at the rays $Z_\mu / \zeta \in \bbR_-$ with $\DT(\mu) \neq 0$.
   The optimistic hope is that these analytic properties are strong enough
   to \ti{determine} $\cX_\gamma(\zeta)$.
 
-  \item Q: How do you actually solve it? A: By iteration: pick
+  \item {\bf Q}: How do you actually solve it? {\bf A}: By iteration: pick
   $\cX_\gamma(\zeta) = \cX_\gamma^\sf(\zeta)$ as initial guess, 
   and then iterate.
 
-  \item Q: Why would you think that that iteration would converge?
-  A: If all $\abs{Z_\gamma}$ are large enough, and $\DT(\mu)$ doesn't grow too fast
+  \item {\bf Q}: Why would you think that that iteration would converge?
+  {\bf A}: If all $\abs{Z_\gamma}$ are large enough, and $\DT(\mu)$ doesn't grow too fast
   as a function of $\mu$ (e.g. if only finitely many are nonzero)
   saddle-point estimates show 
   the iteration defines a contraction mapping, so it must
   converge to a (unique) fixed point.
 
-  \item Q: How does this lead to asymptotic predictions? A: 
+  \item {\bf Q}: How does this lead to asymptotic predictions? {\bf A}: 
   If we substitute $\cX = \cX^\sf$, the log in the
   integrand is bounded above by $\e^{-2 \abs{Z_\mu}}$;
   thus we expect that the first step of the iteration is already
@@ -1511,9 +1529,9 @@ Solving Hitchin's equation \eqref{eq:hitchin-equation}
 in the specific
 case \eqref{eq:poly-higgs-bundle} is equivalent to 
 finding a harmonic map from $\bbC$ to the hyperbolic disc whose  Hopf differential is $\phi_2$. Such a map exists and 
-is unique up to $\PSL(2,\R)$ action on the disc; its image
+is unique up to $\PSL(2,\bbR)$ action on the disc; its image
 turns out to be an ideal polygon with $n+2$ vertices
-\cite{HTTW}, again determined up to $\PSL(2,\R)$ action.
+\cite{HTTW}, again determined up to $\PSL(2,\bbR)$ action.
 
 \insfig{higgs-metric-15}{0.8}
 
@@ -1544,7 +1562,7 @@ ideal triangulation $T(\phi_2, \zeta)$ of a punctured surface
 $C$ constructed in \autoref{prop:triangulation}.
 We take the concrete example
 \begin{equation}
-  P(z) = R^2 (z^3 - 1), \qquad R \in \R_+.
+  P(z) = R^2 (z^3 - 1), \qquad R \in \bbR_+.
 \end{equation}
 In this case the triangulation $T(\phi_2, \zeta = 1)$ looks
 like:
