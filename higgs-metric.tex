@@ -369,7 +369,7 @@ is constructed from two ingredients:
   \item A collection of integer ``Donaldson-Thomas invariants''
   $\DT(\gamma)$,
   which count (tropicalizations of) special Lagrangian discs
-  in $T^*C$ with boundary on $\Sigma_\vphi$.
+  in $T^*C$ with boundary on $\Sigma_{\phi_2}$.
   % \insfig{higgs-metric-5}{0.8}
 \end{enumerate}
 
@@ -541,7 +541,7 @@ $\cB$.
 
 Given a Higgs bundle $(E,\varphi) \in \cM$ and $z \in C$,
 we can consider the eigenvalues of $\varphi(z)$. As $z$ varies
-these sweep out a curve $\Sigma \subset \Tot[K_C]$:
+these sweep out a curve $\Sigma$:
 % \begin{equation}
 %   \Sigma = \{ (z,\lambda): \det(\lambda - \varphi(z)) = 0\} \subset \Tot[K_C].
 % \end{equation}
@@ -550,7 +550,7 @@ these sweep out a curve $\Sigma \subset \Tot[K_C]$:
 % bundle $(E,\varphi)$.
 % Concretely it is of the form
 \begin{equation}
-  \Sigma = \{ (z,\lambda): \lambda^2 + \phi_2(z) = 0\} \, ,
+  \Sigma = \{ (z,\lambda): \lambda^2 + \phi_2(z) = 0\} \, \subset T^*C \, ,
 \end{equation}
 where
 \begin{equation}
@@ -569,8 +569,8 @@ The \ti{Hitchin map} is the map $\pi: \cM \to \cB$ given by
 \end{defn}
 
 \begin{prop}[Hitchin map has Lagrangian fibers] The fibers
-$\cM_\vphi = \pi^{-1}(\vphi)$ 
-are compact complex Lagrangian subsets of $(\cM, \Omega_1)$. (In particular, $\dim_\bbC \cB = \half \dim_\bbC \cM$.)
+$\cM_{\phi_2} = \pi^{-1}(\vphi)$ 
+are compact complex Lagrangian subsets of $(\cM, I_1, \Omega_1)$. (In particular, $\dim_\bbC \cB = \half \dim_\bbC \cM$.)
 \end{prop}
 
 We can say more precisely what the fibers are,
@@ -587,36 +587,36 @@ Also let $\cM_\reg = \pi^{-1}(\cB_\reg)$.
 
 \begin{prop}[Fibers of the Hitchin map over $\cB_\reg$]
 Suppose $\vphi \in \cB_\reg$.
-Then $\cM_\vphi$ is a torsor over the compact complex torus $\Prym (\rho: \Sigma_\vphi \to C)$. 
+Then $\cM_{\phi_2}$ is a torsor over the compact complex torus $\Prym (\rho: \Sigma_{\phi_2} \to C)$. 
 After choosing spin structures on 
-$C$ and $\Sigma_\vphi$, we can identify $\cM_\vphi$ with the space of flat $\U(1)$-connections $\nabla$ over $\Sigma_\vphi$, equipped with a trivialization of $\det \rho_* \nabla$.
+$C$ and $\Sigma_{\phi_2}$, we can identify $\cM_{\phi_2}$ with the space of flat $\U(1)$-connections $\nabla$ over $\Sigma_{\phi_2}$, equipped with a trivialization of $\det \rho_* \nabla$.
 \end{prop}
 
 So we reach the following picture: a point $\vphi \in \cB_\reg$
-gives a smooth spectral curve $\Sigma_\vphi$; the torus
-$\cM_\vphi$ is a space of flat $\U(1)$-connections
-over $\Sigma_\vphi$.
+gives a smooth spectral curve $\Sigma_{\phi_2}$; the torus
+$\cM_{\phi_2}$ is a space of flat $\U(1)$-connections
+over $\Sigma_{\phi_2}$.
 % \begin{remark}[More precise picture of the fibers
 % when $G = \U(K)$]
 % A more precise description would say exactly \ti{which} torsor 
-% $\cM_\vphi$ is. For example, when $G = \U(K)$,
-% $\cM_\vphi$ is the moduli space of holomorphic line bundles
-% over $\Sigma_\vphi$ with degree $-K(K-1)(g_C-1)$.
+% $\cM_{\phi_2}$ is. For example, when $G = \U(K)$,
+% $\cM_{\phi_2}$ is the moduli space of holomorphic line bundles
+% over $\Sigma_{\phi_2}$ with degree $-K(K-1)(g_C-1)$.
 % After choosing spin structures on $C$ and on $\Sigma$
 % we can shift the degree to zero.
-% So then we can identify $\cM_\vphi$ with the space of
-% flat $U(1)$-connections over $\Sigma_\vphi$.
+% So then we can identify $\cM_{\phi_2}$ with the space of
+% flat $U(1)$-connections over $\Sigma_{\phi_2}$.
 % \end{remark}
-When $\vphi \in \cB_\sing$, $\cM_\vphi$ is compact,
+When $\vphi \in \cB_\sing$, $\cM_{\phi_2}$ is compact,
 but generally singular.
 
 % \begin{remark}[Concrete description of the singular locus]
 % What is $\cB_\sing$ concretely?
-% The branch locus of the covering $\rho: \Sigma_\vphi \to C$ 
-% is the zero locus of the discriminant $\Delta_{\vphi}$ of the equation \eqref{eq:spectral-coeffs}. $\Delta_\vphi$ 
+% The branch locus of the covering $\rho: \Sigma_{\phi_2} \to C$ 
+% is the zero locus of the discriminant $\Delta_{\vphi}$ of the equation \eqref{eq:spectral-coeffs}. $\Delta_{\phi_2}$ 
 % is a holomorphic section of $K_C(P)^{K(K-1)}$.
-% $\vphi \in \cB_\reg$ iff $\Delta_\vphi$ has only simple zeroes; in this case
-% it has $K(K-1)(2g_C+\abs{P}-2)$ of them, and the genus of $\Sigma_\vphi$ is
+% $\vphi \in \cB_\reg$ iff $\Delta_{\phi_2}$ has only simple zeroes; in this case
+% it has $K(K-1)(2g_C+\abs{P}-2)$ of them, and the genus of $\Sigma_{\phi_2}$ is
 % \begin{equation}
 % g_\Sigma = 1 + K^2(g_C - 1) + \half K(K-1) \abs{P}.
 % \end{equation}
@@ -638,7 +638,7 @@ but generally singular.
 % \item Suppose $m^\bbC \neq 0$. Then 
 % $\cB$ is a complex affine space of dimension $1$.
 % If $m^\bbC$ is generic, $\cB_\sing \subset \cB$ consists
-% of $6$ points, and the fiber $\cM_\vphi$ over any $\vphi \in \cB_\sing$ is
+% of $6$ points, and the fiber $\cM_{\phi_2}$ over any $\vphi \in \cB_\sing$ is
 % a nodal torus. (For special choices of $m^\bbC$ some of these discriminant points 
 % may collide.)
 % \end{itemize}
@@ -691,7 +691,7 @@ automorphisms of $(E,h)$.
 In particular, differentiating at $t = 0$ gives a pair
 \begin{equation}
 \frac{\de}{\de t}\Bigg\rvert_{t=0} (D_t, \Phi_t) = 
-(\dot A, \dot \Phi) \in \Omega^1(\fsu(E)) \oplus \I \Omega^{1}(\fsu(E)),
+(\dot A, \dot \Phi) \in \Omega^1(\fsu(E)) \oplus \Omega^{1}(\fsu(E)),
 \end{equation}
 defined up to gauge transformations.
 Then the norm of $v$ is the $L^2$ norm
@@ -756,10 +756,14 @@ The regular part $\cB_\reg$ of the Hitchin base
 carries a (rigid) special \kahler structure 
 in the sense of \cite{Freed:1997dp}, as follows.
 
+The deck transformation $\sigma: \Sigma_{\phi_2} \to \Sigma_{\phi_2}$
+induces an action on $H_1(\Sigma, \bbZ)$.
+Let $H_1(\Sigma_{\phi_2}, \bbZ)^\pm$ denote the $\pm 1$-eigenspaces.
+
 \begin{defn}[Charge lattice]
 The \ti{charge lattice} is
 \begin{equation}
-    \Gamma_\vphi = H_1(\Sigma_\vphi, \bbZ)^- \, .
+    \Gamma_{\phi_2} = H_1(\Sigma_{\phi_2}, \bbZ)^- \, .
 \end{equation}
 \end{defn}
 
@@ -778,10 +782,16 @@ Let $\lambda$ denote the tautological (Liouville) holomorphic $1$-form
 on $\Tot[K_C]$.
 The \ti{period map} is the map
 \begin{equation}
-   Z: \Gamma_\vphi \to \bbC, \qquad Z_\gamma = \oint_\gamma \lambda
+   Z: \Gamma_{\phi_2} \to \bbC, \qquad Z_\gamma = \oint_\gamma \lambda
 \end{equation}
 which we could also view as an element $Z \in \Gamma^*_\bbC$.
 \end{defn}
+Then we have $\de Z \in \Omega^1(\cM) \otimes \Gamma_\bbC^*$,
+and we can define a $2$-form $\DIP{\de Z, \de \overline{Z}}$,
+given concretely by
+\begin{equation}
+  \DIP{\de Z, \de \overline{Z}} = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I} - \de Z_{B_I} \wedge \de \overline{Z}_{A^I} \, .
+\end{equation}
 
 % From the periods we can assemble a $2$-form
 % $\DIP{\de Z,  \de Z} \in \Omega^{2,0}(\cB_\reg)$, given concretely by
@@ -808,17 +818,11 @@ which we could also view as an element $Z \in \Gamma^*_\bbC$.
 % and thus
 % $\int_\Sigma \delta_1 \wedge \delta_2 = 0$.
 
-\begin{defn}[Special \kahler form on $\cB_\reg$]
-We define a 2-form $\omega \in \Omega^{1,1}(\cB_\reg)$ by
-\begin{equation}
-  \omega = \DIP{\de Z, \de \overline{Z}} = \sum_{I = 1}^{r} \de Z_{A^I} \wedge \de \overline{Z}_{B_I} \, .
-\end{equation}
-\end{defn}
-
-\begin{prop}[Positivity of $\omega$] $\omega$ is a
-positive $(1,1)$-form on $\cB_\reg$, and thus it defines
-a \kahler metric on $\cB_\reg$.
+\begin{prop}[Positivity] 
+$\DIP{\de Z, \de \overline{Z}}$ is a positive $(1,1)$-form on $\cB_\reg$. 
 \end{prop}
+Thus it defines
+a \kahler metric on $\cB_\reg$.
 
 % From the existence of $Z$ with the above properties
 % one can deduce all the structure
@@ -837,18 +841,16 @@ a \kahler metric on $\cB_\reg$.
 
 
 Now we consider the fiber directions.
-As we have said, $\cM_\vphi$ is a space of flat $U(1)$-connections
-over $\Sigma_\vphi$. 
-In particular, for each $\gamma \in \Gamma_\vphi$ 
+As we have said, $\cM_{\phi_2}$ is a space of flat $U(1)$-connections
+over $\Sigma_{\phi_2}$. 
+In particular, for each $\gamma \in \Gamma_{\phi_2}$ 
 there is a corresponding
-holonomy $\theta_\gamma: \cM_\vphi \to \bbR / 2 \pi \bbZ$.
+holonomy $\theta_\gamma: \cM_{\phi_2} \to \bbR / 2 \pi \bbZ$.
 Their differentials can be assembled into
-\begin{equation}
-  \de \theta \in \Omega^1(\cM) \otimes \Gamma^*_\bbR.
-\end{equation}
-If we choose a basis for $\Gamma_\vphi$ 
+  $\de \theta \in \Omega^1(\cM) \otimes \Gamma^*_\bbR$.
+If we choose a basis for $\Gamma_{\phi_2}$ 
 then we get $\bbR / 2 \pi \bbZ$-valued coordinates $\theta_1, \dots, \theta_{2r}$
-on $\cM_\vphi$.
+on $\cM_{\phi_2}$.
 
 \begin{defn}[Semiflat metric]
 The \ti{semiflat metric}  $g^\sf$ on $\cM_\reg$ is the metric 
@@ -866,7 +868,8 @@ metric is exponentially close to the semiflat metric.
 Fix $\phi_2 \in \cB_\reg$. Then $\abs{\phi_2}$ is a singular flat metric on $C$, with singularities at the
 zeroes of $\phi_2$. The \ti{threshold} $M(\phi_2)$
 is twice the length of the shortest inextendible geodesic
-(saddle connection) in this metric.
+(saddle connection) in this metric.\footnote{We redefined it by a factor of 2 relative to \cite{dumas2019asymptotics}; this accounts for the fact
+that some factors of 2 here differ from those in the references.}
 \end{defn}
 
 \begin{conj}[Weak metric conjecture] \label{conj:weak-metric}
@@ -908,10 +911,15 @@ exponentially fast:
 % There is a similar construction of sections
 % of the Hitchin map for other $G$; it originates in \cite{MR1174252}.
 
+The meaning of the conjecture is that the naive cartoon drawing of the
+torus fibration is exponentially close to being the correct metric picture.
+It is an instance of the Strominger-Yau-Zaslow picture of Calabi-Yau
+manifolds.
+
 This conjecture is now almost proven
-\cite{Mochizuki} following earlier 
-work \cite{MSWW,DN,F}: on
-the Hitchin section (introduced below)
+\cite{mochizuki2024comparison} following earlier 
+work \cite{mazzeo2019asymptotic,dumas2019asymptotics,fredrickson2020exponential}: on
+the section $\theta_\gamma = 0$
 it is fully proven, on the full moduli space
 it is proven with the exponent $RM$ instead
 of the desired $2RM$.
@@ -919,7 +927,7 @@ of the desired $2RM$.
 There is a similar conjecture for higher rank
 $G$. Here too it is proven that $g$ approaches
 $g^\sf$ exponentially fast
-\cite{F} but the conjectured coefficient has not been verified.
+\cite{fredrickson2020exponential} but the conjectured coefficient has not been verified.
 
 
 \section{Our strategy}
@@ -934,15 +942,16 @@ and its holomorphic symplectic form $\Omega_1$.
 We have also said that $\cM$ is \hk, which means it has more structure.
 Our construction of the metric needs to use all that structure.
 
-First, $\cM$ has complex structures $I_1, I_2, I_3$ obeying
+The definition of \hk manifold says that 
+$\cM$ has complex structures $I_1, I_2, I_3$ obeying
 $I_1 I_2 = -I_2 I_1 = I_3$ and cyclic permutations,
 with corresponding \kahler forms $\omega_1, \omega_2, \omega_3$.
 The holomorphic symplectic forms are related to the
 \kahler forms by $\Omega_1 = \omega_2 + \I \omega_3$ 
 and cyclic permutations.
 In fact $\cM$ has a whole family of complex structures 
-$I^\zeta$, $\zeta \in \bbC\bbP^1$, where
-$I^{\zeta=0} = I_1, I^{\zeta = \I} = I_2, I^{\zeta = 1} = I_3$,
+$I^\zeta$, $\zeta \in \bbC\bbP^1$ (where
+$I^{\zeta=0} = I_1, I^{\zeta = \I} = I_2, I^{\zeta = 1} = I_3$),
 and corresponding holomorphic symplectic forms $\Omega^\zeta$.
 What are they?
 
@@ -992,8 +1001,7 @@ becomes a holomorphic Darboux coordinate system on
 $(\cM, I^\zeta)$.
 
 Our aim is to calculate holomorphic Darboux
-coordinates $\cX_\gamma(\zeta)$ of a given fixed Higgs bundle,
-in terms of the data $(Z, \theta)$.
+coordinates $\cX_\gamma(\zeta)$ of a given fixed Higgs bundle.
 Since $\nabla(\zeta)$ varies
 holomorphically with $\zeta$, the coordinates
 $\cX_\gamma(\zeta)$ do as well; so they can be thought of
@@ -1092,6 +1100,13 @@ so that even though $\cX_\gamma(\zeta)$ jumps, $\Omega^\zeta$ doesn't.
 
 \section{An irregular extension} \label{sec:irregular-extension}
 
+To go further, we introduce some of the simplest model examples,
+where we can actually describe the $\cX_\gamma$ concretely. These examples
+however are slightly outside our original setup: we need to allow
+the Higgs bundles to have singularities. To get the very simplest
+setup we will actually allow \ti{irregular} singularities.
+
+
 \subsection{Definitions}
 
 We let $C = \bbC\bbP^1$, with the usual inhomogeneous coordinate $z$, 
@@ -1169,7 +1184,7 @@ The case $N=3$ is the first interesting one. Here we pick
 \begin{equation}
   q(z) = z^3 + \Lambda z
 \end{equation}
-for $\Lambda \in \bbC^\times$. Then $\cM(q)$ is a \hk space of complex dimension $2$,
+for $\Lambda \in \bbC$. Then $\cM(q)$ is a \hk space of complex dimension $2$,
 depending on the choice of $\Lambda$. \fixme{show picture of $\cB(q)$}
 \end{example}
 
@@ -1216,8 +1231,11 @@ as shown below.
 \begin{prop}[Ideal triangulation determined by the
 $\zeta$-trajectories] \label{prop:triangulation}
 Suppose $(\phi_2, \zeta)$ is generic, in the sense that
-$\zeta^{-1} Z_\gamma \notin \bbR$ for all $\gamma \in \Gamma_{\phi_2}$. Then the $\zeta$-trajectories determine a triangulation $T(\phi_2,\zeta)$ of an $(N+2)$-gon.
-\fixme{show the picture in the case $N=3$}
+$\zeta^{-1} Z_\gamma \notin \bbR$ for all $\gamma \in \Gamma_{\phi_2}$. Then there are
+$N+2$ rays $r_i$ at infinity, such that any generic $\zeta$-trajectory is asymptotic
+to one of the $r_i$. The $\zeta$-trajectories determine a 
+triangulation $T(\phi_2,\zeta)$ of an $(N+2)$-gon, as indicated below.
+    \insfig{a1a2tri}{0.25}
 \end{prop}
 % \insfig{higgs-metric-9}{0.95}
 % The proof of \autoref{prop:triangulation} 
@@ -1249,8 +1267,8 @@ $\SL(2,\bbC)$-invariant cross-ratio of these $4$ points:
 \begin{equation}
 	\cX_\gamma(\zeta) = - \frac{(\ell_1 \wedge \ell_2)(\ell_3 \wedge \ell_4)}{(\ell_2 \wedge \ell_3) (\ell_4 \wedge \ell_1)} .
 \end{equation}
-This definition comes essentially from
-the work of Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.
+This definition appears in
+Fock-Goncharov \cite{MR2233852}; it is a complexification of the notion of shear coordinate.
 \end{defn}
 
 Applying \autoref{def:fg-coordinate} for all edges $E$
@@ -1281,7 +1299,7 @@ all $c_\gamma = 0$, so in that case
   \cX_\gamma(\zeta) \sim \exp \left(\zeta^{-1} Z_\gamma\right).
 \end{equation}
 \end{conj}
-(The idea: it should follow from the exact WKB method applied to the connections $\nabla(\zeta) = \zeta^{-1} \varphi + \cdots$. \fixme{explain a little more?})
+(The idea: it would follow from the exact WKB method applied to the connections $\nabla(\zeta) = \zeta^{-1} \varphi + \cdots$.)
 
 \subsection{Piecewise analytic behavior of the coordinates}
 
@@ -1317,31 +1335,31 @@ where for a saddle connection
 we have $\DT(\mu) = +1$ and $\sigma(\mu) = -1$, while
 for a closed loop we have $\DT(\mu) = -2$ and $\sigma(\mu) = +1$.
 
-\begin{remark}[Wall structure on $\cB$]
-Suppose we fix $\zeta$ and move around in $\cM$.
-We get an interesting structure on $\cB$:
-\insfig{higgs-metric-12}{0.8}
-Each simple discriminant point (where $\phi_2$ develops
-a double zero) emits two walls. 
-Each of these two walls carries a transformation
-of the coordinates $\cX_\gamma$, of the form
-\eqref{eq:ks-map}, with $\DT(\mu) = +1$.
+% \begin{remark}[Wall structure on $\cB$]
+% Suppose we fix $\zeta$ and move around in $\cM$.
+% We get an interesting structure on $\cB$:
+% \insfig{higgs-metric-12}{0.8}
+% Each simple discriminant point (where $\phi_2$ develops
+% a double zero) emits two walls. 
+% Each of these two walls carries a transformation
+% of the coordinates $\cX_\gamma$, of the form
+% \eqref{eq:ks-map}, with $\DT(\mu) = +1$.
 
-These two 
-walls are ``hyperplanes'' 
-in the sense of the special \kahler structure on $\cB_\reg$:
-they are of the form $\zeta^{-1} Z_{\pm \mu} \in \bbR_-$, where 
-$\mu$ is the vanishing cycle.
-When walls collide, they 
-can generate new walls. The new walls are also of the form
- $Z_\mu / \zeta \in \bbR_-$ for some $\mu$, and carry
- transformations of the form \eqref{eq:ks-map}.
- The precise structure of the new walls is completely
-determined by the requirement that the $\cX_\gamma$
-are well defined; this is essentially an application 
-of the Kontsevich-Soibelman wall-crossing formula
-\cite{ks1}. 
-\end{remark}
+% These two 
+% walls are ``hyperplanes'' 
+% in the sense of the special \kahler structure on $\cB_\reg$:
+% they are of the form $\zeta^{-1} Z_{\pm \mu} \in \bbR_-$, where 
+% $\mu$ is the vanishing cycle.
+% When walls collide, they 
+% can generate new walls. The new walls are also of the form
+%  $Z_\mu / \zeta \in \bbR_-$ for some $\mu$, and carry
+%  transformations of the form \eqref{eq:ks-map}.
+%  The precise structure of the new walls is completely
+% determined by the requirement that the $\cX_\gamma$
+% are well defined; this is essentially an application 
+% of the Kontsevich-Soibelman wall-crossing formula
+% \cite{ks1}. 
+% \end{remark}
 
 
 % \begin{remark}[More interesting discriminant points]
@@ -1363,10 +1381,7 @@ of the Kontsevich-Soibelman wall-crossing formula
 % \eqref{eq:ks-map}, with $\DT(\mu) = 8, \DT(2 \mu) = -2$.
 % \end{remark}
 
-For our purpose right now, we do not need to understand
-the details of the wall structure on $\cB$: rather, 
-what we need is to understand what happens when 
-we fix the Higgs bundle and just let $\zeta$
+Fix $\phi_2$ and just let $\zeta$
 vary. Then $\cX_\gamma(\zeta)$ depends on 
 $\zeta$ in a piecewise-analytic way: the collection
 $\{\cX_\gamma(\zeta)\}_{\gamma \in \Gamma}$ jumps 
@@ -1498,10 +1513,8 @@ at once, rather than an integral formula.
 
 \section{Numerical tests}
 
-In this last section I want to explain some of the numerical
-evidence supporting \autoref{conj:integral-equation}.
-This evidence was obtained in ongoing joint work with 
-David Dumas.
+The strongest evidence supporting \autoref{conj:integral-equation} is numerical,
+given in \cite{dumas2020opers}.
 
 \subsection{The Hitchin section}
 
@@ -1521,14 +1534,14 @@ This gives a section of the Hitchin map for $\cM(q)$.
 % There is a similar construction of sections
 % of the Hitchin map for other $G$; it originates in \cite{MR1174252}.
 
-Solving Hitchin's equation \eqref{eq:hitchin-equation} 
-for this Higgs bundle is equivalent to 
-finding a harmonic map from $\bbC$ to the hyperbolic disc whose Hopf differential is $\phi_2$. Such a map exists and 
-is unique up to $\PSL(2,\bbR)$ action on the disc; its image
-turns out to be an ideal polygon with $n+2$ vertices
-\cite{HTTW}, again determined up to $\PSL(2,\bbR)$ action.
+% Solving Hitchin's equation \eqref{eq:hitchin-equation} 
+% for this Higgs bundle is equivalent to 
+% finding a harmonic map from $\bbC$ to the hyperbolic disc whose Hopf differential is $\phi_2$. Such a map exists and 
+% is unique up to $\PSL(2,\bbR)$ action on the disc; its image
+% turns out to be an ideal polygon with $n+2$ vertices
+% \cite{HTTW}, again determined up to $\PSL(2,\bbR)$ action.
 
-\insfig{higgs-metric-15}{0.8}
+% \insfig{higgs-metric-15}{0.8}
 
 
 \subsection{The \texorpdfstring{$\cX_\gamma$}{Xgamma} in an example}
@@ -1577,99 +1590,109 @@ the harmonic maps,
 \item
 by solving the integral equations of \S\ref{sec:integral-equations}.
 \end{itemize}
-\ti{Preliminary} numerical results for
-the quantity $X_1 = r_{1235}$ are plotted below, for $R$ ranging
-from $R = 10^{-8}$ to $R = 1$. On the left we show 
-the values of $X_1$ computed by both methods, which we call
- $X_1^{\mathrm i}$ and $X_1^{\mathrm f}$; on the scale of that
-plot it appears as though $X_1^{\mathrm i} = X_1^{\mathrm f}$,
-as predicted by \autoref{conj:integral-equation}.
-On the right we plot the difference
-$\log(X_1^{\mathrm i}) - \log(X_1^{\mathrm f})$, 
-which never exceeds $2 \times 10^{-7}$ over the range of $R$ shown.
-We expect that this residual can be attributed to 
-numerical error in the two computations (but this remains to be 
-understood in detail.)
 
-\insfig{numerics-plot}{0.60}
+The github repository {\tt neitzke/stokes-numerics} contains the code we used.
+Some sample output:
+\begin{verbatim}
+comparisons.compareClusters("A1A2", R = 0.07, scratch = True, pde_nmesh = 511)
+\end{verbatim}
+\begin{verbatim}
+{'xarcluster': [-0.5108779665615462, -1.0],
+ 'fdcluster': [-0.510880773551951, -1.0000000000000009],
+ 'sfcluster': [-0.7023314112631698, -1.0],
+ 'absdiff': [2.8069904048910743e-06, 8.881784197001252e-16],
+ 'logdiff': [-5.4944289580305394e-06, -8.881784197001248e-16],
+ 'phasediff': [0.0, 0.0],
+ 'reldiff': [5.494428958012677e-06, 8.881784197001248e-16],
+ 'frames': <framedata.framedata at 0x7f1a79c6a9e0>,
+ 'errest': {'absode': [2.7422339558380702e-14, 6.735318507305554e-14],
+  'relode': [5.3676924495678885e-14, 6.739053759474921e-14]}}
+\end{verbatim}
 
-% {\begin{center}
-% \tiny
-% \begin{tabular}{|c|c|c|c|c|c|c|}
-% \hline
-%      $R$        & $X_1^{\mathrm{f}}$ & $X_1^{\mathrm{i}}$ & $\mathrm{logerr}(X_1)$ & $X_2^{\mathrm{f}}$ & $X_2^{\mathrm{i}}$ & $\mathrm{logerr}(X_2)$\\ 
-% \hline
-% $ 1.1000\mathrm{e-}03 $ & $-6.1724\mathrm{e-}01 $ & $-6.1724\mathrm{e-}01 $ & $ 5.7634\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.4417\mathrm{e-}15 $\\ 
-% $ 1.2000\mathrm{e-}03 $ & $-6.1715\mathrm{e-}01 $ & $-6.1715\mathrm{e-}01 $ & $ 6.3652\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.7748\mathrm{e-}15 $\\ 
-% $ 1.3000\mathrm{e-}03 $ & $-6.1706\mathrm{e-}01 $ & $-6.1706\mathrm{e-}01 $ & $ 7.0317\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}15 $\\ 
-% $ 1.4000\mathrm{e-}03 $ & $-6.1697\mathrm{e-}01 $ & $-6.1697\mathrm{e-}01 $ & $ 7.7037\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9318\mathrm{e-}14 $\\ 
-% $ 1.5000\mathrm{e-}03 $ & $-6.1688\mathrm{e-}01 $ & $-6.1688\mathrm{e-}01 $ & $ 8.3383\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
-% $ 1.6000\mathrm{e-}03 $ & $-6.1678\mathrm{e-}01 $ & $-6.1678\mathrm{e-}01 $ & $ 9.0331\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6304\mathrm{e-}14 $\\ 
-% $ 1.7000\mathrm{e-}03 $ & $-6.1669\mathrm{e-}01 $ & $-6.1669\mathrm{e-}01 $ & $ 9.6743\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.5479\mathrm{e-}15 $\\ 
-% $ 1.8000\mathrm{e-}03 $ & $-6.1659\mathrm{e-}01 $ & $-6.1659\mathrm{e-}01 $ & $ 1.0382\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.9738\mathrm{e-}14 $\\ 
-% $ 1.9000\mathrm{e-}03 $ & $-6.1650\mathrm{e-}01 $ & $-6.1650\mathrm{e-}01 $ & $ 1.1111\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.2188\mathrm{e-}15 $\\ 
-% $ 2.0000\mathrm{e-}03 $ & $-6.1640\mathrm{e-}01 $ & $-6.1640\mathrm{e-}01 $ & $ 1.1764\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.2847\mathrm{e-}14 $\\ 
-% $ 2.1000\mathrm{e-}03 $ & $-6.1630\mathrm{e-}01 $ & $-6.1630\mathrm{e-}01 $ & $ 1.2488\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6415\mathrm{e-}14 $\\ 
-% $ 2.2000\mathrm{e-}03 $ & $-6.1620\mathrm{e-}01 $ & $-6.1620\mathrm{e-}01 $ & $ 1.3255\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.4393\mathrm{e-}15 $\\ 
-% $ 2.3000\mathrm{e-}03 $ & $-6.1610\mathrm{e-}01 $ & $-6.1610\mathrm{e-}01 $ & $ 1.4013\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.7732\mathrm{e-}15 $\\ 
-% $ 2.4000\mathrm{e-}03 $ & $-6.1600\mathrm{e-}01 $ & $-6.1600\mathrm{e-}01 $ & $ 1.4668\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.7700\mathrm{e-}15 $\\ 
-% $ 2.5000\mathrm{e-}03 $ & $-6.1590\mathrm{e-}01 $ & $-6.1590\mathrm{e-}01 $ & $ 1.5448\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.6613\mathrm{e-}15 $\\ 
-% $ 2.6000\mathrm{e-}03 $ & $-6.1580\mathrm{e-}01 $ & $-6.1580\mathrm{e-}01 $ & $ 1.6222\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.2427\mathrm{e-}14 $\\ 
-% $ 2.8000\mathrm{e-}03 $ & $-6.1559\mathrm{e-}01 $ & $-6.1559\mathrm{e-}01 $ & $ 1.7676\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.4433\mathrm{e-}14 $\\ 
-% $ 3.0000\mathrm{e-}03 $ & $-6.1538\mathrm{e-}01 $ & $-6.1538\mathrm{e-}01 $ & $ 1.9277\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1102\mathrm{e-}15 $\\ 
-% $ 4.0000\mathrm{e-}03 $ & $-6.1429\mathrm{e-}01 $ & $-6.1429\mathrm{e-}01 $ & $ 2.7115\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.3267\mathrm{e-}15 $\\ 
-% $ 5.0000\mathrm{e-}03 $ & $-6.1314\mathrm{e-}01 $ & $-6.1314\mathrm{e-}01 $ & $ 3.5473\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3315\mathrm{e-}14 $\\ 
-% $ 6.0000\mathrm{e-}03 $ & $-6.1195\mathrm{e-}01 $ & $-6.1195\mathrm{e-}01 $ & $ 4.4102\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.2149\mathrm{e-}15 $\\ 
-% $ 7.0000\mathrm{e-}03 $ & $-6.1072\mathrm{e-}01 $ & $-6.1072\mathrm{e-}01 $ & $ 5.3334\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
-% $ 8.0000\mathrm{e-}03 $ & $-6.0945\mathrm{e-}01 $ & $-6.0945\mathrm{e-}01 $ & $ 6.2366\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.6415\mathrm{e-}14 $\\ 
-% $ 9.0000\mathrm{e-}03 $ & $-6.0816\mathrm{e-}01 $ & $-6.0816\mathrm{e-}01 $ & $ 7.1963\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-7.7716\mathrm{e-}16 $\\ 
-% $ 1.0000\mathrm{e-}02 $ & $-6.0684\mathrm{e-}01 $ & $-6.0684\mathrm{e-}01 $ & $ 8.1950\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-% $ 2.0000\mathrm{e-}02 $ & $-5.9259\mathrm{e-}01 $ & $-5.9259\mathrm{e-}01 $ & $ 1.8879\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.6621\mathrm{e-}15 $\\ 
-% $ 3.0000\mathrm{e-}02 $ & $-5.7712\mathrm{e-}01 $ & $-5.7712\mathrm{e-}01 $ & $ 3.0802\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-% $ 4.0000\mathrm{e-}02 $ & $-5.6098\mathrm{e-}01 $ & $-5.6098\mathrm{e-}01 $ & $ 4.3867\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9540\mathrm{e-}14 $\\ 
-% $ 5.0000\mathrm{e-}02 $ & $-5.4444\mathrm{e-}01 $ & $-5.4444\mathrm{e-}01 $ & $ 5.7434\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.6613\mathrm{e-}16 $\\ 
-% $ 6.0000\mathrm{e-}02 $ & $-5.2770\mathrm{e-}01 $ & $-5.2770\mathrm{e-}01 $ & $ 7.1756\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 7.9936\mathrm{e-}15 $\\ 
-% $ 7.0000\mathrm{e-}02 $ & $-5.1088\mathrm{e-}01 $ & $-5.1088\mathrm{e-}01 $ & $ 8.7096\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-1.3767\mathrm{e-}14 $\\ 
-% $ 8.0000\mathrm{e-}02 $ & $-4.9409\mathrm{e-}01 $ & $-4.9409\mathrm{e-}01 $ & $ 1.0219\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1990\mathrm{e-}14 $\\ 
-% $ 9.0000\mathrm{e-}02 $ & $-4.7740\mathrm{e-}01 $ & $-4.7740\mathrm{e-}01 $ & $ 1.1819\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9984\mathrm{e-}14 $\\ 
-% $ 1.0000\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $ 1.3447\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.5487\mathrm{e-}15 $\\ 
-% $ 1.5000\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $ 2.2336\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.5091\mathrm{e-}14 $\\ 
-% $ 2.0000\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $ 3.2033\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.3957\mathrm{e-}14 $\\ 
-% $ 2.5000\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $ 4.2295\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.6221\mathrm{e-}12 $\\ 
-% $ 3.0000\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $ 5.3092\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.9056\mathrm{e-}14 $\\ 
-% $ 3.5000\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $ 6.4436\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.3238\mathrm{e-}13 $\\ 
-% $ 4.0000\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $ 7.6367\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.9619\mathrm{e-}14 $\\ 
-% $ 4.5000\mathrm{e-}01 $ & $-9.9628\mathrm{e-}02 $ & $-9.9628\mathrm{e-}02 $ & $ 8.9095\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3173\mathrm{e-}11 $\\ 
-% $ 5.0000\mathrm{e-}01 $ & $-7.8122\mathrm{e-}02 $ & $-7.8122\mathrm{e-}02 $ & $ 1.0189\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
-% $ 5.5000\mathrm{e-}01 $ & $-6.1111\mathrm{e-}02 $ & $-6.1110\mathrm{e-}02 $ & $ 1.1577\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.3698\mathrm{e-}13 $\\ 
-% $ 6.0000\mathrm{e-}01 $ & $-4.7717\mathrm{e-}02 $ & $-4.7717\mathrm{e-}02 $ & $ 1.3048\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.1464\mathrm{e-}13 $\\ 
-% $ 6.5000\mathrm{e-}01 $ & $-3.7210\mathrm{e-}02 $ & $-3.7210\mathrm{e-}02 $ & $ 1.4675\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.9565\mathrm{e-}13 $\\ 
-% $ 7.0000\mathrm{e-}01 $ & $-2.8988\mathrm{e-}02 $ & $-2.8988\mathrm{e-}02 $ & $ 1.6421\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.3648\mathrm{e-}13 $\\ 
-% $ 7.5000\mathrm{e-}01 $ & $-2.2566\mathrm{e-}02 $ & $-2.2566\mathrm{e-}02 $ & $ 1.8283\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.1805\mathrm{e-}13 $\\ 
-% $ 8.0000\mathrm{e-}01 $ & $-1.7558\mathrm{e-}02 $ & $-1.7558\mathrm{e-}02 $ & $ 2.0251\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.1950\mathrm{e-}14 $\\ 
-% $ 8.5000\mathrm{e-}01 $ & $-1.3656\mathrm{e-}02 $ & $-1.3656\mathrm{e-}02 $ & $ 2.2285\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.8390\mathrm{e-}14 $\\ 
-% $ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 2.4377\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.7732\mathrm{e-}14 $\\ 
-% $ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
-% \hline
-% \end{tabular}
-% \end{center}
-% }
+So e.g. this says that the quantity
+$X_1 = r_{1235}$ at $R = 0.07$ is approximately
+$0.51088$, and the integral equation computation agrees with the PDE computation 
+to this precision.
 
-% \medskip 
+% \ti{Preliminary} numerical results for
+% the quantity $X_1 = r_{1235}$ are plotted below, for $R$ ranging
+% from $R = 10^{-8}$ to $R = 1$. On the left we show 
+% the values of $X_1$ computed by both methods, which we call
+%  $X_1^{\mathrm i}$ and $X_1^{\mathrm f}$; on the scale of that
+% plot it appears as though $X_1^{\mathrm i} = X_1^{\mathrm f}$,
+% as predicted by \autoref{conj:integral-equation}.
+% On the right we plot the difference
+% $\log(X_1^{\mathrm i}) - \log(X_1^{\mathrm f})$, 
+% which never exceeds $2 \times 10^{-7}$ over the range of $R$ shown.
+% We expect that this residual can be attributed to 
+% numerical error in the two computations (but this remains to be 
+% understood in detail.)
 
-Dumas and I have also made similar numerical calculations in other
-cases:
-\begin{itemize}
-  \item As above but with a polynomial $P(z)$ of degree $4$,
-  \item For Higgs bundles in the plane with $G = \SU(3)$, 
-  with $\phi_2 = 0$ and $\phi_3 = P(z) \de z^3$, for $P(z)$ of degree $2$ or $3$. (In this case the coordinates $\cX_\gamma(\zeta)$ 
-  are not built from a triangulation, 
-  but rather from a ``WKB spectral network'' built from $\phi_3$,
-  as we explained in \autoref{rem:higher-rank}.
-  The construction in this case is described in \cite{Neitzke:2017yos}.)
-\end{itemize}
-The results are qualitatively similar to those shown above: they appear to
-support \autoref{conj:integral-equation}.
+% \insfig{numerics-plot}{0.60}
+
+% % {\begin{center}
+% % \tiny
+% % \begin{tabular}{|c|c|c|c|c|c|c|}
+% % \hline
+% %      $R$        & $X_1^{\mathrm{f}}$ & $X_1^{\mathrm{i}}$ & $\mathrm{logerr}(X_1)$ & $X_2^{\mathrm{f}}$ & $X_2^{\mathrm{i}}$ & $\mathrm{logerr}(X_2)$\\ 
+% % \hline
+% % $ 1.1000\mathrm{e-}03 $ & $-6.1724\mathrm{e-}01 $ & $-6.1724\mathrm{e-}01 $ & $ 5.7634\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.4417\mathrm{e-}15 $\\ 
+% % $ 1.2000\mathrm{e-}03 $ & $-6.1715\mathrm{e-}01 $ & $-6.1715\mathrm{e-}01 $ & $ 6.3652\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.7748\mathrm{e-}15 $\\ 
+% % $ 1.3000\mathrm{e-}03 $ & $-6.1706\mathrm{e-}01 $ & $-6.1706\mathrm{e-}01 $ & $ 7.0317\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}15 $\\ 
+% % $ 1.4000\mathrm{e-}03 $ & $-6.1697\mathrm{e-}01 $ & $-6.1697\mathrm{e-}01 $ & $ 7.7037\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9318\mathrm{e-}14 $\\ 
+% % $ 1.5000\mathrm{e-}03 $ & $-6.1688\mathrm{e-}01 $ & $-6.1688\mathrm{e-}01 $ & $ 8.3383\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% % $ 1.6000\mathrm{e-}03 $ & $-6.1678\mathrm{e-}01 $ & $-6.1678\mathrm{e-}01 $ & $ 9.0331\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6304\mathrm{e-}14 $\\ 
+% % $ 1.7000\mathrm{e-}03 $ & $-6.1669\mathrm{e-}01 $ & $-6.1669\mathrm{e-}01 $ & $ 9.6743\mathrm{e-}10 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.5479\mathrm{e-}15 $\\ 
+% % $ 1.8000\mathrm{e-}03 $ & $-6.1659\mathrm{e-}01 $ & $-6.1659\mathrm{e-}01 $ & $ 1.0382\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.9738\mathrm{e-}14 $\\ 
+% % $ 1.9000\mathrm{e-}03 $ & $-6.1650\mathrm{e-}01 $ & $-6.1650\mathrm{e-}01 $ & $ 1.1111\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.2188\mathrm{e-}15 $\\ 
+% % $ 2.0000\mathrm{e-}03 $ & $-6.1640\mathrm{e-}01 $ & $-6.1640\mathrm{e-}01 $ & $ 1.1764\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.2847\mathrm{e-}14 $\\ 
+% % $ 2.1000\mathrm{e-}03 $ & $-6.1630\mathrm{e-}01 $ & $-6.1630\mathrm{e-}01 $ & $ 1.2488\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.6415\mathrm{e-}14 $\\ 
+% % $ 2.2000\mathrm{e-}03 $ & $-6.1620\mathrm{e-}01 $ & $-6.1620\mathrm{e-}01 $ & $ 1.3255\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.4393\mathrm{e-}15 $\\ 
+% % $ 2.3000\mathrm{e-}03 $ & $-6.1610\mathrm{e-}01 $ & $-6.1610\mathrm{e-}01 $ & $ 1.4013\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 5.7732\mathrm{e-}15 $\\ 
+% % $ 2.4000\mathrm{e-}03 $ & $-6.1600\mathrm{e-}01 $ & $-6.1600\mathrm{e-}01 $ & $ 1.4668\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.7700\mathrm{e-}15 $\\ 
+% % $ 2.5000\mathrm{e-}03 $ & $-6.1590\mathrm{e-}01 $ & $-6.1590\mathrm{e-}01 $ & $ 1.5448\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.6613\mathrm{e-}15 $\\ 
+% % $ 2.6000\mathrm{e-}03 $ & $-6.1580\mathrm{e-}01 $ & $-6.1580\mathrm{e-}01 $ & $ 1.6222\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.2427\mathrm{e-}14 $\\ 
+% % $ 2.8000\mathrm{e-}03 $ & $-6.1559\mathrm{e-}01 $ & $-6.1559\mathrm{e-}01 $ & $ 1.7676\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.4433\mathrm{e-}14 $\\ 
+% % $ 3.0000\mathrm{e-}03 $ & $-6.1538\mathrm{e-}01 $ & $-6.1538\mathrm{e-}01 $ & $ 1.9277\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1102\mathrm{e-}15 $\\ 
+% % $ 4.0000\mathrm{e-}03 $ & $-6.1429\mathrm{e-}01 $ & $-6.1429\mathrm{e-}01 $ & $ 2.7115\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.3267\mathrm{e-}15 $\\ 
+% % $ 5.0000\mathrm{e-}03 $ & $-6.1314\mathrm{e-}01 $ & $-6.1314\mathrm{e-}01 $ & $ 3.5473\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3315\mathrm{e-}14 $\\ 
+% % $ 6.0000\mathrm{e-}03 $ & $-6.1195\mathrm{e-}01 $ & $-6.1195\mathrm{e-}01 $ & $ 4.4102\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-9.2149\mathrm{e-}15 $\\ 
+% % $ 7.0000\mathrm{e-}03 $ & $-6.1072\mathrm{e-}01 $ & $-6.1072\mathrm{e-}01 $ & $ 5.3334\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.2204\mathrm{e-}16 $\\ 
+% % $ 8.0000\mathrm{e-}03 $ & $-6.0945\mathrm{e-}01 $ & $-6.0945\mathrm{e-}01 $ & $ 6.2366\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 3.6415\mathrm{e-}14 $\\ 
+% % $ 9.0000\mathrm{e-}03 $ & $-6.0816\mathrm{e-}01 $ & $-6.0816\mathrm{e-}01 $ & $ 7.1963\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-7.7716\mathrm{e-}16 $\\ 
+% % $ 1.0000\mathrm{e-}02 $ & $-6.0684\mathrm{e-}01 $ & $-6.0684\mathrm{e-}01 $ & $ 8.1950\mathrm{e-}09 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% % $ 2.0000\mathrm{e-}02 $ & $-5.9259\mathrm{e-}01 $ & $-5.9259\mathrm{e-}01 $ & $ 1.8879\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.6621\mathrm{e-}15 $\\ 
+% % $ 3.0000\mathrm{e-}02 $ & $-5.7712\mathrm{e-}01 $ & $-5.7712\mathrm{e-}01 $ & $ 3.0802\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% % $ 4.0000\mathrm{e-}02 $ & $-5.6098\mathrm{e-}01 $ & $-5.6098\mathrm{e-}01 $ & $ 4.3867\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9540\mathrm{e-}14 $\\ 
+% % $ 5.0000\mathrm{e-}02 $ & $-5.4444\mathrm{e-}01 $ & $-5.4444\mathrm{e-}01 $ & $ 5.7434\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.6613\mathrm{e-}16 $\\ 
+% % $ 6.0000\mathrm{e-}02 $ & $-5.2770\mathrm{e-}01 $ & $-5.2770\mathrm{e-}01 $ & $ 7.1756\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 7.9936\mathrm{e-}15 $\\ 
+% % $ 7.0000\mathrm{e-}02 $ & $-5.1088\mathrm{e-}01 $ & $-5.1088\mathrm{e-}01 $ & $ 8.7096\mathrm{e-}08 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-1.3767\mathrm{e-}14 $\\ 
+% % $ 8.0000\mathrm{e-}02 $ & $-4.9409\mathrm{e-}01 $ & $-4.9409\mathrm{e-}01 $ & $ 1.0219\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.1990\mathrm{e-}14 $\\ 
+% % $ 9.0000\mathrm{e-}02 $ & $-4.7740\mathrm{e-}01 $ & $-4.7740\mathrm{e-}01 $ & $ 1.1819\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 1.9984\mathrm{e-}14 $\\ 
+% % $ 1.0000\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $-4.6088\mathrm{e-}01 $ & $ 1.3447\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.5487\mathrm{e-}15 $\\ 
+% % $ 1.5000\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $-3.8221\mathrm{e-}01 $ & $ 2.2336\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.5091\mathrm{e-}14 $\\ 
+% % $ 2.0000\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $-3.1227\mathrm{e-}01 $ & $ 3.2033\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.3957\mathrm{e-}14 $\\ 
+% % $ 2.5000\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $-2.5217\mathrm{e-}01 $ & $ 4.2295\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-4.6221\mathrm{e-}12 $\\ 
+% % $ 3.0000\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $-2.0178\mathrm{e-}01 $ & $ 5.3092\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.9056\mathrm{e-}14 $\\ 
+% % $ 3.5000\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $-1.6030\mathrm{e-}01 $ & $ 6.4436\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.3238\mathrm{e-}13 $\\ 
+% % $ 4.0000\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $-1.2664\mathrm{e-}01 $ & $ 7.6367\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.9619\mathrm{e-}14 $\\ 
+% % $ 4.5000\mathrm{e-}01 $ & $-9.9628\mathrm{e-}02 $ & $-9.9628\mathrm{e-}02 $ & $ 8.9095\mathrm{e-}07 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.3173\mathrm{e-}11 $\\ 
+% % $ 5.0000\mathrm{e-}01 $ & $-7.8122\mathrm{e-}02 $ & $-7.8122\mathrm{e-}02 $ & $ 1.0189\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-2.4425\mathrm{e-}15 $\\ 
+% % $ 5.5000\mathrm{e-}01 $ & $-6.1111\mathrm{e-}02 $ & $-6.1110\mathrm{e-}02 $ & $ 1.1577\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 4.3698\mathrm{e-}13 $\\ 
+% % $ 6.0000\mathrm{e-}01 $ & $-4.7717\mathrm{e-}02 $ & $-4.7717\mathrm{e-}02 $ & $ 1.3048\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-3.1464\mathrm{e-}13 $\\ 
+% % $ 6.5000\mathrm{e-}01 $ & $-3.7210\mathrm{e-}02 $ & $-3.7210\mathrm{e-}02 $ & $ 1.4675\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 9.9565\mathrm{e-}13 $\\ 
+% % $ 7.0000\mathrm{e-}01 $ & $-2.8988\mathrm{e-}02 $ & $-2.8988\mathrm{e-}02 $ & $ 1.6421\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.3648\mathrm{e-}13 $\\ 
+% % $ 7.5000\mathrm{e-}01 $ & $-2.2566\mathrm{e-}02 $ & $-2.2566\mathrm{e-}02 $ & $ 1.8283\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 2.1805\mathrm{e-}13 $\\ 
+% % $ 8.0000\mathrm{e-}01 $ & $-1.7558\mathrm{e-}02 $ & $-1.7558\mathrm{e-}02 $ & $ 2.0251\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $ 6.1950\mathrm{e-}14 $\\ 
+% % $ 8.5000\mathrm{e-}01 $ & $-1.3656\mathrm{e-}02 $ & $-1.3656\mathrm{e-}02 $ & $ 2.2285\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-6.8390\mathrm{e-}14 $\\ 
+% % $ 9.0000\mathrm{e-}01 $ & $-1.0618\mathrm{e-}02 $ & $-1.0618\mathrm{e-}02 $ & $ 2.4377\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-5.7732\mathrm{e-}14 $\\ 
+% % $ 9.5000\mathrm{e-}01 $ & $-8.2542\mathrm{e-}03 $ & $-8.2542\mathrm{e-}03 $ & $ 2.5983\mathrm{e-}06 $ & $-1.0000\mathrm{e+}00 $ & $-1.0000\mathrm{e+}00 $ & $-8.4377\mathrm{e-}14 $\\ 
+% % \hline
+% % \end{tabular}
+% % \end{center}
+% % }
+
+% % \medskip 
 
 \printbibliography
 
