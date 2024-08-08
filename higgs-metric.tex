@@ -330,9 +330,8 @@
 Andrew Neitzke
 \end{center}
 
-{These are notes for a lecture series on moduli of Higgs bundles,
-originally delivered at the mini-workshop ``Gauge theory and Geometry in G\"ottingen''
-March 1-4, 2018, subsequently modified and updated for the 2024 Simons Workshop in Mathematics.
+{These are notes for a pair of lectures, 
+given at the second Simons Workshop in Mathematics, July 15 and 17, 2024.}
 % Please send corrections/improvements to
 % \begin{center}
 % \small \tt\href{mailto:neitzke@math.utexas.edu}{neitzke@math.utexas.edu}
@@ -341,7 +340,6 @@ March 1-4, 2018, subsequently modified and updated for the 2024 Simons Workshop 
 % \begin{center}
 % \small \url{http://github.com/neitzke/higgs-metric}
 % \end{center}
-}
 
 % \tableofcontents
 % \renewcommand{\listtheoremname}{Quick reference}
@@ -1148,7 +1146,8 @@ such that for any meromorphic section $s$ of $E$,
 \end{defn}
 
 Everything we said about ordinary $\SL(2)$-Higgs bundles has an analogue for these 
-irregular ones. 
+irregular ones, as explained in \cite{wnh} (plus epsilon).
+Here I write it in slightly different language.
 In particular:
 
 \begin{defn}[Adapted metric]
@@ -1159,14 +1158,13 @@ Suppose $(E,\varphi)$ is an irregular Higgs bundle. An \ti{adapted metric} in $(
 \end{defn}
 
 \begin{thm}
-If $(E,\varphi)$ is an irregular Higgs bundle, there is an adapted metric $h$ in $E$ which obeys Hitchin's equations \eqref{eq:hitchin-equation}, and $h$ is unique up to scalar multiple. \fixme{Mochizuki}
+If $(E,\varphi)$ is an irregular Higgs bundle, there is an adapted metric $h$ in $E$ which obeys Hitchin's equations \eqref{eq:hitchin-equation}, and $h$ is unique up to scalar multiple.
 \end{thm}
 
 \begin{thm}
 There is a moduli space $\cM(q)$ parameterizing irregular Higgs bundles of type $q$ up to equivalence.
 $\cM(q)$ is a smooth manifold, of dimension $N-1$.
 The formula \eqref{eq:l2-metric-def} defines a complete \hk metric on $\cM(q)$.
-\fixme{Biquard-Boalch plus epsilon}
 \end{thm}
 
 So this is a continuous family of \hk spaces, parameterized by the choice of $q$.
@@ -1185,7 +1183,9 @@ The case $N=3$ is the first interesting one. Here we pick
   q(z) = z^3 + \Lambda z
 \end{equation}
 for $\Lambda \in \bbC$. Then $\cM(q)$ is a \hk space of complex dimension $2$,
-depending on the choice of $\Lambda$. \fixme{show picture of $\cB(q)$}
+depending on the choice of $\Lambda$. The Hitchin base is just $\cB(q) = \bbC$.
+If $\Lambda = 0$ there is a single singular fiber, which is a cuspidal torus.
+If $\Lambda \neq 0$ there are two, which are both nodal tori.
 \end{example}
 
 
@@ -1580,8 +1580,7 @@ relevant cross-ratios are $r_{1235}$ and $r_{1345}$.
 
 \subsection{Numerical results}
 
-In joint work with David Dumas we 
-have computed the $X_\gamma = \cX_\gamma(\zeta = 1)$ numerically
+In \cite{DNexp} we computed the $X_\gamma = \cX_\gamma(\zeta = 1)$ numerically
 in this example, in two different ways: 
 \begin{itemize}
 \item by
