@@ -470,8 +470,7 @@ metric is exponentially close to the semiflat metric.
 Fix $\phi_2 \in \mathcal B_\mathrm{reg}$. Then $\lvert \phi_2 \rvert$ is a singular flat metric on $C$, with singularities at the
 zeroes of $\phi_2$. The \textit{threshold} $M(\phi_2)$
 is twice the length of the shortest inextendible geodesic
-(saddle connection) in this metric.\footnote{We redefined it by a factor of 2 relative to \cite{dumas2019asymptotics}; this accounts for the fact
-that some factors of 2 here differ from those in the references.}
+(saddle connection) in this metric.\footnote{Here we redefined the threshold by a factor of 2 relative to some references.}
 \end{defn}
 
 \begin{conj}[Weak metric conjecture] \label{conj:weak-metric}
@@ -479,7 +478,7 @@ Fix $\phi_2 \in \mathcal B_\mathrm{reg}$.
 As we rescale $\phi_2 \to R^2 \phi_2$ with $R > 0$,
 Hitchin's metric approaches the semiflat metric
 exponentially fast:
-\begin{equation}
+\begin{equation} \label{eq:semiflat-conj}
   g = g^{\mathrm{sf}} + O(\mathrm e^{-2 R M(\phi_2)}) \, .
 \end{equation}
 \end{conj}
@@ -489,18 +488,15 @@ torus fibration is exponentially close to being the correct metric picture.
 It is an instance of the Strominger-Yau-Zaslow picture of Calabi-Yau
 manifolds.
 
-This conjecture is now almost proven
-\cite{mochizuki2024comparison} following earlier 
-work \cite{mazzeo2019asymptotic,dumas2019asymptotics,fredrickson2020exponential}: on
+The sharpest theorem to date relating to \autoref{conj:weak-metric} is
+given in \cite{mochizuki2024comparison}. On
 the section $\theta_\gamma = 0$
-it is fully proven, on the full moduli space
-it is proven with the exponent $RM$ instead
-of the desired $2RM$.
+it proves \eqref{eq:semiflat-conj} on the nose; 
+on the full moduli space, it \textit{almost} proves
+\autoref{conj:weak-metric}, but has the 
+exponent $RM$ instead of the desired $2RM$.
 
-There is a similar conjecture for higher rank
-$G$. Here too it is proven that $g$ approaches
-$g^{\mathrm{sf}}$ exponentially fast
-\cite{fredrickson2020exponential} but the conjectured coefficient has not been verified.
+
 
 \section{Our strategy}
 
@@ -617,6 +613,7 @@ however are slightly outside our original setup: we need to allow
 the Higgs bundles to have singularities. To get the very simplest
 setup we will actually allow \textit{irregular} singularities.
 
+
 \subsection{Definitions}
 
 We let $C = \mathbb C\mathbb P^1$, with the usual inhomogeneous coordinate $z$, 
@@ -627,7 +624,7 @@ Fix a polynomial $q$ of degree $N \in 2 \mathbb N + 1$.
 (In fact we only need to know $q$ modulo polynomials of degree
 $\le \frac{N-3}{2}$.)
 
-\begin{defn}[Irregular Higgs bundle]
+\begin{defn}[Irregular Higgs bundles of type $q$]
 An \textit{irregular $\mathrm{SL}(2)$-Higgs bundle} of type $q$ is
 a pair $(E,\varphi)$, where:
 \begin{itemize} 
@@ -649,8 +646,8 @@ such that for any meromorphic section $s$ of $E$,
 \end{equation}
 \end{defn}
 
-Everything we said about ordinary $\mathrm{SL}(2)$-Higgs bundles has an analogue for these 
-irregular ones, as explained in \cite{wnh} (plus epsilon).
+Everything we said about ordinary $\mathrm{SL}(2)$-Higgs bundles
+has an analogue for these irregular ones, as explained in \cite{wnh} (plus epsilon).
 Here I write it in slightly different language.
 In particular:
 
@@ -661,11 +658,12 @@ Suppose $(E,\varphi)$ is an irregular Higgs bundle. An \textit{adapted metric} i
 \end{equation}
 \end{defn}
 
-\begin{thm}
+\begin{thm}[Existence of adapted metrics for irregular Higgs bundles]
 If $(E,\varphi)$ is an irregular Higgs bundle, there is an adapted metric $h$ in $E$ which obeys Hitchin's equations \eqref{eq:hitchin-equation}, and $h$ is unique up to scalar multiple.
 \end{thm}
 
-\begin{thm}
+\begin{thm}[Moduli space of irregular Higgs bundles of type $q$]\footnote{As far as I understand, not all 
+details have fully appeared in print. I write ``Theorem'' here, a little optimistically.}
 There is a moduli space $\mathcal M(q)$ parameterizing irregular Higgs bundles of type $q$ up to equivalence.
 $\mathcal M(q)$ is a smooth manifold, of dimension $N-1$.
 The formula \eqref{eq:l2-metric-def} defines a complete hyperk\"ahler metric on $\mathcal M(q)$.
@@ -692,12 +690,13 @@ If $\Lambda = 0$ there is a single singular fiber, which is a cuspidal torus.
 If $\Lambda \neq 0$ there are two, which are both nodal tori.
 \end{example}
 
+
 \section{The coordinates} \label{sec:coordinates}
 
 Now we describe the holomorphic coordinates $\mathcal X_\gamma(\zeta)$ on $(\mathcal M, I^\zeta)$
 which we will use.
 We consider only the case of irregular Higgs bundles
-on $\mathbb C\mathbb P^1$.
+on $\mathbb C\mathbb P^1$ as we have been discussing above.
 (A very similar construction works in the case of
 Higgs bundles with regular singularities.)
 
@@ -803,7 +802,7 @@ Darboux coordinates:
 \subsection{Asymptotic behavior of the coordinates}
 
 The main asymptotic property of the coordinates $\mathcal X_\gamma(\zeta)$ is:
-\begin{conj}
+\begin{conj}[Asymptotic behavior of Darboux coordinates] \label{conj:asymptotic-darboux}
 Fix a point of $\mathcal M$.
 Then, as $\zeta \to 0$ along any ray,
 \begin{equation}
@@ -928,7 +927,7 @@ at once, rather than an integral formula.
   the iteration defines a contraction mapping, so it must
   converge to a (unique) fixed point.
   {\bf A2}: Actually, experimentally it seems that
-  it \textit{always} converges! This is strange, and
+  it converges even when the $\lvert Z_\gamma \rvert$ are small! This
   deserves an explanation.
 
   \item {\bf Q}: How does this lead to the weak
@@ -951,6 +950,18 @@ at once, rather than an integral formula.
   Note that $K_0(x) \sim \sqrt{\frac{\pi}{2x}} \mathrm e^{-x}$,
   so $g - g^{\mathrm{sf}}$ is exponentially suppressed as $\mathrm e^{-2M}$.
   The omitted terms $\cdots$ should be of order $\mathrm e^{-4M}$.
+
+  \item {\bf Q}: What about the rest of the moduli space, where $\theta_\gamma \neq 0$?
+  {\bf A}: Here everything we can say is more tentative. 
+  There is an extension of the integral equation to include $\theta_\gamma$, but the
+  constants $c_\gamma$ appearing in \autoref{conj:asymptotic-darboux} create a complication. 
+  I tentatively believe that this complication should not affect the weak conjecture 
+  (because the $c_\gamma$ should decay like ${\mathrm e}^{-2 R M}$, so they only affect the
+  metric at that order),
+  but it does affect the strong conjecture. Worse, there is numerical evidence that
+  when $\theta_\gamma \neq 0$, the convergence of the integral iteration can fail for 
+  small $\lvert Z_\gamma \rvert$; so the conjecture needs to be modified if it is to make
+  sense everywhere on the moduli space.
 \end{itemize}
 
 \section{Numerical tests}
